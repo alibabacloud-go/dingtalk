@@ -774,8 +774,6 @@ type DeleteCustomRobotRequest struct {
 	// This parameter is required.
 	ActionType *string `json:"actionType,omitempty" xml:"actionType,omitempty"`
 	// This parameter is required.
-	OperatorUserId *string `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
-	// This parameter is required.
 	SendNotification *bool `json:"sendNotification,omitempty" xml:"sendNotification,omitempty"`
 	// This parameter is required.
 	Token *string `json:"token,omitempty" xml:"token,omitempty"`
@@ -791,11 +789,6 @@ func (s DeleteCustomRobotRequest) GoString() string {
 
 func (s *DeleteCustomRobotRequest) SetActionType(v string) *DeleteCustomRobotRequest {
 	s.ActionType = &v
-	return s
-}
-
-func (s *DeleteCustomRobotRequest) SetOperatorUserId(v string) *DeleteCustomRobotRequest {
-	s.OperatorUserId = &v
 	return s
 }
 
@@ -3958,10 +3951,6 @@ func (client *Client) DeleteCustomRobotWithOptions(request *DeleteCustomRobotReq
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ActionType)) {
 		body["actionType"] = request.ActionType
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
-		body["operatorUserId"] = request.OperatorUserId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.SendNotification)) {

@@ -2274,7 +2274,7 @@ type InsertRecordsRequest struct {
 	Records []*InsertRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
 	// example:
 	//
-	// union_id
+	// 550e8400-e29b-41d4-a716-446655440000
 	ClientToken *string `json:"clientToken,omitempty" xml:"clientToken,omitempty"`
 	// This parameter is required.
 	//

@@ -3823,6 +3823,146 @@ func (s *QueryDeviceStatusResponse) SetBody(v *QueryDeviceStatusResponseBody) *Q
 	return s
 }
 
+type QueryFileInfoByMinutesIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryFileInfoByMinutesIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileInfoByMinutesIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileInfoByMinutesIdHeaders) SetCommonHeaders(v map[string]*string) *QueryFileInfoByMinutesIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdHeaders) SetXAcsDingtalkAccessToken(v string) *QueryFileInfoByMinutesIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryFileInfoByMinutesIdRequest struct {
+	// This parameter is required.
+	MinutesId *string `json:"minutesId,omitempty" xml:"minutesId,omitempty"`
+}
+
+func (s QueryFileInfoByMinutesIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileInfoByMinutesIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileInfoByMinutesIdRequest) SetMinutesId(v string) *QueryFileInfoByMinutesIdRequest {
+	s.MinutesId = &v
+	return s
+}
+
+type QueryFileInfoByMinutesIdResponseBody struct {
+	Result *QueryFileInfoByMinutesIdResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryFileInfoByMinutesIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileInfoByMinutesIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBody) SetResult(v *QueryFileInfoByMinutesIdResponseBodyResult) *QueryFileInfoByMinutesIdResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryFileInfoByMinutesIdResponseBodyResult struct {
+	Attributes    map[string]interface{} `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	CreateTime    *int64                 `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CreatorUserId *string                `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	Duration      *int64                 `json:"duration,omitempty" xml:"duration,omitempty"`
+	FileId        *string                `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName      *string                `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize      *int64                 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+}
+
+func (s QueryFileInfoByMinutesIdResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileInfoByMinutesIdResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetAttributes(v map[string]interface{}) *QueryFileInfoByMinutesIdResponseBodyResult {
+	s.Attributes = v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetCreateTime(v int64) *QueryFileInfoByMinutesIdResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetCreatorUserId(v string) *QueryFileInfoByMinutesIdResponseBodyResult {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetDuration(v int64) *QueryFileInfoByMinutesIdResponseBodyResult {
+	s.Duration = &v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetFileId(v string) *QueryFileInfoByMinutesIdResponseBodyResult {
+	s.FileId = &v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetFileName(v string) *QueryFileInfoByMinutesIdResponseBodyResult {
+	s.FileName = &v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetFileSize(v int64) *QueryFileInfoByMinutesIdResponseBodyResult {
+	s.FileSize = &v
+	return s
+}
+
+type QueryFileInfoByMinutesIdResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryFileInfoByMinutesIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryFileInfoByMinutesIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileInfoByMinutesIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileInfoByMinutesIdResponse) SetHeaders(v map[string]*string) *QueryFileInfoByMinutesIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponse) SetStatusCode(v int32) *QueryFileInfoByMinutesIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponse) SetBody(v *QueryFileInfoByMinutesIdResponseBody) *QueryFileInfoByMinutesIdResponse {
+	s.Body = v
+	return s
+}
+
 type SubmitAsrTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6297,6 +6437,79 @@ func (client *Client) QueryDeviceStatus(request *QueryDeviceStatusRequest) (_res
 	headers := &QueryDeviceStatusHeaders{}
 	_result = &QueryDeviceStatusResponse{}
 	_body, _err := client.QueryDeviceStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据听记ID获取A1音频文件信息
+//
+// @param request - QueryFileInfoByMinutesIdRequest
+//
+// @param headers - QueryFileInfoByMinutesIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryFileInfoByMinutesIdResponse
+func (client *Client) QueryFileInfoByMinutesIdWithOptions(request *QueryFileInfoByMinutesIdRequest, headers *QueryFileInfoByMinutesIdHeaders, runtime *util.RuntimeOptions) (_result *QueryFileInfoByMinutesIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MinutesId)) {
+		query["minutesId"] = request.MinutesId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryFileInfoByMinutesId"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/audios/minutes"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryFileInfoByMinutesIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据听记ID获取A1音频文件信息
+//
+// @param request - QueryFileInfoByMinutesIdRequest
+//
+// @return QueryFileInfoByMinutesIdResponse
+func (client *Client) QueryFileInfoByMinutesId(request *QueryFileInfoByMinutesIdRequest) (_result *QueryFileInfoByMinutesIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryFileInfoByMinutesIdHeaders{}
+	_result = &QueryFileInfoByMinutesIdResponse{}
+	_body, _err := client.QueryFileInfoByMinutesIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

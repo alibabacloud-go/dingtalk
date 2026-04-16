@@ -9,6 +9,146 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CriteriaValue struct {
+	FilterType        *string                    `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	VisibleValues     []*string                  `json:"visibleValues,omitempty" xml:"visibleValues,omitempty" type:"Repeated"`
+	Conditions        []*CriteriaValueConditions `json:"conditions,omitempty" xml:"conditions,omitempty" type:"Repeated"`
+	ConditionOperator *string                    `json:"conditionOperator,omitempty" xml:"conditionOperator,omitempty"`
+	BackgroundColor   *string                    `json:"backgroundColor,omitempty" xml:"backgroundColor,omitempty"`
+	FontColor         *string                    `json:"fontColor,omitempty" xml:"fontColor,omitempty"`
+}
+
+func (s CriteriaValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CriteriaValue) GoString() string {
+	return s.String()
+}
+
+func (s *CriteriaValue) SetFilterType(v string) *CriteriaValue {
+	s.FilterType = &v
+	return s
+}
+
+func (s *CriteriaValue) SetVisibleValues(v []*string) *CriteriaValue {
+	s.VisibleValues = v
+	return s
+}
+
+func (s *CriteriaValue) SetConditions(v []*CriteriaValueConditions) *CriteriaValue {
+	s.Conditions = v
+	return s
+}
+
+func (s *CriteriaValue) SetConditionOperator(v string) *CriteriaValue {
+	s.ConditionOperator = &v
+	return s
+}
+
+func (s *CriteriaValue) SetBackgroundColor(v string) *CriteriaValue {
+	s.BackgroundColor = &v
+	return s
+}
+
+func (s *CriteriaValue) SetFontColor(v string) *CriteriaValue {
+	s.FontColor = &v
+	return s
+}
+
+type CriteriaValueConditions struct {
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s CriteriaValueConditions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CriteriaValueConditions) GoString() string {
+	return s.String()
+}
+
+func (s *CriteriaValueConditions) SetOperator(v string) *CriteriaValueConditions {
+	s.Operator = &v
+	return s
+}
+
+func (s *CriteriaValueConditions) SetValue(v string) *CriteriaValueConditions {
+	s.Value = &v
+	return s
+}
+
+type FilterViewsCriteriaValue struct {
+	FilterType        *string                               `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	VisibleValues     []*string                             `json:"visibleValues,omitempty" xml:"visibleValues,omitempty" type:"Repeated"`
+	Conditions        []*FilterViewsCriteriaValueConditions `json:"conditions,omitempty" xml:"conditions,omitempty" type:"Repeated"`
+	ConditionOperator *string                               `json:"conditionOperator,omitempty" xml:"conditionOperator,omitempty"`
+	BackgroundColor   *string                               `json:"backgroundColor,omitempty" xml:"backgroundColor,omitempty"`
+	FontColor         *string                               `json:"fontColor,omitempty" xml:"fontColor,omitempty"`
+}
+
+func (s FilterViewsCriteriaValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FilterViewsCriteriaValue) GoString() string {
+	return s.String()
+}
+
+func (s *FilterViewsCriteriaValue) SetFilterType(v string) *FilterViewsCriteriaValue {
+	s.FilterType = &v
+	return s
+}
+
+func (s *FilterViewsCriteriaValue) SetVisibleValues(v []*string) *FilterViewsCriteriaValue {
+	s.VisibleValues = v
+	return s
+}
+
+func (s *FilterViewsCriteriaValue) SetConditions(v []*FilterViewsCriteriaValueConditions) *FilterViewsCriteriaValue {
+	s.Conditions = v
+	return s
+}
+
+func (s *FilterViewsCriteriaValue) SetConditionOperator(v string) *FilterViewsCriteriaValue {
+	s.ConditionOperator = &v
+	return s
+}
+
+func (s *FilterViewsCriteriaValue) SetBackgroundColor(v string) *FilterViewsCriteriaValue {
+	s.BackgroundColor = &v
+	return s
+}
+
+func (s *FilterViewsCriteriaValue) SetFontColor(v string) *FilterViewsCriteriaValue {
+	s.FontColor = &v
+	return s
+}
+
+type FilterViewsCriteriaValueConditions struct {
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s FilterViewsCriteriaValueConditions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s FilterViewsCriteriaValueConditions) GoString() string {
+	return s.String()
+}
+
+func (s *FilterViewsCriteriaValueConditions) SetOperator(v string) *FilterViewsCriteriaValueConditions {
+	s.Operator = &v
+	return s
+}
+
+func (s *FilterViewsCriteriaValueConditions) SetValue(v string) *FilterViewsCriteriaValueConditions {
+	s.Value = &v
+	return s
+}
+
 type AttachmentsMapValue struct {
 	// example:
 	//
@@ -1500,6 +1640,194 @@ func (s *ClearDataResponse) SetBody(v *ClearDataResponseBody) *ClearDataResponse
 	return s
 }
 
+type ClearFilterCriteriaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ClearFilterCriteriaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearFilterCriteriaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ClearFilterCriteriaHeaders) SetCommonHeaders(v map[string]*string) *ClearFilterCriteriaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ClearFilterCriteriaHeaders) SetXAcsDingtalkAccessToken(v string) *ClearFilterCriteriaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ClearFilterCriteriaRequest struct {
+	// This parameter is required.
+	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ClearFilterCriteriaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearFilterCriteriaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ClearFilterCriteriaRequest) SetColumn(v int64) *ClearFilterCriteriaRequest {
+	s.Column = &v
+	return s
+}
+
+func (s *ClearFilterCriteriaRequest) SetOperatorId(v string) *ClearFilterCriteriaRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ClearFilterCriteriaResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s ClearFilterCriteriaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearFilterCriteriaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ClearFilterCriteriaResponseBody) SetId(v string) *ClearFilterCriteriaResponseBody {
+	s.Id = &v
+	return s
+}
+
+type ClearFilterCriteriaResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ClearFilterCriteriaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ClearFilterCriteriaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearFilterCriteriaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ClearFilterCriteriaResponse) SetHeaders(v map[string]*string) *ClearFilterCriteriaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ClearFilterCriteriaResponse) SetStatusCode(v int32) *ClearFilterCriteriaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ClearFilterCriteriaResponse) SetBody(v *ClearFilterCriteriaResponseBody) *ClearFilterCriteriaResponse {
+	s.Body = v
+	return s
+}
+
+type ClearFilterViewCriteriaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ClearFilterViewCriteriaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearFilterViewCriteriaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ClearFilterViewCriteriaHeaders) SetCommonHeaders(v map[string]*string) *ClearFilterViewCriteriaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ClearFilterViewCriteriaHeaders) SetXAcsDingtalkAccessToken(v string) *ClearFilterViewCriteriaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ClearFilterViewCriteriaRequest struct {
+	// This parameter is required.
+	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ClearFilterViewCriteriaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearFilterViewCriteriaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ClearFilterViewCriteriaRequest) SetColumn(v int64) *ClearFilterViewCriteriaRequest {
+	s.Column = &v
+	return s
+}
+
+func (s *ClearFilterViewCriteriaRequest) SetOperatorId(v string) *ClearFilterViewCriteriaRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ClearFilterViewCriteriaResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s ClearFilterViewCriteriaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearFilterViewCriteriaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ClearFilterViewCriteriaResponseBody) SetId(v string) *ClearFilterViewCriteriaResponseBody {
+	s.Id = &v
+	return s
+}
+
+type ClearFilterViewCriteriaResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ClearFilterViewCriteriaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ClearFilterViewCriteriaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ClearFilterViewCriteriaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ClearFilterViewCriteriaResponse) SetHeaders(v map[string]*string) *ClearFilterViewCriteriaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ClearFilterViewCriteriaResponse) SetStatusCode(v int32) *ClearFilterViewCriteriaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ClearFilterViewCriteriaResponse) SetBody(v *ClearFilterViewCriteriaResponseBody) *ClearFilterViewCriteriaResponse {
+	s.Body = v
+	return s
+}
+
 type CreateConditionalFormattingRuleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1840,6 +2168,496 @@ func (s *CreateDeveloperMetadataResponse) SetStatusCode(v int32) *CreateDevelope
 }
 
 func (s *CreateDeveloperMetadataResponse) SetBody(v *CreateDeveloperMetadataResponseBody) *CreateDeveloperMetadataResponse {
+	s.Body = v
+	return s
+}
+
+type CreateFilterHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateFilterHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFilterHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFilterHeaders) SetCommonHeaders(v map[string]*string) *CreateFilterHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateFilterHeaders) SetXAcsDingtalkAccessToken(v string) *CreateFilterHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateFilterRequest struct {
+	Criteria map[string]*CriteriaValue `json:"criteria,omitempty" xml:"criteria,omitempty"`
+	// This parameter is required.
+	Range *string `json:"range,omitempty" xml:"range,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateFilterRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFilterRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFilterRequest) SetCriteria(v map[string]*CriteriaValue) *CreateFilterRequest {
+	s.Criteria = v
+	return s
+}
+
+func (s *CreateFilterRequest) SetRange(v string) *CreateFilterRequest {
+	s.Range = &v
+	return s
+}
+
+func (s *CreateFilterRequest) SetOperatorId(v string) *CreateFilterRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateFilterResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CreateFilterResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFilterResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFilterResponseBody) SetId(v string) *CreateFilterResponseBody {
+	s.Id = &v
+	return s
+}
+
+type CreateFilterResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateFilterResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateFilterResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFilterResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFilterResponse) SetHeaders(v map[string]*string) *CreateFilterResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateFilterResponse) SetStatusCode(v int32) *CreateFilterResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateFilterResponse) SetBody(v *CreateFilterResponseBody) *CreateFilterResponse {
+	s.Body = v
+	return s
+}
+
+type CreateFilterViewHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateFilterViewHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFilterViewHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFilterViewHeaders) SetCommonHeaders(v map[string]*string) *CreateFilterViewHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateFilterViewHeaders) SetXAcsDingtalkAccessToken(v string) *CreateFilterViewHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateFilterViewRequest struct {
+	Criteria map[string]*CriteriaValue `json:"criteria,omitempty" xml:"criteria,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Range *string `json:"range,omitempty" xml:"range,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateFilterViewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFilterViewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFilterViewRequest) SetCriteria(v map[string]*CriteriaValue) *CreateFilterViewRequest {
+	s.Criteria = v
+	return s
+}
+
+func (s *CreateFilterViewRequest) SetName(v string) *CreateFilterViewRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateFilterViewRequest) SetRange(v string) *CreateFilterViewRequest {
+	s.Range = &v
+	return s
+}
+
+func (s *CreateFilterViewRequest) SetOperatorId(v string) *CreateFilterViewRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateFilterViewResponseBody struct {
+	Id    *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Range *string `json:"range,omitempty" xml:"range,omitempty"`
+}
+
+func (s CreateFilterViewResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFilterViewResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFilterViewResponseBody) SetId(v string) *CreateFilterViewResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateFilterViewResponseBody) SetName(v string) *CreateFilterViewResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateFilterViewResponseBody) SetRange(v string) *CreateFilterViewResponseBody {
+	s.Range = &v
+	return s
+}
+
+type CreateFilterViewResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateFilterViewResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateFilterViewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFilterViewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFilterViewResponse) SetHeaders(v map[string]*string) *CreateFilterViewResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateFilterViewResponse) SetStatusCode(v int32) *CreateFilterViewResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateFilterViewResponse) SetBody(v *CreateFilterViewResponseBody) *CreateFilterViewResponse {
+	s.Body = v
+	return s
+}
+
+type CreateFloatImageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateFloatImageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageHeaders) SetCommonHeaders(v map[string]*string) *CreateFloatImageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateFloatImageHeaders) SetXAcsDingtalkAccessToken(v string) *CreateFloatImageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateFloatImageRequest struct {
+	// This parameter is required.
+	Anchor *CreateFloatImageRequestAnchor `json:"anchor,omitempty" xml:"anchor,omitempty" type:"Struct"`
+	// This parameter is required.
+	Coordinate *CreateFloatImageRequestCoordinate `json:"coordinate,omitempty" xml:"coordinate,omitempty" type:"Struct"`
+	// This parameter is required.
+	Src *string `json:"src,omitempty" xml:"src,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CreateFloatImageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageRequest) SetAnchor(v *CreateFloatImageRequestAnchor) *CreateFloatImageRequest {
+	s.Anchor = v
+	return s
+}
+
+func (s *CreateFloatImageRequest) SetCoordinate(v *CreateFloatImageRequestCoordinate) *CreateFloatImageRequest {
+	s.Coordinate = v
+	return s
+}
+
+func (s *CreateFloatImageRequest) SetSrc(v string) *CreateFloatImageRequest {
+	s.Src = &v
+	return s
+}
+
+func (s *CreateFloatImageRequest) SetOperatorId(v string) *CreateFloatImageRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CreateFloatImageRequestAnchor struct {
+	// This parameter is required.
+	Col *int32 `json:"col,omitempty" xml:"col,omitempty"`
+	// This parameter is required.
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+}
+
+func (s CreateFloatImageRequestAnchor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageRequestAnchor) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageRequestAnchor) SetCol(v int32) *CreateFloatImageRequestAnchor {
+	s.Col = &v
+	return s
+}
+
+func (s *CreateFloatImageRequestAnchor) SetRow(v int32) *CreateFloatImageRequestAnchor {
+	s.Row = &v
+	return s
+}
+
+type CreateFloatImageRequestCoordinate struct {
+	// This parameter is required.
+	Height *float64 `json:"height,omitempty" xml:"height,omitempty"`
+	// This parameter is required.
+	OffsetX *float64 `json:"offsetX,omitempty" xml:"offsetX,omitempty"`
+	// This parameter is required.
+	OffsetY *float64 `json:"offsetY,omitempty" xml:"offsetY,omitempty"`
+	// This parameter is required.
+	Width *float64 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s CreateFloatImageRequestCoordinate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageRequestCoordinate) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageRequestCoordinate) SetHeight(v float64) *CreateFloatImageRequestCoordinate {
+	s.Height = &v
+	return s
+}
+
+func (s *CreateFloatImageRequestCoordinate) SetOffsetX(v float64) *CreateFloatImageRequestCoordinate {
+	s.OffsetX = &v
+	return s
+}
+
+func (s *CreateFloatImageRequestCoordinate) SetOffsetY(v float64) *CreateFloatImageRequestCoordinate {
+	s.OffsetY = &v
+	return s
+}
+
+func (s *CreateFloatImageRequestCoordinate) SetWidth(v float64) *CreateFloatImageRequestCoordinate {
+	s.Width = &v
+	return s
+}
+
+type CreateFloatImageResponseBody struct {
+	Result  *CreateFloatImageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateFloatImageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageResponseBody) SetResult(v *CreateFloatImageResponseBodyResult) *CreateFloatImageResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateFloatImageResponseBody) SetSuccess(v bool) *CreateFloatImageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateFloatImageResponseBodyResult struct {
+	Anchor     *CreateFloatImageResponseBodyResultAnchor     `json:"anchor,omitempty" xml:"anchor,omitempty" type:"Struct"`
+	Coordinate *CreateFloatImageResponseBodyResultCoordinate `json:"coordinate,omitempty" xml:"coordinate,omitempty" type:"Struct"`
+	Id         *string                                       `json:"id,omitempty" xml:"id,omitempty"`
+	Src        *string                                       `json:"src,omitempty" xml:"src,omitempty"`
+}
+
+func (s CreateFloatImageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageResponseBodyResult) SetAnchor(v *CreateFloatImageResponseBodyResultAnchor) *CreateFloatImageResponseBodyResult {
+	s.Anchor = v
+	return s
+}
+
+func (s *CreateFloatImageResponseBodyResult) SetCoordinate(v *CreateFloatImageResponseBodyResultCoordinate) *CreateFloatImageResponseBodyResult {
+	s.Coordinate = v
+	return s
+}
+
+func (s *CreateFloatImageResponseBodyResult) SetId(v string) *CreateFloatImageResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *CreateFloatImageResponseBodyResult) SetSrc(v string) *CreateFloatImageResponseBodyResult {
+	s.Src = &v
+	return s
+}
+
+type CreateFloatImageResponseBodyResultAnchor struct {
+	Col *int32 `json:"col,omitempty" xml:"col,omitempty"`
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+}
+
+func (s CreateFloatImageResponseBodyResultAnchor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageResponseBodyResultAnchor) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageResponseBodyResultAnchor) SetCol(v int32) *CreateFloatImageResponseBodyResultAnchor {
+	s.Col = &v
+	return s
+}
+
+func (s *CreateFloatImageResponseBodyResultAnchor) SetRow(v int32) *CreateFloatImageResponseBodyResultAnchor {
+	s.Row = &v
+	return s
+}
+
+type CreateFloatImageResponseBodyResultCoordinate struct {
+	Height  *float64 `json:"height,omitempty" xml:"height,omitempty"`
+	OffsetX *float64 `json:"offsetX,omitempty" xml:"offsetX,omitempty"`
+	OffsetY *float64 `json:"offsetY,omitempty" xml:"offsetY,omitempty"`
+	Width   *float64 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s CreateFloatImageResponseBodyResultCoordinate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageResponseBodyResultCoordinate) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageResponseBodyResultCoordinate) SetHeight(v float64) *CreateFloatImageResponseBodyResultCoordinate {
+	s.Height = &v
+	return s
+}
+
+func (s *CreateFloatImageResponseBodyResultCoordinate) SetOffsetX(v float64) *CreateFloatImageResponseBodyResultCoordinate {
+	s.OffsetX = &v
+	return s
+}
+
+func (s *CreateFloatImageResponseBodyResultCoordinate) SetOffsetY(v float64) *CreateFloatImageResponseBodyResultCoordinate {
+	s.OffsetY = &v
+	return s
+}
+
+func (s *CreateFloatImageResponseBodyResultCoordinate) SetWidth(v float64) *CreateFloatImageResponseBodyResultCoordinate {
+	s.Width = &v
+	return s
+}
+
+type CreateFloatImageResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateFloatImageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateFloatImageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateFloatImageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateFloatImageResponse) SetHeaders(v map[string]*string) *CreateFloatImageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateFloatImageResponse) SetStatusCode(v int32) *CreateFloatImageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateFloatImageResponse) SetBody(v *CreateFloatImageResponseBody) *CreateFloatImageResponse {
 	s.Body = v
 	return s
 }
@@ -2653,6 +3471,267 @@ func (s *DeleteDropdownListsResponse) SetStatusCode(v int32) *DeleteDropdownList
 }
 
 func (s *DeleteDropdownListsResponse) SetBody(v *DeleteDropdownListsResponseBody) *DeleteDropdownListsResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteFilterHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteFilterHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFilterHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFilterHeaders) SetCommonHeaders(v map[string]*string) *DeleteFilterHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteFilterHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteFilterHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteFilterRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeleteFilterRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFilterRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFilterRequest) SetOperatorId(v string) *DeleteFilterRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeleteFilterResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s DeleteFilterResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFilterResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFilterResponseBody) SetId(v string) *DeleteFilterResponseBody {
+	s.Id = &v
+	return s
+}
+
+type DeleteFilterResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteFilterResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteFilterResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFilterResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFilterResponse) SetHeaders(v map[string]*string) *DeleteFilterResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteFilterResponse) SetStatusCode(v int32) *DeleteFilterResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteFilterResponse) SetBody(v *DeleteFilterResponseBody) *DeleteFilterResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteFilterViewHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteFilterViewHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFilterViewHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFilterViewHeaders) SetCommonHeaders(v map[string]*string) *DeleteFilterViewHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteFilterViewHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteFilterViewHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteFilterViewRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeleteFilterViewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFilterViewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFilterViewRequest) SetOperatorId(v string) *DeleteFilterViewRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeleteFilterViewResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s DeleteFilterViewResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFilterViewResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFilterViewResponseBody) SetId(v string) *DeleteFilterViewResponseBody {
+	s.Id = &v
+	return s
+}
+
+type DeleteFilterViewResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteFilterViewResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteFilterViewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFilterViewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFilterViewResponse) SetHeaders(v map[string]*string) *DeleteFilterViewResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteFilterViewResponse) SetStatusCode(v int32) *DeleteFilterViewResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteFilterViewResponse) SetBody(v *DeleteFilterViewResponseBody) *DeleteFilterViewResponse {
+	s.Body = v
+	return s
+}
+
+type DeleteFloatImageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteFloatImageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFloatImageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFloatImageHeaders) SetCommonHeaders(v map[string]*string) *DeleteFloatImageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteFloatImageHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteFloatImageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteFloatImageRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeleteFloatImageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFloatImageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFloatImageRequest) SetOperatorId(v string) *DeleteFloatImageRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeleteFloatImageResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteFloatImageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFloatImageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFloatImageResponseBody) SetSuccess(v bool) *DeleteFloatImageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteFloatImageResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteFloatImageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteFloatImageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteFloatImageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteFloatImageResponse) SetHeaders(v map[string]*string) *DeleteFloatImageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteFloatImageResponse) SetStatusCode(v int32) *DeleteFloatImageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteFloatImageResponse) SetBody(v *DeleteFloatImageResponseBody) *DeleteFloatImageResponse {
 	s.Body = v
 	return s
 }
@@ -5373,6 +6452,593 @@ func (s *GetDeveloperMetadataResponse) SetStatusCode(v int32) *GetDeveloperMetad
 }
 
 func (s *GetDeveloperMetadataResponse) SetBody(v *GetDeveloperMetadataResponseBody) *GetDeveloperMetadataResponse {
+	s.Body = v
+	return s
+}
+
+type GetFilterHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFilterHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterHeaders) SetCommonHeaders(v map[string]*string) *GetFilterHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFilterHeaders) SetXAcsDingtalkAccessToken(v string) *GetFilterHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFilterRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetFilterRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterRequest) SetOperatorId(v string) *GetFilterRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetFilterResponseBody struct {
+	Criteria map[string]*CriteriaValue `json:"criteria,omitempty" xml:"criteria,omitempty"`
+	Id       *string                   `json:"id,omitempty" xml:"id,omitempty"`
+	Range    *string                   `json:"range,omitempty" xml:"range,omitempty"`
+}
+
+func (s GetFilterResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterResponseBody) SetCriteria(v map[string]*CriteriaValue) *GetFilterResponseBody {
+	s.Criteria = v
+	return s
+}
+
+func (s *GetFilterResponseBody) SetId(v string) *GetFilterResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *GetFilterResponseBody) SetRange(v string) *GetFilterResponseBody {
+	s.Range = &v
+	return s
+}
+
+type GetFilterResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFilterResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetFilterResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterResponse) SetHeaders(v map[string]*string) *GetFilterResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFilterResponse) SetStatusCode(v int32) *GetFilterResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFilterResponse) SetBody(v *GetFilterResponseBody) *GetFilterResponse {
+	s.Body = v
+	return s
+}
+
+type GetFilterViewsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFilterViewsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterViewsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterViewsHeaders) SetCommonHeaders(v map[string]*string) *GetFilterViewsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFilterViewsHeaders) SetXAcsDingtalkAccessToken(v string) *GetFilterViewsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFilterViewsRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetFilterViewsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterViewsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterViewsRequest) SetOperatorId(v string) *GetFilterViewsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetFilterViewsResponseBody struct {
+	FilterViews []*GetFilterViewsResponseBodyFilterViews `json:"filterViews,omitempty" xml:"filterViews,omitempty" type:"Repeated"`
+}
+
+func (s GetFilterViewsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterViewsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterViewsResponseBody) SetFilterViews(v []*GetFilterViewsResponseBodyFilterViews) *GetFilterViewsResponseBody {
+	s.FilterViews = v
+	return s
+}
+
+type GetFilterViewsResponseBodyFilterViews struct {
+	Criteria map[string]*FilterViewsCriteriaValue `json:"criteria,omitempty" xml:"criteria,omitempty"`
+	Id       *string                              `json:"id,omitempty" xml:"id,omitempty"`
+	Name     *string                              `json:"name,omitempty" xml:"name,omitempty"`
+	Range    *string                              `json:"range,omitempty" xml:"range,omitempty"`
+}
+
+func (s GetFilterViewsResponseBodyFilterViews) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterViewsResponseBodyFilterViews) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterViewsResponseBodyFilterViews) SetCriteria(v map[string]*FilterViewsCriteriaValue) *GetFilterViewsResponseBodyFilterViews {
+	s.Criteria = v
+	return s
+}
+
+func (s *GetFilterViewsResponseBodyFilterViews) SetId(v string) *GetFilterViewsResponseBodyFilterViews {
+	s.Id = &v
+	return s
+}
+
+func (s *GetFilterViewsResponseBodyFilterViews) SetName(v string) *GetFilterViewsResponseBodyFilterViews {
+	s.Name = &v
+	return s
+}
+
+func (s *GetFilterViewsResponseBodyFilterViews) SetRange(v string) *GetFilterViewsResponseBodyFilterViews {
+	s.Range = &v
+	return s
+}
+
+type GetFilterViewsResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFilterViewsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetFilterViewsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFilterViewsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFilterViewsResponse) SetHeaders(v map[string]*string) *GetFilterViewsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFilterViewsResponse) SetStatusCode(v int32) *GetFilterViewsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFilterViewsResponse) SetBody(v *GetFilterViewsResponseBody) *GetFilterViewsResponse {
+	s.Body = v
+	return s
+}
+
+type GetFloatImageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFloatImageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImageHeaders) SetCommonHeaders(v map[string]*string) *GetFloatImageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFloatImageHeaders) SetXAcsDingtalkAccessToken(v string) *GetFloatImageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFloatImageRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetFloatImageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImageRequest) SetOperatorId(v string) *GetFloatImageRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetFloatImageResponseBody struct {
+	Result  *GetFloatImageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetFloatImageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImageResponseBody) SetResult(v *GetFloatImageResponseBodyResult) *GetFloatImageResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetFloatImageResponseBody) SetSuccess(v bool) *GetFloatImageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetFloatImageResponseBodyResult struct {
+	Anchor     *GetFloatImageResponseBodyResultAnchor     `json:"anchor,omitempty" xml:"anchor,omitempty" type:"Struct"`
+	Coordinate *GetFloatImageResponseBodyResultCoordinate `json:"coordinate,omitempty" xml:"coordinate,omitempty" type:"Struct"`
+	Id         *string                                    `json:"id,omitempty" xml:"id,omitempty"`
+	Src        *string                                    `json:"src,omitempty" xml:"src,omitempty"`
+}
+
+func (s GetFloatImageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImageResponseBodyResult) SetAnchor(v *GetFloatImageResponseBodyResultAnchor) *GetFloatImageResponseBodyResult {
+	s.Anchor = v
+	return s
+}
+
+func (s *GetFloatImageResponseBodyResult) SetCoordinate(v *GetFloatImageResponseBodyResultCoordinate) *GetFloatImageResponseBodyResult {
+	s.Coordinate = v
+	return s
+}
+
+func (s *GetFloatImageResponseBodyResult) SetId(v string) *GetFloatImageResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *GetFloatImageResponseBodyResult) SetSrc(v string) *GetFloatImageResponseBodyResult {
+	s.Src = &v
+	return s
+}
+
+type GetFloatImageResponseBodyResultAnchor struct {
+	Col *int32 `json:"col,omitempty" xml:"col,omitempty"`
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+}
+
+func (s GetFloatImageResponseBodyResultAnchor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImageResponseBodyResultAnchor) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImageResponseBodyResultAnchor) SetCol(v int32) *GetFloatImageResponseBodyResultAnchor {
+	s.Col = &v
+	return s
+}
+
+func (s *GetFloatImageResponseBodyResultAnchor) SetRow(v int32) *GetFloatImageResponseBodyResultAnchor {
+	s.Row = &v
+	return s
+}
+
+type GetFloatImageResponseBodyResultCoordinate struct {
+	Height  *float64 `json:"height,omitempty" xml:"height,omitempty"`
+	OffsetX *float64 `json:"offsetX,omitempty" xml:"offsetX,omitempty"`
+	OffsetY *float64 `json:"offsetY,omitempty" xml:"offsetY,omitempty"`
+	Width   *float64 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s GetFloatImageResponseBodyResultCoordinate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImageResponseBodyResultCoordinate) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImageResponseBodyResultCoordinate) SetHeight(v float64) *GetFloatImageResponseBodyResultCoordinate {
+	s.Height = &v
+	return s
+}
+
+func (s *GetFloatImageResponseBodyResultCoordinate) SetOffsetX(v float64) *GetFloatImageResponseBodyResultCoordinate {
+	s.OffsetX = &v
+	return s
+}
+
+func (s *GetFloatImageResponseBodyResultCoordinate) SetOffsetY(v float64) *GetFloatImageResponseBodyResultCoordinate {
+	s.OffsetY = &v
+	return s
+}
+
+func (s *GetFloatImageResponseBodyResultCoordinate) SetWidth(v float64) *GetFloatImageResponseBodyResultCoordinate {
+	s.Width = &v
+	return s
+}
+
+type GetFloatImageResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFloatImageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetFloatImageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImageResponse) SetHeaders(v map[string]*string) *GetFloatImageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFloatImageResponse) SetStatusCode(v int32) *GetFloatImageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFloatImageResponse) SetBody(v *GetFloatImageResponseBody) *GetFloatImageResponse {
+	s.Body = v
+	return s
+}
+
+type GetFloatImagesHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFloatImagesHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImagesHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImagesHeaders) SetCommonHeaders(v map[string]*string) *GetFloatImagesHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFloatImagesHeaders) SetXAcsDingtalkAccessToken(v string) *GetFloatImagesHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFloatImagesRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetFloatImagesRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImagesRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImagesRequest) SetOperatorId(v string) *GetFloatImagesRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetFloatImagesResponseBody struct {
+	Value []*GetFloatImagesResponseBodyValue `json:"value,omitempty" xml:"value,omitempty" type:"Repeated"`
+}
+
+func (s GetFloatImagesResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImagesResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImagesResponseBody) SetValue(v []*GetFloatImagesResponseBodyValue) *GetFloatImagesResponseBody {
+	s.Value = v
+	return s
+}
+
+type GetFloatImagesResponseBodyValue struct {
+	Anchor     *GetFloatImagesResponseBodyValueAnchor     `json:"anchor,omitempty" xml:"anchor,omitempty" type:"Struct"`
+	Coordinate *GetFloatImagesResponseBodyValueCoordinate `json:"coordinate,omitempty" xml:"coordinate,omitempty" type:"Struct"`
+	Id         *string                                    `json:"id,omitempty" xml:"id,omitempty"`
+	Src        *string                                    `json:"src,omitempty" xml:"src,omitempty"`
+}
+
+func (s GetFloatImagesResponseBodyValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImagesResponseBodyValue) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImagesResponseBodyValue) SetAnchor(v *GetFloatImagesResponseBodyValueAnchor) *GetFloatImagesResponseBodyValue {
+	s.Anchor = v
+	return s
+}
+
+func (s *GetFloatImagesResponseBodyValue) SetCoordinate(v *GetFloatImagesResponseBodyValueCoordinate) *GetFloatImagesResponseBodyValue {
+	s.Coordinate = v
+	return s
+}
+
+func (s *GetFloatImagesResponseBodyValue) SetId(v string) *GetFloatImagesResponseBodyValue {
+	s.Id = &v
+	return s
+}
+
+func (s *GetFloatImagesResponseBodyValue) SetSrc(v string) *GetFloatImagesResponseBodyValue {
+	s.Src = &v
+	return s
+}
+
+type GetFloatImagesResponseBodyValueAnchor struct {
+	Col *int32 `json:"col,omitempty" xml:"col,omitempty"`
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+}
+
+func (s GetFloatImagesResponseBodyValueAnchor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImagesResponseBodyValueAnchor) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImagesResponseBodyValueAnchor) SetCol(v int32) *GetFloatImagesResponseBodyValueAnchor {
+	s.Col = &v
+	return s
+}
+
+func (s *GetFloatImagesResponseBodyValueAnchor) SetRow(v int32) *GetFloatImagesResponseBodyValueAnchor {
+	s.Row = &v
+	return s
+}
+
+type GetFloatImagesResponseBodyValueCoordinate struct {
+	Height  *float64 `json:"height,omitempty" xml:"height,omitempty"`
+	OffsetX *float64 `json:"offsetX,omitempty" xml:"offsetX,omitempty"`
+	OffsetY *float64 `json:"offsetY,omitempty" xml:"offsetY,omitempty"`
+	Width   *float64 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s GetFloatImagesResponseBodyValueCoordinate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImagesResponseBodyValueCoordinate) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImagesResponseBodyValueCoordinate) SetHeight(v float64) *GetFloatImagesResponseBodyValueCoordinate {
+	s.Height = &v
+	return s
+}
+
+func (s *GetFloatImagesResponseBodyValueCoordinate) SetOffsetX(v float64) *GetFloatImagesResponseBodyValueCoordinate {
+	s.OffsetX = &v
+	return s
+}
+
+func (s *GetFloatImagesResponseBodyValueCoordinate) SetOffsetY(v float64) *GetFloatImagesResponseBodyValueCoordinate {
+	s.OffsetY = &v
+	return s
+}
+
+func (s *GetFloatImagesResponseBodyValueCoordinate) SetWidth(v float64) *GetFloatImagesResponseBodyValueCoordinate {
+	s.Width = &v
+	return s
+}
+
+type GetFloatImagesResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFloatImagesResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetFloatImagesResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFloatImagesResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFloatImagesResponse) SetHeaders(v map[string]*string) *GetFloatImagesResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFloatImagesResponse) SetStatusCode(v int32) *GetFloatImagesResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFloatImagesResponse) SetBody(v *GetFloatImagesResponseBody) *GetFloatImagesResponse {
 	s.Body = v
 	return s
 }
@@ -9539,6 +11205,350 @@ func (s *SetColumnsWidthResponse) SetBody(v *SetColumnsWidthResponseBody) *SetCo
 	return s
 }
 
+type SetFilterCriteriaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetFilterCriteriaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterCriteriaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterCriteriaHeaders) SetCommonHeaders(v map[string]*string) *SetFilterCriteriaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetFilterCriteriaHeaders) SetXAcsDingtalkAccessToken(v string) *SetFilterCriteriaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetFilterCriteriaRequest struct {
+	// This parameter is required.
+	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	FilterCriteria *SetFilterCriteriaRequestFilterCriteria `json:"filterCriteria,omitempty" xml:"filterCriteria,omitempty" type:"Struct"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SetFilterCriteriaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterCriteriaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterCriteriaRequest) SetColumn(v int64) *SetFilterCriteriaRequest {
+	s.Column = &v
+	return s
+}
+
+func (s *SetFilterCriteriaRequest) SetFilterCriteria(v *SetFilterCriteriaRequestFilterCriteria) *SetFilterCriteriaRequest {
+	s.FilterCriteria = v
+	return s
+}
+
+func (s *SetFilterCriteriaRequest) SetOperatorId(v string) *SetFilterCriteriaRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SetFilterCriteriaRequestFilterCriteria struct {
+	BackgroundColor   *string                                             `json:"backgroundColor,omitempty" xml:"backgroundColor,omitempty"`
+	ConditionOperator *string                                             `json:"conditionOperator,omitempty" xml:"conditionOperator,omitempty"`
+	Conditions        []*SetFilterCriteriaRequestFilterCriteriaConditions `json:"conditions,omitempty" xml:"conditions,omitempty" type:"Repeated"`
+	// This parameter is required.
+	FilterType    *string   `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	FontColor     *string   `json:"fontColor,omitempty" xml:"fontColor,omitempty"`
+	VisibleValues []*string `json:"visibleValues,omitempty" xml:"visibleValues,omitempty" type:"Repeated"`
+}
+
+func (s SetFilterCriteriaRequestFilterCriteria) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterCriteriaRequestFilterCriteria) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterCriteriaRequestFilterCriteria) SetBackgroundColor(v string) *SetFilterCriteriaRequestFilterCriteria {
+	s.BackgroundColor = &v
+	return s
+}
+
+func (s *SetFilterCriteriaRequestFilterCriteria) SetConditionOperator(v string) *SetFilterCriteriaRequestFilterCriteria {
+	s.ConditionOperator = &v
+	return s
+}
+
+func (s *SetFilterCriteriaRequestFilterCriteria) SetConditions(v []*SetFilterCriteriaRequestFilterCriteriaConditions) *SetFilterCriteriaRequestFilterCriteria {
+	s.Conditions = v
+	return s
+}
+
+func (s *SetFilterCriteriaRequestFilterCriteria) SetFilterType(v string) *SetFilterCriteriaRequestFilterCriteria {
+	s.FilterType = &v
+	return s
+}
+
+func (s *SetFilterCriteriaRequestFilterCriteria) SetFontColor(v string) *SetFilterCriteriaRequestFilterCriteria {
+	s.FontColor = &v
+	return s
+}
+
+func (s *SetFilterCriteriaRequestFilterCriteria) SetVisibleValues(v []*string) *SetFilterCriteriaRequestFilterCriteria {
+	s.VisibleValues = v
+	return s
+}
+
+type SetFilterCriteriaRequestFilterCriteriaConditions struct {
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s SetFilterCriteriaRequestFilterCriteriaConditions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterCriteriaRequestFilterCriteriaConditions) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterCriteriaRequestFilterCriteriaConditions) SetOperator(v string) *SetFilterCriteriaRequestFilterCriteriaConditions {
+	s.Operator = &v
+	return s
+}
+
+func (s *SetFilterCriteriaRequestFilterCriteriaConditions) SetValue(v string) *SetFilterCriteriaRequestFilterCriteriaConditions {
+	s.Value = &v
+	return s
+}
+
+type SetFilterCriteriaResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s SetFilterCriteriaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterCriteriaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterCriteriaResponseBody) SetId(v string) *SetFilterCriteriaResponseBody {
+	s.Id = &v
+	return s
+}
+
+type SetFilterCriteriaResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetFilterCriteriaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetFilterCriteriaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterCriteriaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterCriteriaResponse) SetHeaders(v map[string]*string) *SetFilterCriteriaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetFilterCriteriaResponse) SetStatusCode(v int32) *SetFilterCriteriaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetFilterCriteriaResponse) SetBody(v *SetFilterCriteriaResponseBody) *SetFilterCriteriaResponse {
+	s.Body = v
+	return s
+}
+
+type SetFilterViewCriteriaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetFilterViewCriteriaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterViewCriteriaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterViewCriteriaHeaders) SetCommonHeaders(v map[string]*string) *SetFilterViewCriteriaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetFilterViewCriteriaHeaders) SetXAcsDingtalkAccessToken(v string) *SetFilterViewCriteriaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetFilterViewCriteriaRequest struct {
+	// This parameter is required.
+	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
+	// This parameter is required.
+	FilterCriteria *SetFilterViewCriteriaRequestFilterCriteria `json:"filterCriteria,omitempty" xml:"filterCriteria,omitempty" type:"Struct"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SetFilterViewCriteriaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterViewCriteriaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterViewCriteriaRequest) SetColumn(v int64) *SetFilterViewCriteriaRequest {
+	s.Column = &v
+	return s
+}
+
+func (s *SetFilterViewCriteriaRequest) SetFilterCriteria(v *SetFilterViewCriteriaRequestFilterCriteria) *SetFilterViewCriteriaRequest {
+	s.FilterCriteria = v
+	return s
+}
+
+func (s *SetFilterViewCriteriaRequest) SetOperatorId(v string) *SetFilterViewCriteriaRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SetFilterViewCriteriaRequestFilterCriteria struct {
+	BackgroundColor   *string                                                 `json:"backgroundColor,omitempty" xml:"backgroundColor,omitempty"`
+	ConditionOperator *string                                                 `json:"conditionOperator,omitempty" xml:"conditionOperator,omitempty"`
+	Conditions        []*SetFilterViewCriteriaRequestFilterCriteriaConditions `json:"conditions,omitempty" xml:"conditions,omitempty" type:"Repeated"`
+	// This parameter is required.
+	FilterType    *string   `json:"filterType,omitempty" xml:"filterType,omitempty"`
+	FontColor     *string   `json:"fontColor,omitempty" xml:"fontColor,omitempty"`
+	VisibleValues []*string `json:"visibleValues,omitempty" xml:"visibleValues,omitempty" type:"Repeated"`
+}
+
+func (s SetFilterViewCriteriaRequestFilterCriteria) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterViewCriteriaRequestFilterCriteria) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterViewCriteriaRequestFilterCriteria) SetBackgroundColor(v string) *SetFilterViewCriteriaRequestFilterCriteria {
+	s.BackgroundColor = &v
+	return s
+}
+
+func (s *SetFilterViewCriteriaRequestFilterCriteria) SetConditionOperator(v string) *SetFilterViewCriteriaRequestFilterCriteria {
+	s.ConditionOperator = &v
+	return s
+}
+
+func (s *SetFilterViewCriteriaRequestFilterCriteria) SetConditions(v []*SetFilterViewCriteriaRequestFilterCriteriaConditions) *SetFilterViewCriteriaRequestFilterCriteria {
+	s.Conditions = v
+	return s
+}
+
+func (s *SetFilterViewCriteriaRequestFilterCriteria) SetFilterType(v string) *SetFilterViewCriteriaRequestFilterCriteria {
+	s.FilterType = &v
+	return s
+}
+
+func (s *SetFilterViewCriteriaRequestFilterCriteria) SetFontColor(v string) *SetFilterViewCriteriaRequestFilterCriteria {
+	s.FontColor = &v
+	return s
+}
+
+func (s *SetFilterViewCriteriaRequestFilterCriteria) SetVisibleValues(v []*string) *SetFilterViewCriteriaRequestFilterCriteria {
+	s.VisibleValues = v
+	return s
+}
+
+type SetFilterViewCriteriaRequestFilterCriteriaConditions struct {
+	Operator *string `json:"operator,omitempty" xml:"operator,omitempty"`
+	Value    *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s SetFilterViewCriteriaRequestFilterCriteriaConditions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterViewCriteriaRequestFilterCriteriaConditions) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterViewCriteriaRequestFilterCriteriaConditions) SetOperator(v string) *SetFilterViewCriteriaRequestFilterCriteriaConditions {
+	s.Operator = &v
+	return s
+}
+
+func (s *SetFilterViewCriteriaRequestFilterCriteriaConditions) SetValue(v string) *SetFilterViewCriteriaRequestFilterCriteriaConditions {
+	s.Value = &v
+	return s
+}
+
+type SetFilterViewCriteriaResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s SetFilterViewCriteriaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterViewCriteriaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterViewCriteriaResponseBody) SetId(v string) *SetFilterViewCriteriaResponseBody {
+	s.Id = &v
+	return s
+}
+
+type SetFilterViewCriteriaResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetFilterViewCriteriaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetFilterViewCriteriaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetFilterViewCriteriaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetFilterViewCriteriaResponse) SetHeaders(v map[string]*string) *SetFilterViewCriteriaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetFilterViewCriteriaResponse) SetStatusCode(v int32) *SetFilterViewCriteriaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetFilterViewCriteriaResponse) SetBody(v *SetFilterViewCriteriaResponseBody) *SetFilterViewCriteriaResponse {
+	s.Body = v
+	return s
+}
+
 type SetRowHeightHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10220,6 +12230,124 @@ func (s *SheetFindAllResponse) SetBody(v *SheetFindAllResponseBody) *SheetFindAl
 	return s
 }
 
+type SortFilterHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SortFilterHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortFilterHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SortFilterHeaders) SetCommonHeaders(v map[string]*string) *SortFilterHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SortFilterHeaders) SetXAcsDingtalkAccessToken(v string) *SortFilterHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SortFilterRequest struct {
+	// This parameter is required.
+	Field *SortFilterRequestField `json:"field,omitempty" xml:"field,omitempty" type:"Struct"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s SortFilterRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortFilterRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SortFilterRequest) SetField(v *SortFilterRequestField) *SortFilterRequest {
+	s.Field = v
+	return s
+}
+
+func (s *SortFilterRequest) SetOperatorId(v string) *SortFilterRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type SortFilterRequestField struct {
+	Ascending *bool `json:"ascending,omitempty" xml:"ascending,omitempty"`
+	// This parameter is required.
+	Column *int64 `json:"column,omitempty" xml:"column,omitempty"`
+}
+
+func (s SortFilterRequestField) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortFilterRequestField) GoString() string {
+	return s.String()
+}
+
+func (s *SortFilterRequestField) SetAscending(v bool) *SortFilterRequestField {
+	s.Ascending = &v
+	return s
+}
+
+func (s *SortFilterRequestField) SetColumn(v int64) *SortFilterRequestField {
+	s.Column = &v
+	return s
+}
+
+type SortFilterResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s SortFilterResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortFilterResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SortFilterResponseBody) SetId(v string) *SortFilterResponseBody {
+	s.Id = &v
+	return s
+}
+
+type SortFilterResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SortFilterResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SortFilterResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SortFilterResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SortFilterResponse) SetHeaders(v map[string]*string) *SortFilterResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SortFilterResponse) SetStatusCode(v int32) *SortFilterResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SortFilterResponse) SetBody(v *SortFilterResponseBody) *SortFilterResponse {
+	s.Body = v
+	return s
+}
+
 type UnbindCoolAppToSheetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -10319,6 +12447,479 @@ func (s *UnbindCoolAppToSheetResponse) SetStatusCode(v int32) *UnbindCoolAppToSh
 }
 
 func (s *UnbindCoolAppToSheetResponse) SetBody(v *UnbindCoolAppToSheetResponseBody) *UnbindCoolAppToSheetResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateFilterHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateFilterHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFilterHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFilterHeaders) SetCommonHeaders(v map[string]*string) *UpdateFilterHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateFilterHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateFilterHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateFilterRequest struct {
+	// This parameter is required.
+	Criteria map[string]*CriteriaValue `json:"criteria,omitempty" xml:"criteria,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateFilterRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFilterRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFilterRequest) SetCriteria(v map[string]*CriteriaValue) *UpdateFilterRequest {
+	s.Criteria = v
+	return s
+}
+
+func (s *UpdateFilterRequest) SetOperatorId(v string) *UpdateFilterRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateFilterResponseBody struct {
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s UpdateFilterResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFilterResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFilterResponseBody) SetId(v string) *UpdateFilterResponseBody {
+	s.Id = &v
+	return s
+}
+
+type UpdateFilterResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateFilterResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateFilterResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFilterResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFilterResponse) SetHeaders(v map[string]*string) *UpdateFilterResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateFilterResponse) SetStatusCode(v int32) *UpdateFilterResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateFilterResponse) SetBody(v *UpdateFilterResponseBody) *UpdateFilterResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateFilterViewHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateFilterViewHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFilterViewHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFilterViewHeaders) SetCommonHeaders(v map[string]*string) *UpdateFilterViewHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateFilterViewHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateFilterViewHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateFilterViewRequest struct {
+	Criteria map[string]*CriteriaValue `json:"criteria,omitempty" xml:"criteria,omitempty"`
+	Name     *string                   `json:"name,omitempty" xml:"name,omitempty"`
+	Range    *string                   `json:"range,omitempty" xml:"range,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateFilterViewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFilterViewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFilterViewRequest) SetCriteria(v map[string]*CriteriaValue) *UpdateFilterViewRequest {
+	s.Criteria = v
+	return s
+}
+
+func (s *UpdateFilterViewRequest) SetName(v string) *UpdateFilterViewRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateFilterViewRequest) SetRange(v string) *UpdateFilterViewRequest {
+	s.Range = &v
+	return s
+}
+
+func (s *UpdateFilterViewRequest) SetOperatorId(v string) *UpdateFilterViewRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateFilterViewResponseBody struct {
+	Id    *string `json:"id,omitempty" xml:"id,omitempty"`
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Range *string `json:"range,omitempty" xml:"range,omitempty"`
+}
+
+func (s UpdateFilterViewResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFilterViewResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFilterViewResponseBody) SetId(v string) *UpdateFilterViewResponseBody {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdateFilterViewResponseBody) SetName(v string) *UpdateFilterViewResponseBody {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateFilterViewResponseBody) SetRange(v string) *UpdateFilterViewResponseBody {
+	s.Range = &v
+	return s
+}
+
+type UpdateFilterViewResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateFilterViewResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateFilterViewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFilterViewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFilterViewResponse) SetHeaders(v map[string]*string) *UpdateFilterViewResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateFilterViewResponse) SetStatusCode(v int32) *UpdateFilterViewResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateFilterViewResponse) SetBody(v *UpdateFilterViewResponseBody) *UpdateFilterViewResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateFloatImageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateFloatImageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageHeaders) SetCommonHeaders(v map[string]*string) *UpdateFloatImageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateFloatImageHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateFloatImageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateFloatImageRequest struct {
+	Anchor     *UpdateFloatImageRequestAnchor     `json:"anchor,omitempty" xml:"anchor,omitempty" type:"Struct"`
+	Coordinate *UpdateFloatImageRequestCoordinate `json:"coordinate,omitempty" xml:"coordinate,omitempty" type:"Struct"`
+	Src        *string                            `json:"src,omitempty" xml:"src,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UpdateFloatImageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageRequest) SetAnchor(v *UpdateFloatImageRequestAnchor) *UpdateFloatImageRequest {
+	s.Anchor = v
+	return s
+}
+
+func (s *UpdateFloatImageRequest) SetCoordinate(v *UpdateFloatImageRequestCoordinate) *UpdateFloatImageRequest {
+	s.Coordinate = v
+	return s
+}
+
+func (s *UpdateFloatImageRequest) SetSrc(v string) *UpdateFloatImageRequest {
+	s.Src = &v
+	return s
+}
+
+func (s *UpdateFloatImageRequest) SetOperatorId(v string) *UpdateFloatImageRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UpdateFloatImageRequestAnchor struct {
+	Col *int32 `json:"col,omitempty" xml:"col,omitempty"`
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+}
+
+func (s UpdateFloatImageRequestAnchor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageRequestAnchor) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageRequestAnchor) SetCol(v int32) *UpdateFloatImageRequestAnchor {
+	s.Col = &v
+	return s
+}
+
+func (s *UpdateFloatImageRequestAnchor) SetRow(v int32) *UpdateFloatImageRequestAnchor {
+	s.Row = &v
+	return s
+}
+
+type UpdateFloatImageRequestCoordinate struct {
+	Height  *float64 `json:"height,omitempty" xml:"height,omitempty"`
+	OffsetX *float64 `json:"offsetX,omitempty" xml:"offsetX,omitempty"`
+	OffsetY *float64 `json:"offsetY,omitempty" xml:"offsetY,omitempty"`
+	Width   *float64 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s UpdateFloatImageRequestCoordinate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageRequestCoordinate) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageRequestCoordinate) SetHeight(v float64) *UpdateFloatImageRequestCoordinate {
+	s.Height = &v
+	return s
+}
+
+func (s *UpdateFloatImageRequestCoordinate) SetOffsetX(v float64) *UpdateFloatImageRequestCoordinate {
+	s.OffsetX = &v
+	return s
+}
+
+func (s *UpdateFloatImageRequestCoordinate) SetOffsetY(v float64) *UpdateFloatImageRequestCoordinate {
+	s.OffsetY = &v
+	return s
+}
+
+func (s *UpdateFloatImageRequestCoordinate) SetWidth(v float64) *UpdateFloatImageRequestCoordinate {
+	s.Width = &v
+	return s
+}
+
+type UpdateFloatImageResponseBody struct {
+	Result  *UpdateFloatImageResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateFloatImageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageResponseBody) SetResult(v *UpdateFloatImageResponseBodyResult) *UpdateFloatImageResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *UpdateFloatImageResponseBody) SetSuccess(v bool) *UpdateFloatImageResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateFloatImageResponseBodyResult struct {
+	Anchor     *UpdateFloatImageResponseBodyResultAnchor     `json:"anchor,omitempty" xml:"anchor,omitempty" type:"Struct"`
+	Coordinate *UpdateFloatImageResponseBodyResultCoordinate `json:"coordinate,omitempty" xml:"coordinate,omitempty" type:"Struct"`
+	Id         *string                                       `json:"id,omitempty" xml:"id,omitempty"`
+	Src        *string                                       `json:"src,omitempty" xml:"src,omitempty"`
+}
+
+func (s UpdateFloatImageResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageResponseBodyResult) SetAnchor(v *UpdateFloatImageResponseBodyResultAnchor) *UpdateFloatImageResponseBodyResult {
+	s.Anchor = v
+	return s
+}
+
+func (s *UpdateFloatImageResponseBodyResult) SetCoordinate(v *UpdateFloatImageResponseBodyResultCoordinate) *UpdateFloatImageResponseBodyResult {
+	s.Coordinate = v
+	return s
+}
+
+func (s *UpdateFloatImageResponseBodyResult) SetId(v string) *UpdateFloatImageResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+func (s *UpdateFloatImageResponseBodyResult) SetSrc(v string) *UpdateFloatImageResponseBodyResult {
+	s.Src = &v
+	return s
+}
+
+type UpdateFloatImageResponseBodyResultAnchor struct {
+	Col *int32 `json:"col,omitempty" xml:"col,omitempty"`
+	Row *int32 `json:"row,omitempty" xml:"row,omitempty"`
+}
+
+func (s UpdateFloatImageResponseBodyResultAnchor) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageResponseBodyResultAnchor) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageResponseBodyResultAnchor) SetCol(v int32) *UpdateFloatImageResponseBodyResultAnchor {
+	s.Col = &v
+	return s
+}
+
+func (s *UpdateFloatImageResponseBodyResultAnchor) SetRow(v int32) *UpdateFloatImageResponseBodyResultAnchor {
+	s.Row = &v
+	return s
+}
+
+type UpdateFloatImageResponseBodyResultCoordinate struct {
+	Height  *float64 `json:"height,omitempty" xml:"height,omitempty"`
+	OffsetX *float64 `json:"offsetX,omitempty" xml:"offsetX,omitempty"`
+	OffsetY *float64 `json:"offsetY,omitempty" xml:"offsetY,omitempty"`
+	Width   *float64 `json:"width,omitempty" xml:"width,omitempty"`
+}
+
+func (s UpdateFloatImageResponseBodyResultCoordinate) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageResponseBodyResultCoordinate) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageResponseBodyResultCoordinate) SetHeight(v float64) *UpdateFloatImageResponseBodyResultCoordinate {
+	s.Height = &v
+	return s
+}
+
+func (s *UpdateFloatImageResponseBodyResultCoordinate) SetOffsetX(v float64) *UpdateFloatImageResponseBodyResultCoordinate {
+	s.OffsetX = &v
+	return s
+}
+
+func (s *UpdateFloatImageResponseBodyResultCoordinate) SetOffsetY(v float64) *UpdateFloatImageResponseBodyResultCoordinate {
+	s.OffsetY = &v
+	return s
+}
+
+func (s *UpdateFloatImageResponseBodyResultCoordinate) SetWidth(v float64) *UpdateFloatImageResponseBodyResultCoordinate {
+	s.Width = &v
+	return s
+}
+
+type UpdateFloatImageResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateFloatImageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateFloatImageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateFloatImageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateFloatImageResponse) SetHeaders(v map[string]*string) *UpdateFloatImageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateFloatImageResponse) SetStatusCode(v int32) *UpdateFloatImageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateFloatImageResponse) SetBody(v *UpdateFloatImageResponseBody) *UpdateFloatImageResponse {
 	s.Body = v
 	return s
 }
@@ -11755,6 +14356,164 @@ func (client *Client) ClearData(workbookId *string, sheetId *string, rangeAddres
 
 // Summary:
 //
+// 删除筛选条件
+//
+// @param request - ClearFilterCriteriaRequest
+//
+// @param headers - ClearFilterCriteriaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ClearFilterCriteriaResponse
+func (client *Client) ClearFilterCriteriaWithOptions(workbookId *string, sheetId *string, request *ClearFilterCriteriaRequest, headers *ClearFilterCriteriaHeaders, runtime *util.RuntimeOptions) (_result *ClearFilterCriteriaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Column)) {
+		body["column"] = request.Column
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ClearFilterCriteria"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filter/clearColumnFilterCriteria"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ClearFilterCriteriaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除筛选条件
+//
+// @param request - ClearFilterCriteriaRequest
+//
+// @return ClearFilterCriteriaResponse
+func (client *Client) ClearFilterCriteria(workbookId *string, sheetId *string, request *ClearFilterCriteriaRequest) (_result *ClearFilterCriteriaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ClearFilterCriteriaHeaders{}
+	_result = &ClearFilterCriteriaResponse{}
+	_body, _err := client.ClearFilterCriteriaWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除筛选视图条件
+//
+// @param request - ClearFilterViewCriteriaRequest
+//
+// @param headers - ClearFilterViewCriteriaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ClearFilterViewCriteriaResponse
+func (client *Client) ClearFilterViewCriteriaWithOptions(workbookId *string, sheetId *string, filterViewId *string, request *ClearFilterViewCriteriaRequest, headers *ClearFilterViewCriteriaHeaders, runtime *util.RuntimeOptions) (_result *ClearFilterViewCriteriaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Column)) {
+		body["column"] = request.Column
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ClearFilterViewCriteria"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filterViews/" + tea.StringValue(filterViewId) + "/clearColumnFilterCriteria"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ClearFilterViewCriteriaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除筛选视图条件
+//
+// @param request - ClearFilterViewCriteriaRequest
+//
+// @return ClearFilterViewCriteriaResponse
+func (client *Client) ClearFilterViewCriteria(workbookId *string, sheetId *string, filterViewId *string, request *ClearFilterViewCriteriaRequest) (_result *ClearFilterViewCriteriaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ClearFilterViewCriteriaHeaders{}
+	_result = &ClearFilterViewCriteriaResponse{}
+	_body, _err := client.ClearFilterViewCriteriaWithOptions(workbookId, sheetId, filterViewId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 创建条件格式
 //
 // @param request - CreateConditionalFormattingRuleRequest
@@ -11924,6 +14683,263 @@ func (client *Client) CreateDeveloperMetadata(workbookId *string, request *Creat
 	headers := &CreateDeveloperMetadataHeaders{}
 	_result = &CreateDeveloperMetadataResponse{}
 	_body, _err := client.CreateDeveloperMetadataWithOptions(workbookId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建筛选
+//
+// @param request - CreateFilterRequest
+//
+// @param headers - CreateFilterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateFilterResponse
+func (client *Client) CreateFilterWithOptions(workbookId *string, sheetId *string, request *CreateFilterRequest, headers *CreateFilterHeaders, runtime *util.RuntimeOptions) (_result *CreateFilterResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Criteria)) {
+		body["criteria"] = request.Criteria
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Range)) {
+		body["range"] = request.Range
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateFilter"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/createFilter"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateFilterResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建筛选
+//
+// @param request - CreateFilterRequest
+//
+// @return CreateFilterResponse
+func (client *Client) CreateFilter(workbookId *string, sheetId *string, request *CreateFilterRequest) (_result *CreateFilterResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateFilterHeaders{}
+	_result = &CreateFilterResponse{}
+	_body, _err := client.CreateFilterWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建筛选视图
+//
+// @param request - CreateFilterViewRequest
+//
+// @param headers - CreateFilterViewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateFilterViewResponse
+func (client *Client) CreateFilterViewWithOptions(workbookId *string, sheetId *string, request *CreateFilterViewRequest, headers *CreateFilterViewHeaders, runtime *util.RuntimeOptions) (_result *CreateFilterViewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Criteria)) {
+		body["criteria"] = request.Criteria
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Range)) {
+		body["range"] = request.Range
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateFilterView"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filterViews"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateFilterViewResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建筛选视图
+//
+// @param request - CreateFilterViewRequest
+//
+// @return CreateFilterViewResponse
+func (client *Client) CreateFilterView(workbookId *string, sheetId *string, request *CreateFilterViewRequest) (_result *CreateFilterViewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateFilterViewHeaders{}
+	_result = &CreateFilterViewResponse{}
+	_body, _err := client.CreateFilterViewWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建浮动图片
+//
+// @param request - CreateFloatImageRequest
+//
+// @param headers - CreateFloatImageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateFloatImageResponse
+func (client *Client) CreateFloatImageWithOptions(workbookId *string, sheetId *string, request *CreateFloatImageRequest, headers *CreateFloatImageHeaders, runtime *util.RuntimeOptions) (_result *CreateFloatImageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Anchor)) {
+		body["anchor"] = request.Anchor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Coordinate)) {
+		body["coordinate"] = request.Coordinate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Src)) {
+		body["src"] = request.Src
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateFloatImage"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/floatImages"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateFloatImageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建浮动图片
+//
+// @param request - CreateFloatImageRequest
+//
+// @return CreateFloatImageResponse
+func (client *Client) CreateFloatImage(workbookId *string, sheetId *string, request *CreateFloatImageRequest) (_result *CreateFloatImageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateFloatImageHeaders{}
+	_result = &CreateFloatImageResponse{}
+	_body, _err := client.CreateFloatImageWithOptions(workbookId, sheetId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -12420,6 +15436,225 @@ func (client *Client) DeleteDropdownLists(workbookId *string, sheetId *string, r
 	headers := &DeleteDropdownListsHeaders{}
 	_result = &DeleteDropdownListsResponse{}
 	_body, _err := client.DeleteDropdownListsWithOptions(workbookId, sheetId, rangeAddress, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除筛选
+//
+// @param request - DeleteFilterRequest
+//
+// @param headers - DeleteFilterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteFilterResponse
+func (client *Client) DeleteFilterWithOptions(workbookId *string, sheetId *string, request *DeleteFilterRequest, headers *DeleteFilterHeaders, runtime *util.RuntimeOptions) (_result *DeleteFilterResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteFilter"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/deleteFilter"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteFilterResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除筛选
+//
+// @param request - DeleteFilterRequest
+//
+// @return DeleteFilterResponse
+func (client *Client) DeleteFilter(workbookId *string, sheetId *string, request *DeleteFilterRequest) (_result *DeleteFilterResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteFilterHeaders{}
+	_result = &DeleteFilterResponse{}
+	_body, _err := client.DeleteFilterWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除筛选视图
+//
+// @param request - DeleteFilterViewRequest
+//
+// @param headers - DeleteFilterViewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteFilterViewResponse
+func (client *Client) DeleteFilterViewWithOptions(workbookId *string, sheetId *string, filterViewId *string, request *DeleteFilterViewRequest, headers *DeleteFilterViewHeaders, runtime *util.RuntimeOptions) (_result *DeleteFilterViewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteFilterView"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filterViews/" + tea.StringValue(filterViewId)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteFilterViewResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除筛选视图
+//
+// @param request - DeleteFilterViewRequest
+//
+// @return DeleteFilterViewResponse
+func (client *Client) DeleteFilterView(workbookId *string, sheetId *string, filterViewId *string, request *DeleteFilterViewRequest) (_result *DeleteFilterViewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteFilterViewHeaders{}
+	_result = &DeleteFilterViewResponse{}
+	_body, _err := client.DeleteFilterViewWithOptions(workbookId, sheetId, filterViewId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除浮动图片
+//
+// @param request - DeleteFloatImageRequest
+//
+// @param headers - DeleteFloatImageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteFloatImageResponse
+func (client *Client) DeleteFloatImageWithOptions(workbookId *string, sheetId *string, id *string, request *DeleteFloatImageRequest, headers *DeleteFloatImageHeaders, runtime *util.RuntimeOptions) (_result *DeleteFloatImageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteFloatImage"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/floatImages/" + tea.StringValue(id)),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteFloatImageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除浮动图片
+//
+// @param request - DeleteFloatImageRequest
+//
+// @return DeleteFloatImageResponse
+func (client *Client) DeleteFloatImage(workbookId *string, sheetId *string, id *string, request *DeleteFloatImageRequest) (_result *DeleteFloatImageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteFloatImageHeaders{}
+	_result = &DeleteFloatImageResponse{}
+	_body, _err := client.DeleteFloatImageWithOptions(workbookId, sheetId, id, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -14200,6 +17435,298 @@ func (client *Client) GetDeveloperMetadata(workbookId *string, developerMetadata
 	headers := &GetDeveloperMetadataHeaders{}
 	_result = &GetDeveloperMetadataResponse{}
 	_body, _err := client.GetDeveloperMetadataWithOptions(workbookId, developerMetadataId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取筛选
+//
+// @param request - GetFilterRequest
+//
+// @param headers - GetFilterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFilterResponse
+func (client *Client) GetFilterWithOptions(workbookId *string, sheetId *string, request *GetFilterRequest, headers *GetFilterHeaders, runtime *util.RuntimeOptions) (_result *GetFilterResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFilter"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filter/getFilter"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFilterResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取筛选
+//
+// @param request - GetFilterRequest
+//
+// @return GetFilterResponse
+func (client *Client) GetFilter(workbookId *string, sheetId *string, request *GetFilterRequest) (_result *GetFilterResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFilterHeaders{}
+	_result = &GetFilterResponse{}
+	_body, _err := client.GetFilterWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取筛选视图列表
+//
+// @param request - GetFilterViewsRequest
+//
+// @param headers - GetFilterViewsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFilterViewsResponse
+func (client *Client) GetFilterViewsWithOptions(workbookId *string, sheetId *string, request *GetFilterViewsRequest, headers *GetFilterViewsHeaders, runtime *util.RuntimeOptions) (_result *GetFilterViewsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFilterViews"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filterViews"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFilterViewsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取筛选视图列表
+//
+// @param request - GetFilterViewsRequest
+//
+// @return GetFilterViewsResponse
+func (client *Client) GetFilterViews(workbookId *string, sheetId *string, request *GetFilterViewsRequest) (_result *GetFilterViewsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFilterViewsHeaders{}
+	_result = &GetFilterViewsResponse{}
+	_body, _err := client.GetFilterViewsWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取浮动图片
+//
+// @param request - GetFloatImageRequest
+//
+// @param headers - GetFloatImageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFloatImageResponse
+func (client *Client) GetFloatImageWithOptions(workbookId *string, sheetId *string, id *string, request *GetFloatImageRequest, headers *GetFloatImageHeaders, runtime *util.RuntimeOptions) (_result *GetFloatImageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFloatImage"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/floatImages/" + tea.StringValue(id)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFloatImageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取浮动图片
+//
+// @param request - GetFloatImageRequest
+//
+// @return GetFloatImageResponse
+func (client *Client) GetFloatImage(workbookId *string, sheetId *string, id *string, request *GetFloatImageRequest) (_result *GetFloatImageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFloatImageHeaders{}
+	_result = &GetFloatImageResponse{}
+	_body, _err := client.GetFloatImageWithOptions(workbookId, sheetId, id, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询浮动图片
+//
+// @param request - GetFloatImagesRequest
+//
+// @param headers - GetFloatImagesHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFloatImagesResponse
+func (client *Client) GetFloatImagesWithOptions(workbookId *string, sheetId *string, request *GetFloatImagesRequest, headers *GetFloatImagesHeaders, runtime *util.RuntimeOptions) (_result *GetFloatImagesResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFloatImages"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/floatImages"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFloatImagesResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询浮动图片
+//
+// @param request - GetFloatImagesRequest
+//
+// @return GetFloatImagesResponse
+func (client *Client) GetFloatImages(workbookId *string, sheetId *string, request *GetFloatImagesRequest) (_result *GetFloatImagesResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFloatImagesHeaders{}
+	_result = &GetFloatImagesResponse{}
+	_body, _err := client.GetFloatImagesWithOptions(workbookId, sheetId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -16317,6 +19844,172 @@ func (client *Client) SetColumnsWidth(workbookId *string, sheetId *string, reque
 
 // Summary:
 //
+// 设置筛选条件
+//
+// @param request - SetFilterCriteriaRequest
+//
+// @param headers - SetFilterCriteriaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetFilterCriteriaResponse
+func (client *Client) SetFilterCriteriaWithOptions(workbookId *string, sheetId *string, request *SetFilterCriteriaRequest, headers *SetFilterCriteriaHeaders, runtime *util.RuntimeOptions) (_result *SetFilterCriteriaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Column)) {
+		body["column"] = request.Column
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FilterCriteria)) {
+		body["filterCriteria"] = request.FilterCriteria
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetFilterCriteria"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filter/setColumnFilterCriteria"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetFilterCriteriaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置筛选条件
+//
+// @param request - SetFilterCriteriaRequest
+//
+// @return SetFilterCriteriaResponse
+func (client *Client) SetFilterCriteria(workbookId *string, sheetId *string, request *SetFilterCriteriaRequest) (_result *SetFilterCriteriaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetFilterCriteriaHeaders{}
+	_result = &SetFilterCriteriaResponse{}
+	_body, _err := client.SetFilterCriteriaWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置筛选视图条件
+//
+// @param request - SetFilterViewCriteriaRequest
+//
+// @param headers - SetFilterViewCriteriaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetFilterViewCriteriaResponse
+func (client *Client) SetFilterViewCriteriaWithOptions(workbookId *string, sheetId *string, filterViewId *string, request *SetFilterViewCriteriaRequest, headers *SetFilterViewCriteriaHeaders, runtime *util.RuntimeOptions) (_result *SetFilterViewCriteriaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Column)) {
+		body["column"] = request.Column
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FilterCriteria)) {
+		body["filterCriteria"] = request.FilterCriteria
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetFilterViewCriteria"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filterViews/" + tea.StringValue(filterViewId) + "/setColumnFilterCriteria"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetFilterViewCriteriaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置筛选视图条件
+//
+// @param request - SetFilterViewCriteriaRequest
+//
+// @return SetFilterViewCriteriaResponse
+func (client *Client) SetFilterViewCriteria(workbookId *string, sheetId *string, filterViewId *string, request *SetFilterViewCriteriaRequest) (_result *SetFilterViewCriteriaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetFilterViewCriteriaHeaders{}
+	_result = &SetFilterViewCriteriaResponse{}
+	_body, _err := client.SetFilterViewCriteriaWithOptions(workbookId, sheetId, filterViewId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 设置行高
 //
 // @param request - SetRowHeightRequest
@@ -16752,6 +20445,85 @@ func (client *Client) SheetFindAll(workbookId *string, sheetId *string, request 
 
 // Summary:
 //
+// 筛选排序
+//
+// @param request - SortFilterRequest
+//
+// @param headers - SortFilterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SortFilterResponse
+func (client *Client) SortFilterWithOptions(workbookId *string, sheetId *string, request *SortFilterRequest, headers *SortFilterHeaders, runtime *util.RuntimeOptions) (_result *SortFilterResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Field)) {
+		body["field"] = request.Field
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SortFilter"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filter/sort"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SortFilterResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 筛选排序
+//
+// @param request - SortFilterRequest
+//
+// @return SortFilterResponse
+func (client *Client) SortFilter(workbookId *string, sheetId *string, request *SortFilterRequest) (_result *SortFilterResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SortFilterHeaders{}
+	_result = &SortFilterResponse{}
+	_body, _err := client.SortFilterWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 取消文档酷应用和表格的关联
 //
 // @param request - UnbindCoolAppToSheetRequest
@@ -16820,6 +20592,259 @@ func (client *Client) UnbindCoolAppToSheet(workbookId *string, request *UnbindCo
 	headers := &UnbindCoolAppToSheetHeaders{}
 	_result = &UnbindCoolAppToSheetResponse{}
 	_body, _err := client.UnbindCoolAppToSheetWithOptions(workbookId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新筛选
+//
+// @param request - UpdateFilterRequest
+//
+// @param headers - UpdateFilterHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateFilterResponse
+func (client *Client) UpdateFilterWithOptions(workbookId *string, sheetId *string, request *UpdateFilterRequest, headers *UpdateFilterHeaders, runtime *util.RuntimeOptions) (_result *UpdateFilterResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Criteria)) {
+		body["criteria"] = request.Criteria
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateFilter"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filter/updateFilter"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateFilterResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新筛选
+//
+// @param request - UpdateFilterRequest
+//
+// @return UpdateFilterResponse
+func (client *Client) UpdateFilter(workbookId *string, sheetId *string, request *UpdateFilterRequest) (_result *UpdateFilterResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateFilterHeaders{}
+	_result = &UpdateFilterResponse{}
+	_body, _err := client.UpdateFilterWithOptions(workbookId, sheetId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新筛选视图
+//
+// @param request - UpdateFilterViewRequest
+//
+// @param headers - UpdateFilterViewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateFilterViewResponse
+func (client *Client) UpdateFilterViewWithOptions(workbookId *string, sheetId *string, filterViewId *string, request *UpdateFilterViewRequest, headers *UpdateFilterViewHeaders, runtime *util.RuntimeOptions) (_result *UpdateFilterViewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Criteria)) {
+		body["criteria"] = request.Criteria
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Range)) {
+		body["range"] = request.Range
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateFilterView"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/filterViews/" + tea.StringValue(filterViewId)),
+		Method:      tea.String("PATCH"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateFilterViewResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新筛选视图
+//
+// @param request - UpdateFilterViewRequest
+//
+// @return UpdateFilterViewResponse
+func (client *Client) UpdateFilterView(workbookId *string, sheetId *string, filterViewId *string, request *UpdateFilterViewRequest) (_result *UpdateFilterViewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateFilterViewHeaders{}
+	_result = &UpdateFilterViewResponse{}
+	_body, _err := client.UpdateFilterViewWithOptions(workbookId, sheetId, filterViewId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新浮动图片
+//
+// @param request - UpdateFloatImageRequest
+//
+// @param headers - UpdateFloatImageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateFloatImageResponse
+func (client *Client) UpdateFloatImageWithOptions(workbookId *string, sheetId *string, id *string, request *UpdateFloatImageRequest, headers *UpdateFloatImageHeaders, runtime *util.RuntimeOptions) (_result *UpdateFloatImageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Anchor)) {
+		body["anchor"] = request.Anchor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Coordinate)) {
+		body["coordinate"] = request.Coordinate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Src)) {
+		body["src"] = request.Src
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateFloatImage"),
+		Version:     tea.String("doc_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/doc/workbooks/" + tea.StringValue(workbookId) + "/sheets/" + tea.StringValue(sheetId) + "/floatImages/" + tea.StringValue(id)),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateFloatImageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新浮动图片
+//
+// @param request - UpdateFloatImageRequest
+//
+// @return UpdateFloatImageResponse
+func (client *Client) UpdateFloatImage(workbookId *string, sheetId *string, id *string, request *UpdateFloatImageRequest) (_result *UpdateFloatImageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateFloatImageHeaders{}
+	_result = &UpdateFloatImageResponse{}
+	_body, _err := client.UpdateFloatImageWithOptions(workbookId, sheetId, id, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

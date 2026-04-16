@@ -409,6 +409,299 @@ func (s *BatchGetMinutesDetailsResponse) SetBody(v *BatchGetMinutesDetailsRespon
 	return s
 }
 
+type BatchGetVoicePrintIdentifyConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchGetVoicePrintIdentifyConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetVoicePrintIdentifyConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigHeaders) SetCommonHeaders(v map[string]*string) *BatchGetVoicePrintIdentifyConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigHeaders) SetXAcsDingtalkAccessToken(v string) *BatchGetVoicePrintIdentifyConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchGetVoicePrintIdentifyConfigRequest struct {
+	// This parameter is required.
+	Items []*BatchGetVoicePrintIdentifyConfigRequestItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetVoicePrintIdentifyConfigRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetVoicePrintIdentifyConfigRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigRequest) SetItems(v []*BatchGetVoicePrintIdentifyConfigRequestItems) *BatchGetVoicePrintIdentifyConfigRequest {
+	s.Items = v
+	return s
+}
+
+type BatchGetVoicePrintIdentifyConfigRequestItems struct {
+	Lang *string `json:"lang,omitempty" xml:"lang,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s BatchGetVoicePrintIdentifyConfigRequestItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetVoicePrintIdentifyConfigRequestItems) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigRequestItems) SetLang(v string) *BatchGetVoicePrintIdentifyConfigRequestItems {
+	s.Lang = &v
+	return s
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigRequestItems) SetUnionId(v string) *BatchGetVoicePrintIdentifyConfigRequestItems {
+	s.UnionId = &v
+	return s
+}
+
+type BatchGetVoicePrintIdentifyConfigResponseBody struct {
+	ConfigItems []*BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems `json:"configItems,omitempty" xml:"configItems,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetVoicePrintIdentifyConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetVoicePrintIdentifyConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigResponseBody) SetConfigItems(v []*BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems) *BatchGetVoicePrintIdentifyConfigResponseBody {
+	s.ConfigItems = v
+	return s
+}
+
+type BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems struct {
+	AllowConfigVoicePrint *bool   `json:"allowConfigVoicePrint,omitempty" xml:"allowConfigVoicePrint,omitempty"`
+	EnableVoicePrint      *bool   `json:"enableVoicePrint,omitempty" xml:"enableVoicePrint,omitempty"`
+	HasVoicePrintRecord   *bool   `json:"hasVoicePrintRecord,omitempty" xml:"hasVoicePrintRecord,omitempty"`
+	UnionId               *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems) SetAllowConfigVoicePrint(v bool) *BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems {
+	s.AllowConfigVoicePrint = &v
+	return s
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems) SetEnableVoicePrint(v bool) *BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems {
+	s.EnableVoicePrint = &v
+	return s
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems) SetHasVoicePrintRecord(v bool) *BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems {
+	s.HasVoicePrintRecord = &v
+	return s
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems) SetUnionId(v string) *BatchGetVoicePrintIdentifyConfigResponseBodyConfigItems {
+	s.UnionId = &v
+	return s
+}
+
+type BatchGetVoicePrintIdentifyConfigResponse struct {
+	Headers    map[string]*string                            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchGetVoicePrintIdentifyConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchGetVoicePrintIdentifyConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetVoicePrintIdentifyConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigResponse) SetHeaders(v map[string]*string) *BatchGetVoicePrintIdentifyConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigResponse) SetStatusCode(v int32) *BatchGetVoicePrintIdentifyConfigResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchGetVoicePrintIdentifyConfigResponse) SetBody(v *BatchGetVoicePrintIdentifyConfigResponseBody) *BatchGetVoicePrintIdentifyConfigResponse {
+	s.Body = v
+	return s
+}
+
+type BatchToggleVoicePrintSwitchStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchToggleVoicePrintSwitchStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchToggleVoicePrintSwitchStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusHeaders) SetCommonHeaders(v map[string]*string) *BatchToggleVoicePrintSwitchStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusHeaders) SetXAcsDingtalkAccessToken(v string) *BatchToggleVoicePrintSwitchStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchToggleVoicePrintSwitchStatusRequest struct {
+	// This parameter is required.
+	Items []*BatchToggleVoicePrintSwitchStatusRequestItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+}
+
+func (s BatchToggleVoicePrintSwitchStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchToggleVoicePrintSwitchStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusRequest) SetItems(v []*BatchToggleVoicePrintSwitchStatusRequestItems) *BatchToggleVoicePrintSwitchStatusRequest {
+	s.Items = v
+	return s
+}
+
+type BatchToggleVoicePrintSwitchStatusRequestItems struct {
+	// This parameter is required.
+	Open                  *bool `json:"open,omitempty" xml:"open,omitempty"`
+	ShouldClearVoicePrint *bool `json:"shouldClearVoicePrint,omitempty" xml:"shouldClearVoicePrint,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s BatchToggleVoicePrintSwitchStatusRequestItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchToggleVoicePrintSwitchStatusRequestItems) GoString() string {
+	return s.String()
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusRequestItems) SetOpen(v bool) *BatchToggleVoicePrintSwitchStatusRequestItems {
+	s.Open = &v
+	return s
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusRequestItems) SetShouldClearVoicePrint(v bool) *BatchToggleVoicePrintSwitchStatusRequestItems {
+	s.ShouldClearVoicePrint = &v
+	return s
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusRequestItems) SetUnionId(v string) *BatchToggleVoicePrintSwitchStatusRequestItems {
+	s.UnionId = &v
+	return s
+}
+
+type BatchToggleVoicePrintSwitchStatusResponseBody struct {
+	ResultItems []*BatchToggleVoicePrintSwitchStatusResponseBodyResultItems `json:"resultItems,omitempty" xml:"resultItems,omitempty" type:"Repeated"`
+}
+
+func (s BatchToggleVoicePrintSwitchStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchToggleVoicePrintSwitchStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusResponseBody) SetResultItems(v []*BatchToggleVoicePrintSwitchStatusResponseBodyResultItems) *BatchToggleVoicePrintSwitchStatusResponseBody {
+	s.ResultItems = v
+	return s
+}
+
+type BatchToggleVoicePrintSwitchStatusResponseBodyResultItems struct {
+	Message *string `json:"message,omitempty" xml:"message,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s BatchToggleVoicePrintSwitchStatusResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchToggleVoicePrintSwitchStatusResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusResponseBodyResultItems) SetMessage(v string) *BatchToggleVoicePrintSwitchStatusResponseBodyResultItems {
+	s.Message = &v
+	return s
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusResponseBodyResultItems) SetSuccess(v bool) *BatchToggleVoicePrintSwitchStatusResponseBodyResultItems {
+	s.Success = &v
+	return s
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusResponseBodyResultItems) SetUnionId(v string) *BatchToggleVoicePrintSwitchStatusResponseBodyResultItems {
+	s.UnionId = &v
+	return s
+}
+
+type BatchToggleVoicePrintSwitchStatusResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchToggleVoicePrintSwitchStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchToggleVoicePrintSwitchStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchToggleVoicePrintSwitchStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusResponse) SetHeaders(v map[string]*string) *BatchToggleVoicePrintSwitchStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusResponse) SetStatusCode(v int32) *BatchToggleVoicePrintSwitchStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchToggleVoicePrintSwitchStatusResponse) SetBody(v *BatchToggleVoicePrintSwitchStatusResponseBody) *BatchToggleVoicePrintSwitchStatusResponse {
+	s.Body = v
+	return s
+}
+
 type CreateMinutesByUploadFileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4875,6 +5168,152 @@ func (client *Client) BatchGetMinutesDetails(request *BatchGetMinutesDetailsRequ
 	headers := &BatchGetMinutesDetailsHeaders{}
 	_result = &BatchGetMinutesDetailsResponse{}
 	_body, _err := client.BatchGetMinutesDetailsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询声纹配置信息
+//
+// @param request - BatchGetVoicePrintIdentifyConfigRequest
+//
+// @param headers - BatchGetVoicePrintIdentifyConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchGetVoicePrintIdentifyConfigResponse
+func (client *Client) BatchGetVoicePrintIdentifyConfigWithOptions(request *BatchGetVoicePrintIdentifyConfigRequest, headers *BatchGetVoicePrintIdentifyConfigHeaders, runtime *util.RuntimeOptions) (_result *BatchGetVoicePrintIdentifyConfigResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Items)) {
+		body["items"] = request.Items
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchGetVoicePrintIdentifyConfig"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/voicePrint/configs/batchGet"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchGetVoicePrintIdentifyConfigResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询声纹配置信息
+//
+// @param request - BatchGetVoicePrintIdentifyConfigRequest
+//
+// @return BatchGetVoicePrintIdentifyConfigResponse
+func (client *Client) BatchGetVoicePrintIdentifyConfig(request *BatchGetVoicePrintIdentifyConfigRequest) (_result *BatchGetVoicePrintIdentifyConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchGetVoicePrintIdentifyConfigHeaders{}
+	_result = &BatchGetVoicePrintIdentifyConfigResponse{}
+	_body, _err := client.BatchGetVoicePrintIdentifyConfigWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量设置声纹开关状态
+//
+// @param request - BatchToggleVoicePrintSwitchStatusRequest
+//
+// @param headers - BatchToggleVoicePrintSwitchStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchToggleVoicePrintSwitchStatusResponse
+func (client *Client) BatchToggleVoicePrintSwitchStatusWithOptions(request *BatchToggleVoicePrintSwitchStatusRequest, headers *BatchToggleVoicePrintSwitchStatusHeaders, runtime *util.RuntimeOptions) (_result *BatchToggleVoicePrintSwitchStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Items)) {
+		body["items"] = request.Items
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchToggleVoicePrintSwitchStatus"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/voicePrint/switches/batchToggle"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchToggleVoicePrintSwitchStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量设置声纹开关状态
+//
+// @param request - BatchToggleVoicePrintSwitchStatusRequest
+//
+// @return BatchToggleVoicePrintSwitchStatusResponse
+func (client *Client) BatchToggleVoicePrintSwitchStatus(request *BatchToggleVoicePrintSwitchStatusRequest) (_result *BatchToggleVoicePrintSwitchStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchToggleVoicePrintSwitchStatusHeaders{}
+	_result = &BatchToggleVoicePrintSwitchStatusResponse{}
+	_body, _err := client.BatchToggleVoicePrintSwitchStatusWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

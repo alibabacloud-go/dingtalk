@@ -1576,7 +1576,8 @@ type OpenScoreCardDimensionDTODimensionList struct {
 	// This parameter is required.
 	DimensionId *string `json:"dimensionId,omitempty" xml:"dimensionId,omitempty"`
 	// This parameter is required.
-	IndicatorIdList []*string `json:"indicatorIdList,omitempty" xml:"indicatorIdList,omitempty" type:"Repeated"`
+	IndicatorIdList []*string                                              `json:"indicatorIdList,omitempty" xml:"indicatorIdList,omitempty" type:"Repeated"`
+	IndicatorList   []*OpenScoreCardDimensionDTODimensionListIndicatorList `json:"indicatorList,omitempty" xml:"indicatorList,omitempty" type:"Repeated"`
 }
 
 func (s OpenScoreCardDimensionDTODimensionList) String() string {
@@ -1594,6 +1595,43 @@ func (s *OpenScoreCardDimensionDTODimensionList) SetDimensionId(v string) *OpenS
 
 func (s *OpenScoreCardDimensionDTODimensionList) SetIndicatorIdList(v []*string) *OpenScoreCardDimensionDTODimensionList {
 	s.IndicatorIdList = v
+	return s
+}
+
+func (s *OpenScoreCardDimensionDTODimensionList) SetIndicatorList(v []*OpenScoreCardDimensionDTODimensionListIndicatorList) *OpenScoreCardDimensionDTODimensionList {
+	s.IndicatorList = v
+	return s
+}
+
+type OpenScoreCardDimensionDTODimensionListIndicatorList struct {
+	// This parameter is required.
+	IndicatorId *string `json:"indicatorId,omitempty" xml:"indicatorId,omitempty"`
+	// This parameter is required.
+	OriginCode *string `json:"originCode,omitempty" xml:"originCode,omitempty"`
+	// This parameter is required.
+	OriginId *string `json:"originId,omitempty" xml:"originId,omitempty"`
+}
+
+func (s OpenScoreCardDimensionDTODimensionListIndicatorList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OpenScoreCardDimensionDTODimensionListIndicatorList) GoString() string {
+	return s.String()
+}
+
+func (s *OpenScoreCardDimensionDTODimensionListIndicatorList) SetIndicatorId(v string) *OpenScoreCardDimensionDTODimensionListIndicatorList {
+	s.IndicatorId = &v
+	return s
+}
+
+func (s *OpenScoreCardDimensionDTODimensionListIndicatorList) SetOriginCode(v string) *OpenScoreCardDimensionDTODimensionListIndicatorList {
+	s.OriginCode = &v
+	return s
+}
+
+func (s *OpenScoreCardDimensionDTODimensionListIndicatorList) SetOriginId(v string) *OpenScoreCardDimensionDTODimensionListIndicatorList {
+	s.OriginId = &v
 	return s
 }
 
@@ -4674,7 +4712,8 @@ func (s *GetDeptScoreCardIndicatorHeaders) SetXAcsDingtalkAccessToken(v string) 
 }
 
 type GetDeptScoreCardIndicatorRequest struct {
-	DingTeamId *string `json:"dingTeamId,omitempty" xml:"dingTeamId,omitempty"`
+	DingTeamId   *string `json:"dingTeamId,omitempty" xml:"dingTeamId,omitempty"`
+	SelectedTime *int64  `json:"selectedTime,omitempty" xml:"selectedTime,omitempty"`
 }
 
 func (s GetDeptScoreCardIndicatorRequest) String() string {
@@ -4687,6 +4726,11 @@ func (s GetDeptScoreCardIndicatorRequest) GoString() string {
 
 func (s *GetDeptScoreCardIndicatorRequest) SetDingTeamId(v string) *GetDeptScoreCardIndicatorRequest {
 	s.DingTeamId = &v
+	return s
+}
+
+func (s *GetDeptScoreCardIndicatorRequest) SetSelectedTime(v int64) *GetDeptScoreCardIndicatorRequest {
+	s.SelectedTime = &v
 	return s
 }
 
@@ -6852,6 +6896,10 @@ func (client *Client) GetDeptScoreCardIndicatorWithOptions(request *GetDeptScore
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DingTeamId)) {
 		query["dingTeamId"] = request.DingTeamId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SelectedTime)) {
+		query["selectedTime"] = request.SelectedTime
 	}
 
 	realHeaders := make(map[string]*string)

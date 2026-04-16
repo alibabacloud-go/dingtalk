@@ -272,6 +272,7 @@ func (s *GetLoginUserRequest) SetAuthCode(v string) *GetLoginUserRequest {
 type GetLoginUserResponseBody struct {
 	CommodityInfo *GetLoginUserResponseBodyCommodityInfo `json:"commodityInfo,omitempty" xml:"commodityInfo,omitempty" type:"Struct"`
 	CorpId        *string                                `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	IsAdmin       *bool                                  `json:"isAdmin,omitempty" xml:"isAdmin,omitempty"`
 	OpenId        *string                                `json:"openId,omitempty" xml:"openId,omitempty"`
 	UnionId       *string                                `json:"unionId,omitempty" xml:"unionId,omitempty"`
 }
@@ -291,6 +292,11 @@ func (s *GetLoginUserResponseBody) SetCommodityInfo(v *GetLoginUserResponseBodyC
 
 func (s *GetLoginUserResponseBody) SetCorpId(v string) *GetLoginUserResponseBody {
 	s.CorpId = &v
+	return s
+}
+
+func (s *GetLoginUserResponseBody) SetIsAdmin(v bool) *GetLoginUserResponseBody {
+	s.IsAdmin = &v
 	return s
 }
 
