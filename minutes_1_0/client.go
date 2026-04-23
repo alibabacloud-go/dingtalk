@@ -1259,6 +1259,7 @@ type GenerateSummaryRequest struct {
 	//
 	// 0
 	SummaryTemplateType *string `json:"summaryTemplateType,omitempty" xml:"summaryTemplateType,omitempty"`
+	UserContext         *string `json:"userContext,omitempty" xml:"userContext,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -1287,6 +1288,11 @@ func (s *GenerateSummaryRequest) SetSummaryTemplateId(v string) *GenerateSummary
 
 func (s *GenerateSummaryRequest) SetSummaryTemplateType(v string) *GenerateSummaryRequest {
 	s.SummaryTemplateType = &v
+	return s
+}
+
+func (s *GenerateSummaryRequest) SetUserContext(v string) *GenerateSummaryRequest {
+	s.UserContext = &v
 	return s
 }
 
@@ -4463,6 +4469,10 @@ type SetInProgressCustomTabsRequestCustomTabList struct {
 	//
 	// https://example.com/app/minutes/analysis_pc
 	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// example:
+	//
+	// tab_1
+	TabId *string `json:"tabId,omitempty" xml:"tabId,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -4496,6 +4506,11 @@ func (s *SetInProgressCustomTabsRequestCustomTabList) SetNameI18nMap(v map[strin
 
 func (s *SetInProgressCustomTabsRequestCustomTabList) SetPcUrl(v string) *SetInProgressCustomTabsRequestCustomTabList {
 	s.PcUrl = &v
+	return s
+}
+
+func (s *SetInProgressCustomTabsRequestCustomTabList) SetTabId(v string) *SetInProgressCustomTabsRequestCustomTabList {
+	s.TabId = &v
 	return s
 }
 
@@ -5709,6 +5724,10 @@ func (client *Client) GenerateSummaryWithOptions(taskUuid *string, request *Gene
 
 	if !tea.BoolValue(util.IsUnset(request.SummaryTemplateType)) {
 		body["summaryTemplateType"] = request.SummaryTemplateType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserContext)) {
+		body["userContext"] = request.UserContext
 	}
 
 	realHeaders := make(map[string]*string)

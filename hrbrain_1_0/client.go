@@ -7071,6 +7071,112 @@ func (s *HrbrainLabelDataUpsertResponse) SetBody(v *HrbrainLabelDataUpsertRespon
 	return s
 }
 
+type HrbrainLabelEmpDeleteHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s HrbrainLabelEmpDeleteHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainLabelEmpDeleteHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainLabelEmpDeleteHeaders) SetCommonHeaders(v map[string]*string) *HrbrainLabelEmpDeleteHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *HrbrainLabelEmpDeleteHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainLabelEmpDeleteHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type HrbrainLabelEmpDeleteRequest struct {
+	// This parameter is required.
+	LabelCode *string `json:"labelCode,omitempty" xml:"labelCode,omitempty"`
+	// This parameter is required.
+	WorkNos []*string `json:"workNos,omitempty" xml:"workNos,omitempty" type:"Repeated"`
+}
+
+func (s HrbrainLabelEmpDeleteRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainLabelEmpDeleteRequest) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainLabelEmpDeleteRequest) SetLabelCode(v string) *HrbrainLabelEmpDeleteRequest {
+	s.LabelCode = &v
+	return s
+}
+
+func (s *HrbrainLabelEmpDeleteRequest) SetWorkNos(v []*string) *HrbrainLabelEmpDeleteRequest {
+	s.WorkNos = v
+	return s
+}
+
+type HrbrainLabelEmpDeleteResponseBody struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result    *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s HrbrainLabelEmpDeleteResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainLabelEmpDeleteResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainLabelEmpDeleteResponseBody) SetRequestId(v string) *HrbrainLabelEmpDeleteResponseBody {
+	s.RequestId = &v
+	return s
+}
+
+func (s *HrbrainLabelEmpDeleteResponseBody) SetResult(v bool) *HrbrainLabelEmpDeleteResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *HrbrainLabelEmpDeleteResponseBody) SetSuccess(v bool) *HrbrainLabelEmpDeleteResponseBody {
+	s.Success = &v
+	return s
+}
+
+type HrbrainLabelEmpDeleteResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *HrbrainLabelEmpDeleteResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s HrbrainLabelEmpDeleteResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s HrbrainLabelEmpDeleteResponse) GoString() string {
+	return s.String()
+}
+
+func (s *HrbrainLabelEmpDeleteResponse) SetHeaders(v map[string]*string) *HrbrainLabelEmpDeleteResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *HrbrainLabelEmpDeleteResponse) SetStatusCode(v int32) *HrbrainLabelEmpDeleteResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *HrbrainLabelEmpDeleteResponse) SetBody(v *HrbrainLabelEmpDeleteResponseBody) *HrbrainLabelEmpDeleteResponse {
+	s.Body = v
+	return s
+}
+
 type HrbrainLabelMetaHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -12396,6 +12502,83 @@ func (client *Client) HrbrainLabelDataUpsert(request *HrbrainLabelDataUpsertRequ
 	headers := &HrbrainLabelDataUpsertHeaders{}
 	_result = &HrbrainLabelDataUpsertResponse{}
 	_body, _err := client.HrbrainLabelDataUpsertWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除标签下指定人员
+//
+// @param request - HrbrainLabelEmpDeleteRequest
+//
+// @param headers - HrbrainLabelEmpDeleteHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return HrbrainLabelEmpDeleteResponse
+func (client *Client) HrbrainLabelEmpDeleteWithOptions(request *HrbrainLabelEmpDeleteRequest, headers *HrbrainLabelEmpDeleteHeaders, runtime *util.RuntimeOptions) (_result *HrbrainLabelEmpDeleteResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LabelCode)) {
+		body["labelCode"] = request.LabelCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.WorkNos)) {
+		body["workNos"] = request.WorkNos
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("HrbrainLabelEmpDelete"),
+		Version:     tea.String("hrbrain_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrbrain/labels/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &HrbrainLabelEmpDeleteResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除标签下指定人员
+//
+// @param request - HrbrainLabelEmpDeleteRequest
+//
+// @return HrbrainLabelEmpDeleteResponse
+func (client *Client) HrbrainLabelEmpDelete(request *HrbrainLabelEmpDeleteRequest) (_result *HrbrainLabelEmpDeleteResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &HrbrainLabelEmpDeleteHeaders{}
+	_result = &HrbrainLabelEmpDeleteResponse{}
+	_body, _err := client.HrbrainLabelEmpDeleteWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
