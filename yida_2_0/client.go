@@ -3284,6 +3284,151 @@ func (s *GetRoleDetailByIdResponse) SetBody(v *GetRoleDetailByIdResponseBody) *G
 	return s
 }
 
+type RestartInstanceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RestartInstanceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RestartInstanceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RestartInstanceHeaders) SetCommonHeaders(v map[string]*string) *RestartInstanceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RestartInstanceHeaders) SetXAcsDingtalkAccessToken(v string) *RestartInstanceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RestartInstanceRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// APP_XCE0EVXS6DYG3YDYC5RD
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// This parameter is required.
+	CurrentActivityId *string `json:"currentActivityId,omitempty" xml:"currentActivityId,omitempty"`
+	EnvProfile        *string `json:"envProfile,omitempty" xml:"envProfile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// This parameter is required.
+	ProcInstanceId *string `json:"procInstanceId,omitempty" xml:"procInstanceId,omitempty"`
+	Remark         *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
+	// This parameter is required.
+	TargetActivityId *string `json:"targetActivityId,omitempty" xml:"targetActivityId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// task-123
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding173982232112232
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s RestartInstanceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RestartInstanceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RestartInstanceRequest) SetAppType(v string) *RestartInstanceRequest {
+	s.AppType = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetCurrentActivityId(v string) *RestartInstanceRequest {
+	s.CurrentActivityId = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetEnvProfile(v string) *RestartInstanceRequest {
+	s.EnvProfile = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetFormUuid(v string) *RestartInstanceRequest {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetProcInstanceId(v string) *RestartInstanceRequest {
+	s.ProcInstanceId = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetRemark(v string) *RestartInstanceRequest {
+	s.Remark = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetSystemToken(v string) *RestartInstanceRequest {
+	s.SystemToken = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetTargetActivityId(v string) *RestartInstanceRequest {
+	s.TargetActivityId = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetTaskId(v string) *RestartInstanceRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *RestartInstanceRequest) SetUserId(v string) *RestartInstanceRequest {
+	s.UserId = &v
+	return s
+}
+
+type RestartInstanceResponse struct {
+	Headers    map[string]*string `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+}
+
+func (s RestartInstanceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RestartInstanceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RestartInstanceResponse) SetHeaders(v map[string]*string) *RestartInstanceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RestartInstanceResponse) SetStatusCode(v int32) *RestartInstanceResponse {
+	s.StatusCode = &v
+	return s
+}
+
 type SaveAndUpdateMatrixDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7089,6 +7234,115 @@ func (client *Client) GetRoleDetailById(request *GetRoleDetailByIdRequest) (_res
 	headers := &GetRoleDetailByIdHeaders{}
 	_result = &GetRoleDetailByIdResponse{}
 	_body, _err := client.GetRoleDetailByIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 退回流程实例
+//
+// @param request - RestartInstanceRequest
+//
+// @param headers - RestartInstanceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RestartInstanceResponse
+func (client *Client) RestartInstanceWithOptions(request *RestartInstanceRequest, headers *RestartInstanceHeaders, runtime *util.RuntimeOptions) (_result *RestartInstanceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppType)) {
+		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CurrentActivityId)) {
+		body["currentActivityId"] = request.CurrentActivityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EnvProfile)) {
+		body["envProfile"] = request.EnvProfile
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcInstanceId)) {
+		body["procInstanceId"] = request.ProcInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Remark)) {
+		body["remark"] = request.Remark
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SystemToken)) {
+		body["systemToken"] = request.SystemToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetActivityId)) {
+		body["targetActivityId"] = request.TargetActivityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RestartInstance"),
+		Version:     tea.String("yida_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/yida/processes/instances/restartInstance"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("none"),
+	}
+	_result = &RestartInstanceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 退回流程实例
+//
+// @param request - RestartInstanceRequest
+//
+// @return RestartInstanceResponse
+func (client *Client) RestartInstance(request *RestartInstanceRequest) (_result *RestartInstanceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RestartInstanceHeaders{}
+	_result = &RestartInstanceResponse{}
+	_body, _err := client.RestartInstanceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

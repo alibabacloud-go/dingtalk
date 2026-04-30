@@ -1031,6 +1031,182 @@ func (s *BatchApproveUnionApplyResponse) SetBody(v *BatchApproveUnionApplyRespon
 	return s
 }
 
+type BatchGetUserHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchGetUserHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetUserHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetUserHeaders) SetCommonHeaders(v map[string]*string) *BatchGetUserHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchGetUserHeaders) SetXAcsDingtalkAccessToken(v string) *BatchGetUserHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchGetUserRequest struct {
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetUserRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetUserRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetUserRequest) SetUserIdList(v []*string) *BatchGetUserRequest {
+	s.UserIdList = v
+	return s
+}
+
+type BatchGetUserShrinkRequest struct {
+	// This parameter is required.
+	UserIdListShrink *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+}
+
+func (s BatchGetUserShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetUserShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetUserShrinkRequest) SetUserIdListShrink(v string) *BatchGetUserShrinkRequest {
+	s.UserIdListShrink = &v
+	return s
+}
+
+type BatchGetUserResponseBody struct {
+	UnauthorizedUserIdList []*string                           `json:"unauthorizedUserIdList,omitempty" xml:"unauthorizedUserIdList,omitempty" type:"Repeated"`
+	UserList               []*BatchGetUserResponseBodyUserList `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+}
+
+func (s BatchGetUserResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetUserResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetUserResponseBody) SetUnauthorizedUserIdList(v []*string) *BatchGetUserResponseBody {
+	s.UnauthorizedUserIdList = v
+	return s
+}
+
+func (s *BatchGetUserResponseBody) SetUserList(v []*BatchGetUserResponseBodyUserList) *BatchGetUserResponseBody {
+	s.UserList = v
+	return s
+}
+
+type BatchGetUserResponseBodyUserList struct {
+	JobNumber *string `json:"job_number,omitempty" xml:"job_number,omitempty"`
+	Mobile    *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
+	Nickname  *string `json:"nickname,omitempty" xml:"nickname,omitempty"`
+	Remark    *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	Senior    *bool   `json:"senior,omitempty" xml:"senior,omitempty"`
+	StateCode *string `json:"state_code,omitempty" xml:"state_code,omitempty"`
+	Unionid   *string `json:"unionid,omitempty" xml:"unionid,omitempty"`
+	Userid    *string `json:"userid,omitempty" xml:"userid,omitempty"`
+}
+
+func (s BatchGetUserResponseBodyUserList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetUserResponseBodyUserList) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetJobNumber(v string) *BatchGetUserResponseBodyUserList {
+	s.JobNumber = &v
+	return s
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetMobile(v string) *BatchGetUserResponseBodyUserList {
+	s.Mobile = &v
+	return s
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetName(v string) *BatchGetUserResponseBodyUserList {
+	s.Name = &v
+	return s
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetNickname(v string) *BatchGetUserResponseBodyUserList {
+	s.Nickname = &v
+	return s
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetRemark(v string) *BatchGetUserResponseBodyUserList {
+	s.Remark = &v
+	return s
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetSenior(v bool) *BatchGetUserResponseBodyUserList {
+	s.Senior = &v
+	return s
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetStateCode(v string) *BatchGetUserResponseBodyUserList {
+	s.StateCode = &v
+	return s
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetUnionid(v string) *BatchGetUserResponseBodyUserList {
+	s.Unionid = &v
+	return s
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetUserid(v string) *BatchGetUserResponseBodyUserList {
+	s.Userid = &v
+	return s
+}
+
+type BatchGetUserResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchGetUserResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchGetUserResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchGetUserResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchGetUserResponse) SetHeaders(v map[string]*string) *BatchGetUserResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchGetUserResponse) SetStatusCode(v int32) *BatchGetUserResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchGetUserResponse) SetBody(v *BatchGetUserResponseBody) *BatchGetUserResponse {
+	s.Body = v
+	return s
+}
+
 type BatchUpdateExternalTitleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -14258,6 +14434,85 @@ func (client *Client) BatchApproveUnionApply(request *BatchApproveUnionApplyRequ
 	headers := &BatchApproveUnionApplyHeaders{}
 	_result = &BatchApproveUnionApplyResponse{}
 	_body, _err := client.BatchApproveUnionApplyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询用户信息
+//
+// @param tmpReq - BatchGetUserRequest
+//
+// @param headers - BatchGetUserHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchGetUserResponse
+func (client *Client) BatchGetUserWithOptions(tmpReq *BatchGetUserRequest, headers *BatchGetUserHeaders, runtime *util.RuntimeOptions) (_result *BatchGetUserResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &BatchGetUserShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.UserIdList)) {
+		request.UserIdListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.UserIdList, tea.String("userIdList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIdListShrink)) {
+		query["userIdList"] = request.UserIdListShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchGetUser"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/users/batch/get"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchGetUserResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询用户信息
+//
+// @param request - BatchGetUserRequest
+//
+// @return BatchGetUserResponse
+func (client *Client) BatchGetUser(request *BatchGetUserRequest) (_result *BatchGetUserResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchGetUserHeaders{}
+	_result = &BatchGetUserResponse{}
+	_body, _err := client.BatchGetUserWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

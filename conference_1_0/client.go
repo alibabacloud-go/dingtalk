@@ -1242,6 +1242,7 @@ func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetScreenShare
 
 type CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting struct {
 	AllowAllParticipantsStart       *int32 `json:"allowAllParticipantsStart,omitempty" xml:"allowAllParticipantsStart,omitempty"`
+	EnableAiAgentStatus             *bool  `json:"enableAiAgentStatus,omitempty" xml:"enableAiAgentStatus,omitempty"`
 	ReceiverType                    *int32 `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
 	RestrictShareMinutesSummaryOnly *int32 `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
 	// example:
@@ -1260,6 +1261,11 @@ func (s CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySet
 
 func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetAllowAllParticipantsStart(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
 	s.AllowAllParticipantsStart = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetEnableAiAgentStatus(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.EnableAiAgentStatus = &v
 	return s
 }
 
@@ -8450,6 +8456,7 @@ func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModel) SetScreenSha
 
 type UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting struct {
 	AllowAllParticipantsStart       *int32  `json:"allowAllParticipantsStart,omitempty" xml:"allowAllParticipantsStart,omitempty"`
+	EnableAiAgentStatus             *bool   `json:"enableAiAgentStatus,omitempty" xml:"enableAiAgentStatus,omitempty"`
 	ReceiverType                    *int32  `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
 	RestrictShareMinutesSummaryOnly *int32  `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
 	Value                           *string `json:"value,omitempty" xml:"value,omitempty"`
@@ -8465,6 +8472,11 @@ func (s UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummaryS
 
 func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetAllowAllParticipantsStart(v int32) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
 	s.AllowAllParticipantsStart = &v
+	return s
+}
+
+func (s *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting) SetEnableAiAgentStatus(v bool) *UpdateScheduleConfSettingsRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.EnableAiAgentStatus = &v
 	return s
 }
 

@@ -6111,7 +6111,8 @@ type QueryEnterpriseAccountByPageRequest struct {
 	// example:
 	//
 	// 10
-	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageSize    *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	StartStatus *bool  `json:"startStatus,omitempty" xml:"startStatus,omitempty"`
 }
 
 func (s QueryEnterpriseAccountByPageRequest) String() string {
@@ -6129,6 +6130,11 @@ func (s *QueryEnterpriseAccountByPageRequest) SetPageNumber(v int64) *QueryEnter
 
 func (s *QueryEnterpriseAccountByPageRequest) SetPageSize(v int64) *QueryEnterpriseAccountByPageRequest {
 	s.PageSize = &v
+	return s
+}
+
+func (s *QueryEnterpriseAccountByPageRequest) SetStartStatus(v bool) *QueryEnterpriseAccountByPageRequest {
+	s.StartStatus = &v
 	return s
 }
 
@@ -14120,6 +14126,10 @@ func (client *Client) QueryEnterpriseAccountByPageWithOptions(request *QueryEnte
 
 	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
 		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartStatus)) {
+		query["startStatus"] = request.StartStatus
 	}
 
 	realHeaders := make(map[string]*string)

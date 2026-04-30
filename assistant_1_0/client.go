@@ -4097,6 +4097,193 @@ func (s *LogListResponse) SetBody(v *LogListResponseBody) *LogListResponse {
 	return s
 }
 
+type PageListNewAICreditsUsageRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageListNewAICreditsUsageRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListNewAICreditsUsageRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageListNewAICreditsUsageRecordHeaders) SetCommonHeaders(v map[string]*string) *PageListNewAICreditsUsageRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordHeaders) SetXAcsDingtalkAccessToken(v string) *PageListNewAICreditsUsageRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageListNewAICreditsUsageRecordRequest struct {
+	EndTime      *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	PageNumber   *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize     *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ScenarioName *string `json:"scenarioName,omitempty" xml:"scenarioName,omitempty"`
+	StartTime    *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName     *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s PageListNewAICreditsUsageRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListNewAICreditsUsageRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PageListNewAICreditsUsageRecordRequest) SetEndTime(v string) *PageListNewAICreditsUsageRecordRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordRequest) SetPageNumber(v int64) *PageListNewAICreditsUsageRecordRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordRequest) SetPageSize(v int64) *PageListNewAICreditsUsageRecordRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordRequest) SetScenarioName(v string) *PageListNewAICreditsUsageRecordRequest {
+	s.ScenarioName = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordRequest) SetStartTime(v string) *PageListNewAICreditsUsageRecordRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordRequest) SetUserId(v string) *PageListNewAICreditsUsageRecordRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordRequest) SetUserName(v string) *PageListNewAICreditsUsageRecordRequest {
+	s.UserName = &v
+	return s
+}
+
+type PageListNewAICreditsUsageRecordResponseBody struct {
+	DataList   []*PageListNewAICreditsUsageRecordResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	TotalCount *int64                                                 `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PageListNewAICreditsUsageRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListNewAICreditsUsageRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBody) SetDataList(v []*PageListNewAICreditsUsageRecordResponseBodyDataList) *PageListNewAICreditsUsageRecordResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBody) SetTotalCount(v int64) *PageListNewAICreditsUsageRecordResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type PageListNewAICreditsUsageRecordResponseBodyDataList struct {
+	AbilityName      *string `json:"abilityName,omitempty" xml:"abilityName,omitempty"`
+	AiCreditsUsedNum *string `json:"aiCreditsUsedNum,omitempty" xml:"aiCreditsUsedNum,omitempty"`
+	BizId            *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	IsTimeFree       *string `json:"isTimeFree,omitempty" xml:"isTimeFree,omitempty"`
+	ScenarioName     *string `json:"scenarioName,omitempty" xml:"scenarioName,omitempty"`
+	TaskName         *string `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	UsageTime        *string `json:"usageTime,omitempty" xml:"usageTime,omitempty"`
+	UserName         *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s PageListNewAICreditsUsageRecordResponseBodyDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListNewAICreditsUsageRecordResponseBodyDataList) GoString() string {
+	return s.String()
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBodyDataList) SetAbilityName(v string) *PageListNewAICreditsUsageRecordResponseBodyDataList {
+	s.AbilityName = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBodyDataList) SetAiCreditsUsedNum(v string) *PageListNewAICreditsUsageRecordResponseBodyDataList {
+	s.AiCreditsUsedNum = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBodyDataList) SetBizId(v string) *PageListNewAICreditsUsageRecordResponseBodyDataList {
+	s.BizId = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBodyDataList) SetIsTimeFree(v string) *PageListNewAICreditsUsageRecordResponseBodyDataList {
+	s.IsTimeFree = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBodyDataList) SetScenarioName(v string) *PageListNewAICreditsUsageRecordResponseBodyDataList {
+	s.ScenarioName = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBodyDataList) SetTaskName(v string) *PageListNewAICreditsUsageRecordResponseBodyDataList {
+	s.TaskName = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBodyDataList) SetUsageTime(v string) *PageListNewAICreditsUsageRecordResponseBodyDataList {
+	s.UsageTime = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponseBodyDataList) SetUserName(v string) *PageListNewAICreditsUsageRecordResponseBodyDataList {
+	s.UserName = &v
+	return s
+}
+
+type PageListNewAICreditsUsageRecordResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PageListNewAICreditsUsageRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PageListNewAICreditsUsageRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListNewAICreditsUsageRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageListNewAICreditsUsageRecordResponse) SetHeaders(v map[string]*string) *PageListNewAICreditsUsageRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponse) SetStatusCode(v int32) *PageListNewAICreditsUsageRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PageListNewAICreditsUsageRecordResponse) SetBody(v *PageListNewAICreditsUsageRecordResponseBody) *PageListNewAICreditsUsageRecordResponse {
+	s.Body = v
+	return s
+}
+
 type RelearnKnowledgeHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7619,6 +7806,103 @@ func (client *Client) LogList(request *LogListRequest) (_result *LogListResponse
 	headers := &LogListHeaders{}
 	_result = &LogListResponse{}
 	_body, _err := client.LogListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询新算粒的使用记录
+//
+// @param request - PageListNewAICreditsUsageRecordRequest
+//
+// @param headers - PageListNewAICreditsUsageRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageListNewAICreditsUsageRecordResponse
+func (client *Client) PageListNewAICreditsUsageRecordWithOptions(request *PageListNewAICreditsUsageRecordRequest, headers *PageListNewAICreditsUsageRecordHeaders, runtime *util.RuntimeOptions) (_result *PageListNewAICreditsUsageRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScenarioName)) {
+		query["scenarioName"] = request.ScenarioName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		query["userName"] = request.UserName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PageListNewAICreditsUsageRecord"),
+		Version:     tea.String("assistant_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/assistant/aiCredits/pageListNewAICreditsUsageRecord"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PageListNewAICreditsUsageRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询新算粒的使用记录
+//
+// @param request - PageListNewAICreditsUsageRecordRequest
+//
+// @return PageListNewAICreditsUsageRecordResponse
+func (client *Client) PageListNewAICreditsUsageRecord(request *PageListNewAICreditsUsageRecordRequest) (_result *PageListNewAICreditsUsageRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageListNewAICreditsUsageRecordHeaders{}
+	_result = &PageListNewAICreditsUsageRecordResponse{}
+	_body, _err := client.PageListNewAICreditsUsageRecordWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

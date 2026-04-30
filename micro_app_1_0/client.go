@@ -1803,28 +1803,29 @@ func (s *GetInnerAppInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetInnerA
 }
 
 type GetInnerAppInfoResponseBody struct {
-	AgentId                   *int64    `json:"agentId,omitempty" xml:"agentId,omitempty"`
-	AppName                   *string   `json:"appName,omitempty" xml:"appName,omitempty"`
-	CustomerAppId             *string   `json:"customerAppId,omitempty" xml:"customerAppId,omitempty"`
-	HideDingNavBar            *bool     `json:"hideDingNavBar,omitempty" xml:"hideDingNavBar,omitempty"`
-	MobileLoginAddressKey     *string   `json:"mobileLoginAddressKey,omitempty" xml:"mobileLoginAddressKey,omitempty"`
-	MobileLoginLoginUrl       *string   `json:"mobileLoginLoginUrl,omitempty" xml:"mobileLoginLoginUrl,omitempty"`
-	MobileLoginRequestMethod  *string   `json:"mobileLoginRequestMethod,omitempty" xml:"mobileLoginRequestMethod,omitempty"`
-	MobileOriginalHomepageUrl *string   `json:"mobileOriginalHomepageUrl,omitempty" xml:"mobileOriginalHomepageUrl,omitempty"`
-	MobileTransferUrl         *string   `json:"mobileTransferUrl,omitempty" xml:"mobileTransferUrl,omitempty"`
-	PadEffectiveHomepageUrl   *string   `json:"padEffectiveHomepageUrl,omitempty" xml:"padEffectiveHomepageUrl,omitempty"`
-	PadLoginAddressKey        *string   `json:"padLoginAddressKey,omitempty" xml:"padLoginAddressKey,omitempty"`
-	PadLoginLoginUrl          *string   `json:"padLoginLoginUrl,omitempty" xml:"padLoginLoginUrl,omitempty"`
-	PadLoginRequestMethod     *string   `json:"padLoginRequestMethod,omitempty" xml:"padLoginRequestMethod,omitempty"`
-	PadOriginalHomepageUrl    *string   `json:"padOriginalHomepageUrl,omitempty" xml:"padOriginalHomepageUrl,omitempty"`
-	PadTransferUrl            *string   `json:"padTransferUrl,omitempty" xml:"padTransferUrl,omitempty"`
-	PcEffectiveHomepageUrl    *string   `json:"pcEffectiveHomepageUrl,omitempty" xml:"pcEffectiveHomepageUrl,omitempty"`
-	PcLoginAddressKey         *string   `json:"pcLoginAddressKey,omitempty" xml:"pcLoginAddressKey,omitempty"`
-	PcLoginLoginUrl           *string   `json:"pcLoginLoginUrl,omitempty" xml:"pcLoginLoginUrl,omitempty"`
-	PcLoginRequestMethod      *string   `json:"pcLoginRequestMethod,omitempty" xml:"pcLoginRequestMethod,omitempty"`
-	PcOriginalHomepageUrl     *string   `json:"pcOriginalHomepageUrl,omitempty" xml:"pcOriginalHomepageUrl,omitempty"`
-	PcTransferUrl             *string   `json:"pcTransferUrl,omitempty" xml:"pcTransferUrl,omitempty"`
-	SsoH5PageType             []*string `json:"ssoH5PageType,omitempty" xml:"ssoH5PageType,omitempty" type:"Repeated"`
+	AgentId                    *int64    `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppName                    *string   `json:"appName,omitempty" xml:"appName,omitempty"`
+	CustomerAppId              *string   `json:"customerAppId,omitempty" xml:"customerAppId,omitempty"`
+	HideDingNavBar             *bool     `json:"hideDingNavBar,omitempty" xml:"hideDingNavBar,omitempty"`
+	MobileEffectiveHomepageUrl *string   `json:"mobileEffectiveHomepageUrl,omitempty" xml:"mobileEffectiveHomepageUrl,omitempty"`
+	MobileLoginAddressKey      *string   `json:"mobileLoginAddressKey,omitempty" xml:"mobileLoginAddressKey,omitempty"`
+	MobileLoginLoginUrl        *string   `json:"mobileLoginLoginUrl,omitempty" xml:"mobileLoginLoginUrl,omitempty"`
+	MobileLoginRequestMethod   *string   `json:"mobileLoginRequestMethod,omitempty" xml:"mobileLoginRequestMethod,omitempty"`
+	MobileOriginalHomepageUrl  *string   `json:"mobileOriginalHomepageUrl,omitempty" xml:"mobileOriginalHomepageUrl,omitempty"`
+	MobileTransferUrl          *string   `json:"mobileTransferUrl,omitempty" xml:"mobileTransferUrl,omitempty"`
+	PadEffectiveHomepageUrl    *string   `json:"padEffectiveHomepageUrl,omitempty" xml:"padEffectiveHomepageUrl,omitempty"`
+	PadLoginAddressKey         *string   `json:"padLoginAddressKey,omitempty" xml:"padLoginAddressKey,omitempty"`
+	PadLoginLoginUrl           *string   `json:"padLoginLoginUrl,omitempty" xml:"padLoginLoginUrl,omitempty"`
+	PadLoginRequestMethod      *string   `json:"padLoginRequestMethod,omitempty" xml:"padLoginRequestMethod,omitempty"`
+	PadOriginalHomepageUrl     *string   `json:"padOriginalHomepageUrl,omitempty" xml:"padOriginalHomepageUrl,omitempty"`
+	PadTransferUrl             *string   `json:"padTransferUrl,omitempty" xml:"padTransferUrl,omitempty"`
+	PcEffectiveHomepageUrl     *string   `json:"pcEffectiveHomepageUrl,omitempty" xml:"pcEffectiveHomepageUrl,omitempty"`
+	PcLoginAddressKey          *string   `json:"pcLoginAddressKey,omitempty" xml:"pcLoginAddressKey,omitempty"`
+	PcLoginLoginUrl            *string   `json:"pcLoginLoginUrl,omitempty" xml:"pcLoginLoginUrl,omitempty"`
+	PcLoginRequestMethod       *string   `json:"pcLoginRequestMethod,omitempty" xml:"pcLoginRequestMethod,omitempty"`
+	PcOriginalHomepageUrl      *string   `json:"pcOriginalHomepageUrl,omitempty" xml:"pcOriginalHomepageUrl,omitempty"`
+	PcTransferUrl              *string   `json:"pcTransferUrl,omitempty" xml:"pcTransferUrl,omitempty"`
+	SsoH5PageType              []*string `json:"ssoH5PageType,omitempty" xml:"ssoH5PageType,omitempty" type:"Repeated"`
 }
 
 func (s GetInnerAppInfoResponseBody) String() string {
@@ -1852,6 +1853,11 @@ func (s *GetInnerAppInfoResponseBody) SetCustomerAppId(v string) *GetInnerAppInf
 
 func (s *GetInnerAppInfoResponseBody) SetHideDingNavBar(v bool) *GetInnerAppInfoResponseBody {
 	s.HideDingNavBar = &v
+	return s
+}
+
+func (s *GetInnerAppInfoResponseBody) SetMobileEffectiveHomepageUrl(v string) *GetInnerAppInfoResponseBody {
+	s.MobileEffectiveHomepageUrl = &v
 	return s
 }
 

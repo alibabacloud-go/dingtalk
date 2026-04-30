@@ -7570,6 +7570,7 @@ type HrbrainLabelMetaUpdateRequest struct {
 	Options        []map[string]interface{} `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
 	Permission     map[string]interface{}   `json:"permission,omitempty" xml:"permission,omitempty"`
 	Required       *bool                    `json:"required,omitempty" xml:"required,omitempty"`
+	Scenes         []*string                `json:"scenes,omitempty" xml:"scenes,omitempty" type:"Repeated"`
 }
 
 func (s HrbrainLabelMetaUpdateRequest) String() string {
@@ -7627,6 +7628,11 @@ func (s *HrbrainLabelMetaUpdateRequest) SetPermission(v map[string]interface{}) 
 
 func (s *HrbrainLabelMetaUpdateRequest) SetRequired(v bool) *HrbrainLabelMetaUpdateRequest {
 	s.Required = &v
+	return s
+}
+
+func (s *HrbrainLabelMetaUpdateRequest) SetScenes(v []*string) *HrbrainLabelMetaUpdateRequest {
+	s.Scenes = v
 	return s
 }
 
@@ -12803,6 +12809,10 @@ func (client *Client) HrbrainLabelMetaUpdateWithOptions(request *HrbrainLabelMet
 
 	if !tea.BoolValue(util.IsUnset(request.Required)) {
 		body["required"] = request.Required
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Scenes)) {
+		body["scenes"] = request.Scenes
 	}
 
 	realHeaders := make(map[string]*string)

@@ -4435,6 +4435,153 @@ func (s *GetFamilySchoolConversationsResponse) SetBody(v *GetFamilySchoolConvers
 	return s
 }
 
+type GetGroupMembersByUserTokenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetGroupMembersByUserTokenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupMembersByUserTokenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupMembersByUserTokenHeaders) SetCommonHeaders(v map[string]*string) *GetGroupMembersByUserTokenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenHeaders) SetXAcsDingtalkAccessToken(v string) *GetGroupMembersByUserTokenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetGroupMembersByUserTokenRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 200
+	MaxResults *int64  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidXXXXXXX
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s GetGroupMembersByUserTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupMembersByUserTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupMembersByUserTokenRequest) SetMaxResults(v int64) *GetGroupMembersByUserTokenRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenRequest) SetNextToken(v string) *GetGroupMembersByUserTokenRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenRequest) SetOpenConversationId(v string) *GetGroupMembersByUserTokenRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetGroupMembersByUserTokenResponseBody struct {
+	HasMore        *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	MemberUnionIds []*string `json:"memberUnionIds,omitempty" xml:"memberUnionIds,omitempty" type:"Repeated"`
+	MemberUserIds  []*string `json:"memberUserIds,omitempty" xml:"memberUserIds,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 92233720368
+	NextToken      *string            `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	StaffIdNickMap map[string]*string `json:"staffIdNickMap,omitempty" xml:"staffIdNickMap,omitempty"`
+	Success        *bool              `json:"success,omitempty" xml:"success,omitempty"`
+	UnionIdNickMap map[string]*string `json:"unionIdNickMap,omitempty" xml:"unionIdNickMap,omitempty"`
+}
+
+func (s GetGroupMembersByUserTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupMembersByUserTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupMembersByUserTokenResponseBody) SetHasMore(v bool) *GetGroupMembersByUserTokenResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenResponseBody) SetMemberUnionIds(v []*string) *GetGroupMembersByUserTokenResponseBody {
+	s.MemberUnionIds = v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenResponseBody) SetMemberUserIds(v []*string) *GetGroupMembersByUserTokenResponseBody {
+	s.MemberUserIds = v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenResponseBody) SetNextToken(v string) *GetGroupMembersByUserTokenResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenResponseBody) SetStaffIdNickMap(v map[string]*string) *GetGroupMembersByUserTokenResponseBody {
+	s.StaffIdNickMap = v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenResponseBody) SetSuccess(v bool) *GetGroupMembersByUserTokenResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenResponseBody) SetUnionIdNickMap(v map[string]*string) *GetGroupMembersByUserTokenResponseBody {
+	s.UnionIdNickMap = v
+	return s
+}
+
+type GetGroupMembersByUserTokenResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetGroupMembersByUserTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetGroupMembersByUserTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetGroupMembersByUserTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetGroupMembersByUserTokenResponse) SetHeaders(v map[string]*string) *GetGroupMembersByUserTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenResponse) SetStatusCode(v int32) *GetGroupMembersByUserTokenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetGroupMembersByUserTokenResponse) SetBody(v *GetGroupMembersByUserTokenResponseBody) *GetGroupMembersByUserTokenResponse {
+	s.Body = v
+	return s
+}
+
 type GetInnerGroupMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -21864,6 +22011,87 @@ func (client *Client) GetFamilySchoolConversations(request *GetFamilySchoolConve
 	headers := &GetFamilySchoolConversationsHeaders{}
 	_result = &GetFamilySchoolConversationsResponse{}
 	_body, _err := client.GetFamilySchoolConversationsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 以用户身份获取群成员
+//
+// @param request - GetGroupMembersByUserTokenRequest
+//
+// @param headers - GetGroupMembersByUserTokenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetGroupMembersByUserTokenResponse
+func (client *Client) GetGroupMembersByUserTokenWithOptions(request *GetGroupMembersByUserTokenRequest, headers *GetGroupMembersByUserTokenHeaders, runtime *util.RuntimeOptions) (_result *GetGroupMembersByUserTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetGroupMembersByUserToken"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/me/chat/members/batchQuery"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetGroupMembersByUserTokenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 以用户身份获取群成员
+//
+// @param request - GetGroupMembersByUserTokenRequest
+//
+// @return GetGroupMembersByUserTokenResponse
+func (client *Client) GetGroupMembersByUserToken(request *GetGroupMembersByUserTokenRequest) (_result *GetGroupMembersByUserTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetGroupMembersByUserTokenHeaders{}
+	_result = &GetGroupMembersByUserTokenResponse{}
+	_body, _err := client.GetGroupMembersByUserTokenWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

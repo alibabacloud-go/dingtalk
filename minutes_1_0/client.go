@@ -3648,7 +3648,9 @@ func (s *QuerySummaryWithTemplateRequest) SetUnionId(v string) *QuerySummaryWith
 }
 
 type QuerySummaryWithTemplateResponseBody struct {
-	SummaryText *string `json:"summaryText,omitempty" xml:"summaryText,omitempty"`
+	GeneratingStatus       *string `json:"generatingStatus,omitempty" xml:"generatingStatus,omitempty"`
+	SummaryText            *string `json:"summaryText,omitempty" xml:"summaryText,omitempty"`
+	VisualGeneratingStatus *string `json:"visualGeneratingStatus,omitempty" xml:"visualGeneratingStatus,omitempty"`
 }
 
 func (s QuerySummaryWithTemplateResponseBody) String() string {
@@ -3659,8 +3661,18 @@ func (s QuerySummaryWithTemplateResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *QuerySummaryWithTemplateResponseBody) SetGeneratingStatus(v string) *QuerySummaryWithTemplateResponseBody {
+	s.GeneratingStatus = &v
+	return s
+}
+
 func (s *QuerySummaryWithTemplateResponseBody) SetSummaryText(v string) *QuerySummaryWithTemplateResponseBody {
 	s.SummaryText = &v
+	return s
+}
+
+func (s *QuerySummaryWithTemplateResponseBody) SetVisualGeneratingStatus(v string) *QuerySummaryWithTemplateResponseBody {
+	s.VisualGeneratingStatus = &v
 	return s
 }
 

@@ -9,6 +9,100 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AddOrgRobotInstanceToGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddOrgRobotInstanceToGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgRobotInstanceToGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgRobotInstanceToGroupHeaders) SetCommonHeaders(v map[string]*string) *AddOrgRobotInstanceToGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddOrgRobotInstanceToGroupHeaders) SetXAcsDingtalkAccessToken(v string) *AddOrgRobotInstanceToGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddOrgRobotInstanceToGroupRequest struct {
+	// This parameter is required.
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	// This parameter is required.
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s AddOrgRobotInstanceToGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgRobotInstanceToGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgRobotInstanceToGroupRequest) SetOpenConversationId(v string) *AddOrgRobotInstanceToGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *AddOrgRobotInstanceToGroupRequest) SetRobotCode(v string) *AddOrgRobotInstanceToGroupRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type AddOrgRobotInstanceToGroupResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s AddOrgRobotInstanceToGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgRobotInstanceToGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgRobotInstanceToGroupResponseBody) SetResult(v bool) *AddOrgRobotInstanceToGroupResponseBody {
+	s.Result = &v
+	return s
+}
+
+type AddOrgRobotInstanceToGroupResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddOrgRobotInstanceToGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddOrgRobotInstanceToGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddOrgRobotInstanceToGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddOrgRobotInstanceToGroupResponse) SetHeaders(v map[string]*string) *AddOrgRobotInstanceToGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddOrgRobotInstanceToGroupResponse) SetStatusCode(v int32) *AddOrgRobotInstanceToGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddOrgRobotInstanceToGroupResponse) SetBody(v *AddOrgRobotInstanceToGroupResponseBody) *AddOrgRobotInstanceToGroupResponse {
+	s.Body = v
+	return s
+}
+
 type BatchOTOQueryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3456,6 +3550,83 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 群内安装企业机器人
+//
+// @param request - AddOrgRobotInstanceToGroupRequest
+//
+// @param headers - AddOrgRobotInstanceToGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddOrgRobotInstanceToGroupResponse
+func (client *Client) AddOrgRobotInstanceToGroupWithOptions(request *AddOrgRobotInstanceToGroupRequest, headers *AddOrgRobotInstanceToGroupHeaders, runtime *util.RuntimeOptions) (_result *AddOrgRobotInstanceToGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddOrgRobotInstanceToGroup"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/groups/orgRobots/add"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddOrgRobotInstanceToGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 群内安装企业机器人
+//
+// @param request - AddOrgRobotInstanceToGroupRequest
+//
+// @return AddOrgRobotInstanceToGroupResponse
+func (client *Client) AddOrgRobotInstanceToGroup(request *AddOrgRobotInstanceToGroupRequest) (_result *AddOrgRobotInstanceToGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddOrgRobotInstanceToGroupHeaders{}
+	_result = &AddOrgRobotInstanceToGroupResponse{}
+	_body, _err := client.AddOrgRobotInstanceToGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:
