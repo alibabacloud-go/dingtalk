@@ -1958,6 +1958,13 @@ type DeleteInstanceRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// zh_CN
@@ -1992,6 +1999,11 @@ func (s DeleteInstanceRequest) GoString() string {
 
 func (s *DeleteInstanceRequest) SetAppType(v string) *DeleteInstanceRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *DeleteInstanceRequest) SetEnv(v string) *DeleteInstanceRequest {
+	s.Env = &v
 	return s
 }
 
@@ -7098,6 +7110,13 @@ type GetInstancesByIdListRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// zh_CN
@@ -7132,6 +7151,11 @@ func (s GetInstancesByIdListRequest) GoString() string {
 
 func (s *GetInstancesByIdListRequest) SetAppType(v string) *GetInstancesByIdListRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *GetInstancesByIdListRequest) SetEnv(v string) *GetInstancesByIdListRequest {
+	s.Env = &v
 	return s
 }
 
@@ -10570,6 +10594,13 @@ type GetProcessDesignByCodeRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	ProcessCode *string `json:"processCode,omitempty" xml:"processCode,omitempty"`
 	// example:
@@ -10600,6 +10631,11 @@ func (s GetProcessDesignByCodeRequest) GoString() string {
 
 func (s *GetProcessDesignByCodeRequest) SetAppType(v string) *GetProcessDesignByCodeRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *GetProcessDesignByCodeRequest) SetEnv(v string) *GetProcessDesignByCodeRequest {
+	s.Env = &v
 	return s
 }
 
@@ -15200,6 +15236,13 @@ type PreviewPublishedProcessRequest struct {
 	//
 	// 18295
 	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -15249,6 +15292,11 @@ func (s *PreviewPublishedProcessRequest) SetAppType(v string) *PreviewPublishedP
 
 func (s *PreviewPublishedProcessRequest) SetDepartmentId(v string) *PreviewPublishedProcessRequest {
 	s.DepartmentId = &v
+	return s
+}
+
+func (s *PreviewPublishedProcessRequest) SetEnv(v string) *PreviewPublishedProcessRequest {
+	s.Env = &v
 	return s
 }
 
@@ -16949,12 +16997,23 @@ type SaveFormRemarkRequest struct {
 	//
 	// 未知
 	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
 	//
 	// 33f6d221-17f8-42b7-836a-682b95a046c2
 	FormInstanceId *string `json:"formInstanceId,omitempty" xml:"formInstanceId,omitempty"`
+	// example:
+	//
+	// FORM-EF6Y4G8WO2FN0SUB43TDQ3CGC3FMFQ1G9400RCJ3
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
 	// example:
 	//
 	// zh_CN
@@ -17000,8 +17059,18 @@ func (s *SaveFormRemarkRequest) SetContent(v string) *SaveFormRemarkRequest {
 	return s
 }
 
+func (s *SaveFormRemarkRequest) SetEnv(v string) *SaveFormRemarkRequest {
+	s.Env = &v
+	return s
+}
+
 func (s *SaveFormRemarkRequest) SetFormInstanceId(v string) *SaveFormRemarkRequest {
 	s.FormInstanceId = &v
+	return s
+}
+
+func (s *SaveFormRemarkRequest) SetFormUuid(v string) *SaveFormRemarkRequest {
+	s.FormUuid = &v
 	return s
 }
 
@@ -19992,6 +20061,13 @@ type TerminateInstanceRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// zh_CN
@@ -20026,6 +20102,11 @@ func (s TerminateInstanceRequest) GoString() string {
 
 func (s *TerminateInstanceRequest) SetAppType(v string) *TerminateInstanceRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *TerminateInstanceRequest) SetEnv(v string) *TerminateInstanceRequest {
+	s.Env = &v
 	return s
 }
 
@@ -22390,6 +22471,10 @@ func (client *Client) DeleteInstanceWithOptions(request *DeleteInstanceRequest, 
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Language)) {
@@ -24761,6 +24846,10 @@ func (client *Client) GetInstancesByIdListWithOptions(request *GetInstancesByIdL
 		query["appType"] = request.AppType
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Language)) {
 		query["language"] = request.Language
 	}
@@ -25693,6 +25782,10 @@ func (client *Client) GetProcessDesignByCodeWithOptions(request *GetProcessDesig
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.ProcessCode)) {
@@ -27543,6 +27636,10 @@ func (client *Client) PreviewPublishedProcessWithOptions(request *PreviewPublish
 		body["departmentId"] = request.DepartmentId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
 		body["formDataJson"] = request.FormDataJson
 	}
@@ -28574,8 +28671,16 @@ func (client *Client) SaveFormRemarkWithOptions(request *SaveFormRemarkRequest, 
 		body["content"] = request.Content
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormInstanceId)) {
 		body["formInstanceId"] = request.FormInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		body["formUuid"] = request.FormUuid
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Language)) {
@@ -29765,6 +29870,10 @@ func (client *Client) TerminateInstanceWithOptions(request *TerminateInstanceReq
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Language)) {

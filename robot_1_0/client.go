@@ -693,6 +693,7 @@ func (s *BatchSendOTORequest) SetUserIds(v []*string) *BatchSendOTORequest {
 }
 
 type BatchSendOTOResponseBody struct {
+	FilteredStaffIdList       []*string `json:"filteredStaffIdList,omitempty" xml:"filteredStaffIdList,omitempty" type:"Repeated"`
 	FlowControlledStaffIdList []*string `json:"flowControlledStaffIdList,omitempty" xml:"flowControlledStaffIdList,omitempty" type:"Repeated"`
 	InvalidStaffIdList        []*string `json:"invalidStaffIdList,omitempty" xml:"invalidStaffIdList,omitempty" type:"Repeated"`
 	ProcessQueryKey           *string   `json:"processQueryKey,omitempty" xml:"processQueryKey,omitempty"`
@@ -704,6 +705,11 @@ func (s BatchSendOTOResponseBody) String() string {
 
 func (s BatchSendOTOResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *BatchSendOTOResponseBody) SetFilteredStaffIdList(v []*string) *BatchSendOTOResponseBody {
+	s.FilteredStaffIdList = v
+	return s
 }
 
 func (s *BatchSendOTOResponseBody) SetFlowControlledStaffIdList(v []*string) *BatchSendOTOResponseBody {

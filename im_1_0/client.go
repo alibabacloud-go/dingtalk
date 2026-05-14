@@ -488,6 +488,109 @@ func (s *AddRobotToConversationResponse) SetBody(v *AddRobotToConversationRespon
 	return s
 }
 
+type AddSceneGroupMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AddSceneGroupMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSceneGroupMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AddSceneGroupMemberHeaders) SetCommonHeaders(v map[string]*string) *AddSceneGroupMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AddSceneGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *AddSceneGroupMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AddSceneGroupMemberRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxxx==
+	OpenConversationId *string   `json:"open_conversation_id,omitempty" xml:"open_conversation_id,omitempty"`
+	UnionIds           []*string `json:"union_ids,omitempty" xml:"union_ids,omitempty" type:"Repeated"`
+	UserIds            []*string `json:"user_ids,omitempty" xml:"user_ids,omitempty" type:"Repeated"`
+}
+
+func (s AddSceneGroupMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSceneGroupMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AddSceneGroupMemberRequest) SetOpenConversationId(v string) *AddSceneGroupMemberRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *AddSceneGroupMemberRequest) SetUnionIds(v []*string) *AddSceneGroupMemberRequest {
+	s.UnionIds = v
+	return s
+}
+
+func (s *AddSceneGroupMemberRequest) SetUserIds(v []*string) *AddSceneGroupMemberRequest {
+	s.UserIds = v
+	return s
+}
+
+type AddSceneGroupMemberResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AddSceneGroupMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSceneGroupMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AddSceneGroupMemberResponseBody) SetSuccess(v bool) *AddSceneGroupMemberResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AddSceneGroupMemberResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AddSceneGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AddSceneGroupMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AddSceneGroupMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AddSceneGroupMemberResponse) SetHeaders(v map[string]*string) *AddSceneGroupMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AddSceneGroupMemberResponse) SetStatusCode(v int32) *AddSceneGroupMemberResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AddSceneGroupMemberResponse) SetBody(v *AddSceneGroupMemberResponseBody) *AddSceneGroupMemberResponse {
+	s.Body = v
+	return s
+}
+
 type AddUnfurlingRegisterHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2389,6 +2492,199 @@ func (s *CreateCustomUserRolesResponse) SetBody(v *CreateCustomUserRolesResponse
 	return s
 }
 
+type CreateGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateGroupRequest struct {
+	ConversationTag   *int64                               `json:"conversationTag,omitempty" xml:"conversationTag,omitempty"`
+	Extidlist         []*string                            `json:"extidlist,omitempty" xml:"extidlist,omitempty" type:"Repeated"`
+	Icon              *string                              `json:"icon,omitempty" xml:"icon,omitempty"`
+	ManagementOptions *CreateGroupRequestManagementOptions `json:"managementOptions,omitempty" xml:"managementOptions,omitempty" type:"Struct"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	Owner     *string `json:"owner,omitempty" xml:"owner,omitempty"`
+	OwnerType *string `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
+	// This parameter is required.
+	Useridlist []*string `json:"useridlist,omitempty" xml:"useridlist,omitempty" type:"Repeated"`
+}
+
+func (s CreateGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupRequest) SetConversationTag(v int64) *CreateGroupRequest {
+	s.ConversationTag = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetExtidlist(v []*string) *CreateGroupRequest {
+	s.Extidlist = v
+	return s
+}
+
+func (s *CreateGroupRequest) SetIcon(v string) *CreateGroupRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetManagementOptions(v *CreateGroupRequestManagementOptions) *CreateGroupRequest {
+	s.ManagementOptions = v
+	return s
+}
+
+func (s *CreateGroupRequest) SetName(v string) *CreateGroupRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetOwner(v string) *CreateGroupRequest {
+	s.Owner = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetOwnerType(v string) *CreateGroupRequest {
+	s.OwnerType = &v
+	return s
+}
+
+func (s *CreateGroupRequest) SetUseridlist(v []*string) *CreateGroupRequest {
+	s.Useridlist = v
+	return s
+}
+
+type CreateGroupRequestManagementOptions struct {
+	ChatBannedType      *int32 `json:"chatBannedType,omitempty" xml:"chatBannedType,omitempty"`
+	ManagementType      *int32 `json:"managementType,omitempty" xml:"managementType,omitempty"`
+	MentionAllAuthority *int32 `json:"mentionAllAuthority,omitempty" xml:"mentionAllAuthority,omitempty"`
+	Searchable          *int32 `json:"searchable,omitempty" xml:"searchable,omitempty"`
+	ShowHistoryType     *int32 `json:"showHistoryType,omitempty" xml:"showHistoryType,omitempty"`
+	ValidationType      *int32 `json:"validationType,omitempty" xml:"validationType,omitempty"`
+}
+
+func (s CreateGroupRequestManagementOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupRequestManagementOptions) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupRequestManagementOptions) SetChatBannedType(v int32) *CreateGroupRequestManagementOptions {
+	s.ChatBannedType = &v
+	return s
+}
+
+func (s *CreateGroupRequestManagementOptions) SetManagementType(v int32) *CreateGroupRequestManagementOptions {
+	s.ManagementType = &v
+	return s
+}
+
+func (s *CreateGroupRequestManagementOptions) SetMentionAllAuthority(v int32) *CreateGroupRequestManagementOptions {
+	s.MentionAllAuthority = &v
+	return s
+}
+
+func (s *CreateGroupRequestManagementOptions) SetSearchable(v int32) *CreateGroupRequestManagementOptions {
+	s.Searchable = &v
+	return s
+}
+
+func (s *CreateGroupRequestManagementOptions) SetShowHistoryType(v int32) *CreateGroupRequestManagementOptions {
+	s.ShowHistoryType = &v
+	return s
+}
+
+func (s *CreateGroupRequestManagementOptions) SetValidationType(v int32) *CreateGroupRequestManagementOptions {
+	s.ValidationType = &v
+	return s
+}
+
+type CreateGroupResponseBody struct {
+	// 群会话Id
+	Chatid *string `json:"chatid,omitempty" xml:"chatid,omitempty"`
+	// 会话类型标记
+	ConversationTag *int64 `json:"conversationTag,omitempty" xml:"conversationTag,omitempty"`
+	// 开放群会话Id
+	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+}
+
+func (s CreateGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponseBody) SetChatid(v string) *CreateGroupResponseBody {
+	s.Chatid = &v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetConversationTag(v int64) *CreateGroupResponseBody {
+	s.ConversationTag = &v
+	return s
+}
+
+func (s *CreateGroupResponseBody) SetOpenConversationId(v string) *CreateGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type CreateGroupResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateGroupResponse) SetHeaders(v map[string]*string) *CreateGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateGroupResponse) SetStatusCode(v int32) *CreateGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateGroupResponse) SetBody(v *CreateGroupResponseBody) *CreateGroupResponse {
+	s.Body = v
+	return s
+}
+
 type CreateGroupConversationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2895,6 +3191,278 @@ func (s *CreateInterconnectionResponse) SetStatusCode(v int32) *CreateInterconne
 }
 
 func (s *CreateInterconnectionResponse) SetBody(v *CreateInterconnectionResponseBody) *CreateInterconnectionResponse {
+	s.Body = v
+	return s
+}
+
+type CreateSceneGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateSceneGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateSceneGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateSceneGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSceneGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateSceneGroupRequest struct {
+	// example:
+	//
+	// http://***.png
+	Icon              *string                                   `json:"icon,omitempty" xml:"icon,omitempty"`
+	ManagementOptions *CreateSceneGroupRequestManagementOptions `json:"management_options,omitempty" xml:"management_options,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1107****2120
+	OwnerUserId *string   `json:"owner_user_id,omitempty" xml:"owner_user_id,omitempty"`
+	SubadminIds []*string `json:"subadmin_ids,omitempty" xml:"subadmin_ids,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 8d42****nkld
+	TemplateId *string `json:"template_id,omitempty" xml:"template_id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 客户群
+	Title   *string   `json:"title,omitempty" xml:"title,omitempty"`
+	UserIds []*string `json:"user_ids,omitempty" xml:"user_ids,omitempty" type:"Repeated"`
+	// example:
+	//
+	// asdazxc
+	Uuid *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s CreateSceneGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupRequest) SetIcon(v string) *CreateSceneGroupRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequest) SetManagementOptions(v *CreateSceneGroupRequestManagementOptions) *CreateSceneGroupRequest {
+	s.ManagementOptions = v
+	return s
+}
+
+func (s *CreateSceneGroupRequest) SetOwnerUserId(v string) *CreateSceneGroupRequest {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequest) SetSubadminIds(v []*string) *CreateSceneGroupRequest {
+	s.SubadminIds = v
+	return s
+}
+
+func (s *CreateSceneGroupRequest) SetTemplateId(v string) *CreateSceneGroupRequest {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequest) SetTitle(v string) *CreateSceneGroupRequest {
+	s.Title = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequest) SetUserIds(v []*string) *CreateSceneGroupRequest {
+	s.UserIds = v
+	return s
+}
+
+func (s *CreateSceneGroupRequest) SetUuid(v string) *CreateSceneGroupRequest {
+	s.Uuid = &v
+	return s
+}
+
+type CreateSceneGroupRequestManagementOptions struct {
+	AddFriendForbidden          *int32 `json:"add_friend_forbidden,omitempty" xml:"add_friend_forbidden,omitempty"`
+	AllMembersCanCreateCalendar *int32 `json:"all_members_can_create_calendar,omitempty" xml:"all_members_can_create_calendar,omitempty"`
+	AllMembersCanCreateMcsConf  *int32 `json:"all_members_can_create_mcs_conf,omitempty" xml:"all_members_can_create_mcs_conf,omitempty"`
+	ChatBannedType              *int32 `json:"chat_banned_type,omitempty" xml:"chat_banned_type,omitempty"`
+	GroupEmailDisabled          *int32 `json:"group_email_disabled,omitempty" xml:"group_email_disabled,omitempty"`
+	GroupLiveSwitch             *int32 `json:"group_live_switch,omitempty" xml:"group_live_switch,omitempty"`
+	ManagementType              *int32 `json:"management_type,omitempty" xml:"management_type,omitempty"`
+	MembersToAdminChat          *int32 `json:"members_to_admin_chat,omitempty" xml:"members_to_admin_chat,omitempty"`
+	MentionAllAuthority         *int32 `json:"mention_all_authority,omitempty" xml:"mention_all_authority,omitempty"`
+	NotQuitWhenEmpLeave         *int32 `json:"not_quit_when_emp_leave,omitempty" xml:"not_quit_when_emp_leave,omitempty"`
+	OnlyAdminCanAddMem          *int32 `json:"only_admin_can_add_mem,omitempty" xml:"only_admin_can_add_mem,omitempty"`
+	OnlyAdminCanDing            *int32 `json:"only_admin_can_ding,omitempty" xml:"only_admin_can_ding,omitempty"`
+	OnlyAdminCanSetMsgTop       *int32 `json:"only_admin_can_set_msg_top,omitempty" xml:"only_admin_can_set_msg_top,omitempty"`
+	Searchable                  *int32 `json:"searchable,omitempty" xml:"searchable,omitempty"`
+	ShowHistoryType             *int32 `json:"show_history_type,omitempty" xml:"show_history_type,omitempty"`
+	ValidationType              *int32 `json:"validation_type,omitempty" xml:"validation_type,omitempty"`
+}
+
+func (s CreateSceneGroupRequestManagementOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupRequestManagementOptions) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetAddFriendForbidden(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.AddFriendForbidden = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetAllMembersCanCreateCalendar(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.AllMembersCanCreateCalendar = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetAllMembersCanCreateMcsConf(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.AllMembersCanCreateMcsConf = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetChatBannedType(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.ChatBannedType = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetGroupEmailDisabled(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.GroupEmailDisabled = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetGroupLiveSwitch(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.GroupLiveSwitch = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetManagementType(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.ManagementType = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetMembersToAdminChat(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.MembersToAdminChat = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetMentionAllAuthority(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.MentionAllAuthority = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetNotQuitWhenEmpLeave(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.NotQuitWhenEmpLeave = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetOnlyAdminCanAddMem(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.OnlyAdminCanAddMem = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetOnlyAdminCanDing(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.OnlyAdminCanDing = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetOnlyAdminCanSetMsgTop(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.OnlyAdminCanSetMsgTop = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetSearchable(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.Searchable = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetShowHistoryType(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.ShowHistoryType = &v
+	return s
+}
+
+func (s *CreateSceneGroupRequestManagementOptions) SetValidationType(v int32) *CreateSceneGroupRequestManagementOptions {
+	s.ValidationType = &v
+	return s
+}
+
+type CreateSceneGroupResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// chatxxxxxx
+	ChatId *string `json:"chat_id,omitempty" xml:"chat_id,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxxx==
+	OpenConversationId *string `json:"open_conversation_id,omitempty" xml:"open_conversation_id,omitempty"`
+}
+
+func (s CreateSceneGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupResponseBody) SetChatId(v string) *CreateSceneGroupResponseBody {
+	s.ChatId = &v
+	return s
+}
+
+func (s *CreateSceneGroupResponseBody) SetOpenConversationId(v string) *CreateSceneGroupResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+type CreateSceneGroupResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateSceneGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateSceneGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSceneGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSceneGroupResponse) SetHeaders(v map[string]*string) *CreateSceneGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateSceneGroupResponse) SetStatusCode(v int32) *CreateSceneGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateSceneGroupResponse) SetBody(v *CreateSceneGroupResponseBody) *CreateSceneGroupResponse {
 	s.Body = v
 	return s
 }
@@ -14514,6 +15082,110 @@ func (s *RemoveRobotFromConversationResponse) SetBody(v *RemoveRobotFromConversa
 	return s
 }
 
+type RemoveSceneGroupMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveSceneGroupMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveSceneGroupMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveSceneGroupMemberHeaders) SetCommonHeaders(v map[string]*string) *RemoveSceneGroupMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveSceneGroupMemberHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveSceneGroupMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveSceneGroupMemberRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxxx==
+	OpenConversationId *string   `json:"open_conversation_id,omitempty" xml:"open_conversation_id,omitempty"`
+	UnionIds           []*string `json:"union_ids,omitempty" xml:"union_ids,omitempty" type:"Repeated"`
+	UserIds            []*string `json:"user_ids,omitempty" xml:"user_ids,omitempty" type:"Repeated"`
+}
+
+func (s RemoveSceneGroupMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveSceneGroupMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveSceneGroupMemberRequest) SetOpenConversationId(v string) *RemoveSceneGroupMemberRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *RemoveSceneGroupMemberRequest) SetUnionIds(v []*string) *RemoveSceneGroupMemberRequest {
+	s.UnionIds = v
+	return s
+}
+
+func (s *RemoveSceneGroupMemberRequest) SetUserIds(v []*string) *RemoveSceneGroupMemberRequest {
+	s.UserIds = v
+	return s
+}
+
+type RemoveSceneGroupMemberResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s RemoveSceneGroupMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveSceneGroupMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveSceneGroupMemberResponseBody) SetSuccess(v bool) *RemoveSceneGroupMemberResponseBody {
+	s.Success = &v
+	return s
+}
+
+type RemoveSceneGroupMemberResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RemoveSceneGroupMemberResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RemoveSceneGroupMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveSceneGroupMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveSceneGroupMemberResponse) SetHeaders(v map[string]*string) *RemoveSceneGroupMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveSceneGroupMemberResponse) SetStatusCode(v int32) *RemoveSceneGroupMemberResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RemoveSceneGroupMemberResponse) SetBody(v *RemoveSceneGroupMemberResponseBody) *RemoveSceneGroupMemberResponse {
+	s.Body = v
+	return s
+}
+
 type SearchInnerGroupsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16906,6 +17578,195 @@ func (s *UpdateCustomGroupRoleResponse) SetBody(v *UpdateCustomGroupRoleResponse
 	return s
 }
 
+type UpdateGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupHeaders) SetCommonHeaders(v map[string]*string) *UpdateGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateGroupHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateGroupRequest struct {
+	AddExtidlist  []*string `json:"add_extidlist,omitempty" xml:"add_extidlist,omitempty" type:"Repeated"`
+	AddUseridlist []*string `json:"add_useridlist,omitempty" xml:"add_useridlist,omitempty" type:"Repeated"`
+	// This parameter is required.
+	Chatid            *string                              `json:"chatid,omitempty" xml:"chatid,omitempty"`
+	DelExtidlist      []*string                            `json:"del_extidlist,omitempty" xml:"del_extidlist,omitempty" type:"Repeated"`
+	DelUseridlist     []*string                            `json:"del_useridlist,omitempty" xml:"del_useridlist,omitempty" type:"Repeated"`
+	Icon              *string                              `json:"icon,omitempty" xml:"icon,omitempty"`
+	ManagementOptions *UpdateGroupRequestManagementOptions `json:"managementOptions,omitempty" xml:"managementOptions,omitempty" type:"Struct"`
+	Name              *string                              `json:"name,omitempty" xml:"name,omitempty"`
+	Owner             *string                              `json:"owner,omitempty" xml:"owner,omitempty"`
+	OwnerType         *string                              `json:"ownerType,omitempty" xml:"ownerType,omitempty"`
+}
+
+func (s UpdateGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupRequest) SetAddExtidlist(v []*string) *UpdateGroupRequest {
+	s.AddExtidlist = v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetAddUseridlist(v []*string) *UpdateGroupRequest {
+	s.AddUseridlist = v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetChatid(v string) *UpdateGroupRequest {
+	s.Chatid = &v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetDelExtidlist(v []*string) *UpdateGroupRequest {
+	s.DelExtidlist = v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetDelUseridlist(v []*string) *UpdateGroupRequest {
+	s.DelUseridlist = v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetIcon(v string) *UpdateGroupRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetManagementOptions(v *UpdateGroupRequestManagementOptions) *UpdateGroupRequest {
+	s.ManagementOptions = v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetName(v string) *UpdateGroupRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetOwner(v string) *UpdateGroupRequest {
+	s.Owner = &v
+	return s
+}
+
+func (s *UpdateGroupRequest) SetOwnerType(v string) *UpdateGroupRequest {
+	s.OwnerType = &v
+	return s
+}
+
+type UpdateGroupRequestManagementOptions struct {
+	ChatBannedType      *int32 `json:"chatBannedType,omitempty" xml:"chatBannedType,omitempty"`
+	ManagementType      *int32 `json:"managementType,omitempty" xml:"managementType,omitempty"`
+	MentionAllAuthority *int32 `json:"mentionAllAuthority,omitempty" xml:"mentionAllAuthority,omitempty"`
+	Searchable          *int32 `json:"searchable,omitempty" xml:"searchable,omitempty"`
+	ShowHistoryType     *int32 `json:"showHistoryType,omitempty" xml:"showHistoryType,omitempty"`
+	ValidationType      *int32 `json:"validationType,omitempty" xml:"validationType,omitempty"`
+}
+
+func (s UpdateGroupRequestManagementOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupRequestManagementOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupRequestManagementOptions) SetChatBannedType(v int32) *UpdateGroupRequestManagementOptions {
+	s.ChatBannedType = &v
+	return s
+}
+
+func (s *UpdateGroupRequestManagementOptions) SetManagementType(v int32) *UpdateGroupRequestManagementOptions {
+	s.ManagementType = &v
+	return s
+}
+
+func (s *UpdateGroupRequestManagementOptions) SetMentionAllAuthority(v int32) *UpdateGroupRequestManagementOptions {
+	s.MentionAllAuthority = &v
+	return s
+}
+
+func (s *UpdateGroupRequestManagementOptions) SetSearchable(v int32) *UpdateGroupRequestManagementOptions {
+	s.Searchable = &v
+	return s
+}
+
+func (s *UpdateGroupRequestManagementOptions) SetShowHistoryType(v int32) *UpdateGroupRequestManagementOptions {
+	s.ShowHistoryType = &v
+	return s
+}
+
+func (s *UpdateGroupRequestManagementOptions) SetValidationType(v int32) *UpdateGroupRequestManagementOptions {
+	s.ValidationType = &v
+	return s
+}
+
+type UpdateGroupResponseBody struct {
+	// 是否成功
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupResponseBody) SetSuccess(v bool) *UpdateGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateGroupResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateGroupResponse) SetHeaders(v map[string]*string) *UpdateGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateGroupResponse) SetStatusCode(v int32) *UpdateGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateGroupResponse) SetBody(v *UpdateGroupResponseBody) *UpdateGroupResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateGroupAvatarHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -17968,6 +18829,252 @@ func (s *UpdateRobotInteractiveCardResponse) SetStatusCode(v int32) *UpdateRobot
 }
 
 func (s *UpdateRobotInteractiveCardResponse) SetBody(v *UpdateRobotInteractiveCardResponseBody) *UpdateRobotInteractiveCardResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateSceneGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateSceneGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSceneGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSceneGroupHeaders) SetCommonHeaders(v map[string]*string) *UpdateSceneGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateSceneGroupHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateSceneGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateSceneGroupRequest struct {
+	// example:
+	//
+	// http://***.png
+	Icon              *string                                   `json:"icon,omitempty" xml:"icon,omitempty"`
+	ManagementOptions *UpdateSceneGroupRequestManagementOptions `json:"management_options,omitempty" xml:"management_options,omitempty" type:"Struct"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidxxxxxx==
+	OpenConversationId *string `json:"open_conversation_id,omitempty" xml:"open_conversation_id,omitempty"`
+	// example:
+	//
+	// unionid****
+	OwnerUnionId *string `json:"owner_union_id,omitempty" xml:"owner_union_id,omitempty"`
+	// example:
+	//
+	// 1107****2120
+	OwnerUserId *string `json:"owner_user_id,omitempty" xml:"owner_user_id,omitempty"`
+	// example:
+	//
+	// 客户群
+	Title *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s UpdateSceneGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSceneGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSceneGroupRequest) SetIcon(v string) *UpdateSceneGroupRequest {
+	s.Icon = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequest) SetManagementOptions(v *UpdateSceneGroupRequestManagementOptions) *UpdateSceneGroupRequest {
+	s.ManagementOptions = v
+	return s
+}
+
+func (s *UpdateSceneGroupRequest) SetOpenConversationId(v string) *UpdateSceneGroupRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequest) SetOwnerUnionId(v string) *UpdateSceneGroupRequest {
+	s.OwnerUnionId = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequest) SetOwnerUserId(v string) *UpdateSceneGroupRequest {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequest) SetTitle(v string) *UpdateSceneGroupRequest {
+	s.Title = &v
+	return s
+}
+
+type UpdateSceneGroupRequestManagementOptions struct {
+	AddFriendForbidden          *int32 `json:"add_friend_forbidden,omitempty" xml:"add_friend_forbidden,omitempty"`
+	AllMembersCanCreateCalendar *int32 `json:"all_members_can_create_calendar,omitempty" xml:"all_members_can_create_calendar,omitempty"`
+	AllMembersCanCreateMcsConf  *int32 `json:"all_members_can_create_mcs_conf,omitempty" xml:"all_members_can_create_mcs_conf,omitempty"`
+	ChatBannedType              *int32 `json:"chat_banned_type,omitempty" xml:"chat_banned_type,omitempty"`
+	GroupEmailDisabled          *int32 `json:"group_email_disabled,omitempty" xml:"group_email_disabled,omitempty"`
+	GroupLiveSwitch             *int32 `json:"group_live_switch,omitempty" xml:"group_live_switch,omitempty"`
+	ManagementType              *int32 `json:"management_type,omitempty" xml:"management_type,omitempty"`
+	MembersToAdminChat          *int32 `json:"members_to_admin_chat,omitempty" xml:"members_to_admin_chat,omitempty"`
+	MentionAllAuthority         *int32 `json:"mention_all_authority,omitempty" xml:"mention_all_authority,omitempty"`
+	NotQuitWhenEmpLeave         *int32 `json:"not_quit_when_emp_leave,omitempty" xml:"not_quit_when_emp_leave,omitempty"`
+	OnlyAdminCanAddMem          *int32 `json:"only_admin_can_add_mem,omitempty" xml:"only_admin_can_add_mem,omitempty"`
+	OnlyAdminCanDing            *int32 `json:"only_admin_can_ding,omitempty" xml:"only_admin_can_ding,omitempty"`
+	OnlyAdminCanSetMsgTop       *int32 `json:"only_admin_can_set_msg_top,omitempty" xml:"only_admin_can_set_msg_top,omitempty"`
+	PluginCustomizeVerify       *int32 `json:"plugin_customize_verify,omitempty" xml:"plugin_customize_verify,omitempty"`
+	Searchable                  *int32 `json:"searchable,omitempty" xml:"searchable,omitempty"`
+	ShowHistoryType             *int32 `json:"show_history_type,omitempty" xml:"show_history_type,omitempty"`
+	ValidationType              *int32 `json:"validation_type,omitempty" xml:"validation_type,omitempty"`
+}
+
+func (s UpdateSceneGroupRequestManagementOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSceneGroupRequestManagementOptions) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetAddFriendForbidden(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.AddFriendForbidden = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetAllMembersCanCreateCalendar(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.AllMembersCanCreateCalendar = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetAllMembersCanCreateMcsConf(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.AllMembersCanCreateMcsConf = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetChatBannedType(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.ChatBannedType = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetGroupEmailDisabled(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.GroupEmailDisabled = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetGroupLiveSwitch(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.GroupLiveSwitch = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetManagementType(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.ManagementType = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetMembersToAdminChat(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.MembersToAdminChat = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetMentionAllAuthority(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.MentionAllAuthority = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetNotQuitWhenEmpLeave(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.NotQuitWhenEmpLeave = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetOnlyAdminCanAddMem(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.OnlyAdminCanAddMem = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetOnlyAdminCanDing(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.OnlyAdminCanDing = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetOnlyAdminCanSetMsgTop(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.OnlyAdminCanSetMsgTop = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetPluginCustomizeVerify(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.PluginCustomizeVerify = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetSearchable(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.Searchable = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetShowHistoryType(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.ShowHistoryType = &v
+	return s
+}
+
+func (s *UpdateSceneGroupRequestManagementOptions) SetValidationType(v int32) *UpdateSceneGroupRequestManagementOptions {
+	s.ValidationType = &v
+	return s
+}
+
+type UpdateSceneGroupResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateSceneGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSceneGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSceneGroupResponseBody) SetSuccess(v bool) *UpdateSceneGroupResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateSceneGroupResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateSceneGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateSceneGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateSceneGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateSceneGroupResponse) SetHeaders(v map[string]*string) *UpdateSceneGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateSceneGroupResponse) SetStatusCode(v int32) *UpdateSceneGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateSceneGroupResponse) SetBody(v *UpdateSceneGroupResponseBody) *UpdateSceneGroupResponse {
 	s.Body = v
 	return s
 }
@@ -19598,6 +20705,87 @@ func (client *Client) AddRobotToConversation(request *AddRobotToConversationRequ
 
 // Summary:
 //
+// 场景群加人
+//
+// @param request - AddSceneGroupMemberRequest
+//
+// @param headers - AddSceneGroupMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AddSceneGroupMemberResponse
+func (client *Client) AddSceneGroupMemberWithOptions(request *AddSceneGroupMemberRequest, headers *AddSceneGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *AddSceneGroupMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["open_conversation_id"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionIds)) {
+		body["union_ids"] = request.UnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["user_ids"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AddSceneGroupMember"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroup/member/add"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AddSceneGroupMemberResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 场景群加人
+//
+// @param request - AddSceneGroupMemberRequest
+//
+// @return AddSceneGroupMemberResponse
+func (client *Client) AddSceneGroupMember(request *AddSceneGroupMemberRequest) (_result *AddSceneGroupMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AddSceneGroupMemberHeaders{}
+	_result = &AddSceneGroupMemberResponse{}
+	_body, _err := client.AddSceneGroupMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 新增链接增强注册规则
 //
 // @param request - AddUnfurlingRegisterRequest
@@ -20838,6 +22026,107 @@ func (client *Client) CreateCustomUserRoles(request *CreateCustomUserRolesReques
 
 // Summary:
 //
+// 创建群会话
+//
+// @param request - CreateGroupRequest
+//
+// @param headers - CreateGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateGroupResponse
+func (client *Client) CreateGroupWithOptions(request *CreateGroupRequest, headers *CreateGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ConversationTag)) {
+		body["conversationTag"] = request.ConversationTag
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extidlist)) {
+		body["extidlist"] = request.Extidlist
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagementOptions)) {
+		body["managementOptions"] = request.ManagementOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Owner)) {
+		body["owner"] = request.Owner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerType)) {
+		body["ownerType"] = request.OwnerType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Useridlist)) {
+		body["useridlist"] = request.Useridlist
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateGroup"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/group/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建群会话
+//
+// @param request - CreateGroupRequest
+//
+// @return CreateGroupResponse
+func (client *Client) CreateGroup(request *CreateGroupRequest) (_result *CreateGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateGroupHeaders{}
+	_result = &CreateGroupResponse{}
+	_body, _err := client.CreateGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 创建互通群（支持普通互通群、跨钉两人群）
 //
 // @param request - CreateGroupConversationRequest
@@ -21092,6 +22381,107 @@ func (client *Client) CreateInterconnection(request *CreateInterconnectionReques
 	headers := &CreateInterconnectionHeaders{}
 	_result = &CreateInterconnectionResponse{}
 	_body, _err := client.CreateInterconnectionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建场景群会话
+//
+// @param request - CreateSceneGroupRequest
+//
+// @param headers - CreateSceneGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSceneGroupResponse
+func (client *Client) CreateSceneGroupWithOptions(request *CreateSceneGroupRequest, headers *CreateSceneGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateSceneGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagementOptions)) {
+		body["management_options"] = request.ManagementOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUserId)) {
+		body["owner_user_id"] = request.OwnerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubadminIds)) {
+		body["subadmin_ids"] = request.SubadminIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TemplateId)) {
+		body["template_id"] = request.TemplateId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["user_ids"] = request.UserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uuid)) {
+		body["uuid"] = request.Uuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateSceneGroup"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroup/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateSceneGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建场景群会话
+//
+// @param request - CreateSceneGroupRequest
+//
+// @return CreateSceneGroupResponse
+func (client *Client) CreateSceneGroup(request *CreateSceneGroupRequest) (_result *CreateSceneGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateSceneGroupHeaders{}
+	_result = &CreateSceneGroupResponse{}
+	_body, _err := client.CreateSceneGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -27629,6 +29019,87 @@ func (client *Client) RemoveRobotFromConversation(request *RemoveRobotFromConver
 
 // Summary:
 //
+// 场景群删人
+//
+// @param request - RemoveSceneGroupMemberRequest
+//
+// @param headers - RemoveSceneGroupMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveSceneGroupMemberResponse
+func (client *Client) RemoveSceneGroupMemberWithOptions(request *RemoveSceneGroupMemberRequest, headers *RemoveSceneGroupMemberHeaders, runtime *util.RuntimeOptions) (_result *RemoveSceneGroupMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["open_conversation_id"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionIds)) {
+		body["union_ids"] = request.UnionIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["user_ids"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveSceneGroupMember"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroup/member/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RemoveSceneGroupMemberResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 场景群删人
+//
+// @param request - RemoveSceneGroupMemberRequest
+//
+// @return RemoveSceneGroupMemberResponse
+func (client *Client) RemoveSceneGroupMember(request *RemoveSceneGroupMemberRequest) (_result *RemoveSceneGroupMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveSceneGroupMemberHeaders{}
+	_result = &RemoveSceneGroupMemberResponse{}
+	_body, _err := client.RemoveSceneGroupMemberWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 根据关键词搜索企业内部群
 //
 // @param request - SearchInnerGroupsRequest
@@ -29153,6 +30624,115 @@ func (client *Client) UpdateCustomGroupRole(request *UpdateCustomGroupRoleReques
 
 // Summary:
 //
+// 修改群会话
+//
+// @param request - UpdateGroupRequest
+//
+// @param headers - UpdateGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateGroupResponse
+func (client *Client) UpdateGroupWithOptions(request *UpdateGroupRequest, headers *UpdateGroupHeaders, runtime *util.RuntimeOptions) (_result *UpdateGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AddExtidlist)) {
+		body["add_extidlist"] = request.AddExtidlist
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AddUseridlist)) {
+		body["add_useridlist"] = request.AddUseridlist
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Chatid)) {
+		body["chatid"] = request.Chatid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelExtidlist)) {
+		body["del_extidlist"] = request.DelExtidlist
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DelUseridlist)) {
+		body["del_useridlist"] = request.DelUseridlist
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagementOptions)) {
+		body["managementOptions"] = request.ManagementOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Owner)) {
+		body["owner"] = request.Owner
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerType)) {
+		body["ownerType"] = request.OwnerType
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateGroup"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/group/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改群会话
+//
+// @param request - UpdateGroupRequest
+//
+// @return UpdateGroupResponse
+func (client *Client) UpdateGroup(request *UpdateGroupRequest) (_result *UpdateGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateGroupHeaders{}
+	_result = &UpdateGroupResponse{}
+	_body, _err := client.UpdateGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 修改群头像
 //
 // @param request - UpdateGroupAvatarRequest
@@ -29913,6 +31493,99 @@ func (client *Client) UpdateRobotInteractiveCard(request *UpdateRobotInteractive
 	headers := &UpdateRobotInteractiveCardHeaders{}
 	_result = &UpdateRobotInteractiveCardResponse{}
 	_body, _err := client.UpdateRobotInteractiveCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新场景群
+//
+// @param request - UpdateSceneGroupRequest
+//
+// @param headers - UpdateSceneGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateSceneGroupResponse
+func (client *Client) UpdateSceneGroupWithOptions(request *UpdateSceneGroupRequest, headers *UpdateSceneGroupHeaders, runtime *util.RuntimeOptions) (_result *UpdateSceneGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Icon)) {
+		body["icon"] = request.Icon
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagementOptions)) {
+		body["management_options"] = request.ManagementOptions
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["open_conversation_id"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUnionId)) {
+		body["owner_union_id"] = request.OwnerUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OwnerUserId)) {
+		body["owner_user_id"] = request.OwnerUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Title)) {
+		body["title"] = request.Title
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateSceneGroup"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroup/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateSceneGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新场景群
+//
+// @param request - UpdateSceneGroupRequest
+//
+// @return UpdateSceneGroupResponse
+func (client *Client) UpdateSceneGroup(request *UpdateSceneGroupRequest) (_result *UpdateSceneGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateSceneGroupHeaders{}
+	_result = &UpdateSceneGroupResponse{}
+	_body, _err := client.UpdateSceneGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

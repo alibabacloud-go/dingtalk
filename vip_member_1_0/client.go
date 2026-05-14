@@ -37,8 +37,11 @@ type DirectRedeemVipMemberByMobileRequest struct {
 	Channel      *string `json:"channel,omitempty" xml:"channel,omitempty"`
 	DingtalkId   *string `json:"dingtalkId,omitempty" xml:"dingtalkId,omitempty"`
 	Duration     *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
-	Mobile       *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
-	Uuid         *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+	// if can be null:
+	// true
+	Extension *string `json:"extension,omitempty" xml:"extension,omitempty"`
+	Mobile    *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
+	Uuid      *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
 }
 
 func (s DirectRedeemVipMemberByMobileRequest) String() string {
@@ -66,6 +69,11 @@ func (s *DirectRedeemVipMemberByMobileRequest) SetDingtalkId(v string) *DirectRe
 
 func (s *DirectRedeemVipMemberByMobileRequest) SetDuration(v int64) *DirectRedeemVipMemberByMobileRequest {
 	s.Duration = &v
+	return s
+}
+
+func (s *DirectRedeemVipMemberByMobileRequest) SetExtension(v string) *DirectRedeemVipMemberByMobileRequest {
+	s.Extension = &v
 	return s
 }
 
@@ -744,6 +752,10 @@ func (client *Client) DirectRedeemVipMemberByMobileWithOptions(request *DirectRe
 
 	if !tea.BoolValue(util.IsUnset(request.Duration)) {
 		body["duration"] = request.Duration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Extension)) {
+		body["extension"] = request.Extension
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Mobile)) {

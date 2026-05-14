@@ -11622,6 +11622,118 @@ func (s *ShareUrlResponse) SetBody(v *ShareUrlResponseBody) *ShareUrlResponse {
 	return s
 }
 
+type SubmitExportJobHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitExportJobHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitExportJobHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitExportJobHeaders) SetCommonHeaders(v map[string]*string) *SubmitExportJobHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitExportJobHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitExportJobHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitExportJobRequest struct {
+	// This parameter is required.
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// docx
+	TargetFormat *string `json:"targetFormat,omitempty" xml:"targetFormat,omitempty"`
+}
+
+func (s SubmitExportJobRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitExportJobRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitExportJobRequest) SetDentryUuid(v string) *SubmitExportJobRequest {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *SubmitExportJobRequest) SetOperatorId(v string) *SubmitExportJobRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *SubmitExportJobRequest) SetTargetFormat(v string) *SubmitExportJobRequest {
+	s.TargetFormat = &v
+	return s
+}
+
+type SubmitExportJobResponseBody struct {
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SubmitExportJobResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitExportJobResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitExportJobResponseBody) SetDownloadUrl(v string) *SubmitExportJobResponseBody {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *SubmitExportJobResponseBody) SetTaskId(v string) *SubmitExportJobResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type SubmitExportJobResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitExportJobResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SubmitExportJobResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitExportJobResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitExportJobResponse) SetHeaders(v map[string]*string) *SubmitExportJobResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitExportJobResponse) SetStatusCode(v int32) *SubmitExportJobResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitExportJobResponse) SetBody(v *SubmitExportJobResponseBody) *SubmitExportJobResponse {
+	s.Body = v
+	return s
+}
+
 type SubmitGetContentJobHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -17945,6 +18057,87 @@ func (client *Client) ShareUrl(request *ShareUrlRequest) (_result *ShareUrlRespo
 	headers := &ShareUrlHeaders{}
 	_result = &ShareUrlResponse{}
 	_body, _err := client.ShareUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过dentryUuid提交文档导出任务
+//
+// @param request - SubmitExportJobRequest
+//
+// @param headers - SubmitExportJobHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitExportJobResponse
+func (client *Client) SubmitExportJobWithOptions(request *SubmitExportJobRequest, headers *SubmitExportJobHeaders, runtime *util.RuntimeOptions) (_result *SubmitExportJobResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DentryUuid)) {
+		body["dentryUuid"] = request.DentryUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetFormat)) {
+		body["targetFormat"] = request.TargetFormat
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitExportJob"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/me/export/submit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitExportJobResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过dentryUuid提交文档导出任务
+//
+// @param request - SubmitExportJobRequest
+//
+// @return SubmitExportJobResponse
+func (client *Client) SubmitExportJob(request *SubmitExportJobRequest) (_result *SubmitExportJobResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitExportJobHeaders{}
+	_result = &SubmitExportJobResponse{}
+	_body, _err := client.SubmitExportJobWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

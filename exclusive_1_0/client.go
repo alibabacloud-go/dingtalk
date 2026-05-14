@@ -10424,7 +10424,8 @@ func (s *GetPublicDevicesHeaders) SetXAcsDingtalkAccessToken(v string) *GetPubli
 }
 
 type GetPublicDevicesRequest struct {
-	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	DeviceUuid          *string   `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	EncryptDeviceIdList []*string `json:"encryptDeviceIdList,omitempty" xml:"encryptDeviceIdList,omitempty" type:"Repeated"`
 	// example:
 	//
 	// 1671767361000
@@ -10470,6 +10471,11 @@ func (s GetPublicDevicesRequest) GoString() string {
 
 func (s *GetPublicDevicesRequest) SetDeviceUuid(v string) *GetPublicDevicesRequest {
 	s.DeviceUuid = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetEncryptDeviceIdList(v []*string) *GetPublicDevicesRequest {
+	s.EncryptDeviceIdList = v
 	return s
 }
 
@@ -10519,7 +10525,8 @@ func (s *GetPublicDevicesRequest) SetTitle(v string) *GetPublicDevicesRequest {
 }
 
 type GetPublicDevicesShrinkRequest struct {
-	DeviceUuid *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	DeviceUuid                *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	EncryptDeviceIdListShrink *string `json:"encryptDeviceIdList,omitempty" xml:"encryptDeviceIdList,omitempty"`
 	// example:
 	//
 	// 1671767361000
@@ -10565,6 +10572,11 @@ func (s GetPublicDevicesShrinkRequest) GoString() string {
 
 func (s *GetPublicDevicesShrinkRequest) SetDeviceUuid(v string) *GetPublicDevicesShrinkRequest {
 	s.DeviceUuid = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetEncryptDeviceIdListShrink(v string) *GetPublicDevicesShrinkRequest {
+	s.EncryptDeviceIdListShrink = &v
 	return s
 }
 
@@ -10658,6 +10670,7 @@ type GetPublicDevicesResponseBodyData struct {
 	DeviceStaffs    []*GetPublicDevicesResponseBodyDataDeviceStaffs `json:"deviceStaffs,omitempty" xml:"deviceStaffs,omitempty" type:"Repeated"`
 	DeviceUuid      *string                                         `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
 	Did             *string                                         `json:"did,omitempty" xml:"did,omitempty"`
+	EncryptDeviceId *string                                         `json:"encryptDeviceId,omitempty" xml:"encryptDeviceId,omitempty"`
 	// example:
 	//
 	// 1671767361000
@@ -10721,6 +10734,11 @@ func (s *GetPublicDevicesResponseBodyData) SetDeviceUuid(v string) *GetPublicDev
 
 func (s *GetPublicDevicesResponseBodyData) SetDid(v string) *GetPublicDevicesResponseBodyData {
 	s.Did = &v
+	return s
+}
+
+func (s *GetPublicDevicesResponseBodyData) SetEncryptDeviceId(v string) *GetPublicDevicesResponseBodyData {
+	s.EncryptDeviceId = &v
 	return s
 }
 
@@ -16962,6 +16980,10 @@ type QueryMsgSendRecordsRequest struct {
 	// 1766479616000
 	EndTime     *int64    `json:"end_time,omitempty" xml:"end_time,omitempty"`
 	MsgTypeList []*string `json:"msgTypeList,omitempty" xml:"msgTypeList,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 2
+	MsgSource *int32 `json:"msg_source,omitempty" xml:"msg_source,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -17005,6 +17027,11 @@ func (s *QueryMsgSendRecordsRequest) SetEndTime(v int64) *QueryMsgSendRecordsReq
 
 func (s *QueryMsgSendRecordsRequest) SetMsgTypeList(v []*string) *QueryMsgSendRecordsRequest {
 	s.MsgTypeList = v
+	return s
+}
+
+func (s *QueryMsgSendRecordsRequest) SetMsgSource(v int32) *QueryMsgSendRecordsRequest {
+	s.MsgSource = &v
 	return s
 }
 
@@ -17098,6 +17125,10 @@ type QueryMsgSendRecordsResponseBodyResultItems struct {
 	//
 	// 1766028831000
 	CreateTime *int64 `json:"create_time,omitempty" xml:"create_time,omitempty"`
+	// example:
+	//
+	// 2
+	MsgSource *int32 `json:"msg_source,omitempty" xml:"msg_source,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -17136,6 +17167,11 @@ func (s QueryMsgSendRecordsResponseBodyResultItems) GoString() string {
 
 func (s *QueryMsgSendRecordsResponseBodyResultItems) SetCreateTime(v int64) *QueryMsgSendRecordsResponseBodyResultItems {
 	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryMsgSendRecordsResponseBodyResultItems) SetMsgSource(v int32) *QueryMsgSendRecordsResponseBodyResultItems {
+	s.MsgSource = &v
 	return s
 }
 
@@ -29597,6 +29633,10 @@ func (client *Client) GetPublicDevicesWithOptions(tmpReq *GetPublicDevicesReques
 	}
 	request := &GetPublicDevicesShrinkRequest{}
 	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.EncryptDeviceIdList)) {
+		request.EncryptDeviceIdListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.EncryptDeviceIdList, tea.String("encryptDeviceIdList"), tea.String("json"))
+	}
+
 	if !tea.BoolValue(util.IsUnset(tmpReq.SerialNumberList)) {
 		request.SerialNumberListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.SerialNumberList, tea.String("serialNumberList"), tea.String("json"))
 	}
@@ -29604,6 +29644,10 @@ func (client *Client) GetPublicDevicesWithOptions(tmpReq *GetPublicDevicesReques
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
 		query["deviceUuid"] = request.DeviceUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EncryptDeviceIdListShrink)) {
+		query["encryptDeviceIdList"] = request.EncryptDeviceIdListShrink
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
@@ -32534,6 +32578,10 @@ func (client *Client) QueryMsgSendRecordsWithOptions(request *QueryMsgSendRecord
 
 	if !tea.BoolValue(util.IsUnset(request.MsgTypeList)) {
 		body["msgTypeList"] = request.MsgTypeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MsgSource)) {
+		body["msg_source"] = request.MsgSource
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {

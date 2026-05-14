@@ -1403,10 +1403,19 @@ func (s *GetFormDataByIDHeaders) SetXAcsDingtalkAccessToken(v string) *GetFormDa
 }
 
 type GetFormDataByIDRequest struct {
+	// This parameter is required.
+	//
 	// example:
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// FORM-AA28579F69644FC19A47FE267457E664ZVR1
@@ -1415,6 +1424,8 @@ type GetFormDataByIDRequest struct {
 	//
 	// zh_CN
 	Language *string `json:"language,omitempty" xml:"language,omitempty"`
+	// This parameter is required.
+	//
 	// example:
 	//
 	// hexxx
@@ -1422,8 +1433,9 @@ type GetFormDataByIDRequest struct {
 	// example:
 	//
 	// false
-	UseAlias *bool   `json:"useAlias,omitempty" xml:"useAlias,omitempty"`
-	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UseAlias *bool `json:"useAlias,omitempty" xml:"useAlias,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s GetFormDataByIDRequest) String() string {
@@ -1436,6 +1448,11 @@ func (s GetFormDataByIDRequest) GoString() string {
 
 func (s *GetFormDataByIDRequest) SetAppType(v string) *GetFormDataByIDRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *GetFormDataByIDRequest) SetEnv(v string) *GetFormDataByIDRequest {
+	s.Env = &v
 	return s
 }
 
@@ -1643,6 +1660,13 @@ type GetInstanceByIdRequest struct {
 	//
 	// APP_PBKT0MFBEBTDO8T7SLVP
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// FORM-ADFC8E8E5ADE4B2F8FC2316CFC42A55CJLWZ
@@ -1679,6 +1703,11 @@ func (s GetInstanceByIdRequest) GoString() string {
 
 func (s *GetInstanceByIdRequest) SetAppType(v string) *GetInstanceByIdRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *GetInstanceByIdRequest) SetEnv(v string) *GetInstanceByIdRequest {
+	s.Env = &v
 	return s
 }
 
@@ -2001,6 +2030,13 @@ type GetInstanceIdListRequest struct {
 	//
 	// 2018-02-01
 	CreateToTimeGMT *string `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -2080,6 +2116,11 @@ func (s *GetInstanceIdListRequest) SetCreateFromTimeGMT(v string) *GetInstanceId
 
 func (s *GetInstanceIdListRequest) SetCreateToTimeGMT(v string) *GetInstanceIdListRequest {
 	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetInstanceIdListRequest) SetEnv(v string) *GetInstanceIdListRequest {
+	s.Env = &v
 	return s
 }
 
@@ -3312,16 +3353,23 @@ type RestartInstanceRequest struct {
 	//
 	// example:
 	//
-	// APP_XCE0EVXS6DYG3YDYC5RD
+	// APP_XCEXXX
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
-	// This parameter is required.
-	CurrentActivityId *string `json:"currentActivityId,omitempty" xml:"currentActivityId,omitempty"`
-	EnvProfile        *string `json:"envProfile,omitempty" xml:"envProfile,omitempty"`
 	// This parameter is required.
 	//
 	// example:
 	//
-	// FORM-GX866MC1NC1VOFF6WVQW33FD16E23L3CPMKVKA
+	// node_xxx
+	CurrentActivityId *string `json:"currentActivityId,omitempty" xml:"currentActivityId,omitempty"`
+	// example:
+	//
+	// vpc（国内、默认）/ sgp_vpc（海外）
+	EnvProfile *string `json:"envProfile,omitempty" xml:"envProfile,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// FORM-XXX
 	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
 	// This parameter is required.
 	ProcInstanceId *string `json:"procInstanceId,omitempty" xml:"procInstanceId,omitempty"`
@@ -3330,21 +3378,25 @@ type RestartInstanceRequest struct {
 	//
 	// example:
 	//
-	// 09866181UTZVVD4R3DC955FNKIM52HVPU5WWK7
+	// 098661XXX
 	SystemToken *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
 	// This parameter is required.
+	//
+	// example:
+	//
+	// sid-restartevent
 	TargetActivityId *string `json:"targetActivityId,omitempty" xml:"targetActivityId,omitempty"`
 	// This parameter is required.
 	//
 	// example:
 	//
-	// task-123
+	// 123XXX
 	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
 	// This parameter is required.
 	//
 	// example:
 	//
-	// ding173982232112232
+	// 173XXX
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -4959,6 +5011,13 @@ type StartInstanceRequest struct {
 	//
 	// 18295
 	DepartmentId *string `json:"departmentId,omitempty" xml:"departmentId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -5016,6 +5075,11 @@ func (s *StartInstanceRequest) SetAppType(v string) *StartInstanceRequest {
 
 func (s *StartInstanceRequest) SetDepartmentId(v string) *StartInstanceRequest {
 	s.DepartmentId = &v
+	return s
+}
+
+func (s *StartInstanceRequest) SetEnv(v string) *StartInstanceRequest {
+	s.Env = &v
 	return s
 }
 
@@ -6608,6 +6672,10 @@ func (client *Client) GetFormDataByIDWithOptions(id *string, request *GetFormDat
 		query["appType"] = request.AppType
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
 		query["formUuid"] = request.FormUuid
 	}
@@ -6699,6 +6767,10 @@ func (client *Client) GetInstanceByIdWithOptions(id *string, request *GetInstanc
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		query["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
@@ -6813,6 +6885,10 @@ func (client *Client) GetInstanceIdListWithOptions(request *GetInstanceIdListReq
 
 	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
 		body["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
@@ -7940,6 +8016,10 @@ func (client *Client) StartInstanceWithOptions(request *StartInstanceRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.DepartmentId)) {
 		body["departmentId"] = request.DepartmentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {

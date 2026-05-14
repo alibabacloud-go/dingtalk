@@ -1114,6 +1114,7 @@ func (s *BatchGetUserResponseBody) SetUserList(v []*BatchGetUserResponseBodyUser
 }
 
 type BatchGetUserResponseBodyUserList struct {
+	Avatar    *string `json:"avatar,omitempty" xml:"avatar,omitempty"`
 	JobNumber *string `json:"job_number,omitempty" xml:"job_number,omitempty"`
 	Mobile    *string `json:"mobile,omitempty" xml:"mobile,omitempty"`
 	Name      *string `json:"name,omitempty" xml:"name,omitempty"`
@@ -1131,6 +1132,11 @@ func (s BatchGetUserResponseBodyUserList) String() string {
 
 func (s BatchGetUserResponseBodyUserList) GoString() string {
 	return s.String()
+}
+
+func (s *BatchGetUserResponseBodyUserList) SetAvatar(v string) *BatchGetUserResponseBodyUserList {
+	s.Avatar = &v
+	return s
 }
 
 func (s *BatchGetUserResponseBodyUserList) SetJobNumber(v string) *BatchGetUserResponseBodyUserList {

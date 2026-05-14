@@ -7201,10 +7201,12 @@ func (s *HrbrainLabelMetaHeaders) SetXAcsDingtalkAccessToken(v string) *HrbrainL
 }
 
 type HrbrainLabelMetaRequest struct {
-	CategoryCodes []*string `json:"categoryCodes,omitempty" xml:"categoryCodes,omitempty" type:"Repeated"`
-	LabelCode     *string   `json:"labelCode,omitempty" xml:"labelCode,omitempty"`
-	MaxResults    *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
-	NextToken     *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	CategoryCodes    []*string `json:"categoryCodes,omitempty" xml:"categoryCodes,omitempty" type:"Repeated"`
+	GmtModifiedEnd   *string   `json:"gmtModifiedEnd,omitempty" xml:"gmtModifiedEnd,omitempty"`
+	GmtModifiedStart *string   `json:"gmtModifiedStart,omitempty" xml:"gmtModifiedStart,omitempty"`
+	LabelCode        *string   `json:"labelCode,omitempty" xml:"labelCode,omitempty"`
+	MaxResults       *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken        *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 }
 
 func (s HrbrainLabelMetaRequest) String() string {
@@ -7217,6 +7219,16 @@ func (s HrbrainLabelMetaRequest) GoString() string {
 
 func (s *HrbrainLabelMetaRequest) SetCategoryCodes(v []*string) *HrbrainLabelMetaRequest {
 	s.CategoryCodes = v
+	return s
+}
+
+func (s *HrbrainLabelMetaRequest) SetGmtModifiedEnd(v string) *HrbrainLabelMetaRequest {
+	s.GmtModifiedEnd = &v
+	return s
+}
+
+func (s *HrbrainLabelMetaRequest) SetGmtModifiedStart(v string) *HrbrainLabelMetaRequest {
+	s.GmtModifiedStart = &v
 	return s
 }
 
@@ -12611,6 +12623,14 @@ func (client *Client) HrbrainLabelMetaWithOptions(request *HrbrainLabelMetaReque
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CategoryCodes)) {
 		body["categoryCodes"] = request.CategoryCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtModifiedEnd)) {
+		body["gmtModifiedEnd"] = request.GmtModifiedEnd
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtModifiedStart)) {
+		body["gmtModifiedStart"] = request.GmtModifiedStart
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.LabelCode)) {

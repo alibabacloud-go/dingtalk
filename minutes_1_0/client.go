@@ -3408,6 +3408,708 @@ func (s *QueryScheduleConfMinutesResponse) SetBody(v *QueryScheduleConfMinutesRe
 	return s
 }
 
+type QuerySmartDeviceAiSceneByIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdHeaders) SetCommonHeaders(v map[string]*string) *QuerySmartDeviceAiSceneByIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySmartDeviceAiSceneByIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdRequest struct {
+	AgentInstanceId *string `json:"agentInstanceId,omitempty" xml:"agentInstanceId,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdRequest) SetAgentInstanceId(v string) *QuerySmartDeviceAiSceneByIdRequest {
+	s.AgentInstanceId = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBody struct {
+	Agent *QuerySmartDeviceAiSceneByIdResponseBodyAgent `json:"agent,omitempty" xml:"agent,omitempty" type:"Struct"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBody) SetAgent(v *QuerySmartDeviceAiSceneByIdResponseBodyAgent) *QuerySmartDeviceAiSceneByIdResponseBody {
+	s.Agent = v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgent struct {
+	AgentId               *string                                                             `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AgentInstanceId       *string                                                             `json:"agentInstanceId,omitempty" xml:"agentInstanceId,omitempty"`
+	AgentName             *string                                                             `json:"agentName,omitempty" xml:"agentName,omitempty"`
+	AllFileGroups         *bool                                                               `json:"allFileGroups,omitempty" xml:"allFileGroups,omitempty"`
+	Attributes            map[string]interface{}                                              `json:"attributes,omitempty" xml:"attributes,omitempty"`
+	AvatarUrl             *string                                                             `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	BelongingId           *string                                                             `json:"belongingId,omitempty" xml:"belongingId,omitempty"`
+	BelongingType         *int32                                                              `json:"belongingType,omitempty" xml:"belongingType,omitempty"`
+	Country               *string                                                             `json:"country,omitempty" xml:"country,omitempty"`
+	CreatorUnionId        *string                                                             `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Description           *string                                                             `json:"description,omitempty" xml:"description,omitempty"`
+	DeviceList            []*QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList           `json:"deviceList,omitempty" xml:"deviceList,omitempty" type:"Repeated"`
+	IsvAiScene            *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene             `json:"isvAiScene,omitempty" xml:"isvAiScene,omitempty" type:"Struct"`
+	Keywords              []*string                                                           `json:"keywords,omitempty" xml:"keywords,omitempty" type:"Repeated"`
+	LlmModel              *QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel               `json:"llmModel,omitempty" xml:"llmModel,omitempty" type:"Struct"`
+	Mail                  *string                                                             `json:"mail,omitempty" xml:"mail,omitempty"`
+	MailOption            *string                                                             `json:"mailOption,omitempty" xml:"mailOption,omitempty"`
+	MinutesTemplates      []*QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates     `json:"minutesTemplates,omitempty" xml:"minutesTemplates,omitempty" type:"Repeated"`
+	ProjectList           []*QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList          `json:"projectList,omitempty" xml:"projectList,omitempty" type:"Repeated"`
+	Prompt                *string                                                             `json:"prompt,omitempty" xml:"prompt,omitempty"`
+	PromptTemplateIds     []*string                                                           `json:"promptTemplateIds,omitempty" xml:"promptTemplateIds,omitempty" type:"Repeated"`
+	State                 *int32                                                              `json:"state,omitempty" xml:"state,omitempty"`
+	SyncCollabSheetConfig *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig  `json:"syncCollabSheetConfig,omitempty" xml:"syncCollabSheetConfig,omitempty" type:"Struct"`
+	SyncIsvSystemConfigs  []*QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs `json:"syncIsvSystemConfigs,omitempty" xml:"syncIsvSystemConfigs,omitempty" type:"Repeated"`
+	SyncYidaConfig        *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig         `json:"syncYidaConfig,omitempty" xml:"syncYidaConfig,omitempty" type:"Struct"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgent) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgent) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetAgentId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.AgentId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetAgentInstanceId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.AgentInstanceId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetAgentName(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.AgentName = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetAllFileGroups(v bool) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.AllFileGroups = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetAttributes(v map[string]interface{}) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.Attributes = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetAvatarUrl(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetBelongingId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.BelongingId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetBelongingType(v int32) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.BelongingType = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetCountry(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.Country = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetCreatorUnionId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetDescription(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.Description = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetDeviceList(v []*QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.DeviceList = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetIsvAiScene(v *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.IsvAiScene = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetKeywords(v []*string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.Keywords = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetLlmModel(v *QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.LlmModel = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetMail(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.Mail = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetMailOption(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.MailOption = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetMinutesTemplates(v []*QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.MinutesTemplates = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetProjectList(v []*QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.ProjectList = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetPrompt(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.Prompt = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetPromptTemplateIds(v []*string) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.PromptTemplateIds = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetState(v int32) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.State = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetSyncCollabSheetConfig(v *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.SyncCollabSheetConfig = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetSyncIsvSystemConfigs(v []*QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.SyncIsvSystemConfigs = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgent) SetSyncYidaConfig(v *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig) *QuerySmartDeviceAiSceneByIdResponseBodyAgent {
+	s.SyncYidaConfig = v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList struct {
+	DevServId  *int32  `json:"devServId,omitempty" xml:"devServId,omitempty"`
+	DeviceId   *int64  `json:"deviceId,omitempty" xml:"deviceId,omitempty"`
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	Sn         *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList) SetDevServId(v int32) *QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList {
+	s.DevServId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList) SetDeviceId(v int64) *QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList {
+	s.DeviceId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList) SetDeviceName(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList) SetSn(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentDeviceList {
+	s.Sn = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene struct {
+	IsvAppId    *string `json:"isvAppId,omitempty" xml:"isvAppId,omitempty"`
+	IsvAppState *int32  `json:"isvAppState,omitempty" xml:"isvAppState,omitempty"`
+	IsvCorpId   *string `json:"isvCorpId,omitempty" xml:"isvCorpId,omitempty"`
+	IsvType     *int32  `json:"isvType,omitempty" xml:"isvType,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene) SetIsvAppId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene {
+	s.IsvAppId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene) SetIsvAppState(v int32) *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene {
+	s.IsvAppState = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene) SetIsvCorpId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene {
+	s.IsvCorpId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene) SetIsvType(v int32) *QuerySmartDeviceAiSceneByIdResponseBodyAgentIsvAiScene {
+	s.IsvType = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel struct {
+	ModelId   *string `json:"modelId,omitempty" xml:"modelId,omitempty"`
+	ModelName *string `json:"modelName,omitempty" xml:"modelName,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel) SetModelId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel {
+	s.ModelId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel) SetModelName(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentLlmModel {
+	s.ModelName = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates struct {
+	Category    *string `json:"category,omitempty" xml:"category,omitempty"`
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	IconUrl     *string `json:"iconUrl,omitempty" xml:"iconUrl,omitempty"`
+	TemplateId  *string `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	Title       *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates) SetCategory(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates {
+	s.Category = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates) SetDescription(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates {
+	s.Description = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates) SetIconUrl(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates {
+	s.IconUrl = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates) SetTemplateId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates) SetTitle(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentMinutesTemplates {
+	s.Title = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList struct {
+	ProjectId   *string `json:"projectId,omitempty" xml:"projectId,omitempty"`
+	ProjectName *string `json:"projectName,omitempty" xml:"projectName,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList) SetProjectId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList {
+	s.ProjectId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList) SetProjectName(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentProjectList {
+	s.ProjectName = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig struct {
+	AgentPromptTemplateIds []*string `json:"agentPromptTemplateIds,omitempty" xml:"agentPromptTemplateIds,omitempty" type:"Repeated"`
+	CollabSheetName        *string   `json:"collabSheetName,omitempty" xml:"collabSheetName,omitempty"`
+	CollabSheetUrl         *string   `json:"collabSheetUrl,omitempty" xml:"collabSheetUrl,omitempty"`
+	CorpId                 *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	DentryUuid             *string   `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	SheetId                *string   `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+	SyncCollabSheet        *bool     `json:"syncCollabSheet,omitempty" xml:"syncCollabSheet,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) SetAgentPromptTemplateIds(v []*string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig {
+	s.AgentPromptTemplateIds = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) SetCollabSheetName(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig {
+	s.CollabSheetName = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) SetCollabSheetUrl(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig {
+	s.CollabSheetUrl = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) SetCorpId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) SetDentryUuid(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) SetSheetId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig {
+	s.SheetId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig) SetSyncCollabSheet(v bool) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncCollabSheetConfig {
+	s.SyncCollabSheet = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs struct {
+	Description  *string `json:"description,omitempty" xml:"description,omitempty"`
+	IsvSystemKey *string `json:"isvSystemKey,omitempty" xml:"isvSystemKey,omitempty"`
+	State        *string `json:"state,omitempty" xml:"state,omitempty"`
+	Title        *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs) SetDescription(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs {
+	s.Description = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs) SetIsvSystemKey(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs {
+	s.IsvSystemKey = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs) SetState(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs {
+	s.State = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs) SetTitle(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncIsvSystemConfigs {
+	s.Title = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig struct {
+	AppCode  *string `json:"appCode,omitempty" xml:"appCode,omitempty"`
+	CorpId   *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	FormName *string `json:"formName,omitempty" xml:"formName,omitempty"`
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	SyncYida *bool   `json:"syncYida,omitempty" xml:"syncYida,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig) SetAppCode(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig {
+	s.AppCode = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig) SetCorpId(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig) SetFormName(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig {
+	s.FormName = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig) SetFormUuid(v string) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig {
+	s.FormUuid = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig) SetSyncYida(v bool) *QuerySmartDeviceAiSceneByIdResponseBodyAgentSyncYidaConfig {
+	s.SyncYida = &v
+	return s
+}
+
+type QuerySmartDeviceAiSceneByIdResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySmartDeviceAiSceneByIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiSceneByIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponse) SetHeaders(v map[string]*string) *QuerySmartDeviceAiSceneByIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponse) SetStatusCode(v int32) *QuerySmartDeviceAiSceneByIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiSceneByIdResponse) SetBody(v *QuerySmartDeviceAiSceneByIdResponseBody) *QuerySmartDeviceAiSceneByIdResponse {
+	s.Body = v
+	return s
+}
+
+type QuerySmartDeviceAiScenePromptTemplateByIdsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsHeaders) SetCommonHeaders(v map[string]*string) *QuerySmartDeviceAiScenePromptTemplateByIdsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySmartDeviceAiScenePromptTemplateByIdsRequest struct {
+	AgentInstanceId        *string   `json:"agentInstanceId,omitempty" xml:"agentInstanceId,omitempty"`
+	AgentPromptTemplateIds []*string `json:"agentPromptTemplateIds,omitempty" xml:"agentPromptTemplateIds,omitempty" type:"Repeated"`
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsRequest) SetAgentInstanceId(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsRequest {
+	s.AgentInstanceId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsRequest) SetAgentPromptTemplateIds(v []*string) *QuerySmartDeviceAiScenePromptTemplateByIdsRequest {
+	s.AgentPromptTemplateIds = v
+	return s
+}
+
+type QuerySmartDeviceAiScenePromptTemplateByIdsResponseBody struct {
+	AgentPromptTemplates []*QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates `json:"agentPromptTemplates,omitempty" xml:"agentPromptTemplates,omitempty" type:"Repeated"`
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBody) SetAgentPromptTemplates(v []*QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBody {
+	s.AgentPromptTemplates = v
+	return s
+}
+
+type QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates struct {
+	AgentPromptTemplateId *string `json:"agentPromptTemplateId,omitempty" xml:"agentPromptTemplateId,omitempty"`
+	AvatarUrl             *string `json:"avatarUrl,omitempty" xml:"avatarUrl,omitempty"`
+	BelongingId           *string `json:"belongingId,omitempty" xml:"belongingId,omitempty"`
+	BelongingType         *string `json:"belongingType,omitempty" xml:"belongingType,omitempty"`
+	Category              *string `json:"category,omitempty" xml:"category,omitempty"`
+	Country               *string `json:"country,omitempty" xml:"country,omitempty"`
+	CreatorUnionId        *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Description           *string `json:"description,omitempty" xml:"description,omitempty"`
+	Order                 *string `json:"order,omitempty" xml:"order,omitempty"`
+	Prompt                *string `json:"prompt,omitempty" xml:"prompt,omitempty"`
+	Title                 *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetAgentPromptTemplateId(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.AgentPromptTemplateId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetAvatarUrl(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.AvatarUrl = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetBelongingId(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.BelongingId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetBelongingType(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.BelongingType = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetCategory(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.Category = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetCountry(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.Country = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetCreatorUnionId(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetDescription(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.Description = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetOrder(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.Order = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetPrompt(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.Prompt = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates) SetTitle(v string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBodyAgentPromptTemplates {
+	s.Title = &v
+	return s
+}
+
+type QuerySmartDeviceAiScenePromptTemplateByIdsResponse struct {
+	Headers    map[string]*string                                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySmartDeviceAiScenePromptTemplateByIdsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponse) SetHeaders(v map[string]*string) *QuerySmartDeviceAiScenePromptTemplateByIdsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponse) SetStatusCode(v int32) *QuerySmartDeviceAiScenePromptTemplateByIdsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySmartDeviceAiScenePromptTemplateByIdsResponse) SetBody(v *QuerySmartDeviceAiScenePromptTemplateByIdsResponseBody) *QuerySmartDeviceAiScenePromptTemplateByIdsResponse {
+	s.Body = v
+	return s
+}
+
 type QuerySmartDeviceAiSummaryHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6797,6 +7499,156 @@ func (client *Client) QueryScheduleConfMinutes(scheduleConferenceId *string, req
 	headers := &QueryScheduleConfMinutesHeaders{}
 	_result = &QueryScheduleConfMinutesResponse{}
 	_body, _err := client.QueryScheduleConfMinutesWithOptions(scheduleConferenceId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询A1分析小助理
+//
+// @param request - QuerySmartDeviceAiSceneByIdRequest
+//
+// @param headers - QuerySmartDeviceAiSceneByIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySmartDeviceAiSceneByIdResponse
+func (client *Client) QuerySmartDeviceAiSceneByIdWithOptions(request *QuerySmartDeviceAiSceneByIdRequest, headers *QuerySmartDeviceAiSceneByIdHeaders, runtime *util.RuntimeOptions) (_result *QuerySmartDeviceAiSceneByIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentInstanceId)) {
+		body["agentInstanceId"] = request.AgentInstanceId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySmartDeviceAiSceneById"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/smartdevice/aiscene"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySmartDeviceAiSceneByIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询A1分析小助理
+//
+// @param request - QuerySmartDeviceAiSceneByIdRequest
+//
+// @return QuerySmartDeviceAiSceneByIdResponse
+func (client *Client) QuerySmartDeviceAiSceneById(request *QuerySmartDeviceAiSceneByIdRequest) (_result *QuerySmartDeviceAiSceneByIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySmartDeviceAiSceneByIdHeaders{}
+	_result = &QuerySmartDeviceAiSceneByIdResponse{}
+	_body, _err := client.QuerySmartDeviceAiSceneByIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询A1分析小助理能力模板
+//
+// @param request - QuerySmartDeviceAiScenePromptTemplateByIdsRequest
+//
+// @param headers - QuerySmartDeviceAiScenePromptTemplateByIdsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySmartDeviceAiScenePromptTemplateByIdsResponse
+func (client *Client) QuerySmartDeviceAiScenePromptTemplateByIdsWithOptions(request *QuerySmartDeviceAiScenePromptTemplateByIdsRequest, headers *QuerySmartDeviceAiScenePromptTemplateByIdsHeaders, runtime *util.RuntimeOptions) (_result *QuerySmartDeviceAiScenePromptTemplateByIdsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentInstanceId)) {
+		body["agentInstanceId"] = request.AgentInstanceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AgentPromptTemplateIds)) {
+		body["agentPromptTemplateIds"] = request.AgentPromptTemplateIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySmartDeviceAiScenePromptTemplateByIds"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/smartdevice/aiscene/promptTemplate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySmartDeviceAiScenePromptTemplateByIdsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询A1分析小助理能力模板
+//
+// @param request - QuerySmartDeviceAiScenePromptTemplateByIdsRequest
+//
+// @return QuerySmartDeviceAiScenePromptTemplateByIdsResponse
+func (client *Client) QuerySmartDeviceAiScenePromptTemplateByIds(request *QuerySmartDeviceAiScenePromptTemplateByIdsRequest) (_result *QuerySmartDeviceAiScenePromptTemplateByIdsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySmartDeviceAiScenePromptTemplateByIdsHeaders{}
+	_result = &QuerySmartDeviceAiScenePromptTemplateByIdsResponse{}
+	_body, _err := client.QuerySmartDeviceAiScenePromptTemplateByIdsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

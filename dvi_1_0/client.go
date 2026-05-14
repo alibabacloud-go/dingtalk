@@ -9,6 +9,150 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ResultUserDeviceStatusMapValue struct {
+	Sn     *string                               `json:"sn,omitempty" xml:"sn,omitempty"`
+	Status *ResultUserDeviceStatusMapValueStatus `json:"status,omitempty" xml:"status,omitempty" type:"Struct"`
+}
+
+func (s ResultUserDeviceStatusMapValue) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultUserDeviceStatusMapValue) GoString() string {
+	return s.String()
+}
+
+func (s *ResultUserDeviceStatusMapValue) SetSn(v string) *ResultUserDeviceStatusMapValue {
+	s.Sn = &v
+	return s
+}
+
+func (s *ResultUserDeviceStatusMapValue) SetStatus(v *ResultUserDeviceStatusMapValueStatus) *ResultUserDeviceStatusMapValue {
+	s.Status = v
+	return s
+}
+
+type ResultUserDeviceStatusMapValueStatus struct {
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s ResultUserDeviceStatusMapValueStatus) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ResultUserDeviceStatusMapValueStatus) GoString() string {
+	return s.String()
+}
+
+func (s *ResultUserDeviceStatusMapValueStatus) SetValue(v string) *ResultUserDeviceStatusMapValueStatus {
+	s.Value = &v
+	return s
+}
+
+type BatchQueryUserDeviceStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchQueryUserDeviceStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryUserDeviceStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryUserDeviceStatusHeaders) SetCommonHeaders(v map[string]*string) *BatchQueryUserDeviceStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchQueryUserDeviceStatusHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQueryUserDeviceStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchQueryUserDeviceStatusRequest struct {
+	// This parameter is required.
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s BatchQueryUserDeviceStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryUserDeviceStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryUserDeviceStatusRequest) SetUserIdList(v []*string) *BatchQueryUserDeviceStatusRequest {
+	s.UserIdList = v
+	return s
+}
+
+type BatchQueryUserDeviceStatusResponseBody struct {
+	Result *BatchQueryUserDeviceStatusResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s BatchQueryUserDeviceStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryUserDeviceStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryUserDeviceStatusResponseBody) SetResult(v *BatchQueryUserDeviceStatusResponseBodyResult) *BatchQueryUserDeviceStatusResponseBody {
+	s.Result = v
+	return s
+}
+
+type BatchQueryUserDeviceStatusResponseBodyResult struct {
+	UserDeviceStatusMap map[string][]*ResultUserDeviceStatusMapValue `json:"userDeviceStatusMap,omitempty" xml:"userDeviceStatusMap,omitempty"`
+}
+
+func (s BatchQueryUserDeviceStatusResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryUserDeviceStatusResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryUserDeviceStatusResponseBodyResult) SetUserDeviceStatusMap(v map[string][]*ResultUserDeviceStatusMapValue) *BatchQueryUserDeviceStatusResponseBodyResult {
+	s.UserDeviceStatusMap = v
+	return s
+}
+
+type BatchQueryUserDeviceStatusResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchQueryUserDeviceStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchQueryUserDeviceStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryUserDeviceStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryUserDeviceStatusResponse) SetHeaders(v map[string]*string) *BatchQueryUserDeviceStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryUserDeviceStatusResponse) SetStatusCode(v int32) *BatchQueryUserDeviceStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchQueryUserDeviceStatusResponse) SetBody(v *BatchQueryUserDeviceStatusResponseBody) *BatchQueryUserDeviceStatusResponse {
+	s.Body = v
+	return s
+}
+
 type ControlRecordingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -40,8 +184,12 @@ type ControlRecordingRequest struct {
 	// bind
 	Action *string `json:"action,omitempty" xml:"action,omitempty"`
 	// This parameter is required.
-	Agree    *bool   `json:"agree,omitempty" xml:"agree,omitempty"`
-	TeamCode *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	Agree *bool `json:"agree,omitempty" xml:"agree,omitempty"`
+	// example:
+	//
+	// 20260423112233
+	OutBizData *string `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
+	TeamCode   *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
 	// This parameter is required.
 	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
 }
@@ -61,6 +209,11 @@ func (s *ControlRecordingRequest) SetAction(v string) *ControlRecordingRequest {
 
 func (s *ControlRecordingRequest) SetAgree(v bool) *ControlRecordingRequest {
 	s.Agree = &v
+	return s
+}
+
+func (s *ControlRecordingRequest) SetOutBizData(v string) *ControlRecordingRequest {
+	s.OutBizData = &v
 	return s
 }
 
@@ -116,6 +269,116 @@ func (s *ControlRecordingResponse) SetStatusCode(v int32) *ControlRecordingRespo
 }
 
 func (s *ControlRecordingResponse) SetBody(v *ControlRecordingResponseBody) *ControlRecordingResponse {
+	s.Body = v
+	return s
+}
+
+type CreateAsrTranscriptionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAsrTranscriptionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAsrTranscriptionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAsrTranscriptionHeaders) SetCommonHeaders(v map[string]*string) *CreateAsrTranscriptionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAsrTranscriptionHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAsrTranscriptionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAsrTranscriptionRequest struct {
+	BizKey *string `json:"bizKey,omitempty" xml:"bizKey,omitempty"`
+	// This parameter is required.
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreateAsrTranscriptionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAsrTranscriptionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAsrTranscriptionRequest) SetBizKey(v string) *CreateAsrTranscriptionRequest {
+	s.BizKey = &v
+	return s
+}
+
+func (s *CreateAsrTranscriptionRequest) SetUrl(v string) *CreateAsrTranscriptionRequest {
+	s.Url = &v
+	return s
+}
+
+type CreateAsrTranscriptionResponseBody struct {
+	Result *CreateAsrTranscriptionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateAsrTranscriptionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAsrTranscriptionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAsrTranscriptionResponseBody) SetResult(v *CreateAsrTranscriptionResponseBodyResult) *CreateAsrTranscriptionResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateAsrTranscriptionResponseBodyResult struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CreateAsrTranscriptionResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAsrTranscriptionResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAsrTranscriptionResponseBodyResult) SetTaskId(v string) *CreateAsrTranscriptionResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type CreateAsrTranscriptionResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateAsrTranscriptionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateAsrTranscriptionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAsrTranscriptionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAsrTranscriptionResponse) SetHeaders(v map[string]*string) *CreateAsrTranscriptionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAsrTranscriptionResponse) SetStatusCode(v int32) *CreateAsrTranscriptionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateAsrTranscriptionResponse) SetBody(v *CreateAsrTranscriptionResponseBody) *CreateAsrTranscriptionResponse {
 	s.Body = v
 	return s
 }
@@ -346,6 +609,198 @@ func (s *DeleteRecordingScheduleResponse) SetStatusCode(v int32) *DeleteRecordin
 }
 
 func (s *DeleteRecordingScheduleResponse) SetBody(v *DeleteRecordingScheduleResponseBody) *DeleteRecordingScheduleResponse {
+	s.Body = v
+	return s
+}
+
+type GetAsrTranscriptionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetAsrTranscriptionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsrTranscriptionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsrTranscriptionHeaders) SetCommonHeaders(v map[string]*string) *GetAsrTranscriptionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetAsrTranscriptionHeaders) SetXAcsDingtalkAccessToken(v string) *GetAsrTranscriptionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetAsrTranscriptionRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s GetAsrTranscriptionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsrTranscriptionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsrTranscriptionRequest) SetMaxResults(v int32) *GetAsrTranscriptionRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionRequest) SetNextToken(v string) *GetAsrTranscriptionRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionRequest) SetTaskId(v string) *GetAsrTranscriptionRequest {
+	s.TaskId = &v
+	return s
+}
+
+type GetAsrTranscriptionResponseBody struct {
+	Result *GetAsrTranscriptionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetAsrTranscriptionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsrTranscriptionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsrTranscriptionResponseBody) SetResult(v *GetAsrTranscriptionResponseBodyResult) *GetAsrTranscriptionResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetAsrTranscriptionResponseBodyResult struct {
+	BizKey     *string                                          `json:"bizKey,omitempty" xml:"bizKey,omitempty"`
+	NextToken  *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	ResultInfo *GetAsrTranscriptionResponseBodyResultResultInfo `json:"resultInfo,omitempty" xml:"resultInfo,omitempty" type:"Struct"`
+	TaskId     *string                                          `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	TaskStatus *string                                          `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+}
+
+func (s GetAsrTranscriptionResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsrTranscriptionResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsrTranscriptionResponseBodyResult) SetBizKey(v string) *GetAsrTranscriptionResponseBodyResult {
+	s.BizKey = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponseBodyResult) SetNextToken(v string) *GetAsrTranscriptionResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponseBodyResult) SetResultInfo(v *GetAsrTranscriptionResponseBodyResultResultInfo) *GetAsrTranscriptionResponseBodyResult {
+	s.ResultInfo = v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponseBodyResult) SetTaskId(v string) *GetAsrTranscriptionResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponseBodyResult) SetTaskStatus(v string) *GetAsrTranscriptionResponseBodyResult {
+	s.TaskStatus = &v
+	return s
+}
+
+type GetAsrTranscriptionResponseBodyResultResultInfo struct {
+	ParagraphList []*GetAsrTranscriptionResponseBodyResultResultInfoParagraphList `json:"paragraphList,omitempty" xml:"paragraphList,omitempty" type:"Repeated"`
+}
+
+func (s GetAsrTranscriptionResponseBodyResultResultInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsrTranscriptionResponseBodyResultResultInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsrTranscriptionResponseBodyResultResultInfo) SetParagraphList(v []*GetAsrTranscriptionResponseBodyResultResultInfoParagraphList) *GetAsrTranscriptionResponseBodyResultResultInfo {
+	s.ParagraphList = v
+	return s
+}
+
+type GetAsrTranscriptionResponseBodyResultResultInfoParagraphList struct {
+	EndTime   *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Paragraph *string `json:"paragraph,omitempty" xml:"paragraph,omitempty"`
+	SpeakerId *string `json:"speakerId,omitempty" xml:"speakerId,omitempty"`
+	StartTime *int64  `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s GetAsrTranscriptionResponseBodyResultResultInfoParagraphList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsrTranscriptionResponseBodyResultResultInfoParagraphList) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsrTranscriptionResponseBodyResultResultInfoParagraphList) SetEndTime(v int64) *GetAsrTranscriptionResponseBodyResultResultInfoParagraphList {
+	s.EndTime = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponseBodyResultResultInfoParagraphList) SetParagraph(v string) *GetAsrTranscriptionResponseBodyResultResultInfoParagraphList {
+	s.Paragraph = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponseBodyResultResultInfoParagraphList) SetSpeakerId(v string) *GetAsrTranscriptionResponseBodyResultResultInfoParagraphList {
+	s.SpeakerId = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponseBodyResultResultInfoParagraphList) SetStartTime(v int64) *GetAsrTranscriptionResponseBodyResultResultInfoParagraphList {
+	s.StartTime = &v
+	return s
+}
+
+type GetAsrTranscriptionResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetAsrTranscriptionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetAsrTranscriptionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetAsrTranscriptionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetAsrTranscriptionResponse) SetHeaders(v map[string]*string) *GetAsrTranscriptionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponse) SetStatusCode(v int32) *GetAsrTranscriptionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetAsrTranscriptionResponse) SetBody(v *GetAsrTranscriptionResponseBody) *GetAsrTranscriptionResponse {
 	s.Body = v
 	return s
 }
@@ -1561,6 +2016,216 @@ func (s *GetServiceQualityInspectionResponse) SetBody(v *GetServiceQualityInspec
 	return s
 }
 
+type GetServiceRecordHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetServiceRecordHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordHeaders) SetCommonHeaders(v map[string]*string) *GetServiceRecordHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetServiceRecordHeaders) SetXAcsDingtalkAccessToken(v string) *GetServiceRecordHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetServiceRecordRequest struct {
+	// This parameter is required.
+	Id *string `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s GetServiceRecordRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordRequest) SetId(v string) *GetServiceRecordRequest {
+	s.Id = &v
+	return s
+}
+
+type GetServiceRecordResponseBody struct {
+	Result *GetServiceRecordResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetServiceRecordResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordResponseBody) SetResult(v *GetServiceRecordResponseBodyResult) *GetServiceRecordResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetServiceRecordResponseBodyResult struct {
+	CustomerId             *string                                 `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	DeviceSn               *string                                 `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	Duration               *string                                 `json:"duration,omitempty" xml:"duration,omitempty"`
+	EndTimestamp           *int64                                  `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	OutBizData             *string                                 `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
+	QualityInspectionScore *int32                                  `json:"qualityInspectionScore,omitempty" xml:"qualityInspectionScore,omitempty"`
+	RecordId               *string                                 `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	StartTimestamp         *int64                                  `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	Team                   *GetServiceRecordResponseBodyResultTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
+	User                   *GetServiceRecordResponseBodyResultUser `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
+	Valid                  *bool                                   `json:"valid,omitempty" xml:"valid,omitempty"`
+}
+
+func (s GetServiceRecordResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetCustomerId(v string) *GetServiceRecordResponseBodyResult {
+	s.CustomerId = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetDeviceSn(v string) *GetServiceRecordResponseBodyResult {
+	s.DeviceSn = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetDuration(v string) *GetServiceRecordResponseBodyResult {
+	s.Duration = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetEndTimestamp(v int64) *GetServiceRecordResponseBodyResult {
+	s.EndTimestamp = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetOutBizData(v string) *GetServiceRecordResponseBodyResult {
+	s.OutBizData = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetQualityInspectionScore(v int32) *GetServiceRecordResponseBodyResult {
+	s.QualityInspectionScore = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetRecordId(v string) *GetServiceRecordResponseBodyResult {
+	s.RecordId = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetStartTimestamp(v int64) *GetServiceRecordResponseBodyResult {
+	s.StartTimestamp = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetTeam(v *GetServiceRecordResponseBodyResultTeam) *GetServiceRecordResponseBodyResult {
+	s.Team = v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetUser(v *GetServiceRecordResponseBodyResultUser) *GetServiceRecordResponseBodyResult {
+	s.User = v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResult) SetValid(v bool) *GetServiceRecordResponseBodyResult {
+	s.Valid = &v
+	return s
+}
+
+type GetServiceRecordResponseBodyResultTeam struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetServiceRecordResponseBodyResultTeam) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordResponseBodyResultTeam) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordResponseBodyResultTeam) SetCode(v string) *GetServiceRecordResponseBodyResultTeam {
+	s.Code = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResultTeam) SetName(v string) *GetServiceRecordResponseBodyResultTeam {
+	s.Name = &v
+	return s
+}
+
+type GetServiceRecordResponseBodyResultUser struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetServiceRecordResponseBodyResultUser) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordResponseBodyResultUser) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordResponseBodyResultUser) SetName(v string) *GetServiceRecordResponseBodyResultUser {
+	s.Name = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResultUser) SetUserId(v string) *GetServiceRecordResponseBodyResultUser {
+	s.UserId = &v
+	return s
+}
+
+type GetServiceRecordResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetServiceRecordResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetServiceRecordResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordResponse) SetHeaders(v map[string]*string) *GetServiceRecordResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetServiceRecordResponse) SetStatusCode(v int32) *GetServiceRecordResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetServiceRecordResponse) SetBody(v *GetServiceRecordResponseBody) *GetServiceRecordResponse {
+	s.Body = v
+	return s
+}
+
 type GetServiceRecordTranscriptHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2496,15 +3161,17 @@ func (s *ListServiceRecordResponseBody) SetTotalCount(v int32) *ListServiceRecor
 }
 
 type ListServiceRecordResponseBodyResult struct {
-	CustomerId     *string                                  `json:"customerId,omitempty" xml:"customerId,omitempty"`
-	DeviceSn       *string                                  `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
-	Duration       *string                                  `json:"duration,omitempty" xml:"duration,omitempty"`
-	EndTimestamp   *int64                                   `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
-	RecordId       *string                                  `json:"recordId,omitempty" xml:"recordId,omitempty"`
-	StartTimestamp *int64                                   `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
-	Team           *ListServiceRecordResponseBodyResultTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
-	User           *ListServiceRecordResponseBodyResultUser `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
-	Valid          *bool                                    `json:"valid,omitempty" xml:"valid,omitempty"`
+	CustomerId             *string                                  `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	DeviceSn               *string                                  `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	Duration               *string                                  `json:"duration,omitempty" xml:"duration,omitempty"`
+	EndTimestamp           *int64                                   `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	OutBizData             *string                                  `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
+	QualityInspectionScore *int32                                   `json:"qualityInspectionScore,omitempty" xml:"qualityInspectionScore,omitempty"`
+	RecordId               *string                                  `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	StartTimestamp         *int64                                   `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	Team                   *ListServiceRecordResponseBodyResultTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
+	User                   *ListServiceRecordResponseBodyResultUser `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
+	Valid                  *bool                                    `json:"valid,omitempty" xml:"valid,omitempty"`
 }
 
 func (s ListServiceRecordResponseBodyResult) String() string {
@@ -2532,6 +3199,16 @@ func (s *ListServiceRecordResponseBodyResult) SetDuration(v string) *ListService
 
 func (s *ListServiceRecordResponseBodyResult) SetEndTimestamp(v int64) *ListServiceRecordResponseBodyResult {
 	s.EndTimestamp = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetOutBizData(v string) *ListServiceRecordResponseBodyResult {
+	s.OutBizData = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResult) SetQualityInspectionScore(v int32) *ListServiceRecordResponseBodyResult {
+	s.QualityInspectionScore = &v
 	return s
 }
 
@@ -3963,6 +4640,306 @@ func (s *QueryFileInfoByMinutesIdResponse) SetBody(v *QueryFileInfoByMinutesIdRe
 	return s
 }
 
+type QueryUserDeviceLocationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserDeviceLocationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserDeviceLocationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserDeviceLocationHeaders) SetCommonHeaders(v map[string]*string) *QueryUserDeviceLocationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserDeviceLocationHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserDeviceLocationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserDeviceLocationRequest struct {
+	// This parameter is required.
+	EndTime *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	Sn      *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryUserDeviceLocationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserDeviceLocationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserDeviceLocationRequest) SetEndTime(v int64) *QueryUserDeviceLocationRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryUserDeviceLocationRequest) SetSn(v string) *QueryUserDeviceLocationRequest {
+	s.Sn = &v
+	return s
+}
+
+func (s *QueryUserDeviceLocationRequest) SetStartTime(v int64) *QueryUserDeviceLocationRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryUserDeviceLocationRequest) SetUserId(v string) *QueryUserDeviceLocationRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryUserDeviceLocationResponseBody struct {
+	Result *QueryUserDeviceLocationResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryUserDeviceLocationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserDeviceLocationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserDeviceLocationResponseBody) SetResult(v *QueryUserDeviceLocationResponseBodyResult) *QueryUserDeviceLocationResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryUserDeviceLocationResponseBodyResult struct {
+	DeviceLocations []*QueryUserDeviceLocationResponseBodyResultDeviceLocations `json:"deviceLocations,omitempty" xml:"deviceLocations,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserDeviceLocationResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserDeviceLocationResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserDeviceLocationResponseBodyResult) SetDeviceLocations(v []*QueryUserDeviceLocationResponseBodyResultDeviceLocations) *QueryUserDeviceLocationResponseBodyResult {
+	s.DeviceLocations = v
+	return s
+}
+
+type QueryUserDeviceLocationResponseBodyResultDeviceLocations struct {
+	Locations []*QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations `json:"locations,omitempty" xml:"locations,omitempty" type:"Repeated"`
+	Sn        *string                                                              `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s QueryUserDeviceLocationResponseBodyResultDeviceLocations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserDeviceLocationResponseBodyResultDeviceLocations) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserDeviceLocationResponseBodyResultDeviceLocations) SetLocations(v []*QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations) *QueryUserDeviceLocationResponseBodyResultDeviceLocations {
+	s.Locations = v
+	return s
+}
+
+func (s *QueryUserDeviceLocationResponseBodyResultDeviceLocations) SetSn(v string) *QueryUserDeviceLocationResponseBodyResultDeviceLocations {
+	s.Sn = &v
+	return s
+}
+
+type QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations struct {
+	Latitude  *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	Time      *string `json:"time,omitempty" xml:"time,omitempty"`
+}
+
+func (s QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations) SetLatitude(v string) *QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations {
+	s.Latitude = &v
+	return s
+}
+
+func (s *QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations) SetLongitude(v string) *QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations {
+	s.Longitude = &v
+	return s
+}
+
+func (s *QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations) SetTime(v string) *QueryUserDeviceLocationResponseBodyResultDeviceLocationsLocations {
+	s.Time = &v
+	return s
+}
+
+type QueryUserDeviceLocationResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryUserDeviceLocationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryUserDeviceLocationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserDeviceLocationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserDeviceLocationResponse) SetHeaders(v map[string]*string) *QueryUserDeviceLocationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserDeviceLocationResponse) SetStatusCode(v int32) *QueryUserDeviceLocationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryUserDeviceLocationResponse) SetBody(v *QueryUserDeviceLocationResponseBody) *QueryUserDeviceLocationResponse {
+	s.Body = v
+	return s
+}
+
+type SubmitAgentTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitAgentTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitAgentTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitAgentTaskHeaders) SetCommonHeaders(v map[string]*string) *SubmitAgentTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitAgentTaskHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitAgentTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitAgentTaskRequest struct {
+	// This parameter is required.
+	AgentCode *string `json:"agentCode,omitempty" xml:"agentCode,omitempty"`
+	// This parameter is required.
+	BizIdentify *string `json:"bizIdentify,omitempty" xml:"bizIdentify,omitempty"`
+	// This parameter is required.
+	Input  *string `json:"input,omitempty" xml:"input,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SubmitAgentTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitAgentTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitAgentTaskRequest) SetAgentCode(v string) *SubmitAgentTaskRequest {
+	s.AgentCode = &v
+	return s
+}
+
+func (s *SubmitAgentTaskRequest) SetBizIdentify(v string) *SubmitAgentTaskRequest {
+	s.BizIdentify = &v
+	return s
+}
+
+func (s *SubmitAgentTaskRequest) SetInput(v string) *SubmitAgentTaskRequest {
+	s.Input = &v
+	return s
+}
+
+func (s *SubmitAgentTaskRequest) SetUserId(v string) *SubmitAgentTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+type SubmitAgentTaskResponseBody struct {
+	Result *SubmitAgentTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s SubmitAgentTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitAgentTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitAgentTaskResponseBody) SetResult(v *SubmitAgentTaskResponseBodyResult) *SubmitAgentTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+type SubmitAgentTaskResponseBodyResult struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SubmitAgentTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitAgentTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitAgentTaskResponseBodyResult) SetTaskId(v string) *SubmitAgentTaskResponseBodyResult {
+	s.TaskId = &v
+	return s
+}
+
+type SubmitAgentTaskResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitAgentTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SubmitAgentTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitAgentTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitAgentTaskResponse) SetHeaders(v map[string]*string) *SubmitAgentTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitAgentTaskResponse) SetStatusCode(v int32) *SubmitAgentTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitAgentTaskResponse) SetBody(v *SubmitAgentTaskResponseBody) *SubmitAgentTaskResponse {
+	s.Body = v
+	return s
+}
+
 type SubmitAsrTaskHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4639,6 +5616,79 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 按 userId 列表批量查询用户绑定设备的状态
+//
+// @param request - BatchQueryUserDeviceStatusRequest
+//
+// @param headers - BatchQueryUserDeviceStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryUserDeviceStatusResponse
+func (client *Client) BatchQueryUserDeviceStatusWithOptions(request *BatchQueryUserDeviceStatusRequest, headers *BatchQueryUserDeviceStatusHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryUserDeviceStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIdList)) {
+		body["userIdList"] = request.UserIdList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryUserDeviceStatus"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/device/batchQueryUserDeviceStatus"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchQueryUserDeviceStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 按 userId 列表批量查询用户绑定设备的状态
+//
+// @param request - BatchQueryUserDeviceStatusRequest
+//
+// @return BatchQueryUserDeviceStatusResponse
+func (client *Client) BatchQueryUserDeviceStatus(request *BatchQueryUserDeviceStatusRequest) (_result *BatchQueryUserDeviceStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchQueryUserDeviceStatusHeaders{}
+	_result = &BatchQueryUserDeviceStatusResponse{}
+	_body, _err := client.BatchQueryUserDeviceStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 设备录音启停控制
 //
 // @param request - ControlRecordingRequest
@@ -4660,6 +5710,10 @@ func (client *Client) ControlRecordingWithOptions(request *ControlRecordingReque
 
 	if !tea.BoolValue(util.IsUnset(request.Agree)) {
 		body["agree"] = request.Agree
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutBizData)) {
+		body["outBizData"] = request.OutBizData
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
@@ -4715,6 +5769,83 @@ func (client *Client) ControlRecording(request *ControlRecordingRequest) (_resul
 	headers := &ControlRecordingHeaders{}
 	_result = &ControlRecordingResponse{}
 	_body, _err := client.ControlRecordingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建ASR离线转写任务
+//
+// @param request - CreateAsrTranscriptionRequest
+//
+// @param headers - CreateAsrTranscriptionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAsrTranscriptionResponse
+func (client *Client) CreateAsrTranscriptionWithOptions(request *CreateAsrTranscriptionRequest, headers *CreateAsrTranscriptionHeaders, runtime *util.RuntimeOptions) (_result *CreateAsrTranscriptionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizKey)) {
+		body["bizKey"] = request.BizKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Url)) {
+		body["url"] = request.Url
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateAsrTranscription"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/asr/transcriptions"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateAsrTranscriptionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建ASR离线转写任务
+//
+// @param request - CreateAsrTranscriptionRequest
+//
+// @return CreateAsrTranscriptionResponse
+func (client *Client) CreateAsrTranscription(request *CreateAsrTranscriptionRequest) (_result *CreateAsrTranscriptionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAsrTranscriptionHeaders{}
+	_result = &CreateAsrTranscriptionResponse{}
+	_body, _err := client.CreateAsrTranscriptionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -4851,6 +5982,87 @@ func (client *Client) DeleteRecordingSchedule(taskId *string) (_result *DeleteRe
 	headers := &DeleteRecordingScheduleHeaders{}
 	_result = &DeleteRecordingScheduleResponse{}
 	_body, _err := client.DeleteRecordingScheduleWithOptions(taskId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询ASR转写结果
+//
+// @param request - GetAsrTranscriptionRequest
+//
+// @param headers - GetAsrTranscriptionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetAsrTranscriptionResponse
+func (client *Client) GetAsrTranscriptionWithOptions(request *GetAsrTranscriptionRequest, headers *GetAsrTranscriptionHeaders, runtime *util.RuntimeOptions) (_result *GetAsrTranscriptionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		query["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetAsrTranscription"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/asr/transcriptions"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetAsrTranscriptionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询ASR转写结果
+//
+// @param request - GetAsrTranscriptionRequest
+//
+// @return GetAsrTranscriptionResponse
+func (client *Client) GetAsrTranscription(request *GetAsrTranscriptionRequest) (_result *GetAsrTranscriptionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetAsrTranscriptionHeaders{}
+	_result = &GetAsrTranscriptionResponse{}
+	_body, _err := client.GetAsrTranscriptionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5429,6 +6641,79 @@ func (client *Client) GetServiceQualityInspection(request *GetServiceQualityInsp
 	headers := &GetServiceQualityInspectionHeaders{}
 	_result = &GetServiceQualityInspectionResponse{}
 	_body, _err := client.GetServiceQualityInspectionWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取单条服务记录
+//
+// @param request - GetServiceRecordRequest
+//
+// @param headers - GetServiceRecordHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetServiceRecordResponse
+func (client *Client) GetServiceRecordWithOptions(request *GetServiceRecordRequest, headers *GetServiceRecordHeaders, runtime *util.RuntimeOptions) (_result *GetServiceRecordResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Id)) {
+		query["id"] = request.Id
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetServiceRecord"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service-record"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetServiceRecordResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取单条服务记录
+//
+// @param request - GetServiceRecordRequest
+//
+// @return GetServiceRecordResponse
+func (client *Client) GetServiceRecord(request *GetServiceRecordRequest) (_result *GetServiceRecordResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetServiceRecordHeaders{}
+	_result = &GetServiceRecordResponse{}
+	_body, _err := client.GetServiceRecordWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6510,6 +7795,176 @@ func (client *Client) QueryFileInfoByMinutesId(request *QueryFileInfoByMinutesId
 	headers := &QueryFileInfoByMinutesIdHeaders{}
 	_result = &QueryFileInfoByMinutesIdResponse{}
 	_body, _err := client.QueryFileInfoByMinutesIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据员工 userId 查询其当前绑定设备在指定时间范围内的位置（轨迹）信息
+//
+// @param request - QueryUserDeviceLocationRequest
+//
+// @param headers - QueryUserDeviceLocationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserDeviceLocationResponse
+func (client *Client) QueryUserDeviceLocationWithOptions(request *QueryUserDeviceLocationRequest, headers *QueryUserDeviceLocationHeaders, runtime *util.RuntimeOptions) (_result *QueryUserDeviceLocationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		query["sn"] = request.Sn
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUserDeviceLocation"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/device/queryUserDeviceLocation"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryUserDeviceLocationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据员工 userId 查询其当前绑定设备在指定时间范围内的位置（轨迹）信息
+//
+// @param request - QueryUserDeviceLocationRequest
+//
+// @return QueryUserDeviceLocationResponse
+func (client *Client) QueryUserDeviceLocation(request *QueryUserDeviceLocationRequest) (_result *QueryUserDeviceLocationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserDeviceLocationHeaders{}
+	_result = &QueryUserDeviceLocationResponse{}
+	_body, _err := client.QueryUserDeviceLocationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交agent异步任务
+//
+// @param request - SubmitAgentTaskRequest
+//
+// @param headers - SubmitAgentTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitAgentTaskResponse
+func (client *Client) SubmitAgentTaskWithOptions(request *SubmitAgentTaskRequest, headers *SubmitAgentTaskHeaders, runtime *util.RuntimeOptions) (_result *SubmitAgentTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentCode)) {
+		query["agentCode"] = request.AgentCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.BizIdentify)) {
+		query["bizIdentify"] = request.BizIdentify
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Input)) {
+		query["input"] = request.Input
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitAgentTask"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/agenttask/submit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitAgentTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交agent异步任务
+//
+// @param request - SubmitAgentTaskRequest
+//
+// @return SubmitAgentTaskResponse
+func (client *Client) SubmitAgentTask(request *SubmitAgentTaskRequest) (_result *SubmitAgentTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitAgentTaskHeaders{}
+	_result = &SubmitAgentTaskResponse{}
+	_body, _err := client.SubmitAgentTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2789,6 +2789,104 @@ func (s *PrepareSetRichTextResponse) SetBody(v *PrepareSetRichTextResponseBody) 
 	return s
 }
 
+type QueryChangedRecordIdsByClientTokenHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryChangedRecordIdsByClientTokenHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChangedRecordIdsByClientTokenHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChangedRecordIdsByClientTokenHeaders) SetCommonHeaders(v map[string]*string) *QueryChangedRecordIdsByClientTokenHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryChangedRecordIdsByClientTokenHeaders) SetXAcsDingtalkAccessToken(v string) *QueryChangedRecordIdsByClientTokenHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryChangedRecordIdsByClientTokenRequest struct {
+	// This parameter is required.
+	ClientToken *string `json:"clientToken,omitempty" xml:"clientToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s QueryChangedRecordIdsByClientTokenRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChangedRecordIdsByClientTokenRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChangedRecordIdsByClientTokenRequest) SetClientToken(v string) *QueryChangedRecordIdsByClientTokenRequest {
+	s.ClientToken = &v
+	return s
+}
+
+func (s *QueryChangedRecordIdsByClientTokenRequest) SetOperatorId(v string) *QueryChangedRecordIdsByClientTokenRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type QueryChangedRecordIdsByClientTokenResponseBody struct {
+	ChangedRecordIds interface{} `json:"changedRecordIds,omitempty" xml:"changedRecordIds,omitempty"`
+}
+
+func (s QueryChangedRecordIdsByClientTokenResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChangedRecordIdsByClientTokenResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChangedRecordIdsByClientTokenResponseBody) SetChangedRecordIds(v interface{}) *QueryChangedRecordIdsByClientTokenResponseBody {
+	s.ChangedRecordIds = v
+	return s
+}
+
+type QueryChangedRecordIdsByClientTokenResponse struct {
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryChangedRecordIdsByClientTokenResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryChangedRecordIdsByClientTokenResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryChangedRecordIdsByClientTokenResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryChangedRecordIdsByClientTokenResponse) SetHeaders(v map[string]*string) *QueryChangedRecordIdsByClientTokenResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryChangedRecordIdsByClientTokenResponse) SetStatusCode(v int32) *QueryChangedRecordIdsByClientTokenResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryChangedRecordIdsByClientTokenResponse) SetBody(v *QueryChangedRecordIdsByClientTokenResponseBody) *QueryChangedRecordIdsByClientTokenResponse {
+	s.Body = v
+	return s
+}
+
 type QueryDocAllRolesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3191,6 +3289,97 @@ func (s *RebuildRoleMembersResponse) SetStatusCode(v int32) *RebuildRoleMembersR
 }
 
 func (s *RebuildRoleMembersResponse) SetBody(v *RebuildRoleMembersResponseBody) *RebuildRoleMembersResponse {
+	s.Body = v
+	return s
+}
+
+type TruncateSheetRecordsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s TruncateSheetRecordsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TruncateSheetRecordsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *TruncateSheetRecordsHeaders) SetCommonHeaders(v map[string]*string) *TruncateSheetRecordsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *TruncateSheetRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *TruncateSheetRecordsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type TruncateSheetRecordsRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s TruncateSheetRecordsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TruncateSheetRecordsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *TruncateSheetRecordsRequest) SetOperatorId(v string) *TruncateSheetRecordsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type TruncateSheetRecordsResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s TruncateSheetRecordsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TruncateSheetRecordsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *TruncateSheetRecordsResponseBody) SetSuccess(v bool) *TruncateSheetRecordsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type TruncateSheetRecordsResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *TruncateSheetRecordsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s TruncateSheetRecordsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s TruncateSheetRecordsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *TruncateSheetRecordsResponse) SetHeaders(v map[string]*string) *TruncateSheetRecordsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *TruncateSheetRecordsResponse) SetStatusCode(v int32) *TruncateSheetRecordsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *TruncateSheetRecordsResponse) SetBody(v *TruncateSheetRecordsResponseBody) *TruncateSheetRecordsResponse {
 	s.Body = v
 	return s
 }
@@ -5333,6 +5522,85 @@ func (client *Client) PrepareSetRichText(baseId *string, request *PrepareSetRich
 
 // Summary:
 //
+// 根据 clientToken 查询变更记录 ID
+//
+// @param request - QueryChangedRecordIdsByClientTokenRequest
+//
+// @param headers - QueryChangedRecordIdsByClientTokenHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryChangedRecordIdsByClientTokenResponse
+func (client *Client) QueryChangedRecordIdsByClientTokenWithOptions(baseId *string, request *QueryChangedRecordIdsByClientTokenRequest, headers *QueryChangedRecordIdsByClientTokenHeaders, runtime *util.RuntimeOptions) (_result *QueryChangedRecordIdsByClientTokenResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClientToken)) {
+		body["clientToken"] = request.ClientToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryChangedRecordIdsByClientToken"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/changedRecordIds/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryChangedRecordIdsByClientTokenResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据 clientToken 查询变更记录 ID
+//
+// @param request - QueryChangedRecordIdsByClientTokenRequest
+//
+// @return QueryChangedRecordIdsByClientTokenResponse
+func (client *Client) QueryChangedRecordIdsByClientToken(baseId *string, request *QueryChangedRecordIdsByClientTokenRequest) (_result *QueryChangedRecordIdsByClientTokenResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryChangedRecordIdsByClientTokenHeaders{}
+	_result = &QueryChangedRecordIdsByClientTokenResponse{}
+	_body, _err := client.QueryChangedRecordIdsByClientTokenWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询文档所有角色和角色成员
 //
 // @param request - QueryDocAllRolesRequest
@@ -5480,6 +5748,79 @@ func (client *Client) RebuildRoleMembers(baseId *string, request *RebuildRoleMem
 	headers := &RebuildRoleMembersHeaders{}
 	_result = &RebuildRoleMembersResponse{}
 	_body, _err := client.RebuildRoleMembersWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 清空表格记录
+//
+// @param request - TruncateSheetRecordsRequest
+//
+// @param headers - TruncateSheetRecordsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return TruncateSheetRecordsResponse
+func (client *Client) TruncateSheetRecordsWithOptions(baseId *string, sheetIdOrName *string, request *TruncateSheetRecordsRequest, headers *TruncateSheetRecordsHeaders, runtime *util.RuntimeOptions) (_result *TruncateSheetRecordsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("TruncateSheetRecords"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/sheets/" + tea.StringValue(sheetIdOrName) + "/records/truncate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &TruncateSheetRecordsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 清空表格记录
+//
+// @param request - TruncateSheetRecordsRequest
+//
+// @return TruncateSheetRecordsResponse
+func (client *Client) TruncateSheetRecords(baseId *string, sheetIdOrName *string, request *TruncateSheetRecordsRequest) (_result *TruncateSheetRecordsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &TruncateSheetRecordsHeaders{}
+	_result = &TruncateSheetRecordsResponse{}
+	_body, _err := client.TruncateSheetRecordsWithOptions(baseId, sheetIdOrName, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

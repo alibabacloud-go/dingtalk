@@ -674,6 +674,193 @@ func (s *ListAssistantMessageResponse) SetBody(v *ListAssistantMessageResponseBo
 	return s
 }
 
+type PageListAICreditsUsageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PageListAICreditsUsageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListAICreditsUsageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PageListAICreditsUsageHeaders) SetCommonHeaders(v map[string]*string) *PageListAICreditsUsageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PageListAICreditsUsageHeaders) SetXAcsDingtalkAccessToken(v string) *PageListAICreditsUsageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PageListAICreditsUsageRequest struct {
+	EndTime      *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	PageNumber   *int64  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
+	PageSize     *int64  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	ScenarioName *string `json:"scenarioName,omitempty" xml:"scenarioName,omitempty"`
+	StartTime    *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName     *string `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s PageListAICreditsUsageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListAICreditsUsageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PageListAICreditsUsageRequest) SetEndTime(v string) *PageListAICreditsUsageRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageRequest) SetPageNumber(v int64) *PageListAICreditsUsageRequest {
+	s.PageNumber = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageRequest) SetPageSize(v int64) *PageListAICreditsUsageRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageRequest) SetScenarioName(v string) *PageListAICreditsUsageRequest {
+	s.ScenarioName = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageRequest) SetStartTime(v string) *PageListAICreditsUsageRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageRequest) SetUserId(v string) *PageListAICreditsUsageRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageRequest) SetUserName(v string) *PageListAICreditsUsageRequest {
+	s.UserName = &v
+	return s
+}
+
+type PageListAICreditsUsageResponseBody struct {
+	DataList   []*PageListAICreditsUsageResponseBodyDataList `json:"dataList,omitempty" xml:"dataList,omitempty" type:"Repeated"`
+	TotalCount *int64                                        `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s PageListAICreditsUsageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListAICreditsUsageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PageListAICreditsUsageResponseBody) SetDataList(v []*PageListAICreditsUsageResponseBodyDataList) *PageListAICreditsUsageResponseBody {
+	s.DataList = v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBody) SetTotalCount(v int64) *PageListAICreditsUsageResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type PageListAICreditsUsageResponseBodyDataList struct {
+	AbilityName      *string  `json:"abilityName,omitempty" xml:"abilityName,omitempty"`
+	AiCreditsUsedNum *float64 `json:"aiCreditsUsedNum,omitempty" xml:"aiCreditsUsedNum,omitempty"`
+	BizId            *string  `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	IsTimeFree       *bool    `json:"isTimeFree,omitempty" xml:"isTimeFree,omitempty"`
+	ScenarioName     *string  `json:"scenarioName,omitempty" xml:"scenarioName,omitempty"`
+	TaskName         *string  `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	UsageTime        *string  `json:"usageTime,omitempty" xml:"usageTime,omitempty"`
+	UserName         *string  `json:"userName,omitempty" xml:"userName,omitempty"`
+}
+
+func (s PageListAICreditsUsageResponseBodyDataList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListAICreditsUsageResponseBodyDataList) GoString() string {
+	return s.String()
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetAbilityName(v string) *PageListAICreditsUsageResponseBodyDataList {
+	s.AbilityName = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetAiCreditsUsedNum(v float64) *PageListAICreditsUsageResponseBodyDataList {
+	s.AiCreditsUsedNum = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetBizId(v string) *PageListAICreditsUsageResponseBodyDataList {
+	s.BizId = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetIsTimeFree(v bool) *PageListAICreditsUsageResponseBodyDataList {
+	s.IsTimeFree = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetScenarioName(v string) *PageListAICreditsUsageResponseBodyDataList {
+	s.ScenarioName = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetTaskName(v string) *PageListAICreditsUsageResponseBodyDataList {
+	s.TaskName = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetUsageTime(v string) *PageListAICreditsUsageResponseBodyDataList {
+	s.UsageTime = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetUserName(v string) *PageListAICreditsUsageResponseBodyDataList {
+	s.UserName = &v
+	return s
+}
+
+type PageListAICreditsUsageResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PageListAICreditsUsageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PageListAICreditsUsageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PageListAICreditsUsageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PageListAICreditsUsageResponse) SetHeaders(v map[string]*string) *PageListAICreditsUsageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponse) SetStatusCode(v int32) *PageListAICreditsUsageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponse) SetBody(v *PageListAICreditsUsageResponseBody) *PageListAICreditsUsageResponse {
+	s.Body = v
+	return s
+}
+
 type RetrieveAssistantMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1278,6 +1465,103 @@ func (client *Client) ListAssistantMessage(threadId *string, request *ListAssist
 	headers := &ListAssistantMessageHeaders{}
 	_result = &ListAssistantMessageResponse{}
 	_body, _err := client.ListAssistantMessageWithOptions(threadId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询算粒使用记录
+//
+// @param request - PageListAICreditsUsageRequest
+//
+// @param headers - PageListAICreditsUsageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PageListAICreditsUsageResponse
+func (client *Client) PageListAICreditsUsageWithOptions(request *PageListAICreditsUsageRequest, headers *PageListAICreditsUsageHeaders, runtime *util.RuntimeOptions) (_result *PageListAICreditsUsageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		query["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
+		query["pageNumber"] = request.PageNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ScenarioName)) {
+		query["scenarioName"] = request.ScenarioName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		query["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserName)) {
+		query["userName"] = request.UserName
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PageListAICreditsUsage"),
+		Version:     tea.String("assistant_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/assistant/aiCredits/pageListAICreditsUsage"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PageListAICreditsUsageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询算粒使用记录
+//
+// @param request - PageListAICreditsUsageRequest
+//
+// @return PageListAICreditsUsageResponse
+func (client *Client) PageListAICreditsUsage(request *PageListAICreditsUsageRequest) (_result *PageListAICreditsUsageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PageListAICreditsUsageHeaders{}
+	_result = &PageListAICreditsUsageResponse{}
+	_body, _err := client.PageListAICreditsUsageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
