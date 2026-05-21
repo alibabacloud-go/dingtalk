@@ -7119,6 +7119,10 @@ type GetInstancesByIdListRequest struct {
 	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
+	// FORM-THISISFORMUUID
+	FormUuid *string `json:"formUuid,omitempty" xml:"formUuid,omitempty"`
+	// example:
+	//
 	// zh_CN
 	Language *string `json:"language,omitempty" xml:"language,omitempty"`
 	// This parameter is required.
@@ -7156,6 +7160,11 @@ func (s *GetInstancesByIdListRequest) SetAppType(v string) *GetInstancesByIdList
 
 func (s *GetInstancesByIdListRequest) SetEnv(v string) *GetInstancesByIdListRequest {
 	s.Env = &v
+	return s
+}
+
+func (s *GetInstancesByIdListRequest) SetFormUuid(v string) *GetInstancesByIdListRequest {
+	s.FormUuid = &v
 	return s
 }
 
@@ -24848,6 +24857,10 @@ func (client *Client) GetInstancesByIdListWithOptions(request *GetInstancesByIdL
 
 	if !tea.BoolValue(util.IsUnset(request.Env)) {
 		query["env"] = request.Env
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormUuid)) {
+		query["formUuid"] = request.FormUuid
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Language)) {

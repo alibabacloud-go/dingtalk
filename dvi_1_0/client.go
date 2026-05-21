@@ -5141,6 +5141,178 @@ func (s *SubmitAsrTaskResponse) SetBody(v *SubmitAsrTaskResponseBody) *SubmitAsr
 	return s
 }
 
+type SubmitCustomerSplitDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitCustomerSplitDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCustomerSplitDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCustomerSplitDataHeaders) SetCommonHeaders(v map[string]*string) *SubmitCustomerSplitDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitCustomerSplitDataHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitCustomerSplitDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitCustomerSplitDataRequest struct {
+	// This parameter is required.
+	SplitParams []*SubmitCustomerSplitDataRequestSplitParams `json:"splitParams,omitempty" xml:"splitParams,omitempty" type:"Repeated"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SubmitCustomerSplitDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCustomerSplitDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCustomerSplitDataRequest) SetSplitParams(v []*SubmitCustomerSplitDataRequestSplitParams) *SubmitCustomerSplitDataRequest {
+	s.SplitParams = v
+	return s
+}
+
+func (s *SubmitCustomerSplitDataRequest) SetUserId(v string) *SubmitCustomerSplitDataRequest {
+	s.UserId = &v
+	return s
+}
+
+type SubmitCustomerSplitDataRequestSplitParams struct {
+	OutBizData *string `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s SubmitCustomerSplitDataRequestSplitParams) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCustomerSplitDataRequestSplitParams) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCustomerSplitDataRequestSplitParams) SetOutBizData(v string) *SubmitCustomerSplitDataRequestSplitParams {
+	s.OutBizData = &v
+	return s
+}
+
+func (s *SubmitCustomerSplitDataRequestSplitParams) SetStartTime(v int64) *SubmitCustomerSplitDataRequestSplitParams {
+	s.StartTime = &v
+	return s
+}
+
+type SubmitCustomerSplitDataShrinkRequest struct {
+	// This parameter is required.
+	SplitParamsShrink *string `json:"splitParams,omitempty" xml:"splitParams,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SubmitCustomerSplitDataShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCustomerSplitDataShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCustomerSplitDataShrinkRequest) SetSplitParamsShrink(v string) *SubmitCustomerSplitDataShrinkRequest {
+	s.SplitParamsShrink = &v
+	return s
+}
+
+func (s *SubmitCustomerSplitDataShrinkRequest) SetUserId(v string) *SubmitCustomerSplitDataShrinkRequest {
+	s.UserId = &v
+	return s
+}
+
+type SubmitCustomerSplitDataResponseBody struct {
+	ErrorMsg *string                                    `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result   *SubmitCustomerSplitDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success  *bool                                      `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SubmitCustomerSplitDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCustomerSplitDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCustomerSplitDataResponseBody) SetErrorMsg(v string) *SubmitCustomerSplitDataResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *SubmitCustomerSplitDataResponseBody) SetResult(v *SubmitCustomerSplitDataResponseBodyResult) *SubmitCustomerSplitDataResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SubmitCustomerSplitDataResponseBody) SetSuccess(v bool) *SubmitCustomerSplitDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SubmitCustomerSplitDataResponseBodyResult struct {
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s SubmitCustomerSplitDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCustomerSplitDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCustomerSplitDataResponseBodyResult) SetRequestId(v string) *SubmitCustomerSplitDataResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type SubmitCustomerSplitDataResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitCustomerSplitDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SubmitCustomerSplitDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCustomerSplitDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCustomerSplitDataResponse) SetHeaders(v map[string]*string) *SubmitCustomerSplitDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitCustomerSplitDataResponse) SetStatusCode(v int32) *SubmitCustomerSplitDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitCustomerSplitDataResponse) SetBody(v *SubmitCustomerSplitDataResponseBody) *SubmitCustomerSplitDataResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateDeviceBindingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8062,6 +8234,89 @@ func (client *Client) SubmitAsrTask(request *SubmitAsrTaskRequest) (_result *Sub
 	headers := &SubmitAsrTaskHeaders{}
 	_result = &SubmitAsrTaskResponse{}
 	_body, _err := client.SubmitAsrTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交切客数据
+//
+// @param tmpReq - SubmitCustomerSplitDataRequest
+//
+// @param headers - SubmitCustomerSplitDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitCustomerSplitDataResponse
+func (client *Client) SubmitCustomerSplitDataWithOptions(tmpReq *SubmitCustomerSplitDataRequest, headers *SubmitCustomerSplitDataHeaders, runtime *util.RuntimeOptions) (_result *SubmitCustomerSplitDataResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &SubmitCustomerSplitDataShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.SplitParams)) {
+		request.SplitParamsShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.SplitParams, tea.String("splitParams"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SplitParamsShrink)) {
+		query["splitParams"] = request.SplitParamsShrink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitCustomerSplitData"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/customersplit/submit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitCustomerSplitDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交切客数据
+//
+// @param request - SubmitCustomerSplitDataRequest
+//
+// @return SubmitCustomerSplitDataResponse
+func (client *Client) SubmitCustomerSplitData(request *SubmitCustomerSplitDataRequest) (_result *SubmitCustomerSplitDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitCustomerSplitDataHeaders{}
+	_result = &SubmitCustomerSplitDataResponse{}
+	_body, _err := client.SubmitCustomerSplitDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

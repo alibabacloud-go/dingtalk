@@ -8201,10 +8201,11 @@ func (s *CirclePostRecordHeaders) SetXAcsDingtalkAccessToken(v string) *CirclePo
 }
 
 type CirclePostRecordRequest struct {
-	Direction *int64 `json:"direction,omitempty" xml:"direction,omitempty"`
-	EndTime   *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
-	Size      *int64 `json:"size,omitempty" xml:"size,omitempty"`
-	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Direction  *int64 `json:"direction,omitempty" xml:"direction,omitempty"`
+	EndTime    *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	LastPostId *int64 `json:"lastPostId,omitempty" xml:"lastPostId,omitempty"`
+	Size       *int64 `json:"size,omitempty" xml:"size,omitempty"`
+	StartTime  *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
 }
 
 func (s CirclePostRecordRequest) String() string {
@@ -8222,6 +8223,11 @@ func (s *CirclePostRecordRequest) SetDirection(v int64) *CirclePostRecordRequest
 
 func (s *CirclePostRecordRequest) SetEndTime(v int64) *CirclePostRecordRequest {
 	s.EndTime = &v
+	return s
+}
+
+func (s *CirclePostRecordRequest) SetLastPostId(v int64) *CirclePostRecordRequest {
+	s.LastPostId = &v
 	return s
 }
 
@@ -35763,6 +35769,10 @@ func (client *Client) CirclePostRecordWithOptions(request *CirclePostRecordReque
 
 	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
 		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.LastPostId)) {
+		body["lastPostId"] = request.LastPostId
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Size)) {

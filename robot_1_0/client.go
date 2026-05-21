@@ -3391,6 +3391,112 @@ func (s *SetRobotPluginResponse) SetBody(v *SetRobotPluginResponseBody) *SetRobo
 	return s
 }
 
+type UpdateCustomRobotOutgoingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateCustomRobotOutgoingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRobotOutgoingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRobotOutgoingHeaders) SetCommonHeaders(v map[string]*string) *UpdateCustomRobotOutgoingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateCustomRobotOutgoingHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateCustomRobotOutgoingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateCustomRobotOutgoingRequest struct {
+	// This parameter is required.
+	OutgoingUrl *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
+	// This parameter is required.
+	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+}
+
+func (s UpdateCustomRobotOutgoingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRobotOutgoingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRobotOutgoingRequest) SetOutgoingUrl(v string) *UpdateCustomRobotOutgoingRequest {
+	s.OutgoingUrl = &v
+	return s
+}
+
+func (s *UpdateCustomRobotOutgoingRequest) SetToken(v string) *UpdateCustomRobotOutgoingRequest {
+	s.Token = &v
+	return s
+}
+
+type UpdateCustomRobotOutgoingResponseBody struct {
+	OriginalUrl *string `json:"originalUrl,omitempty" xml:"originalUrl,omitempty"`
+	Result      *bool   `json:"result,omitempty" xml:"result,omitempty"`
+	TargetUrl   *string `json:"targetUrl,omitempty" xml:"targetUrl,omitempty"`
+}
+
+func (s UpdateCustomRobotOutgoingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRobotOutgoingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRobotOutgoingResponseBody) SetOriginalUrl(v string) *UpdateCustomRobotOutgoingResponseBody {
+	s.OriginalUrl = &v
+	return s
+}
+
+func (s *UpdateCustomRobotOutgoingResponseBody) SetResult(v bool) *UpdateCustomRobotOutgoingResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateCustomRobotOutgoingResponseBody) SetTargetUrl(v string) *UpdateCustomRobotOutgoingResponseBody {
+	s.TargetUrl = &v
+	return s
+}
+
+type UpdateCustomRobotOutgoingResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateCustomRobotOutgoingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateCustomRobotOutgoingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateCustomRobotOutgoingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateCustomRobotOutgoingResponse) SetHeaders(v map[string]*string) *UpdateCustomRobotOutgoingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateCustomRobotOutgoingResponse) SetStatusCode(v int32) *UpdateCustomRobotOutgoingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateCustomRobotOutgoingResponse) SetBody(v *UpdateCustomRobotOutgoingResponseBody) *UpdateCustomRobotOutgoingResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateInstalledRobotHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5689,6 +5795,83 @@ func (client *Client) SetRobotPlugin(request *SetRobotPluginRequest) (_result *S
 	headers := &SetRobotPluginHeaders{}
 	_result = &SetRobotPluginResponse{}
 	_body, _err := client.SetRobotPluginWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新自定义机器人回调地址
+//
+// @param request - UpdateCustomRobotOutgoingRequest
+//
+// @param headers - UpdateCustomRobotOutgoingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateCustomRobotOutgoingResponse
+func (client *Client) UpdateCustomRobotOutgoingWithOptions(request *UpdateCustomRobotOutgoingRequest, headers *UpdateCustomRobotOutgoingHeaders, runtime *util.RuntimeOptions) (_result *UpdateCustomRobotOutgoingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OutgoingUrl)) {
+		body["outgoingUrl"] = request.OutgoingUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Token)) {
+		body["token"] = request.Token
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateCustomRobotOutgoing"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/custom/outgoing/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateCustomRobotOutgoingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新自定义机器人回调地址
+//
+// @param request - UpdateCustomRobotOutgoingRequest
+//
+// @return UpdateCustomRobotOutgoingResponse
+func (client *Client) UpdateCustomRobotOutgoing(request *UpdateCustomRobotOutgoingRequest) (_result *UpdateCustomRobotOutgoingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateCustomRobotOutgoingHeaders{}
+	_result = &UpdateCustomRobotOutgoingResponse{}
+	_body, _err := client.UpdateCustomRobotOutgoingWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -310,6 +310,7 @@ func (s *BatchGetMinutesDetailsResponseBody) SetMinutesDetails(v []*BatchGetMinu
 }
 
 type BatchGetMinutesDetailsResponseBodyMinutesDetails struct {
+	BizOrder       *string `json:"bizOrder,omitempty" xml:"bizOrder,omitempty"`
 	BizType        *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	CreatorNick    *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
 	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
@@ -328,6 +329,11 @@ func (s BatchGetMinutesDetailsResponseBodyMinutesDetails) String() string {
 
 func (s BatchGetMinutesDetailsResponseBodyMinutesDetails) GoString() string {
 	return s.String()
+}
+
+func (s *BatchGetMinutesDetailsResponseBodyMinutesDetails) SetBizOrder(v string) *BatchGetMinutesDetailsResponseBodyMinutesDetails {
+	s.BizOrder = &v
+	return s
 }
 
 func (s *BatchGetMinutesDetailsResponseBodyMinutesDetails) SetBizType(v int32) *BatchGetMinutesDetailsResponseBodyMinutesDetails {
@@ -1520,6 +1526,7 @@ func (s *QueryBizMinutesResponseBody) SetMinutesDetails(v []*QueryBizMinutesResp
 }
 
 type QueryBizMinutesResponseBodyMinutesDetails struct {
+	BizOrder       *string `json:"bizOrder,omitempty" xml:"bizOrder,omitempty"`
 	BizType        *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	CreatorNick    *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
 	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
@@ -1538,6 +1545,11 @@ func (s QueryBizMinutesResponseBodyMinutesDetails) String() string {
 
 func (s QueryBizMinutesResponseBodyMinutesDetails) GoString() string {
 	return s.String()
+}
+
+func (s *QueryBizMinutesResponseBodyMinutesDetails) SetBizOrder(v string) *QueryBizMinutesResponseBodyMinutesDetails {
+	s.BizOrder = &v
+	return s
 }
 
 func (s *QueryBizMinutesResponseBodyMinutesDetails) SetBizType(v int32) *QueryBizMinutesResponseBodyMinutesDetails {
@@ -1703,6 +1715,7 @@ func (s *QueryCreateMinutesListResponseBody) SetNextToken(v string) *QueryCreate
 }
 
 type QueryCreateMinutesListResponseBodyMinutesDetails struct {
+	BizOrder       *string `json:"bizOrder,omitempty" xml:"bizOrder,omitempty"`
 	BizType        *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	CreatorNick    *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
 	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
@@ -1721,6 +1734,11 @@ func (s QueryCreateMinutesListResponseBodyMinutesDetails) String() string {
 
 func (s QueryCreateMinutesListResponseBodyMinutesDetails) GoString() string {
 	return s.String()
+}
+
+func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetBizOrder(v string) *QueryCreateMinutesListResponseBodyMinutesDetails {
+	s.BizOrder = &v
+	return s
 }
 
 func (s *QueryCreateMinutesListResponseBodyMinutesDetails) SetBizType(v int32) *QueryCreateMinutesListResponseBodyMinutesDetails {
@@ -2385,6 +2403,7 @@ func (s *QueryMinutesShareListResponseBody) SetNextToken(v string) *QueryMinutes
 }
 
 type QueryMinutesShareListResponseBodyMinutesDetails struct {
+	BizOrder       *string `json:"bizOrder,omitempty" xml:"bizOrder,omitempty"`
 	BizType        *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	CreatorNick    *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
 	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
@@ -2403,6 +2422,11 @@ func (s QueryMinutesShareListResponseBodyMinutesDetails) String() string {
 
 func (s QueryMinutesShareListResponseBodyMinutesDetails) GoString() string {
 	return s.String()
+}
+
+func (s *QueryMinutesShareListResponseBodyMinutesDetails) SetBizOrder(v string) *QueryMinutesShareListResponseBodyMinutesDetails {
+	s.BizOrder = &v
+	return s
 }
 
 func (s *QueryMinutesShareListResponseBodyMinutesDetails) SetBizType(v int32) *QueryMinutesShareListResponseBodyMinutesDetails {
@@ -3309,6 +3333,7 @@ func (s *QueryScheduleConfMinutesResponseBody) SetMinutesDetails(v []*QuerySched
 }
 
 type QueryScheduleConfMinutesResponseBodyMinutesDetails struct {
+	BizOrder       *string `json:"bizOrder,omitempty" xml:"bizOrder,omitempty"`
 	BizType        *int32  `json:"bizType,omitempty" xml:"bizType,omitempty"`
 	CreatorNick    *string `json:"creatorNick,omitempty" xml:"creatorNick,omitempty"`
 	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
@@ -3327,6 +3352,11 @@ func (s QueryScheduleConfMinutesResponseBodyMinutesDetails) String() string {
 
 func (s QueryScheduleConfMinutesResponseBodyMinutesDetails) GoString() string {
 	return s.String()
+}
+
+func (s *QueryScheduleConfMinutesResponseBodyMinutesDetails) SetBizOrder(v string) *QueryScheduleConfMinutesResponseBodyMinutesDetails {
+	s.BizOrder = &v
+	return s
 }
 
 func (s *QueryScheduleConfMinutesResponseBodyMinutesDetails) SetBizType(v int32) *QueryScheduleConfMinutesResponseBodyMinutesDetails {
