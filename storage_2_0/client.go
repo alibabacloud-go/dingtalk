@@ -1467,7 +1467,8 @@ type GetPermissionShareScopeResponseBody struct {
 	// example:
 	//
 	// ORG_READ
-	Scope *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	Scope         *string `json:"scope,omitempty" xml:"scope,omitempty"`
+	ScopeWithRole *string `json:"scopeWithRole,omitempty" xml:"scopeWithRole,omitempty"`
 }
 
 func (s GetPermissionShareScopeResponseBody) String() string {
@@ -1480,6 +1481,11 @@ func (s GetPermissionShareScopeResponseBody) GoString() string {
 
 func (s *GetPermissionShareScopeResponseBody) SetScope(v string) *GetPermissionShareScopeResponseBody {
 	s.Scope = &v
+	return s
+}
+
+func (s *GetPermissionShareScopeResponseBody) SetScopeWithRole(v string) *GetPermissionShareScopeResponseBody {
+	s.ScopeWithRole = &v
 	return s
 }
 

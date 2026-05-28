@@ -297,7 +297,8 @@ func (s *CreateAsrTranscriptionHeaders) SetXAcsDingtalkAccessToken(v string) *Cr
 }
 
 type CreateAsrTranscriptionRequest struct {
-	BizKey *string `json:"bizKey,omitempty" xml:"bizKey,omitempty"`
+	BizKey  *string   `json:"bizKey,omitempty" xml:"bizKey,omitempty"`
+	Phrases []*string `json:"phrases,omitempty" xml:"phrases,omitempty" type:"Repeated"`
 	// This parameter is required.
 	Url *string `json:"url,omitempty" xml:"url,omitempty"`
 }
@@ -312,6 +313,11 @@ func (s CreateAsrTranscriptionRequest) GoString() string {
 
 func (s *CreateAsrTranscriptionRequest) SetBizKey(v string) *CreateAsrTranscriptionRequest {
 	s.BizKey = &v
+	return s
+}
+
+func (s *CreateAsrTranscriptionRequest) SetPhrases(v []*string) *CreateAsrTranscriptionRequest {
+	s.Phrases = v
 	return s
 }
 
@@ -1941,12 +1947,14 @@ func (s *GetServiceQualityInspectionResponseBodyResultGroupList) SetName(v strin
 }
 
 type GetServiceQualityInspectionResponseBodyResultGroupListItemList struct {
-	FlowName *string `json:"flowName,omitempty" xml:"flowName,omitempty"`
-	IsHit    *string `json:"isHit,omitempty" xml:"isHit,omitempty"`
-	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
-	Reason   *string `json:"reason,omitempty" xml:"reason,omitempty"`
-	Score    *int32  `json:"score,omitempty" xml:"score,omitempty"`
-	Script   *string `json:"script,omitempty" xml:"script,omitempty"`
+	Citations  []*GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations `json:"citations,omitempty" xml:"citations,omitempty" type:"Repeated"`
+	FlowName   *string                                                                    `json:"flowName,omitempty" xml:"flowName,omitempty"`
+	Highlights *string                                                                    `json:"highlights,omitempty" xml:"highlights,omitempty"`
+	IsHit      *string                                                                    `json:"isHit,omitempty" xml:"isHit,omitempty"`
+	Name       *string                                                                    `json:"name,omitempty" xml:"name,omitempty"`
+	Reason     *string                                                                    `json:"reason,omitempty" xml:"reason,omitempty"`
+	Score      *int32                                                                     `json:"score,omitempty" xml:"score,omitempty"`
+	Script     *string                                                                    `json:"script,omitempty" xml:"script,omitempty"`
 }
 
 func (s GetServiceQualityInspectionResponseBodyResultGroupListItemList) String() string {
@@ -1957,8 +1965,18 @@ func (s GetServiceQualityInspectionResponseBodyResultGroupListItemList) GoString
 	return s.String()
 }
 
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetCitations(v []*GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
+	s.Citations = v
+	return s
+}
+
 func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetFlowName(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
 	s.FlowName = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetHighlights(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
+	s.Highlights = &v
 	return s
 }
 
@@ -1984,6 +2002,29 @@ func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetScor
 
 func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemList) SetScript(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemList {
 	s.Script = &v
+	return s
+}
+
+type GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Time    *int64  `json:"time,omitempty" xml:"time,omitempty"`
+}
+
+func (s GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations) SetContent(v string) *GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations {
+	s.Content = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations) SetTime(v int64) *GetServiceQualityInspectionResponseBodyResultGroupListItemListCitations {
+	s.Time = &v
 	return s
 }
 
@@ -5967,6 +6008,10 @@ func (client *Client) CreateAsrTranscriptionWithOptions(request *CreateAsrTransc
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.BizKey)) {
 		body["bizKey"] = request.BizKey
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Phrases)) {
+		body["phrases"] = request.Phrases
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Url)) {

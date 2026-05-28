@@ -9147,6 +9147,106 @@ func (s *QueryDocContentResponse) SetBody(v *QueryDocContentResponseBody) *Query
 	return s
 }
 
+type QueryExportTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryExportTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExportTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExportTaskHeaders) SetCommonHeaders(v map[string]*string) *QueryExportTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryExportTaskHeaders) SetXAcsDingtalkAccessToken(v string) *QueryExportTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryExportTaskRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s QueryExportTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExportTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExportTaskRequest) SetOperatorId(v string) *QueryExportTaskRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *QueryExportTaskRequest) SetTaskId(v string) *QueryExportTaskRequest {
+	s.TaskId = &v
+	return s
+}
+
+type QueryExportTaskResponseBody struct {
+	DownloadUrl *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s QueryExportTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExportTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExportTaskResponseBody) SetDownloadUrl(v string) *QueryExportTaskResponseBody {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *QueryExportTaskResponseBody) SetStatus(v string) *QueryExportTaskResponseBody {
+	s.Status = &v
+	return s
+}
+
+type QueryExportTaskResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryExportTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryExportTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExportTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExportTaskResponse) SetHeaders(v map[string]*string) *QueryExportTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryExportTaskResponse) SetStatusCode(v int32) *QueryExportTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryExportTaskResponse) SetBody(v *QueryExportTaskResponseBody) *QueryExportTaskResponse {
+	s.Body = v
+	return s
+}
+
 type QueryGetContentJobHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -17109,6 +17209,83 @@ func (client *Client) QueryDocContent(dentryUuid *string, request *QueryDocConte
 	headers := &QueryDocContentHeaders{}
 	_result = &QueryDocContentResponse{}
 	_body, _err := client.QueryDocContentWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过taskId查询文档导出任务状态
+//
+// @param request - QueryExportTaskRequest
+//
+// @param headers - QueryExportTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryExportTaskResponse
+func (client *Client) QueryExportTaskWithOptions(request *QueryExportTaskRequest, headers *QueryExportTaskHeaders, runtime *util.RuntimeOptions) (_result *QueryExportTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		query["taskId"] = request.TaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryExportTask"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/me/export/task/query"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryExportTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 通过taskId查询文档导出任务状态
+//
+// @param request - QueryExportTaskRequest
+//
+// @return QueryExportTaskResponse
+func (client *Client) QueryExportTask(request *QueryExportTaskRequest) (_result *QueryExportTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryExportTaskHeaders{}
+	_result = &QueryExportTaskResponse{}
+	_body, _err := client.QueryExportTaskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

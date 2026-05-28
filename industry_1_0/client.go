@@ -7978,22 +7978,25 @@ func (s *CirclePostDetailResponseBody) SetResult(v *CirclePostDetailResponseBody
 }
 
 type CirclePostDetailResponseBodyResult struct {
-	Content      *string                                       `json:"content,omitempty" xml:"content,omitempty"`
-	DeptId       *int64                                        `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	DeptName     *string                                       `json:"deptName,omitempty" xml:"deptName,omitempty"`
-	DislikeCount *int64                                        `json:"dislikeCount,omitempty" xml:"dislikeCount,omitempty"`
-	GmtCreate    *string                                       `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
-	LikeCount    *int64                                        `json:"likeCount,omitempty" xml:"likeCount,omitempty"`
-	MediaUrlList []*string                                     `json:"mediaUrlList,omitempty" xml:"mediaUrlList,omitempty" type:"Repeated"`
-	PostId       *int64                                        `json:"postId,omitempty" xml:"postId,omitempty"`
-	PostType     *string                                       `json:"postType,omitempty" xml:"postType,omitempty"`
-	Products     []*CirclePostDetailResponseBodyResultProducts `json:"products,omitempty" xml:"products,omitempty" type:"Repeated"`
-	Status       *string                                       `json:"status,omitempty" xml:"status,omitempty"`
-	TagList      []*CirclePostDetailResponseBodyResultTagList  `json:"tagList,omitempty" xml:"tagList,omitempty" type:"Repeated"`
-	Title        *string                                       `json:"title,omitempty" xml:"title,omitempty"`
-	UserId       *string                                       `json:"userId,omitempty" xml:"userId,omitempty"`
-	UserName     *string                                       `json:"userName,omitempty" xml:"userName,omitempty"`
-	ViewCount    *int64                                        `json:"viewCount,omitempty" xml:"viewCount,omitempty"`
+	Content         *string                                       `json:"content,omitempty" xml:"content,omitempty"`
+	DeptId          *int64                                        `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	DeptName        *string                                       `json:"deptName,omitempty" xml:"deptName,omitempty"`
+	DislikeCount    *int64                                        `json:"dislikeCount,omitempty" xml:"dislikeCount,omitempty"`
+	GmtCreate       *string                                       `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	LikeCount       *int64                                        `json:"likeCount,omitempty" xml:"likeCount,omitempty"`
+	MediaFileIdList []*string                                     `json:"mediaFileIdList,omitempty" xml:"mediaFileIdList,omitempty" type:"Repeated"`
+	MediaUrlList    []*string                                     `json:"mediaUrlList,omitempty" xml:"mediaUrlList,omitempty" type:"Repeated"`
+	OutfitType      *string                                       `json:"outfitType,omitempty" xml:"outfitType,omitempty"`
+	PostId          *int64                                        `json:"postId,omitempty" xml:"postId,omitempty"`
+	PostType        *string                                       `json:"postType,omitempty" xml:"postType,omitempty"`
+	Products        []*CirclePostDetailResponseBodyResultProducts `json:"products,omitempty" xml:"products,omitempty" type:"Repeated"`
+	Score           *float64                                      `json:"score,omitempty" xml:"score,omitempty"`
+	Status          *string                                       `json:"status,omitempty" xml:"status,omitempty"`
+	TagList         []*CirclePostDetailResponseBodyResultTagList  `json:"tagList,omitempty" xml:"tagList,omitempty" type:"Repeated"`
+	Title           *string                                       `json:"title,omitempty" xml:"title,omitempty"`
+	UserId          *string                                       `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserName        *string                                       `json:"userName,omitempty" xml:"userName,omitempty"`
+	ViewCount       *int64                                        `json:"viewCount,omitempty" xml:"viewCount,omitempty"`
 }
 
 func (s CirclePostDetailResponseBodyResult) String() string {
@@ -8034,8 +8037,18 @@ func (s *CirclePostDetailResponseBodyResult) SetLikeCount(v int64) *CirclePostDe
 	return s
 }
 
+func (s *CirclePostDetailResponseBodyResult) SetMediaFileIdList(v []*string) *CirclePostDetailResponseBodyResult {
+	s.MediaFileIdList = v
+	return s
+}
+
 func (s *CirclePostDetailResponseBodyResult) SetMediaUrlList(v []*string) *CirclePostDetailResponseBodyResult {
 	s.MediaUrlList = v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetOutfitType(v string) *CirclePostDetailResponseBodyResult {
+	s.OutfitType = &v
 	return s
 }
 
@@ -8051,6 +8064,11 @@ func (s *CirclePostDetailResponseBodyResult) SetPostType(v string) *CirclePostDe
 
 func (s *CirclePostDetailResponseBodyResult) SetProducts(v []*CirclePostDetailResponseBodyResultProducts) *CirclePostDetailResponseBodyResult {
 	s.Products = v
+	return s
+}
+
+func (s *CirclePostDetailResponseBodyResult) SetScore(v float64) *CirclePostDetailResponseBodyResult {
+	s.Score = &v
 	return s
 }
 

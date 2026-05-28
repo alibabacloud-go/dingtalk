@@ -758,6 +758,140 @@ func (s *AyunTestOnlineResponse) SetBody(v *AyunTestOnlineResponseBody) *AyunTes
 	return s
 }
 
+type CreateAgentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateAgentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAgentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAgentHeaders) SetCommonHeaders(v map[string]*string) *CreateAgentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateAgentHeaders) SetXAcsDingtalkAccessToken(v string) *CreateAgentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateAgentRequest struct {
+	AppName        *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	PreviewMediaId *string `json:"previewMediaId,omitempty" xml:"previewMediaId,omitempty"`
+	RobotMediaId   *string `json:"robotMediaId,omitempty" xml:"robotMediaId,omitempty"`
+	RobotName      *string `json:"robotName,omitempty" xml:"robotName,omitempty"`
+	Userid         *string `json:"userid,omitempty" xml:"userid,omitempty"`
+}
+
+func (s CreateAgentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAgentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAgentRequest) SetAppName(v string) *CreateAgentRequest {
+	s.AppName = &v
+	return s
+}
+
+func (s *CreateAgentRequest) SetDesc(v string) *CreateAgentRequest {
+	s.Desc = &v
+	return s
+}
+
+func (s *CreateAgentRequest) SetPreviewMediaId(v string) *CreateAgentRequest {
+	s.PreviewMediaId = &v
+	return s
+}
+
+func (s *CreateAgentRequest) SetRobotMediaId(v string) *CreateAgentRequest {
+	s.RobotMediaId = &v
+	return s
+}
+
+func (s *CreateAgentRequest) SetRobotName(v string) *CreateAgentRequest {
+	s.RobotName = &v
+	return s
+}
+
+func (s *CreateAgentRequest) SetUserid(v string) *CreateAgentRequest {
+	s.Userid = &v
+	return s
+}
+
+type CreateAgentResponseBody struct {
+	AgentId      *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	ClientId     *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
+	ClientSecret *string `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
+	RobotCode    *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s CreateAgentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAgentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAgentResponseBody) SetAgentId(v string) *CreateAgentResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *CreateAgentResponseBody) SetClientId(v string) *CreateAgentResponseBody {
+	s.ClientId = &v
+	return s
+}
+
+func (s *CreateAgentResponseBody) SetClientSecret(v string) *CreateAgentResponseBody {
+	s.ClientSecret = &v
+	return s
+}
+
+func (s *CreateAgentResponseBody) SetRobotCode(v string) *CreateAgentResponseBody {
+	s.RobotCode = &v
+	return s
+}
+
+type CreateAgentResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateAgentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateAgentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateAgentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateAgentResponse) SetHeaders(v map[string]*string) *CreateAgentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateAgentResponse) SetStatusCode(v int32) *CreateAgentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateAgentResponse) SetBody(v *CreateAgentResponseBody) *CreateAgentResponse {
+	s.Body = v
+	return s
+}
+
 type CreateApaasAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2163,6 +2297,187 @@ func (s *GetMicroAppUserAccessResponse) SetBody(v *GetMicroAppUserAccessResponse
 	return s
 }
 
+type GetPublishAuditHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetPublishAuditHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublishAuditHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublishAuditHeaders) SetCommonHeaders(v map[string]*string) *GetPublishAuditHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetPublishAuditHeaders) SetXAcsDingtalkAccessToken(v string) *GetPublishAuditHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetPublishAuditRequest struct {
+	AuditId *string `json:"auditId,omitempty" xml:"auditId,omitempty"`
+}
+
+func (s GetPublishAuditRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublishAuditRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublishAuditRequest) SetAuditId(v string) *GetPublishAuditRequest {
+	s.AuditId = &v
+	return s
+}
+
+type GetPublishAuditResponseBody struct {
+	Audit *GetPublishAuditResponseBodyAudit `json:"audit,omitempty" xml:"audit,omitempty" type:"Struct"`
+}
+
+func (s GetPublishAuditResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublishAuditResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublishAuditResponseBody) SetAudit(v *GetPublishAuditResponseBodyAudit) *GetPublishAuditResponseBody {
+	s.Audit = v
+	return s
+}
+
+type GetPublishAuditResponseBodyAudit struct {
+	AgentId          *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AppIcon          *string `json:"appIcon,omitempty" xml:"appIcon,omitempty"`
+	AppName          *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	ApprovalContent  *string `json:"approvalContent,omitempty" xml:"approvalContent,omitempty"`
+	AuditId          *string `json:"auditId,omitempty" xml:"auditId,omitempty"`
+	CorpId           *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreatorUserId    *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	ReleaseNote      *string `json:"releaseNote,omitempty" xml:"releaseNote,omitempty"`
+	SceneType        *int64  `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+	Status           *int64  `json:"status,omitempty" xml:"status,omitempty"`
+	SubmitTime       *string `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	Version          *string `json:"version,omitempty" xml:"version,omitempty"`
+	VersionDetailUrl *string `json:"versionDetailUrl,omitempty" xml:"versionDetailUrl,omitempty"`
+	VersionId        *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s GetPublishAuditResponseBodyAudit) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublishAuditResponseBodyAudit) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetAgentId(v string) *GetPublishAuditResponseBodyAudit {
+	s.AgentId = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetAppIcon(v string) *GetPublishAuditResponseBodyAudit {
+	s.AppIcon = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetAppName(v string) *GetPublishAuditResponseBodyAudit {
+	s.AppName = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetApprovalContent(v string) *GetPublishAuditResponseBodyAudit {
+	s.ApprovalContent = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetAuditId(v string) *GetPublishAuditResponseBodyAudit {
+	s.AuditId = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetCorpId(v string) *GetPublishAuditResponseBodyAudit {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetCreatorUserId(v string) *GetPublishAuditResponseBodyAudit {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetReleaseNote(v string) *GetPublishAuditResponseBodyAudit {
+	s.ReleaseNote = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetSceneType(v int64) *GetPublishAuditResponseBodyAudit {
+	s.SceneType = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetStatus(v int64) *GetPublishAuditResponseBodyAudit {
+	s.Status = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetSubmitTime(v string) *GetPublishAuditResponseBodyAudit {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetVersion(v string) *GetPublishAuditResponseBodyAudit {
+	s.Version = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetVersionDetailUrl(v string) *GetPublishAuditResponseBodyAudit {
+	s.VersionDetailUrl = &v
+	return s
+}
+
+func (s *GetPublishAuditResponseBodyAudit) SetVersionId(v string) *GetPublishAuditResponseBodyAudit {
+	s.VersionId = &v
+	return s
+}
+
+type GetPublishAuditResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetPublishAuditResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetPublishAuditResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetPublishAuditResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetPublishAuditResponse) SetHeaders(v map[string]*string) *GetPublishAuditResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetPublishAuditResponse) SetStatusCode(v int32) *GetPublishAuditResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetPublishAuditResponse) SetBody(v *GetPublishAuditResponseBody) *GetPublishAuditResponse {
+	s.Body = v
+	return s
+}
+
 type GetUserAppDevAccessHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3458,6 +3773,169 @@ func (s *ListInnerAppVersionResponse) SetStatusCode(v int32) *ListInnerAppVersio
 }
 
 func (s *ListInnerAppVersionResponse) SetBody(v *ListInnerAppVersionResponseBody) *ListInnerAppVersionResponse {
+	s.Body = v
+	return s
+}
+
+type ListPendingPublishAuditsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListPendingPublishAuditsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPendingPublishAuditsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListPendingPublishAuditsHeaders) SetCommonHeaders(v map[string]*string) *ListPendingPublishAuditsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListPendingPublishAuditsHeaders) SetXAcsDingtalkAccessToken(v string) *ListPendingPublishAuditsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListPendingPublishAuditsRequest struct {
+	PageSize  *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	PageToken *string `json:"pageToken,omitempty" xml:"pageToken,omitempty"`
+}
+
+func (s ListPendingPublishAuditsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPendingPublishAuditsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListPendingPublishAuditsRequest) SetPageSize(v int32) *ListPendingPublishAuditsRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsRequest) SetPageToken(v string) *ListPendingPublishAuditsRequest {
+	s.PageToken = &v
+	return s
+}
+
+type ListPendingPublishAuditsResponseBody struct {
+	AuditList     []*ListPendingPublishAuditsResponseBodyAuditList `json:"auditList,omitempty" xml:"auditList,omitempty" type:"Repeated"`
+	HasMore       *string                                          `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextPageToken *string                                          `json:"nextPageToken,omitempty" xml:"nextPageToken,omitempty"`
+}
+
+func (s ListPendingPublishAuditsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPendingPublishAuditsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListPendingPublishAuditsResponseBody) SetAuditList(v []*ListPendingPublishAuditsResponseBodyAuditList) *ListPendingPublishAuditsResponseBody {
+	s.AuditList = v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBody) SetHasMore(v string) *ListPendingPublishAuditsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBody) SetNextPageToken(v string) *ListPendingPublishAuditsResponseBody {
+	s.NextPageToken = &v
+	return s
+}
+
+type ListPendingPublishAuditsResponseBodyAuditList struct {
+	AgentId       *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AuditId       *string `json:"auditId,omitempty" xml:"auditId,omitempty"`
+	CorpId        *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreatorUserId *string `json:"creatorUserId,omitempty" xml:"creatorUserId,omitempty"`
+	SceneType     *int32  `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+	Status        *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	SubmitTime    *int64  `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	VersionId     *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s ListPendingPublishAuditsResponseBodyAuditList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPendingPublishAuditsResponseBodyAuditList) GoString() string {
+	return s.String()
+}
+
+func (s *ListPendingPublishAuditsResponseBodyAuditList) SetAgentId(v string) *ListPendingPublishAuditsResponseBodyAuditList {
+	s.AgentId = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBodyAuditList) SetAuditId(v string) *ListPendingPublishAuditsResponseBodyAuditList {
+	s.AuditId = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBodyAuditList) SetCorpId(v string) *ListPendingPublishAuditsResponseBodyAuditList {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBodyAuditList) SetCreatorUserId(v string) *ListPendingPublishAuditsResponseBodyAuditList {
+	s.CreatorUserId = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBodyAuditList) SetSceneType(v int32) *ListPendingPublishAuditsResponseBodyAuditList {
+	s.SceneType = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBodyAuditList) SetStatus(v int32) *ListPendingPublishAuditsResponseBodyAuditList {
+	s.Status = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBodyAuditList) SetSubmitTime(v int64) *ListPendingPublishAuditsResponseBodyAuditList {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponseBodyAuditList) SetVersionId(v string) *ListPendingPublishAuditsResponseBodyAuditList {
+	s.VersionId = &v
+	return s
+}
+
+type ListPendingPublishAuditsResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListPendingPublishAuditsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListPendingPublishAuditsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListPendingPublishAuditsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListPendingPublishAuditsResponse) SetHeaders(v map[string]*string) *ListPendingPublishAuditsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponse) SetStatusCode(v int32) *ListPendingPublishAuditsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListPendingPublishAuditsResponse) SetBody(v *ListPendingPublishAuditsResponseBody) *ListPendingPublishAuditsResponse {
 	s.Body = v
 	return s
 }
@@ -5145,6 +5623,134 @@ func (s *UpdateInnerAppResponse) SetBody(v *UpdateInnerAppResponseBody) *UpdateI
 	return s
 }
 
+type UpdatePublishAuditResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdatePublishAuditResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePublishAuditResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePublishAuditResultHeaders) SetCommonHeaders(v map[string]*string) *UpdatePublishAuditResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdatePublishAuditResultHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePublishAuditResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdatePublishAuditResultRequest struct {
+	AgentId      *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	AuditId      *string `json:"auditId,omitempty" xml:"auditId,omitempty"`
+	OperatorId   *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	RejectReason *string `json:"rejectReason,omitempty" xml:"rejectReason,omitempty"`
+	Status       *int32  `json:"status,omitempty" xml:"status,omitempty"`
+	VersionId    *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s UpdatePublishAuditResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePublishAuditResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePublishAuditResultRequest) SetAgentId(v string) *UpdatePublishAuditResultRequest {
+	s.AgentId = &v
+	return s
+}
+
+func (s *UpdatePublishAuditResultRequest) SetAuditId(v string) *UpdatePublishAuditResultRequest {
+	s.AuditId = &v
+	return s
+}
+
+func (s *UpdatePublishAuditResultRequest) SetOperatorId(v string) *UpdatePublishAuditResultRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *UpdatePublishAuditResultRequest) SetRejectReason(v string) *UpdatePublishAuditResultRequest {
+	s.RejectReason = &v
+	return s
+}
+
+func (s *UpdatePublishAuditResultRequest) SetStatus(v int32) *UpdatePublishAuditResultRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdatePublishAuditResultRequest) SetVersionId(v string) *UpdatePublishAuditResultRequest {
+	s.VersionId = &v
+	return s
+}
+
+type UpdatePublishAuditResultResponseBody struct {
+	Accepted *bool   `json:"accepted,omitempty" xml:"accepted,omitempty"`
+	AuditId  *string `json:"auditId,omitempty" xml:"auditId,omitempty"`
+	Status   *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s UpdatePublishAuditResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePublishAuditResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePublishAuditResultResponseBody) SetAccepted(v bool) *UpdatePublishAuditResultResponseBody {
+	s.Accepted = &v
+	return s
+}
+
+func (s *UpdatePublishAuditResultResponseBody) SetAuditId(v string) *UpdatePublishAuditResultResponseBody {
+	s.AuditId = &v
+	return s
+}
+
+func (s *UpdatePublishAuditResultResponseBody) SetStatus(v string) *UpdatePublishAuditResultResponseBody {
+	s.Status = &v
+	return s
+}
+
+type UpdatePublishAuditResultResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdatePublishAuditResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdatePublishAuditResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePublishAuditResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePublishAuditResultResponse) SetHeaders(v map[string]*string) *UpdatePublishAuditResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdatePublishAuditResultResponse) SetStatusCode(v int32) *UpdatePublishAuditResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdatePublishAuditResultResponse) SetBody(v *UpdatePublishAuditResultResponseBody) *UpdatePublishAuditResultResponse {
+	s.Body = v
+	return s
+}
+
 type Client struct {
 	openapi.Client
 }
@@ -5783,6 +6389,99 @@ func (client *Client) AyunTestOnline() (_result *AyunTestOnlineResponse, _err er
 	headers := make(map[string]*string)
 	_result = &AyunTestOnlineResponse{}
 	_body, _err := client.AyunTestOnlineWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建企业智能体应用
+//
+// @param request - CreateAgentRequest
+//
+// @param headers - CreateAgentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateAgentResponse
+func (client *Client) CreateAgentWithOptions(request *CreateAgentRequest, headers *CreateAgentHeaders, runtime *util.RuntimeOptions) (_result *CreateAgentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Desc)) {
+		body["desc"] = request.Desc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PreviewMediaId)) {
+		body["previewMediaId"] = request.PreviewMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotMediaId)) {
+		body["robotMediaId"] = request.RobotMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotName)) {
+		body["robotName"] = request.RobotName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Userid)) {
+		body["userid"] = request.Userid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateAgent"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/agent/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateAgentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建企业智能体应用
+//
+// @param request - CreateAgentRequest
+//
+// @return CreateAgentResponse
+func (client *Client) CreateAgent(request *CreateAgentRequest) (_result *CreateAgentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateAgentHeaders{}
+	_result = &CreateAgentResponse{}
+	_body, _err := client.CreateAgentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6603,6 +7302,79 @@ func (client *Client) GetMicroAppUserAccess(agentId *string, userId *string) (_r
 
 // Summary:
 //
+// 查询企业内部应用审核详情
+//
+// @param request - GetPublishAuditRequest
+//
+// @param headers - GetPublishAuditHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetPublishAuditResponse
+func (client *Client) GetPublishAuditWithOptions(request *GetPublishAuditRequest, headers *GetPublishAuditHeaders, runtime *util.RuntimeOptions) (_result *GetPublishAuditResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AuditId)) {
+		body["auditId"] = request.AuditId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetPublishAudit"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/enterpriseSelfBuiltPublishAudit/detail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetPublishAuditResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询企业内部应用审核详情
+//
+// @param request - GetPublishAuditRequest
+//
+// @return GetPublishAuditResponse
+func (client *Client) GetPublishAudit(request *GetPublishAuditRequest) (_result *GetPublishAuditResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetPublishAuditHeaders{}
+	_result = &GetPublishAuditResponse{}
+	_body, _err := client.GetPublishAuditWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 用户是否拥有开发者权限
 //
 // @param headers - GetUserAppDevAccessHeaders
@@ -7188,6 +7960,83 @@ func (client *Client) ListInnerAppVersion(agentId *string) (_result *ListInnerAp
 	headers := &ListInnerAppVersionHeaders{}
 	_result = &ListInnerAppVersionResponse{}
 	_body, _err := client.ListInnerAppVersionWithOptions(agentId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询待审核发布审核单
+//
+// @param request - ListPendingPublishAuditsRequest
+//
+// @param headers - ListPendingPublishAuditsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListPendingPublishAuditsResponse
+func (client *Client) ListPendingPublishAuditsWithOptions(request *ListPendingPublishAuditsRequest, headers *ListPendingPublishAuditsHeaders, runtime *util.RuntimeOptions) (_result *ListPendingPublishAuditsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageToken)) {
+		body["pageToken"] = request.PageToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListPendingPublishAudits"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/enterpriseSelfBuiltPublishAudit/pendingList"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListPendingPublishAuditsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询待审核发布审核单
+//
+// @param request - ListPendingPublishAuditsRequest
+//
+// @return ListPendingPublishAuditsResponse
+func (client *Client) ListPendingPublishAudits(request *ListPendingPublishAuditsRequest) (_result *ListPendingPublishAuditsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListPendingPublishAuditsHeaders{}
+	_result = &ListPendingPublishAuditsResponse{}
+	_body, _err := client.ListPendingPublishAuditsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8245,6 +9094,99 @@ func (client *Client) UpdateInnerApp(agentId *string, request *UpdateInnerAppReq
 	headers := &UpdateInnerAppHeaders{}
 	_result = &UpdateInnerAppResponse{}
 	_body, _err := client.UpdateInnerAppWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 回写审核结果
+//
+// @param request - UpdatePublishAuditResultRequest
+//
+// @param headers - UpdatePublishAuditResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdatePublishAuditResultResponse
+func (client *Client) UpdatePublishAuditResultWithOptions(request *UpdatePublishAuditResultRequest, headers *UpdatePublishAuditResultHeaders, runtime *util.RuntimeOptions) (_result *UpdatePublishAuditResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentId)) {
+		body["agentId"] = request.AgentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.AuditId)) {
+		body["auditId"] = request.AuditId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RejectReason)) {
+		body["rejectReason"] = request.RejectReason
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VersionId)) {
+		body["versionId"] = request.VersionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdatePublishAuditResult"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/enterprisePublishAudit/submitResult"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdatePublishAuditResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 回写审核结果
+//
+// @param request - UpdatePublishAuditResultRequest
+//
+// @return UpdatePublishAuditResultResponse
+func (client *Client) UpdatePublishAuditResult(request *UpdatePublishAuditResultRequest) (_result *UpdatePublishAuditResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdatePublishAuditResultHeaders{}
+	_result = &UpdatePublishAuditResultResponse{}
+	_body, _err := client.UpdatePublishAuditResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

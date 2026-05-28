@@ -3418,7 +3418,8 @@ type UpdateCustomRobotOutgoingRequest struct {
 	// This parameter is required.
 	OutgoingUrl *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
 	// This parameter is required.
-	Token *string `json:"token,omitempty" xml:"token,omitempty"`
+	Token           *string `json:"token,omitempty" xml:"token,omitempty"`
+	UserCustomToken *string `json:"userCustomToken,omitempty" xml:"userCustomToken,omitempty"`
 }
 
 func (s UpdateCustomRobotOutgoingRequest) String() string {
@@ -3436,6 +3437,11 @@ func (s *UpdateCustomRobotOutgoingRequest) SetOutgoingUrl(v string) *UpdateCusto
 
 func (s *UpdateCustomRobotOutgoingRequest) SetToken(v string) *UpdateCustomRobotOutgoingRequest {
 	s.Token = &v
+	return s
+}
+
+func (s *UpdateCustomRobotOutgoingRequest) SetUserCustomToken(v string) *UpdateCustomRobotOutgoingRequest {
+	s.UserCustomToken = &v
 	return s
 }
 
@@ -5825,6 +5831,10 @@ func (client *Client) UpdateCustomRobotOutgoingWithOptions(request *UpdateCustom
 
 	if !tea.BoolValue(util.IsUnset(request.Token)) {
 		body["token"] = request.Token
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserCustomToken)) {
+		body["userCustomToken"] = request.UserCustomToken
 	}
 
 	realHeaders := make(map[string]*string)
