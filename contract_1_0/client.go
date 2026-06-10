@@ -5436,6 +5436,7 @@ func (s *QueryContractAppsReviewResultResponseBodyResult) SetRequestId(v string)
 }
 
 type QueryContractAppsReviewResultResponseBodyResultData struct {
+	ReviewDetailUrl    *string                                                                `json:"reviewDetailUrl,omitempty" xml:"reviewDetailUrl,omitempty"`
 	ReviewRiskDetail   []*QueryContractAppsReviewResultResponseBodyResultDataReviewRiskDetail `json:"reviewRiskDetail,omitempty" xml:"reviewRiskDetail,omitempty" type:"Repeated"`
 	ReviewRiskOverview *QueryContractAppsReviewResultResponseBodyResultDataReviewRiskOverview `json:"reviewRiskOverview,omitempty" xml:"reviewRiskOverview,omitempty" type:"Struct"`
 	ReviewStatus       *QueryContractAppsReviewResultResponseBodyResultDataReviewStatus       `json:"reviewStatus,omitempty" xml:"reviewStatus,omitempty" type:"Struct"`
@@ -5447,6 +5448,11 @@ func (s QueryContractAppsReviewResultResponseBodyResultData) String() string {
 
 func (s QueryContractAppsReviewResultResponseBodyResultData) GoString() string {
 	return s.String()
+}
+
+func (s *QueryContractAppsReviewResultResponseBodyResultData) SetReviewDetailUrl(v string) *QueryContractAppsReviewResultResponseBodyResultData {
+	s.ReviewDetailUrl = &v
+	return s
 }
 
 func (s *QueryContractAppsReviewResultResponseBodyResultData) SetReviewRiskDetail(v []*QueryContractAppsReviewResultResponseBodyResultDataReviewRiskDetail) *QueryContractAppsReviewResultResponseBodyResultData {

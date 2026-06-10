@@ -1241,10 +1241,11 @@ func (s *CreateScheduleConferenceRequestScheduleConfSettingModel) SetScreenShare
 }
 
 type CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting struct {
-	AllowAllParticipantsStart       *int32 `json:"allowAllParticipantsStart,omitempty" xml:"allowAllParticipantsStart,omitempty"`
-	EnableAiAgentStatus             *bool  `json:"enableAiAgentStatus,omitempty" xml:"enableAiAgentStatus,omitempty"`
-	ReceiverType                    *int32 `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
-	RestrictShareMinutesSummaryOnly *int32 `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
+	AllowAllParticipantsStart         *int32 `json:"allowAllParticipantsStart,omitempty" xml:"allowAllParticipantsStart,omitempty"`
+	AllowParticipantShowAiAgentRecord *bool  `json:"allowParticipantShowAiAgentRecord,omitempty" xml:"allowParticipantShowAiAgentRecord,omitempty"`
+	EnableAiAgentStatus               *bool  `json:"enableAiAgentStatus,omitempty" xml:"enableAiAgentStatus,omitempty"`
+	ReceiverType                      *int32 `json:"receiverType,omitempty" xml:"receiverType,omitempty"`
+	RestrictShareMinutesSummaryOnly   *int32 `json:"restrictShareMinutesSummaryOnly,omitempty" xml:"restrictShareMinutesSummaryOnly,omitempty"`
 	// example:
 	//
 	// disable
@@ -1261,6 +1262,11 @@ func (s CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySet
 
 func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetAllowAllParticipantsStart(v int32) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
 	s.AllowAllParticipantsStart = &v
+	return s
+}
+
+func (s *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting) SetAllowParticipantShowAiAgentRecord(v bool) *CreateScheduleConferenceRequestScheduleConfSettingModelAiAgentSummarySetting {
+	s.AllowParticipantShowAiAgentRecord = &v
 	return s
 }
 

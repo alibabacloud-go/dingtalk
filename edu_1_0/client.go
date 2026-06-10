@@ -19080,6 +19080,161 @@ func (s *GetCollegeContactStandardStruDeptDetailResponse) SetBody(v *GetCollegeC
 	return s
 }
 
+type GetCorrectStyleHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetCorrectStyleHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorrectStyleHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorrectStyleHeaders) SetCommonHeaders(v map[string]*string) *GetCorrectStyleHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetCorrectStyleHeaders) SetXAcsDingtalkAccessToken(v string) *GetCorrectStyleHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetCorrectStyleRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding123...
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding_scan_correct_...
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+}
+
+func (s GetCorrectStyleRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorrectStyleRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorrectStyleRequest) SetCorpId(v string) *GetCorrectStyleRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *GetCorrectStyleRequest) SetTaskCode(v string) *GetCorrectStyleRequest {
+	s.TaskCode = &v
+	return s
+}
+
+type GetCorrectStyleResponseBody struct {
+	Result  *GetCorrectStyleResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetCorrectStyleResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorrectStyleResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorrectStyleResponseBody) SetResult(v *GetCorrectStyleResponseBodyResult) *GetCorrectStyleResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetCorrectStyleResponseBody) SetSuccess(v bool) *GetCorrectStyleResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetCorrectStyleResponseBodyResult struct {
+	CheckSizeType       *string `json:"checkSizeType,omitempty" xml:"checkSizeType,omitempty"`
+	HalfCheckSizeType   *string `json:"halfCheckSizeType,omitempty" xml:"halfCheckSizeType,omitempty"`
+	ShowPaperScore      *bool   `json:"showPaperScore,omitempty" xml:"showPaperScore,omitempty"`
+	SubScoreDisplayType *string `json:"subScoreDisplayType,omitempty" xml:"subScoreDisplayType,omitempty"`
+	WrongSizeType       *string `json:"wrongSizeType,omitempty" xml:"wrongSizeType,omitempty"`
+	WrongStyle          *string `json:"wrongStyle,omitempty" xml:"wrongStyle,omitempty"`
+}
+
+func (s GetCorrectStyleResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorrectStyleResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorrectStyleResponseBodyResult) SetCheckSizeType(v string) *GetCorrectStyleResponseBodyResult {
+	s.CheckSizeType = &v
+	return s
+}
+
+func (s *GetCorrectStyleResponseBodyResult) SetHalfCheckSizeType(v string) *GetCorrectStyleResponseBodyResult {
+	s.HalfCheckSizeType = &v
+	return s
+}
+
+func (s *GetCorrectStyleResponseBodyResult) SetShowPaperScore(v bool) *GetCorrectStyleResponseBodyResult {
+	s.ShowPaperScore = &v
+	return s
+}
+
+func (s *GetCorrectStyleResponseBodyResult) SetSubScoreDisplayType(v string) *GetCorrectStyleResponseBodyResult {
+	s.SubScoreDisplayType = &v
+	return s
+}
+
+func (s *GetCorrectStyleResponseBodyResult) SetWrongSizeType(v string) *GetCorrectStyleResponseBodyResult {
+	s.WrongSizeType = &v
+	return s
+}
+
+func (s *GetCorrectStyleResponseBodyResult) SetWrongStyle(v string) *GetCorrectStyleResponseBodyResult {
+	s.WrongStyle = &v
+	return s
+}
+
+type GetCorrectStyleResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetCorrectStyleResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetCorrectStyleResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetCorrectStyleResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetCorrectStyleResponse) SetHeaders(v map[string]*string) *GetCorrectStyleResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetCorrectStyleResponse) SetStatusCode(v int32) *GetCorrectStyleResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetCorrectStyleResponse) SetBody(v *GetCorrectStyleResponseBody) *GetCorrectStyleResponse {
+	s.Body = v
+	return s
+}
+
 type GetDefaultChildHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -30154,6 +30309,259 @@ func (s *QueryOrderResponse) SetStatusCode(v int32) *QueryOrderResponse {
 }
 
 func (s *QueryOrderResponse) SetBody(v *QueryOrderResponseBody) *QueryOrderResponse {
+	s.Body = v
+	return s
+}
+
+type QueryOrgCorrectTaskDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskDetailHeaders) SetCommonHeaders(v map[string]*string) *QueryOrgCorrectTaskDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgCorrectTaskDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrgCorrectTaskDetailRequest struct {
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	PageNo *int64 `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
+	// This parameter is required.
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding26d260744657eb6378f
+	QueryCorpId *string `json:"queryCorpId,omitempty" xml:"queryCorpId,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	// example:
+	//
+	// math
+	SubjectCode *string `json:"subjectCode,omitempty" xml:"subjectCode,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskDetailRequest) SetEndTime(v int64) *QueryOrgCorrectTaskDetailRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailRequest) SetPageNo(v int64) *QueryOrgCorrectTaskDetailRequest {
+	s.PageNo = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailRequest) SetPageSize(v int64) *QueryOrgCorrectTaskDetailRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailRequest) SetQueryCorpId(v string) *QueryOrgCorrectTaskDetailRequest {
+	s.QueryCorpId = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailRequest) SetStartTime(v int64) *QueryOrgCorrectTaskDetailRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailRequest) SetSubjectCode(v string) *QueryOrgCorrectTaskDetailRequest {
+	s.SubjectCode = &v
+	return s
+}
+
+type QueryOrgCorrectTaskDetailResponseBody struct {
+	ErrorCode *string                                        `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                                        `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    []*QueryOrgCorrectTaskDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success   *bool                                          `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBody) SetErrorCode(v string) *QueryOrgCorrectTaskDetailResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBody) SetErrorMsg(v string) *QueryOrgCorrectTaskDetailResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBody) SetResult(v []*QueryOrgCorrectTaskDetailResponseBodyResult) *QueryOrgCorrectTaskDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBody) SetSuccess(v bool) *QueryOrgCorrectTaskDetailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryOrgCorrectTaskDetailResponseBodyResult struct {
+	AiMarkId     *int64   `json:"aiMarkId,omitempty" xml:"aiMarkId,omitempty"`
+	AiMarkTime   *int64   `json:"aiMarkTime,omitempty" xml:"aiMarkTime,omitempty"`
+	AiModel      *string  `json:"aiModel,omitempty" xml:"aiModel,omitempty"`
+	ClassName    *string  `json:"className,omitempty" xml:"className,omitempty"`
+	GradeLevel   *int64   `json:"gradeLevel,omitempty" xml:"gradeLevel,omitempty"`
+	GradeName    *string  `json:"gradeName,omitempty" xml:"gradeName,omitempty"`
+	PeriodCode   *string  `json:"periodCode,omitempty" xml:"periodCode,omitempty"`
+	ScanDeviceId *string  `json:"scanDeviceId,omitempty" xml:"scanDeviceId,omitempty"`
+	ScanTime     *int64   `json:"scanTime,omitempty" xml:"scanTime,omitempty"`
+	SchoolName   *string  `json:"schoolName,omitempty" xml:"schoolName,omitempty"`
+	Score        *float64 `json:"score,omitempty" xml:"score,omitempty"`
+	StudentName  *string  `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	TaskCode     *string  `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+	TaskName     *string  `json:"taskName,omitempty" xml:"taskName,omitempty"`
+	TeacherName  *string  `json:"teacherName,omitempty" xml:"teacherName,omitempty"`
+	TotalScore   *float64 `json:"totalScore,omitempty" xml:"totalScore,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetAiMarkId(v int64) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.AiMarkId = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetAiMarkTime(v int64) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.AiMarkTime = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetAiModel(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.AiModel = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetClassName(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.ClassName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetGradeLevel(v int64) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.GradeLevel = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetGradeName(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.GradeName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetPeriodCode(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.PeriodCode = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetScanDeviceId(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.ScanDeviceId = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetScanTime(v int64) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.ScanTime = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetSchoolName(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.SchoolName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetScore(v float64) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.Score = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetStudentName(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.StudentName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetTaskCode(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.TaskCode = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetTaskName(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.TaskName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetTeacherName(v string) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.TeacherName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponseBodyResult) SetTotalScore(v float64) *QueryOrgCorrectTaskDetailResponseBodyResult {
+	s.TotalScore = &v
+	return s
+}
+
+type QueryOrgCorrectTaskDetailResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOrgCorrectTaskDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskDetailResponse) SetHeaders(v map[string]*string) *QueryOrgCorrectTaskDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponse) SetStatusCode(v int32) *QueryOrgCorrectTaskDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskDetailResponse) SetBody(v *QueryOrgCorrectTaskDetailResponseBody) *QueryOrgCorrectTaskDetailResponse {
 	s.Body = v
 	return s
 }
@@ -51258,6 +51666,83 @@ func (client *Client) GetCollegeContactStandardStruDeptDetail(request *GetColleg
 
 // Summary:
 //
+// 作业批改-查询批改样式
+//
+// @param request - GetCorrectStyleRequest
+//
+// @param headers - GetCorrectStyleHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetCorrectStyleResponse
+func (client *Client) GetCorrectStyleWithOptions(request *GetCorrectStyleRequest, headers *GetCorrectStyleHeaders, runtime *util.RuntimeOptions) (_result *GetCorrectStyleResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetCorrectStyle"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/getCorrectStyle"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetCorrectStyleResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-查询批改样式
+//
+// @param request - GetCorrectStyleRequest
+//
+// @return GetCorrectStyleResponse
+func (client *Client) GetCorrectStyle(request *GetCorrectStyleRequest) (_result *GetCorrectStyleResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetCorrectStyleHeaders{}
+	_result = &GetCorrectStyleResponse{}
+	_body, _err := client.GetCorrectStyleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 获取默认孩子信息
 //
 // @param headers - GetDefaultChildHeaders
@@ -55710,6 +56195,99 @@ func (client *Client) QueryOrder(request *QueryOrderRequest) (_result *QueryOrde
 	headers := &QueryOrderHeaders{}
 	_result = &QueryOrderResponse{}
 	_body, _err := client.QueryOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-查询批改任务明细
+//
+// @param request - QueryOrgCorrectTaskDetailRequest
+//
+// @param headers - QueryOrgCorrectTaskDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOrgCorrectTaskDetailResponse
+func (client *Client) QueryOrgCorrectTaskDetailWithOptions(request *QueryOrgCorrectTaskDetailRequest, headers *QueryOrgCorrectTaskDetailHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgCorrectTaskDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNo)) {
+		body["pageNo"] = request.PageNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryCorpId)) {
+		body["queryCorpId"] = request.QueryCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectCode)) {
+		body["subjectCode"] = request.SubjectCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryOrgCorrectTaskDetail"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/queryTaskDetail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryOrgCorrectTaskDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-查询批改任务明细
+//
+// @param request - QueryOrgCorrectTaskDetailRequest
+//
+// @return QueryOrgCorrectTaskDetailResponse
+func (client *Client) QueryOrgCorrectTaskDetail(request *QueryOrgCorrectTaskDetailRequest) (_result *QueryOrgCorrectTaskDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrgCorrectTaskDetailHeaders{}
+	_result = &QueryOrgCorrectTaskDetailResponse{}
+	_body, _err := client.QueryOrgCorrectTaskDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

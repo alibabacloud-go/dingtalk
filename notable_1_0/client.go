@@ -1247,6 +1247,287 @@ func (s *DeleteSheetResponse) SetBody(v *DeleteSheetResponseBody) *DeleteSheetRe
 	return s
 }
 
+type EnableWorkflowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EnableWorkflowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableWorkflowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EnableWorkflowHeaders) SetCommonHeaders(v map[string]*string) *EnableWorkflowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EnableWorkflowHeaders) SetXAcsDingtalkAccessToken(v string) *EnableWorkflowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EnableWorkflowRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s EnableWorkflowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableWorkflowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EnableWorkflowRequest) SetOperatorId(v string) *EnableWorkflowRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type EnableWorkflowResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s EnableWorkflowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableWorkflowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EnableWorkflowResponseBody) SetSuccess(v bool) *EnableWorkflowResponseBody {
+	s.Success = &v
+	return s
+}
+
+type EnableWorkflowResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EnableWorkflowResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s EnableWorkflowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableWorkflowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EnableWorkflowResponse) SetHeaders(v map[string]*string) *EnableWorkflowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EnableWorkflowResponse) SetStatusCode(v int32) *EnableWorkflowResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EnableWorkflowResponse) SetBody(v *EnableWorkflowResponseBody) *EnableWorkflowResponse {
+	s.Body = v
+	return s
+}
+
+type ExecuteImportHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExecuteImportHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteImportHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteImportHeaders) SetCommonHeaders(v map[string]*string) *ExecuteImportHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExecuteImportHeaders) SetXAcsDingtalkAccessToken(v string) *ExecuteImportHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExecuteImportRequest struct {
+	AppendConfig *ExecuteImportRequestAppendConfig `json:"appendConfig,omitempty" xml:"appendConfig,omitempty" type:"Struct"`
+	Encryption   *ExecuteImportRequestEncryption   `json:"encryption,omitempty" xml:"encryption,omitempty" type:"Struct"`
+	// This parameter is required.
+	ImportId *string `json:"importId,omitempty" xml:"importId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ExecuteImportRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteImportRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteImportRequest) SetAppendConfig(v *ExecuteImportRequestAppendConfig) *ExecuteImportRequest {
+	s.AppendConfig = v
+	return s
+}
+
+func (s *ExecuteImportRequest) SetEncryption(v *ExecuteImportRequestEncryption) *ExecuteImportRequest {
+	s.Encryption = v
+	return s
+}
+
+func (s *ExecuteImportRequest) SetImportId(v string) *ExecuteImportRequest {
+	s.ImportId = &v
+	return s
+}
+
+func (s *ExecuteImportRequest) SetOperatorId(v string) *ExecuteImportRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ExecuteImportRequestAppendConfig struct {
+	FieldMapping map[string]*string `json:"fieldMapping,omitempty" xml:"fieldMapping,omitempty"`
+	HeaderRow    *int32             `json:"headerRow,omitempty" xml:"headerRow,omitempty"`
+	SrcSheetName *string            `json:"srcSheetName,omitempty" xml:"srcSheetName,omitempty"`
+	// This parameter is required.
+	TableId *string `json:"tableId,omitempty" xml:"tableId,omitempty"`
+}
+
+func (s ExecuteImportRequestAppendConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteImportRequestAppendConfig) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteImportRequestAppendConfig) SetFieldMapping(v map[string]*string) *ExecuteImportRequestAppendConfig {
+	s.FieldMapping = v
+	return s
+}
+
+func (s *ExecuteImportRequestAppendConfig) SetHeaderRow(v int32) *ExecuteImportRequestAppendConfig {
+	s.HeaderRow = &v
+	return s
+}
+
+func (s *ExecuteImportRequestAppendConfig) SetSrcSheetName(v string) *ExecuteImportRequestAppendConfig {
+	s.SrcSheetName = &v
+	return s
+}
+
+func (s *ExecuteImportRequestAppendConfig) SetTableId(v string) *ExecuteImportRequestAppendConfig {
+	s.TableId = &v
+	return s
+}
+
+type ExecuteImportRequestEncryption struct {
+	Algorithm *string `json:"algorithm,omitempty" xml:"algorithm,omitempty"`
+	// This parameter is required.
+	EncryptedAesKey *string `json:"encryptedAesKey,omitempty" xml:"encryptedAesKey,omitempty"`
+	// This parameter is required.
+	Iv *string `json:"iv,omitempty" xml:"iv,omitempty"`
+	// This parameter is required.
+	KeyVersion *string `json:"keyVersion,omitempty" xml:"keyVersion,omitempty"`
+}
+
+func (s ExecuteImportRequestEncryption) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteImportRequestEncryption) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteImportRequestEncryption) SetAlgorithm(v string) *ExecuteImportRequestEncryption {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *ExecuteImportRequestEncryption) SetEncryptedAesKey(v string) *ExecuteImportRequestEncryption {
+	s.EncryptedAesKey = &v
+	return s
+}
+
+func (s *ExecuteImportRequestEncryption) SetIv(v string) *ExecuteImportRequestEncryption {
+	s.Iv = &v
+	return s
+}
+
+func (s *ExecuteImportRequestEncryption) SetKeyVersion(v string) *ExecuteImportRequestEncryption {
+	s.KeyVersion = &v
+	return s
+}
+
+type ExecuteImportResponseBody struct {
+	ImportId *string `json:"importId,omitempty" xml:"importId,omitempty"`
+	Status   *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ExecuteImportResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteImportResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteImportResponseBody) SetImportId(v string) *ExecuteImportResponseBody {
+	s.ImportId = &v
+	return s
+}
+
+func (s *ExecuteImportResponseBody) SetStatus(v string) *ExecuteImportResponseBody {
+	s.Status = &v
+	return s
+}
+
+type ExecuteImportResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExecuteImportResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ExecuteImportResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExecuteImportResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExecuteImportResponse) SetHeaders(v map[string]*string) *ExecuteImportResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExecuteImportResponse) SetStatusCode(v int32) *ExecuteImportResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExecuteImportResponse) SetBody(v *ExecuteImportResponseBody) *ExecuteImportResponse {
+	s.Body = v
+	return s
+}
+
 type GetAllFieldsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1508,6 +1789,121 @@ func (s *GetAllSheetsResponse) SetStatusCode(v int32) *GetAllSheetsResponse {
 }
 
 func (s *GetAllSheetsResponse) SetBody(v *GetAllSheetsResponseBody) *GetAllSheetsResponse {
+	s.Body = v
+	return s
+}
+
+type GetImportEncryptPublicKeyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetImportEncryptPublicKeyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportEncryptPublicKeyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportEncryptPublicKeyHeaders) SetCommonHeaders(v map[string]*string) *GetImportEncryptPublicKeyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetImportEncryptPublicKeyHeaders) SetXAcsDingtalkAccessToken(v string) *GetImportEncryptPublicKeyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetImportEncryptPublicKeyRequest struct {
+	KeyVersion *string `json:"keyVersion,omitempty" xml:"keyVersion,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetImportEncryptPublicKeyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportEncryptPublicKeyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportEncryptPublicKeyRequest) SetKeyVersion(v string) *GetImportEncryptPublicKeyRequest {
+	s.KeyVersion = &v
+	return s
+}
+
+func (s *GetImportEncryptPublicKeyRequest) SetOperatorId(v string) *GetImportEncryptPublicKeyRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetImportEncryptPublicKeyResponseBody struct {
+	Algorithm    *string `json:"algorithm,omitempty" xml:"algorithm,omitempty"`
+	ExpireAt     *int64  `json:"expireAt,omitempty" xml:"expireAt,omitempty"`
+	KeyVersion   *string `json:"keyVersion,omitempty" xml:"keyVersion,omitempty"`
+	PublicKeyPem *string `json:"publicKeyPem,omitempty" xml:"publicKeyPem,omitempty"`
+}
+
+func (s GetImportEncryptPublicKeyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportEncryptPublicKeyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportEncryptPublicKeyResponseBody) SetAlgorithm(v string) *GetImportEncryptPublicKeyResponseBody {
+	s.Algorithm = &v
+	return s
+}
+
+func (s *GetImportEncryptPublicKeyResponseBody) SetExpireAt(v int64) *GetImportEncryptPublicKeyResponseBody {
+	s.ExpireAt = &v
+	return s
+}
+
+func (s *GetImportEncryptPublicKeyResponseBody) SetKeyVersion(v string) *GetImportEncryptPublicKeyResponseBody {
+	s.KeyVersion = &v
+	return s
+}
+
+func (s *GetImportEncryptPublicKeyResponseBody) SetPublicKeyPem(v string) *GetImportEncryptPublicKeyResponseBody {
+	s.PublicKeyPem = &v
+	return s
+}
+
+type GetImportEncryptPublicKeyResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetImportEncryptPublicKeyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetImportEncryptPublicKeyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetImportEncryptPublicKeyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetImportEncryptPublicKeyResponse) SetHeaders(v map[string]*string) *GetImportEncryptPublicKeyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetImportEncryptPublicKeyResponse) SetStatusCode(v int32) *GetImportEncryptPublicKeyResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetImportEncryptPublicKeyResponse) SetBody(v *GetImportEncryptPublicKeyResponseBody) *GetImportEncryptPublicKeyResponse {
 	s.Body = v
 	return s
 }
@@ -2657,6 +3053,286 @@ func (s *ListRecordsResponse) SetBody(v *ListRecordsResponseBody) *ListRecordsRe
 	return s
 }
 
+type ListWorkflowsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListWorkflowsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkflowsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkflowsHeaders) SetCommonHeaders(v map[string]*string) *ListWorkflowsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListWorkflowsHeaders) SetXAcsDingtalkAccessToken(v string) *ListWorkflowsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListWorkflowsRequest struct {
+	Limit  *int64 `json:"limit,omitempty" xml:"limit,omitempty"`
+	Offset *int64 `json:"offset,omitempty" xml:"offset,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ListWorkflowsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkflowsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkflowsRequest) SetLimit(v int64) *ListWorkflowsRequest {
+	s.Limit = &v
+	return s
+}
+
+func (s *ListWorkflowsRequest) SetOffset(v int64) *ListWorkflowsRequest {
+	s.Offset = &v
+	return s
+}
+
+func (s *ListWorkflowsRequest) SetOperatorId(v string) *ListWorkflowsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ListWorkflowsResponseBody struct {
+	Total     *int32                                `json:"total,omitempty" xml:"total,omitempty"`
+	Workflows []*ListWorkflowsResponseBodyWorkflows `json:"workflows,omitempty" xml:"workflows,omitempty" type:"Repeated"`
+}
+
+func (s ListWorkflowsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkflowsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkflowsResponseBody) SetTotal(v int32) *ListWorkflowsResponseBody {
+	s.Total = &v
+	return s
+}
+
+func (s *ListWorkflowsResponseBody) SetWorkflows(v []*ListWorkflowsResponseBodyWorkflows) *ListWorkflowsResponseBody {
+	s.Workflows = v
+	return s
+}
+
+type ListWorkflowsResponseBodyWorkflows struct {
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	FlowId      *string `json:"flowId,omitempty" xml:"flowId,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
+	VersionId   *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s ListWorkflowsResponseBodyWorkflows) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkflowsResponseBodyWorkflows) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkflowsResponseBodyWorkflows) SetDescription(v string) *ListWorkflowsResponseBodyWorkflows {
+	s.Description = &v
+	return s
+}
+
+func (s *ListWorkflowsResponseBodyWorkflows) SetFlowId(v string) *ListWorkflowsResponseBodyWorkflows {
+	s.FlowId = &v
+	return s
+}
+
+func (s *ListWorkflowsResponseBodyWorkflows) SetName(v string) *ListWorkflowsResponseBodyWorkflows {
+	s.Name = &v
+	return s
+}
+
+func (s *ListWorkflowsResponseBodyWorkflows) SetStatus(v string) *ListWorkflowsResponseBodyWorkflows {
+	s.Status = &v
+	return s
+}
+
+func (s *ListWorkflowsResponseBodyWorkflows) SetVersionId(v string) *ListWorkflowsResponseBodyWorkflows {
+	s.VersionId = &v
+	return s
+}
+
+type ListWorkflowsResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListWorkflowsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListWorkflowsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListWorkflowsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListWorkflowsResponse) SetHeaders(v map[string]*string) *ListWorkflowsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListWorkflowsResponse) SetStatusCode(v int32) *ListWorkflowsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListWorkflowsResponse) SetBody(v *ListWorkflowsResponseBody) *ListWorkflowsResponse {
+	s.Body = v
+	return s
+}
+
+type PrepareImportUploadHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PrepareImportUploadHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareImportUploadHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareImportUploadHeaders) SetCommonHeaders(v map[string]*string) *PrepareImportUploadHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PrepareImportUploadHeaders) SetXAcsDingtalkAccessToken(v string) *PrepareImportUploadHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PrepareImportUploadRequest struct {
+	// This parameter is required.
+	FileExtension *string `json:"fileExtension,omitempty" xml:"fileExtension,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FileSize   *int64    `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	TableNames []*string `json:"tableNames,omitempty" xml:"tableNames,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s PrepareImportUploadRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareImportUploadRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareImportUploadRequest) SetFileExtension(v string) *PrepareImportUploadRequest {
+	s.FileExtension = &v
+	return s
+}
+
+func (s *PrepareImportUploadRequest) SetFileName(v string) *PrepareImportUploadRequest {
+	s.FileName = &v
+	return s
+}
+
+func (s *PrepareImportUploadRequest) SetFileSize(v int64) *PrepareImportUploadRequest {
+	s.FileSize = &v
+	return s
+}
+
+func (s *PrepareImportUploadRequest) SetTableNames(v []*string) *PrepareImportUploadRequest {
+	s.TableNames = v
+	return s
+}
+
+func (s *PrepareImportUploadRequest) SetOperatorId(v string) *PrepareImportUploadRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type PrepareImportUploadResponseBody struct {
+	ExpireAt  *int64  `json:"expireAt,omitempty" xml:"expireAt,omitempty"`
+	ImportId  *string `json:"importId,omitempty" xml:"importId,omitempty"`
+	UploadUrl *string `json:"uploadUrl,omitempty" xml:"uploadUrl,omitempty"`
+}
+
+func (s PrepareImportUploadResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareImportUploadResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareImportUploadResponseBody) SetExpireAt(v int64) *PrepareImportUploadResponseBody {
+	s.ExpireAt = &v
+	return s
+}
+
+func (s *PrepareImportUploadResponseBody) SetImportId(v string) *PrepareImportUploadResponseBody {
+	s.ImportId = &v
+	return s
+}
+
+func (s *PrepareImportUploadResponseBody) SetUploadUrl(v string) *PrepareImportUploadResponseBody {
+	s.UploadUrl = &v
+	return s
+}
+
+type PrepareImportUploadResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PrepareImportUploadResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PrepareImportUploadResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PrepareImportUploadResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PrepareImportUploadResponse) SetHeaders(v map[string]*string) *PrepareImportUploadResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PrepareImportUploadResponse) SetStatusCode(v int32) *PrepareImportUploadResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PrepareImportUploadResponse) SetBody(v *PrepareImportUploadResponseBody) *PrepareImportUploadResponse {
+	s.Body = v
+	return s
+}
+
 type PrepareSetRichTextHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3161,6 +3837,140 @@ func (s *QueryDocAllRolesResponse) SetStatusCode(v int32) *QueryDocAllRolesRespo
 }
 
 func (s *QueryDocAllRolesResponse) SetBody(v *QueryDocAllRolesResponseBody) *QueryDocAllRolesResponse {
+	s.Body = v
+	return s
+}
+
+type QueryImportStatusHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryImportStatusHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryImportStatusHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryImportStatusHeaders) SetCommonHeaders(v map[string]*string) *QueryImportStatusHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryImportStatusHeaders) SetXAcsDingtalkAccessToken(v string) *QueryImportStatusHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryImportStatusRequest struct {
+	// This parameter is required.
+	ImportId *string `json:"importId,omitempty" xml:"importId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s QueryImportStatusRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryImportStatusRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryImportStatusRequest) SetImportId(v string) *QueryImportStatusRequest {
+	s.ImportId = &v
+	return s
+}
+
+func (s *QueryImportStatusRequest) SetOperatorId(v string) *QueryImportStatusRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type QueryImportStatusResponseBody struct {
+	Count        *int32    `json:"count,omitempty" xml:"count,omitempty"`
+	ErrorCode    *string   `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMessage *string   `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
+	ImportId     *string   `json:"importId,omitempty" xml:"importId,omitempty"`
+	Phase        *string   `json:"phase,omitempty" xml:"phase,omitempty"`
+	Status       *string   `json:"status,omitempty" xml:"status,omitempty"`
+	TableIds     []*string `json:"tableIds,omitempty" xml:"tableIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryImportStatusResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryImportStatusResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryImportStatusResponseBody) SetCount(v int32) *QueryImportStatusResponseBody {
+	s.Count = &v
+	return s
+}
+
+func (s *QueryImportStatusResponseBody) SetErrorCode(v string) *QueryImportStatusResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *QueryImportStatusResponseBody) SetErrorMessage(v string) *QueryImportStatusResponseBody {
+	s.ErrorMessage = &v
+	return s
+}
+
+func (s *QueryImportStatusResponseBody) SetImportId(v string) *QueryImportStatusResponseBody {
+	s.ImportId = &v
+	return s
+}
+
+func (s *QueryImportStatusResponseBody) SetPhase(v string) *QueryImportStatusResponseBody {
+	s.Phase = &v
+	return s
+}
+
+func (s *QueryImportStatusResponseBody) SetStatus(v string) *QueryImportStatusResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryImportStatusResponseBody) SetTableIds(v []*string) *QueryImportStatusResponseBody {
+	s.TableIds = v
+	return s
+}
+
+type QueryImportStatusResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryImportStatusResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryImportStatusResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryImportStatusResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryImportStatusResponse) SetHeaders(v map[string]*string) *QueryImportStatusResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryImportStatusResponse) SetStatusCode(v int32) *QueryImportStatusResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryImportStatusResponse) SetBody(v *QueryImportStatusResponseBody) *QueryImportStatusResponse {
 	s.Body = v
 	return s
 }
@@ -4746,6 +5556,166 @@ func (client *Client) DeleteSheet(baseId *string, sheetIdOrName *string, request
 
 // Summary:
 //
+// 启动单个工作流
+//
+// @param request - EnableWorkflowRequest
+//
+// @param headers - EnableWorkflowHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EnableWorkflowResponse
+func (client *Client) EnableWorkflowWithOptions(baseId *string, flowId *string, request *EnableWorkflowRequest, headers *EnableWorkflowHeaders, runtime *util.RuntimeOptions) (_result *EnableWorkflowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EnableWorkflow"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/workflows/" + tea.StringValue(flowId) + "/enable"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EnableWorkflowResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 启动单个工作流
+//
+// @param request - EnableWorkflowRequest
+//
+// @return EnableWorkflowResponse
+func (client *Client) EnableWorkflow(baseId *string, flowId *string, request *EnableWorkflowRequest) (_result *EnableWorkflowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EnableWorkflowHeaders{}
+	_result = &EnableWorkflowResponse{}
+	_body, _err := client.EnableWorkflowWithOptions(baseId, flowId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 触发加密导入
+//
+// @param request - ExecuteImportRequest
+//
+// @param headers - ExecuteImportHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExecuteImportResponse
+func (client *Client) ExecuteImportWithOptions(baseId *string, request *ExecuteImportRequest, headers *ExecuteImportHeaders, runtime *util.RuntimeOptions) (_result *ExecuteImportResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppendConfig)) {
+		body["appendConfig"] = request.AppendConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Encryption)) {
+		body["encryption"] = request.Encryption
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImportId)) {
+		body["importId"] = request.ImportId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExecuteImport"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/import/execute"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExecuteImportResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 触发加密导入
+//
+// @param request - ExecuteImportRequest
+//
+// @return ExecuteImportResponse
+func (client *Client) ExecuteImport(baseId *string, request *ExecuteImportRequest) (_result *ExecuteImportResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExecuteImportHeaders{}
+	_result = &ExecuteImportResponse{}
+	_body, _err := client.ExecuteImportWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 获取所有字段
 //
 // @param request - GetAllFieldsRequest
@@ -4883,6 +5853,83 @@ func (client *Client) GetAllSheets(baseId *string, request *GetAllSheetsRequest)
 	headers := &GetAllSheetsHeaders{}
 	_result = &GetAllSheetsResponse{}
 	_body, _err := client.GetAllSheetsWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取加密导入 RSA 公钥
+//
+// @param request - GetImportEncryptPublicKeyRequest
+//
+// @param headers - GetImportEncryptPublicKeyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetImportEncryptPublicKeyResponse
+func (client *Client) GetImportEncryptPublicKeyWithOptions(request *GetImportEncryptPublicKeyRequest, headers *GetImportEncryptPublicKeyHeaders, runtime *util.RuntimeOptions) (_result *GetImportEncryptPublicKeyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.KeyVersion)) {
+		query["keyVersion"] = request.KeyVersion
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetImportEncryptPublicKey"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/import/encryptPublicKey"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetImportEncryptPublicKeyResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取加密导入 RSA 公钥
+//
+// @param request - GetImportEncryptPublicKeyRequest
+//
+// @return GetImportEncryptPublicKeyResponse
+func (client *Client) GetImportEncryptPublicKey(request *GetImportEncryptPublicKeyRequest) (_result *GetImportEncryptPublicKeyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetImportEncryptPublicKeyHeaders{}
+	_result = &GetImportEncryptPublicKeyResponse{}
+	_body, _err := client.GetImportEncryptPublicKeyWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -5443,6 +6490,180 @@ func (client *Client) ListRecords(baseId *string, sheetIdOrName *string, request
 
 // Summary:
 //
+// 查询自动化工作流列表
+//
+// @param request - ListWorkflowsRequest
+//
+// @param headers - ListWorkflowsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListWorkflowsResponse
+func (client *Client) ListWorkflowsWithOptions(baseId *string, request *ListWorkflowsRequest, headers *ListWorkflowsHeaders, runtime *util.RuntimeOptions) (_result *ListWorkflowsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Limit)) {
+		body["limit"] = request.Limit
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Offset)) {
+		body["offset"] = request.Offset
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListWorkflows"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/workflows"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListWorkflowsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询自动化工作流列表
+//
+// @param request - ListWorkflowsRequest
+//
+// @return ListWorkflowsResponse
+func (client *Client) ListWorkflows(baseId *string, request *ListWorkflowsRequest) (_result *ListWorkflowsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListWorkflowsHeaders{}
+	_result = &ListWorkflowsResponse{}
+	_body, _err := client.ListWorkflowsWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 申请加密导入上传链接
+//
+// @param request - PrepareImportUploadRequest
+//
+// @param headers - PrepareImportUploadHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PrepareImportUploadResponse
+func (client *Client) PrepareImportUploadWithOptions(baseId *string, request *PrepareImportUploadRequest, headers *PrepareImportUploadHeaders, runtime *util.RuntimeOptions) (_result *PrepareImportUploadResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileExtension)) {
+		body["fileExtension"] = request.FileExtension
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileName)) {
+		body["fileName"] = request.FileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSize)) {
+		body["fileSize"] = request.FileSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TableNames)) {
+		body["tableNames"] = request.TableNames
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PrepareImportUpload"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/import/uploadUrl"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PrepareImportUploadResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 申请加密导入上传链接
+//
+// @param request - PrepareImportUploadRequest
+//
+// @return PrepareImportUploadResponse
+func (client *Client) PrepareImportUpload(baseId *string, request *PrepareImportUploadRequest) (_result *PrepareImportUploadResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PrepareImportUploadHeaders{}
+	_result = &PrepareImportUploadResponse{}
+	_body, _err := client.PrepareImportUploadWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 富文本值预处理
 //
 // @param request - PrepareSetRichTextRequest
@@ -5665,6 +6886,83 @@ func (client *Client) QueryDocAllRoles(baseId *string, request *QueryDocAllRoles
 	headers := &QueryDocAllRolesHeaders{}
 	_result = &QueryDocAllRolesResponse{}
 	_body, _err := client.QueryDocAllRolesWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询导入会话状态
+//
+// @param request - QueryImportStatusRequest
+//
+// @param headers - QueryImportStatusHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryImportStatusResponse
+func (client *Client) QueryImportStatusWithOptions(baseId *string, request *QueryImportStatusRequest, headers *QueryImportStatusHeaders, runtime *util.RuntimeOptions) (_result *QueryImportStatusResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ImportId)) {
+		query["importId"] = request.ImportId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryImportStatus"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/import/status"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryImportStatusResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询导入会话状态
+//
+// @param request - QueryImportStatusRequest
+//
+// @return QueryImportStatusResponse
+func (client *Client) QueryImportStatus(baseId *string, request *QueryImportStatusRequest) (_result *QueryImportStatusResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryImportStatusHeaders{}
+	_result = &QueryImportStatusResponse{}
+	_body, _err := client.QueryImportStatusWithOptions(baseId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

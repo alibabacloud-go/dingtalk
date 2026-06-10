@@ -21395,6 +21395,136 @@ func (s *OrderConvertResponse) SetBody(v *OrderConvertResponseBody) *OrderConver
 	return s
 }
 
+type PromptTemplatesOperateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PromptTemplatesOperateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PromptTemplatesOperateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PromptTemplatesOperateHeaders) SetCommonHeaders(v map[string]*string) *PromptTemplatesOperateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PromptTemplatesOperateHeaders) SetXAcsDingtalkAccessToken(v string) *PromptTemplatesOperateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PromptTemplatesOperateRequest struct {
+	// This parameter is required.
+	BizCode     *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	Content     *string `json:"content,omitempty" xml:"content,omitempty"`
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	Operation *string `json:"operation,omitempty" xml:"operation,omitempty"`
+}
+
+func (s PromptTemplatesOperateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PromptTemplatesOperateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PromptTemplatesOperateRequest) SetBizCode(v string) *PromptTemplatesOperateRequest {
+	s.BizCode = &v
+	return s
+}
+
+func (s *PromptTemplatesOperateRequest) SetContent(v string) *PromptTemplatesOperateRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *PromptTemplatesOperateRequest) SetDescription(v string) *PromptTemplatesOperateRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *PromptTemplatesOperateRequest) SetOperation(v string) *PromptTemplatesOperateRequest {
+	s.Operation = &v
+	return s
+}
+
+type PromptTemplatesOperateResponseBody struct {
+	BizCode          *string `json:"bizCode,omitempty" xml:"bizCode,omitempty"`
+	Content          *string `json:"content,omitempty" xml:"content,omitempty"`
+	Description      *string `json:"description,omitempty" xml:"description,omitempty"`
+	PlaceholderCount *int32  `json:"placeholderCount,omitempty" xml:"placeholderCount,omitempty"`
+	Source           *string `json:"source,omitempty" xml:"source,omitempty"`
+}
+
+func (s PromptTemplatesOperateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PromptTemplatesOperateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PromptTemplatesOperateResponseBody) SetBizCode(v string) *PromptTemplatesOperateResponseBody {
+	s.BizCode = &v
+	return s
+}
+
+func (s *PromptTemplatesOperateResponseBody) SetContent(v string) *PromptTemplatesOperateResponseBody {
+	s.Content = &v
+	return s
+}
+
+func (s *PromptTemplatesOperateResponseBody) SetDescription(v string) *PromptTemplatesOperateResponseBody {
+	s.Description = &v
+	return s
+}
+
+func (s *PromptTemplatesOperateResponseBody) SetPlaceholderCount(v int32) *PromptTemplatesOperateResponseBody {
+	s.PlaceholderCount = &v
+	return s
+}
+
+func (s *PromptTemplatesOperateResponseBody) SetSource(v string) *PromptTemplatesOperateResponseBody {
+	s.Source = &v
+	return s
+}
+
+type PromptTemplatesOperateResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PromptTemplatesOperateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PromptTemplatesOperateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PromptTemplatesOperateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PromptTemplatesOperateResponse) SetHeaders(v map[string]*string) *PromptTemplatesOperateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PromptTemplatesOperateResponse) SetStatusCode(v int32) *PromptTemplatesOperateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PromptTemplatesOperateResponse) SetBody(v *PromptTemplatesOperateResponseBody) *PromptTemplatesOperateResponse {
+	s.Body = v
+	return s
+}
+
 type PushDingMessageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -42505,6 +42635,91 @@ func (client *Client) OrderConvert(request *OrderConvertRequest) (_result *Order
 	headers := &OrderConvertHeaders{}
 	_result = &OrderConvertResponse{}
 	_body, _err := client.OrderConvertWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 练货模板管理
+//
+// @param request - PromptTemplatesOperateRequest
+//
+// @param headers - PromptTemplatesOperateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PromptTemplatesOperateResponse
+func (client *Client) PromptTemplatesOperateWithOptions(request *PromptTemplatesOperateRequest, headers *PromptTemplatesOperateHeaders, runtime *util.RuntimeOptions) (_result *PromptTemplatesOperateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizCode)) {
+		body["bizCode"] = request.BizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Operation)) {
+		body["operation"] = request.Operation
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PromptTemplatesOperate"),
+		Version:     tea.String("industry_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/industry/ai/promptTemplates/operate"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PromptTemplatesOperateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 练货模板管理
+//
+// @param request - PromptTemplatesOperateRequest
+//
+// @return PromptTemplatesOperateResponse
+func (client *Client) PromptTemplatesOperate(request *PromptTemplatesOperateRequest) (_result *PromptTemplatesOperateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PromptTemplatesOperateHeaders{}
+	_result = &PromptTemplatesOperateResponse{}
+	_body, _err := client.PromptTemplatesOperateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -2052,6 +2052,455 @@ func (s *ListPermissionsResponse) SetBody(v *ListPermissionsResponseBody) *ListP
 	return s
 }
 
+type ListRecentsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListRecentsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecentsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecentsHeaders) SetCommonHeaders(v map[string]*string) *ListRecentsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListRecentsHeaders) SetXAcsDingtalkAccessToken(v string) *ListRecentsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListRecentsRequest struct {
+	FileTypes    []*int64 `json:"fileTypes,omitempty" xml:"fileTypes,omitempty" type:"Repeated"`
+	MaxResults   *int64   `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken    *string  `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OperateTypes []*int64 `json:"operateTypes,omitempty" xml:"operateTypes,omitempty" type:"Repeated"`
+	OperatorId   *string  `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s ListRecentsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecentsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecentsRequest) SetFileTypes(v []*int64) *ListRecentsRequest {
+	s.FileTypes = v
+	return s
+}
+
+func (s *ListRecentsRequest) SetMaxResults(v int64) *ListRecentsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListRecentsRequest) SetNextToken(v string) *ListRecentsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListRecentsRequest) SetOperateTypes(v []*int64) *ListRecentsRequest {
+	s.OperateTypes = v
+	return s
+}
+
+func (s *ListRecentsRequest) SetOperatorId(v string) *ListRecentsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type ListRecentsResponseBody struct {
+	HasMore          *bool                                      `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken        *string                                    `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	RecentDentryList []*ListRecentsResponseBodyRecentDentryList `json:"recentDentryList,omitempty" xml:"recentDentryList,omitempty" type:"Repeated"`
+}
+
+func (s ListRecentsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecentsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecentsResponseBody) SetHasMore(v bool) *ListRecentsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListRecentsResponseBody) SetNextToken(v string) *ListRecentsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListRecentsResponseBody) SetRecentDentryList(v []*ListRecentsResponseBodyRecentDentryList) *ListRecentsResponseBody {
+	s.RecentDentryList = v
+	return s
+}
+
+type ListRecentsResponseBodyRecentDentryList struct {
+	AccessTime  *int64                                           `json:"accessTime,omitempty" xml:"accessTime,omitempty"`
+	Deleted     *bool                                            `json:"deleted,omitempty" xml:"deleted,omitempty"`
+	Icon        *string                                          `json:"icon,omitempty" xml:"icon,omitempty"`
+	OperateType *int64                                           `json:"operateType,omitempty" xml:"operateType,omitempty"`
+	Resource    *ListRecentsResponseBodyRecentDentryListResource `json:"resource,omitempty" xml:"resource,omitempty" type:"Struct"`
+}
+
+func (s ListRecentsResponseBodyRecentDentryList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecentsResponseBodyRecentDentryList) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecentsResponseBodyRecentDentryList) SetAccessTime(v int64) *ListRecentsResponseBodyRecentDentryList {
+	s.AccessTime = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryList) SetDeleted(v bool) *ListRecentsResponseBodyRecentDentryList {
+	s.Deleted = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryList) SetIcon(v string) *ListRecentsResponseBodyRecentDentryList {
+	s.Icon = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryList) SetOperateType(v int64) *ListRecentsResponseBodyRecentDentryList {
+	s.OperateType = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryList) SetResource(v *ListRecentsResponseBodyRecentDentryListResource) *ListRecentsResponseBodyRecentDentryList {
+	s.Resource = v
+	return s
+}
+
+type ListRecentsResponseBodyRecentDentryListResource struct {
+	DentryUuid    *string                                                   `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	DriveDentryId *string                                                   `json:"driveDentryId,omitempty" xml:"driveDentryId,omitempty"`
+	DriveSpaceId  *string                                                   `json:"driveSpaceId,omitempty" xml:"driveSpaceId,omitempty"`
+	Extension     *string                                                   `json:"extension,omitempty" xml:"extension,omitempty"`
+	Name          *string                                                   `json:"name,omitempty" xml:"name,omitempty"`
+	SpaceInfo     *ListRecentsResponseBodyRecentDentryListResourceSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
+	Url           *string                                                   `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s ListRecentsResponseBodyRecentDentryListResource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecentsResponseBodyRecentDentryListResource) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecentsResponseBodyRecentDentryListResource) SetDentryUuid(v string) *ListRecentsResponseBodyRecentDentryListResource {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryListResource) SetDriveDentryId(v string) *ListRecentsResponseBodyRecentDentryListResource {
+	s.DriveDentryId = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryListResource) SetDriveSpaceId(v string) *ListRecentsResponseBodyRecentDentryListResource {
+	s.DriveSpaceId = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryListResource) SetExtension(v string) *ListRecentsResponseBodyRecentDentryListResource {
+	s.Extension = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryListResource) SetName(v string) *ListRecentsResponseBodyRecentDentryListResource {
+	s.Name = &v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryListResource) SetSpaceInfo(v *ListRecentsResponseBodyRecentDentryListResourceSpaceInfo) *ListRecentsResponseBodyRecentDentryListResource {
+	s.SpaceInfo = v
+	return s
+}
+
+func (s *ListRecentsResponseBodyRecentDentryListResource) SetUrl(v string) *ListRecentsResponseBodyRecentDentryListResource {
+	s.Url = &v
+	return s
+}
+
+type ListRecentsResponseBodyRecentDentryListResourceSpaceInfo struct {
+	SceneType *string `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+}
+
+func (s ListRecentsResponseBodyRecentDentryListResourceSpaceInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecentsResponseBodyRecentDentryListResourceSpaceInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecentsResponseBodyRecentDentryListResourceSpaceInfo) SetSceneType(v string) *ListRecentsResponseBodyRecentDentryListResourceSpaceInfo {
+	s.SceneType = &v
+	return s
+}
+
+type ListRecentsResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListRecentsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListRecentsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListRecentsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListRecentsResponse) SetHeaders(v map[string]*string) *ListRecentsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListRecentsResponse) SetStatusCode(v int32) *ListRecentsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListRecentsResponse) SetBody(v *ListRecentsResponseBody) *ListRecentsResponse {
+	s.Body = v
+	return s
+}
+
+type ListStarsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListStarsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsHeaders) SetCommonHeaders(v map[string]*string) *ListStarsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListStarsHeaders) SetXAcsDingtalkAccessToken(v string) *ListStarsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListStarsRequest struct {
+	MaxResults           *int64    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken            *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OperatorId           *string   `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	OrderBy              *string   `json:"orderBy,omitempty" xml:"orderBy,omitempty"`
+	SortType             *string   `json:"sortType,omitempty" xml:"sortType,omitempty"`
+	SupportResourceTypes []*string `json:"supportResourceTypes,omitempty" xml:"supportResourceTypes,omitempty" type:"Repeated"`
+}
+
+func (s ListStarsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsRequest) SetMaxResults(v int64) *ListStarsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListStarsRequest) SetNextToken(v string) *ListStarsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListStarsRequest) SetOperatorId(v string) *ListStarsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *ListStarsRequest) SetOrderBy(v string) *ListStarsRequest {
+	s.OrderBy = &v
+	return s
+}
+
+func (s *ListStarsRequest) SetSortType(v string) *ListStarsRequest {
+	s.SortType = &v
+	return s
+}
+
+func (s *ListStarsRequest) SetSupportResourceTypes(v []*string) *ListStarsRequest {
+	s.SupportResourceTypes = v
+	return s
+}
+
+type ListStarsResponseBody struct {
+	HasMore   *bool                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	StarList  []*ListStarsResponseBodyStarList `json:"starList,omitempty" xml:"starList,omitempty" type:"Repeated"`
+}
+
+func (s ListStarsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBody) SetHasMore(v bool) *ListStarsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListStarsResponseBody) SetNextToken(v string) *ListStarsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListStarsResponseBody) SetStarList(v []*ListStarsResponseBodyStarList) *ListStarsResponseBody {
+	s.StarList = v
+	return s
+}
+
+type ListStarsResponseBodyStarList struct {
+	CreateTime   *string                                `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	Id           *string                                `json:"id,omitempty" xml:"id,omitempty"`
+	Location     *string                                `json:"location,omitempty" xml:"location,omitempty"`
+	Resource     *ListStarsResponseBodyStarListResource `json:"resource,omitempty" xml:"resource,omitempty" type:"Struct"`
+	ResourceType *string                                `json:"resourceType,omitempty" xml:"resourceType,omitempty"`
+	StarType     *int64                                 `json:"starType,omitempty" xml:"starType,omitempty"`
+}
+
+func (s ListStarsResponseBodyStarList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBodyStarList) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBodyStarList) SetCreateTime(v string) *ListStarsResponseBodyStarList {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetId(v string) *ListStarsResponseBodyStarList {
+	s.Id = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetLocation(v string) *ListStarsResponseBodyStarList {
+	s.Location = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetResource(v *ListStarsResponseBodyStarListResource) *ListStarsResponseBodyStarList {
+	s.Resource = v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetResourceType(v string) *ListStarsResponseBodyStarList {
+	s.ResourceType = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarList) SetStarType(v int64) *ListStarsResponseBodyStarList {
+	s.StarType = &v
+	return s
+}
+
+type ListStarsResponseBodyStarListResource struct {
+	ContentType *string `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	DentryType  *string `json:"dentryType,omitempty" xml:"dentryType,omitempty"`
+	DentryUuid  *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	Url         *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s ListStarsResponseBodyStarListResource) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponseBodyStarListResource) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponseBodyStarListResource) SetContentType(v string) *ListStarsResponseBodyStarListResource {
+	s.ContentType = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListResource) SetDentryType(v string) *ListStarsResponseBodyStarListResource {
+	s.DentryType = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListResource) SetDentryUuid(v string) *ListStarsResponseBodyStarListResource {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListResource) SetName(v string) *ListStarsResponseBodyStarListResource {
+	s.Name = &v
+	return s
+}
+
+func (s *ListStarsResponseBodyStarListResource) SetUrl(v string) *ListStarsResponseBodyStarListResource {
+	s.Url = &v
+	return s
+}
+
+type ListStarsResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListStarsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListStarsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListStarsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListStarsResponse) SetHeaders(v map[string]*string) *ListStarsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListStarsResponse) SetStatusCode(v int32) *ListStarsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListStarsResponse) SetBody(v *ListStarsResponseBody) *ListStarsResponse {
+	s.Body = v
+	return s
+}
+
 type ManagerGetDefaultHandOverUserHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4266,6 +4715,188 @@ func (client *Client) ListPermissions(dentryUuid *string, request *ListPermissio
 	headers := &ListPermissionsHeaders{}
 	_result = &ListPermissionsResponse{}
 	_body, _err := client.ListPermissionsWithOptions(dentryUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取用户最近访问列表
+//
+// @param request - ListRecentsRequest
+//
+// @param headers - ListRecentsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListRecentsResponse
+func (client *Client) ListRecentsWithOptions(request *ListRecentsRequest, headers *ListRecentsHeaders, runtime *util.RuntimeOptions) (_result *ListRecentsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileTypes)) {
+		query["fileTypes"] = request.FileTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperateTypes)) {
+		query["operateTypes"] = request.OperateTypes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListRecents"),
+		Version:     tea.String("storage_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/storage/recents/listV2"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListRecentsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取用户最近访问列表
+//
+// @param request - ListRecentsRequest
+//
+// @return ListRecentsResponse
+func (client *Client) ListRecents(request *ListRecentsRequest) (_result *ListRecentsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListRecentsHeaders{}
+	_result = &ListRecentsResponse{}
+	_body, _err := client.ListRecentsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取用户收藏列表
+//
+// @param request - ListStarsRequest
+//
+// @param headers - ListStarsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListStarsResponse
+func (client *Client) ListStarsWithOptions(request *ListStarsRequest, headers *ListStarsHeaders, runtime *util.RuntimeOptions) (_result *ListStarsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderBy)) {
+		query["orderBy"] = request.OrderBy
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SortType)) {
+		query["sortType"] = request.SortType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SupportResourceTypes)) {
+		query["supportResourceTypes"] = request.SupportResourceTypes
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListStars"),
+		Version:     tea.String("storage_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/storage/stars/list"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListStarsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取用户收藏列表
+//
+// @param request - ListStarsRequest
+//
+// @return ListStarsResponse
+func (client *Client) ListStars(request *ListStarsRequest) (_result *ListStarsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListStarsHeaders{}
+	_result = &ListStarsResponse{}
+	_body, _err := client.ListStarsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

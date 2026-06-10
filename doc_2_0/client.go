@@ -2723,6 +2723,195 @@ func (s *CopyDocResponse) SetBody(v *CopyDocResponseBody) *CopyDocResponse {
 	return s
 }
 
+type CopyDocWithAppAuthHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CopyDocWithAppAuthHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocWithAppAuthHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocWithAppAuthHeaders) SetCommonHeaders(v map[string]*string) *CopyDocWithAppAuthHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CopyDocWithAppAuthHeaders) SetXAcsDingtalkAccessToken(v string) *CopyDocWithAppAuthHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CopyDocWithAppAuthRequest struct {
+	// This parameter is required.
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	// This parameter is required.
+	SourceDentryUuid *string `json:"sourceDentryUuid,omitempty" xml:"sourceDentryUuid,omitempty"`
+	// This parameter is required.
+	TargetParentDentryUuid *string `json:"targetParentDentryUuid,omitempty" xml:"targetParentDentryUuid,omitempty"`
+	TargetPreDentryUuid    *string `json:"targetPreDentryUuid,omitempty" xml:"targetPreDentryUuid,omitempty"`
+}
+
+func (s CopyDocWithAppAuthRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocWithAppAuthRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocWithAppAuthRequest) SetOperatorId(v string) *CopyDocWithAppAuthRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthRequest) SetSourceDentryUuid(v string) *CopyDocWithAppAuthRequest {
+	s.SourceDentryUuid = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthRequest) SetTargetParentDentryUuid(v string) *CopyDocWithAppAuthRequest {
+	s.TargetParentDentryUuid = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthRequest) SetTargetPreDentryUuid(v string) *CopyDocWithAppAuthRequest {
+	s.TargetPreDentryUuid = &v
+	return s
+}
+
+type CopyDocWithAppAuthResponseBody struct {
+	IsAsync        *bool                                         `json:"isAsync,omitempty" xml:"isAsync,omitempty"`
+	SyncCopyResult *CopyDocWithAppAuthResponseBodySyncCopyResult `json:"syncCopyResult,omitempty" xml:"syncCopyResult,omitempty" type:"Struct"`
+	TaskId         *string                                       `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s CopyDocWithAppAuthResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocWithAppAuthResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocWithAppAuthResponseBody) SetIsAsync(v bool) *CopyDocWithAppAuthResponseBody {
+	s.IsAsync = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponseBody) SetSyncCopyResult(v *CopyDocWithAppAuthResponseBodySyncCopyResult) *CopyDocWithAppAuthResponseBody {
+	s.SyncCopyResult = v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponseBody) SetTaskId(v string) *CopyDocWithAppAuthResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type CopyDocWithAppAuthResponseBodySyncCopyResult struct {
+	DentryUuid    *string                                                `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+	DriveDentryId *string                                                `json:"driveDentryId,omitempty" xml:"driveDentryId,omitempty"`
+	DriveSpaceId  *string                                                `json:"driveSpaceId,omitempty" xml:"driveSpaceId,omitempty"`
+	Extension     *string                                                `json:"extension,omitempty" xml:"extension,omitempty"`
+	Name          *string                                                `json:"name,omitempty" xml:"name,omitempty"`
+	SpaceInfo     *CopyDocWithAppAuthResponseBodySyncCopyResultSpaceInfo `json:"spaceInfo,omitempty" xml:"spaceInfo,omitempty" type:"Struct"`
+	Url           *string                                                `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CopyDocWithAppAuthResponseBodySyncCopyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocWithAppAuthResponseBodySyncCopyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocWithAppAuthResponseBodySyncCopyResult) SetDentryUuid(v string) *CopyDocWithAppAuthResponseBodySyncCopyResult {
+	s.DentryUuid = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponseBodySyncCopyResult) SetDriveDentryId(v string) *CopyDocWithAppAuthResponseBodySyncCopyResult {
+	s.DriveDentryId = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponseBodySyncCopyResult) SetDriveSpaceId(v string) *CopyDocWithAppAuthResponseBodySyncCopyResult {
+	s.DriveSpaceId = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponseBodySyncCopyResult) SetExtension(v string) *CopyDocWithAppAuthResponseBodySyncCopyResult {
+	s.Extension = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponseBodySyncCopyResult) SetName(v string) *CopyDocWithAppAuthResponseBodySyncCopyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponseBodySyncCopyResult) SetSpaceInfo(v *CopyDocWithAppAuthResponseBodySyncCopyResultSpaceInfo) *CopyDocWithAppAuthResponseBodySyncCopyResult {
+	s.SpaceInfo = v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponseBodySyncCopyResult) SetUrl(v string) *CopyDocWithAppAuthResponseBodySyncCopyResult {
+	s.Url = &v
+	return s
+}
+
+type CopyDocWithAppAuthResponseBodySyncCopyResultSpaceInfo struct {
+	SceneType *string `json:"sceneType,omitempty" xml:"sceneType,omitempty"`
+}
+
+func (s CopyDocWithAppAuthResponseBodySyncCopyResultSpaceInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocWithAppAuthResponseBodySyncCopyResultSpaceInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocWithAppAuthResponseBodySyncCopyResultSpaceInfo) SetSceneType(v string) *CopyDocWithAppAuthResponseBodySyncCopyResultSpaceInfo {
+	s.SceneType = &v
+	return s
+}
+
+type CopyDocWithAppAuthResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CopyDocWithAppAuthResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CopyDocWithAppAuthResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyDocWithAppAuthResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CopyDocWithAppAuthResponse) SetHeaders(v map[string]*string) *CopyDocWithAppAuthResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponse) SetStatusCode(v int32) *CopyDocWithAppAuthResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CopyDocWithAppAuthResponse) SetBody(v *CopyDocWithAppAuthResponseBody) *CopyDocWithAppAuthResponse {
+	s.Body = v
+	return s
+}
+
 type CopyWorkspaceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13653,6 +13842,91 @@ func (client *Client) CopyDoc(request *CopyDocRequest) (_result *CopyDocResponse
 	headers := &CopyDocHeaders{}
 	_result = &CopyDocResponse{}
 	_body, _err := client.CopyDocWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 复制文档（应用授权）
+//
+// @param request - CopyDocWithAppAuthRequest
+//
+// @param headers - CopyDocWithAppAuthHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyDocWithAppAuthResponse
+func (client *Client) CopyDocWithAppAuthWithOptions(request *CopyDocWithAppAuthRequest, headers *CopyDocWithAppAuthHeaders, runtime *util.RuntimeOptions) (_result *CopyDocWithAppAuthResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		body["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceDentryUuid)) {
+		body["sourceDentryUuid"] = request.SourceDentryUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetParentDentryUuid)) {
+		body["targetParentDentryUuid"] = request.TargetParentDentryUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetPreDentryUuid)) {
+		body["targetPreDentryUuid"] = request.TargetPreDentryUuid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CopyDocWithAppAuth"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/app/dentries/copy"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CopyDocWithAppAuthResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 复制文档（应用授权）
+//
+// @param request - CopyDocWithAppAuthRequest
+//
+// @return CopyDocWithAppAuthResponse
+func (client *Client) CopyDocWithAppAuth(request *CopyDocWithAppAuthRequest) (_result *CopyDocWithAppAuthResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CopyDocWithAppAuthHeaders{}
+	_result = &CopyDocWithAppAuthResponse{}
+	_body, _err := client.CopyDocWithAppAuthWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

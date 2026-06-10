@@ -1055,6 +1055,7 @@ func (s *BatchGetUserHeaders) SetXAcsDingtalkAccessToken(v string) *BatchGetUser
 }
 
 type BatchGetUserRequest struct {
+	PermissionCode *string `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 	// This parameter is required.
 	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
 }
@@ -1067,12 +1068,18 @@ func (s BatchGetUserRequest) GoString() string {
 	return s.String()
 }
 
+func (s *BatchGetUserRequest) SetPermissionCode(v string) *BatchGetUserRequest {
+	s.PermissionCode = &v
+	return s
+}
+
 func (s *BatchGetUserRequest) SetUserIdList(v []*string) *BatchGetUserRequest {
 	s.UserIdList = v
 	return s
 }
 
 type BatchGetUserShrinkRequest struct {
+	PermissionCode *string `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 	// This parameter is required.
 	UserIdListShrink *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
 }
@@ -1083,6 +1090,11 @@ func (s BatchGetUserShrinkRequest) String() string {
 
 func (s BatchGetUserShrinkRequest) GoString() string {
 	return s.String()
+}
+
+func (s *BatchGetUserShrinkRequest) SetPermissionCode(v string) *BatchGetUserShrinkRequest {
+	s.PermissionCode = &v
+	return s
 }
 
 func (s *BatchGetUserShrinkRequest) SetUserIdListShrink(v string) *BatchGetUserShrinkRequest {
@@ -7208,6 +7220,7 @@ func (s *ListSeniorSettingsHeaders) SetXAcsDingtalkAccessToken(v string) *ListSe
 }
 
 type ListSeniorSettingsRequest struct {
+	PermissionCode *string `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 	// This parameter is required.
 	SeniorStaffId *string `json:"seniorStaffId,omitempty" xml:"seniorStaffId,omitempty"`
 }
@@ -7218,6 +7231,11 @@ func (s ListSeniorSettingsRequest) String() string {
 
 func (s ListSeniorSettingsRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListSeniorSettingsRequest) SetPermissionCode(v string) *ListSeniorSettingsRequest {
+	s.PermissionCode = &v
+	return s
 }
 
 func (s *ListSeniorSettingsRequest) SetSeniorStaffId(v string) *ListSeniorSettingsRequest {
@@ -7317,6 +7335,327 @@ func (s *ListSeniorSettingsResponse) SetStatusCode(v int32) *ListSeniorSettingsR
 }
 
 func (s *ListSeniorSettingsResponse) SetBody(v *ListSeniorSettingsResponseBody) *ListSeniorSettingsResponse {
+	s.Body = v
+	return s
+}
+
+type ListUserGroupMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListUserGroupMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupMembersHeaders) SetCommonHeaders(v map[string]*string) *ListUserGroupMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListUserGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *ListUserGroupMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListUserGroupMembersRequest struct {
+	// This parameter is required.
+	GroupCode *string `json:"groupCode,omitempty" xml:"groupCode,omitempty"`
+	Offset    *int64  `json:"offset,omitempty" xml:"offset,omitempty"`
+	// This parameter is required.
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+}
+
+func (s ListUserGroupMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupMembersRequest) SetGroupCode(v string) *ListUserGroupMembersRequest {
+	s.GroupCode = &v
+	return s
+}
+
+func (s *ListUserGroupMembersRequest) SetOffset(v int64) *ListUserGroupMembersRequest {
+	s.Offset = &v
+	return s
+}
+
+func (s *ListUserGroupMembersRequest) SetSize(v int32) *ListUserGroupMembersRequest {
+	s.Size = &v
+	return s
+}
+
+type ListUserGroupMembersResponseBody struct {
+	Result *ListUserGroupMembersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ListUserGroupMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupMembersResponseBody) SetResult(v *ListUserGroupMembersResponseBodyResult) *ListUserGroupMembersResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListUserGroupMembersResponseBodyResult struct {
+	HasMore    *bool                                            `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	Members    []*ListUserGroupMembersResponseBodyResultMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+	NextOffset *int64                                           `json:"nextOffset,omitempty" xml:"nextOffset,omitempty"`
+}
+
+func (s ListUserGroupMembersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupMembersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupMembersResponseBodyResult) SetHasMore(v bool) *ListUserGroupMembersResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListUserGroupMembersResponseBodyResult) SetMembers(v []*ListUserGroupMembersResponseBodyResultMembers) *ListUserGroupMembersResponseBodyResult {
+	s.Members = v
+	return s
+}
+
+func (s *ListUserGroupMembersResponseBodyResult) SetNextOffset(v int64) *ListUserGroupMembersResponseBodyResult {
+	s.NextOffset = &v
+	return s
+}
+
+type ListUserGroupMembersResponseBodyResultMembers struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s ListUserGroupMembersResponseBodyResultMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupMembersResponseBodyResultMembers) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupMembersResponseBodyResultMembers) SetName(v string) *ListUserGroupMembersResponseBodyResultMembers {
+	s.Name = &v
+	return s
+}
+
+func (s *ListUserGroupMembersResponseBodyResultMembers) SetUserId(v string) *ListUserGroupMembersResponseBodyResultMembers {
+	s.UserId = &v
+	return s
+}
+
+type ListUserGroupMembersResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListUserGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListUserGroupMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupMembersResponse) SetHeaders(v map[string]*string) *ListUserGroupMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListUserGroupMembersResponse) SetStatusCode(v int32) *ListUserGroupMembersResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListUserGroupMembersResponse) SetBody(v *ListUserGroupMembersResponseBody) *ListUserGroupMembersResponse {
+	s.Body = v
+	return s
+}
+
+type ListUserGroupsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListUserGroupsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupsHeaders) SetCommonHeaders(v map[string]*string) *ListUserGroupsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListUserGroupsHeaders) SetXAcsDingtalkAccessToken(v string) *ListUserGroupsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListUserGroupsRequest struct {
+	GroupType *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	Offset    *int64  `json:"offset,omitempty" xml:"offset,omitempty"`
+	// This parameter is required.
+	Size *int32 `json:"size,omitempty" xml:"size,omitempty"`
+}
+
+func (s ListUserGroupsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupsRequest) SetGroupType(v string) *ListUserGroupsRequest {
+	s.GroupType = &v
+	return s
+}
+
+func (s *ListUserGroupsRequest) SetOffset(v int64) *ListUserGroupsRequest {
+	s.Offset = &v
+	return s
+}
+
+func (s *ListUserGroupsRequest) SetSize(v int32) *ListUserGroupsRequest {
+	s.Size = &v
+	return s
+}
+
+type ListUserGroupsResponseBody struct {
+	Result *ListUserGroupsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ListUserGroupsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupsResponseBody) SetResult(v *ListUserGroupsResponseBodyResult) *ListUserGroupsResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListUserGroupsResponseBodyResult struct {
+	Groups     []*ListUserGroupsResponseBodyResultGroups `json:"groups,omitempty" xml:"groups,omitempty" type:"Repeated"`
+	HasMore    *bool                                     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextOffset *int64                                    `json:"nextOffset,omitempty" xml:"nextOffset,omitempty"`
+}
+
+func (s ListUserGroupsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupsResponseBodyResult) SetGroups(v []*ListUserGroupsResponseBodyResultGroups) *ListUserGroupsResponseBodyResult {
+	s.Groups = v
+	return s
+}
+
+func (s *ListUserGroupsResponseBodyResult) SetHasMore(v bool) *ListUserGroupsResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *ListUserGroupsResponseBodyResult) SetNextOffset(v int64) *ListUserGroupsResponseBodyResult {
+	s.NextOffset = &v
+	return s
+}
+
+type ListUserGroupsResponseBodyResultGroups struct {
+	GmtModified *int64  `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	GroupCode   *string `json:"groupCode,omitempty" xml:"groupCode,omitempty"`
+	GroupType   *string `json:"groupType,omitempty" xml:"groupType,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+	Status      *string `json:"status,omitempty" xml:"status,omitempty"`
+}
+
+func (s ListUserGroupsResponseBodyResultGroups) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupsResponseBodyResultGroups) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupsResponseBodyResultGroups) SetGmtModified(v int64) *ListUserGroupsResponseBodyResultGroups {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *ListUserGroupsResponseBodyResultGroups) SetGroupCode(v string) *ListUserGroupsResponseBodyResultGroups {
+	s.GroupCode = &v
+	return s
+}
+
+func (s *ListUserGroupsResponseBodyResultGroups) SetGroupType(v string) *ListUserGroupsResponseBodyResultGroups {
+	s.GroupType = &v
+	return s
+}
+
+func (s *ListUserGroupsResponseBodyResultGroups) SetName(v string) *ListUserGroupsResponseBodyResultGroups {
+	s.Name = &v
+	return s
+}
+
+func (s *ListUserGroupsResponseBodyResultGroups) SetStatus(v string) *ListUserGroupsResponseBodyResultGroups {
+	s.Status = &v
+	return s
+}
+
+type ListUserGroupsResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListUserGroupsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListUserGroupsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListUserGroupsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListUserGroupsResponse) SetHeaders(v map[string]*string) *ListUserGroupsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListUserGroupsResponse) SetStatusCode(v int32) *ListUserGroupsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListUserGroupsResponse) SetBody(v *ListUserGroupsResponseBody) *ListUserGroupsResponse {
 	s.Body = v
 	return s
 }
@@ -13665,6 +14004,228 @@ func (s *UpdateUserOwnnessResponse) SetBody(v *UpdateUserOwnnessResponseBody) *U
 	return s
 }
 
+type UserGroupAddStaticGroupMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UserGroupAddStaticGroupMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupAddStaticGroupMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupAddStaticGroupMembersHeaders) SetCommonHeaders(v map[string]*string) *UserGroupAddStaticGroupMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UserGroupAddStaticGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *UserGroupAddStaticGroupMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UserGroupAddStaticGroupMembersRequest struct {
+	// This parameter is required.
+	GroupCode *string `json:"groupCode,omitempty" xml:"groupCode,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s UserGroupAddStaticGroupMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupAddStaticGroupMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupAddStaticGroupMembersRequest) SetGroupCode(v string) *UserGroupAddStaticGroupMembersRequest {
+	s.GroupCode = &v
+	return s
+}
+
+func (s *UserGroupAddStaticGroupMembersRequest) SetUserIds(v []*string) *UserGroupAddStaticGroupMembersRequest {
+	s.UserIds = v
+	return s
+}
+
+type UserGroupAddStaticGroupMembersResponseBody struct {
+	Result *UserGroupAddStaticGroupMembersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UserGroupAddStaticGroupMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupAddStaticGroupMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupAddStaticGroupMembersResponseBody) SetResult(v *UserGroupAddStaticGroupMembersResponseBodyResult) *UserGroupAddStaticGroupMembersResponseBody {
+	s.Result = v
+	return s
+}
+
+type UserGroupAddStaticGroupMembersResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UserGroupAddStaticGroupMembersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupAddStaticGroupMembersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupAddStaticGroupMembersResponseBodyResult) SetSuccess(v bool) *UserGroupAddStaticGroupMembersResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type UserGroupAddStaticGroupMembersResponse struct {
+	Headers    map[string]*string                          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UserGroupAddStaticGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UserGroupAddStaticGroupMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupAddStaticGroupMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupAddStaticGroupMembersResponse) SetHeaders(v map[string]*string) *UserGroupAddStaticGroupMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UserGroupAddStaticGroupMembersResponse) SetStatusCode(v int32) *UserGroupAddStaticGroupMembersResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UserGroupAddStaticGroupMembersResponse) SetBody(v *UserGroupAddStaticGroupMembersResponseBody) *UserGroupAddStaticGroupMembersResponse {
+	s.Body = v
+	return s
+}
+
+type UserGroupRemoveStaticGroupMembersHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UserGroupRemoveStaticGroupMembersHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupRemoveStaticGroupMembersHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupRemoveStaticGroupMembersHeaders) SetCommonHeaders(v map[string]*string) *UserGroupRemoveStaticGroupMembersHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UserGroupRemoveStaticGroupMembersHeaders) SetXAcsDingtalkAccessToken(v string) *UserGroupRemoveStaticGroupMembersHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UserGroupRemoveStaticGroupMembersRequest struct {
+	// This parameter is required.
+	GroupCode *string `json:"groupCode,omitempty" xml:"groupCode,omitempty"`
+	// This parameter is required.
+	UserIds []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s UserGroupRemoveStaticGroupMembersRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupRemoveStaticGroupMembersRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupRemoveStaticGroupMembersRequest) SetGroupCode(v string) *UserGroupRemoveStaticGroupMembersRequest {
+	s.GroupCode = &v
+	return s
+}
+
+func (s *UserGroupRemoveStaticGroupMembersRequest) SetUserIds(v []*string) *UserGroupRemoveStaticGroupMembersRequest {
+	s.UserIds = v
+	return s
+}
+
+type UserGroupRemoveStaticGroupMembersResponseBody struct {
+	Result *UserGroupRemoveStaticGroupMembersResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UserGroupRemoveStaticGroupMembersResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupRemoveStaticGroupMembersResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupRemoveStaticGroupMembersResponseBody) SetResult(v *UserGroupRemoveStaticGroupMembersResponseBodyResult) *UserGroupRemoveStaticGroupMembersResponseBody {
+	s.Result = v
+	return s
+}
+
+type UserGroupRemoveStaticGroupMembersResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UserGroupRemoveStaticGroupMembersResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupRemoveStaticGroupMembersResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupRemoveStaticGroupMembersResponseBodyResult) SetSuccess(v bool) *UserGroupRemoveStaticGroupMembersResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type UserGroupRemoveStaticGroupMembersResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UserGroupRemoveStaticGroupMembersResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UserGroupRemoveStaticGroupMembersResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UserGroupRemoveStaticGroupMembersResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UserGroupRemoveStaticGroupMembersResponse) SetHeaders(v map[string]*string) *UserGroupRemoveStaticGroupMembersResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UserGroupRemoveStaticGroupMembersResponse) SetStatusCode(v int32) *UserGroupRemoveStaticGroupMembersResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UserGroupRemoveStaticGroupMembersResponse) SetBody(v *UserGroupRemoveStaticGroupMembersResponseBody) *UserGroupRemoveStaticGroupMembersResponse {
+	s.Body = v
+	return s
+}
+
 type UserProfileHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -14470,6 +15031,10 @@ func (client *Client) BatchGetUserWithOptions(tmpReq *BatchGetUserRequest, heade
 	}
 
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		query["permissionCode"] = request.PermissionCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserIdListShrink)) {
 		query["userIdList"] = request.UserIdListShrink
 	}
@@ -17737,6 +18302,10 @@ func (client *Client) ListSeniorSettingsWithOptions(request *ListSeniorSettingsR
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		query["permissionCode"] = request.PermissionCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.SeniorStaffId)) {
 		query["seniorStaffId"] = request.SeniorStaffId
 	}
@@ -17762,7 +18331,7 @@ func (client *Client) ListSeniorSettingsWithOptions(request *ListSeniorSettingsR
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &ListSeniorSettingsResponse{}
@@ -17786,6 +18355,168 @@ func (client *Client) ListSeniorSettings(request *ListSeniorSettingsRequest) (_r
 	headers := &ListSeniorSettingsHeaders{}
 	_result = &ListSeniorSettingsResponse{}
 	_body, _err := client.ListSeniorSettingsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询用户组成员列表
+//
+// @param request - ListUserGroupMembersRequest
+//
+// @param headers - ListUserGroupMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListUserGroupMembersResponse
+func (client *Client) ListUserGroupMembersWithOptions(request *ListUserGroupMembersRequest, headers *ListUserGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *ListUserGroupMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupCode)) {
+		query["groupCode"] = request.GroupCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Offset)) {
+		query["offset"] = request.Offset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		query["size"] = request.Size
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListUserGroupMembers"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/userGroups/listUserGroupMembers"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListUserGroupMembersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询用户组成员列表
+//
+// @param request - ListUserGroupMembersRequest
+//
+// @return ListUserGroupMembersResponse
+func (client *Client) ListUserGroupMembers(request *ListUserGroupMembersRequest) (_result *ListUserGroupMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListUserGroupMembersHeaders{}
+	_result = &ListUserGroupMembersResponse{}
+	_body, _err := client.ListUserGroupMembersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询用户组列表
+//
+// @param request - ListUserGroupsRequest
+//
+// @param headers - ListUserGroupsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListUserGroupsResponse
+func (client *Client) ListUserGroupsWithOptions(request *ListUserGroupsRequest, headers *ListUserGroupsHeaders, runtime *util.RuntimeOptions) (_result *ListUserGroupsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupType)) {
+		query["groupType"] = request.GroupType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Offset)) {
+		query["offset"] = request.Offset
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Size)) {
+		query["size"] = request.Size
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListUserGroups"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/userGroups/listUserGroups"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListUserGroupsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询用户组列表
+//
+// @param request - ListUserGroupsRequest
+//
+// @return ListUserGroupsResponse
+func (client *Client) ListUserGroups(request *ListUserGroupsRequest) (_result *ListUserGroupsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListUserGroupsHeaders{}
+	_result = &ListUserGroupsResponse{}
+	_body, _err := client.ListUserGroupsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -21919,6 +22650,160 @@ func (client *Client) UpdateUserOwnness(userId *string, request *UpdateUserOwnne
 	headers := &UpdateUserOwnnessHeaders{}
 	_result = &UpdateUserOwnnessResponse{}
 	_body, _err := client.UpdateUserOwnnessWithOptions(userId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量添加静态用户组成员
+//
+// @param request - UserGroupAddStaticGroupMembersRequest
+//
+// @param headers - UserGroupAddStaticGroupMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UserGroupAddStaticGroupMembersResponse
+func (client *Client) UserGroupAddStaticGroupMembersWithOptions(request *UserGroupAddStaticGroupMembersRequest, headers *UserGroupAddStaticGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *UserGroupAddStaticGroupMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupCode)) {
+		body["groupCode"] = request.GroupCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UserGroupAddStaticGroupMembers"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/userGroups/addStaticGroupMembers"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UserGroupAddStaticGroupMembersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量添加静态用户组成员
+//
+// @param request - UserGroupAddStaticGroupMembersRequest
+//
+// @return UserGroupAddStaticGroupMembersResponse
+func (client *Client) UserGroupAddStaticGroupMembers(request *UserGroupAddStaticGroupMembersRequest) (_result *UserGroupAddStaticGroupMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UserGroupAddStaticGroupMembersHeaders{}
+	_result = &UserGroupAddStaticGroupMembersResponse{}
+	_body, _err := client.UserGroupAddStaticGroupMembersWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量删除静态用户组成员
+//
+// @param request - UserGroupRemoveStaticGroupMembersRequest
+//
+// @param headers - UserGroupRemoveStaticGroupMembersHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UserGroupRemoveStaticGroupMembersResponse
+func (client *Client) UserGroupRemoveStaticGroupMembersWithOptions(request *UserGroupRemoveStaticGroupMembersRequest, headers *UserGroupRemoveStaticGroupMembersHeaders, runtime *util.RuntimeOptions) (_result *UserGroupRemoveStaticGroupMembersResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupCode)) {
+		body["groupCode"] = request.GroupCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UserGroupRemoveStaticGroupMembers"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/userGroups/removeStaticGroupMembers"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UserGroupRemoveStaticGroupMembersResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量删除静态用户组成员
+//
+// @param request - UserGroupRemoveStaticGroupMembersRequest
+//
+// @return UserGroupRemoveStaticGroupMembersResponse
+func (client *Client) UserGroupRemoveStaticGroupMembers(request *UserGroupRemoveStaticGroupMembersRequest) (_result *UserGroupRemoveStaticGroupMembersResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UserGroupRemoveStaticGroupMembersHeaders{}
+	_result = &UserGroupRemoveStaticGroupMembersResponse{}
+	_body, _err := client.UserGroupRemoveStaticGroupMembersWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

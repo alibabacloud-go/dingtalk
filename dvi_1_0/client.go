@@ -4681,6 +4681,212 @@ func (s *QueryFileInfoByMinutesIdResponse) SetBody(v *QueryFileInfoByMinutesIdRe
 	return s
 }
 
+type QueryStaffStatisticDataHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryStaffStatisticDataHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStaffStatisticDataHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStaffStatisticDataHeaders) SetCommonHeaders(v map[string]*string) *QueryStaffStatisticDataHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryStaffStatisticDataHeaders) SetXAcsDingtalkAccessToken(v string) *QueryStaffStatisticDataHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryStaffStatisticDataRequest struct {
+	// This parameter is required.
+	Day        *string `json:"day,omitempty" xml:"day,omitempty"`
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	TeamCode   *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	UserId     *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryStaffStatisticDataRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStaffStatisticDataRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStaffStatisticDataRequest) SetDay(v string) *QueryStaffStatisticDataRequest {
+	s.Day = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataRequest) SetMaxResults(v int32) *QueryStaffStatisticDataRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataRequest) SetNextToken(v string) *QueryStaffStatisticDataRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataRequest) SetTeamCode(v string) *QueryStaffStatisticDataRequest {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataRequest) SetUserId(v string) *QueryStaffStatisticDataRequest {
+	s.UserId = &v
+	return s
+}
+
+type QueryStaffStatisticDataResponseBody struct {
+	MaxResults *int32                                       `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string                                      `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Result     []*QueryStaffStatisticDataResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success    *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+	TotalCount *int64                                       `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryStaffStatisticDataResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStaffStatisticDataResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStaffStatisticDataResponseBody) SetMaxResults(v int32) *QueryStaffStatisticDataResponseBody {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBody) SetNextToken(v string) *QueryStaffStatisticDataResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBody) SetResult(v []*QueryStaffStatisticDataResponseBodyResult) *QueryStaffStatisticDataResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBody) SetSuccess(v bool) *QueryStaffStatisticDataResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBody) SetTotalCount(v int64) *QueryStaffStatisticDataResponseBody {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryStaffStatisticDataResponseBodyResult struct {
+	AverageQualityInspectionScorePerService *float64               `json:"averageQualityInspectionScorePerService,omitempty" xml:"averageQualityInspectionScorePerService,omitempty"`
+	Day                                     *string                `json:"day,omitempty" xml:"day,omitempty"`
+	HighestQualityInspectionScore           *float64               `json:"highestQualityInspectionScore,omitempty" xml:"highestQualityInspectionScore,omitempty"`
+	SaleSopPercentage                       map[string]interface{} `json:"saleSopPercentage,omitempty" xml:"saleSopPercentage,omitempty"`
+	ServiceRecordCount                      *int64                 `json:"serviceRecordCount,omitempty" xml:"serviceRecordCount,omitempty"`
+	StaffName                               *string                `json:"staffName,omitempty" xml:"staffName,omitempty"`
+	TeamCode                                *string                `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	TeamName                                *string                `json:"teamName,omitempty" xml:"teamName,omitempty"`
+	TotalServiceTime                        *int64                 `json:"totalServiceTime,omitempty" xml:"totalServiceTime,omitempty"`
+	UserId                                  *string                `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryStaffStatisticDataResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStaffStatisticDataResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetAverageQualityInspectionScorePerService(v float64) *QueryStaffStatisticDataResponseBodyResult {
+	s.AverageQualityInspectionScorePerService = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetDay(v string) *QueryStaffStatisticDataResponseBodyResult {
+	s.Day = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetHighestQualityInspectionScore(v float64) *QueryStaffStatisticDataResponseBodyResult {
+	s.HighestQualityInspectionScore = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetSaleSopPercentage(v map[string]interface{}) *QueryStaffStatisticDataResponseBodyResult {
+	s.SaleSopPercentage = v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetServiceRecordCount(v int64) *QueryStaffStatisticDataResponseBodyResult {
+	s.ServiceRecordCount = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetStaffName(v string) *QueryStaffStatisticDataResponseBodyResult {
+	s.StaffName = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetTeamCode(v string) *QueryStaffStatisticDataResponseBodyResult {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetTeamName(v string) *QueryStaffStatisticDataResponseBodyResult {
+	s.TeamName = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetTotalServiceTime(v int64) *QueryStaffStatisticDataResponseBodyResult {
+	s.TotalServiceTime = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetUserId(v string) *QueryStaffStatisticDataResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type QueryStaffStatisticDataResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryStaffStatisticDataResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryStaffStatisticDataResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStaffStatisticDataResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStaffStatisticDataResponse) SetHeaders(v map[string]*string) *QueryStaffStatisticDataResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponse) SetStatusCode(v int32) *QueryStaffStatisticDataResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponse) SetBody(v *QueryStaffStatisticDataResponseBody) *QueryStaffStatisticDataResponse {
+	s.Body = v
+	return s
+}
+
 type QueryUserDeviceLocationHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8012,6 +8218,95 @@ func (client *Client) QueryFileInfoByMinutesId(request *QueryFileInfoByMinutesId
 	headers := &QueryFileInfoByMinutesIdHeaders{}
 	_result = &QueryFileInfoByMinutesIdResponse{}
 	_body, _err := client.QueryFileInfoByMinutesIdWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询员工统计数据
+//
+// @param request - QueryStaffStatisticDataRequest
+//
+// @param headers - QueryStaffStatisticDataHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryStaffStatisticDataResponse
+func (client *Client) QueryStaffStatisticDataWithOptions(request *QueryStaffStatisticDataRequest, headers *QueryStaffStatisticDataHeaders, runtime *util.RuntimeOptions) (_result *QueryStaffStatisticDataResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Day)) {
+		query["day"] = request.Day
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		query["teamCode"] = request.TeamCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryStaffStatisticData"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/data/staff"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryStaffStatisticDataResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询员工统计数据
+//
+// @param request - QueryStaffStatisticDataRequest
+//
+// @return QueryStaffStatisticDataResponse
+func (client *Client) QueryStaffStatisticData(request *QueryStaffStatisticDataRequest) (_result *QueryStaffStatisticDataResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryStaffStatisticDataHeaders{}
+	_result = &QueryStaffStatisticDataResponse{}
+	_body, _err := client.QueryStaffStatisticDataWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
