@@ -2301,6 +2301,13 @@ type ExecuteBatchTaskRequest struct {
 	//
 	// APP_XCE0EVXS6DYG3YDYC5RD
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -2341,6 +2348,11 @@ func (s ExecuteBatchTaskRequest) GoString() string {
 
 func (s *ExecuteBatchTaskRequest) SetAppType(v string) *ExecuteBatchTaskRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *ExecuteBatchTaskRequest) SetEnv(v string) *ExecuteBatchTaskRequest {
+	s.Env = &v
 	return s
 }
 
@@ -2753,6 +2765,13 @@ type ExecuteTaskRequest struct {
 	//
 	// https://tianshu-vpc.oss-cn-sahnghai.aliyuncs.com
 	DigitalSignUrl *string `json:"digitalSignUrl,omitempty" xml:"digitalSignUrl,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// 未知
@@ -2818,6 +2837,11 @@ func (s *ExecuteTaskRequest) SetAppType(v string) *ExecuteTaskRequest {
 
 func (s *ExecuteTaskRequest) SetDigitalSignUrl(v string) *ExecuteTaskRequest {
 	s.DigitalSignUrl = &v
+	return s
+}
+
+func (s *ExecuteTaskRequest) SetEnv(v string) *ExecuteTaskRequest {
+	s.Env = &v
 	return s
 }
 
@@ -4737,6 +4761,9 @@ type GetCorpTasksRequest struct {
 	//
 	// 未知
 	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// if can be null:
+	// true
+	//
 	// example:
 	//
 	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
@@ -8042,6 +8069,9 @@ type GetNotifyMeRequest struct {
 	//
 	// 未知
 	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// if can be null:
+	// true
+	//
 	// example:
 	//
 	// vpc(国内版宜搭)/sgp_vpc(海外版宜搭)
@@ -11473,7 +11503,14 @@ func (s *GetRunningTasksHeaders) SetXAcsDingtalkAccessToken(v string) *GetRunnin
 }
 
 type GetRunningTasksRequest struct {
-	AppType           *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env               *string `json:"env,omitempty" xml:"env,omitempty"`
 	Language          *string `json:"language,omitempty" xml:"language,omitempty"`
 	ProcessInstanceId *string `json:"processInstanceId,omitempty" xml:"processInstanceId,omitempty"`
 	SystemToken       *string `json:"systemToken,omitempty" xml:"systemToken,omitempty"`
@@ -11490,6 +11527,11 @@ func (s GetRunningTasksRequest) GoString() string {
 
 func (s *GetRunningTasksRequest) SetAppType(v string) *GetRunningTasksRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *GetRunningTasksRequest) SetEnv(v string) *GetRunningTasksRequest {
+	s.Env = &v
 	return s
 }
 
@@ -12097,8 +12139,15 @@ type GetTaskCopiesRequest struct {
 	// example:
 	//
 	// 1234567891234
-	CreateToTimeGMT *int64  `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
-	Keyword         *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	CreateToTimeGMT *int64 `json:"createToTimeGMT,omitempty" xml:"createToTimeGMT,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env     *string `json:"env,omitempty" xml:"env,omitempty"`
+	Keyword *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
 	// example:
 	//
 	// zh_CN
@@ -12141,6 +12190,11 @@ func (s *GetTaskCopiesRequest) SetCreateFromTimeGMT(v int64) *GetTaskCopiesReque
 
 func (s *GetTaskCopiesRequest) SetCreateToTimeGMT(v int64) *GetTaskCopiesRequest {
 	s.CreateToTimeGMT = &v
+	return s
+}
+
+func (s *GetTaskCopiesRequest) SetEnv(v string) *GetTaskCopiesRequest {
+	s.Env = &v
 	return s
 }
 
@@ -13821,6 +13875,13 @@ type ListFormRemarksRequest struct {
 	//
 	// APP_XCE0EVXS6DYG3YDYC5RD
 	AppType *string `json:"appType,omitempty" xml:"appType,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// FORM-INST-123
@@ -13855,6 +13916,11 @@ func (s ListFormRemarksRequest) GoString() string {
 
 func (s *ListFormRemarksRequest) SetAppType(v string) *ListFormRemarksRequest {
 	s.AppType = &v
+	return s
+}
+
+func (s *ListFormRemarksRequest) SetEnv(v string) *ListFormRemarksRequest {
+	s.Env = &v
 	return s
 }
 
@@ -15942,6 +16008,13 @@ type RedirectTaskRequest struct {
 	//
 	// y
 	ByManager *string `json:"byManager,omitempty" xml:"byManager,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// zh_CN
@@ -15979,6 +16052,11 @@ func (s *RedirectTaskRequest) SetAppType(v string) *RedirectTaskRequest {
 
 func (s *RedirectTaskRequest) SetByManager(v string) *RedirectTaskRequest {
 	s.ByManager = &v
+	return s
+}
+
+func (s *RedirectTaskRequest) SetEnv(v string) *RedirectTaskRequest {
+	s.Env = &v
 	return s
 }
 
@@ -22757,6 +22835,10 @@ func (client *Client) ExecuteBatchTaskWithOptions(request *ExecuteBatchTaskReque
 		body["appType"] = request.AppType
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OutResult)) {
 		body["outResult"] = request.OutResult
 	}
@@ -23050,6 +23132,10 @@ func (client *Client) ExecuteTaskWithOptions(request *ExecuteTaskRequest, header
 
 	if !tea.BoolValue(util.IsUnset(request.DigitalSignUrl)) {
 		body["digitalSignUrl"] = request.DigitalSignUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormDataJson)) {
@@ -25979,6 +26065,10 @@ func (client *Client) GetRunningTasksWithOptions(request *GetRunningTasksRequest
 		query["appType"] = request.AppType
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Language)) {
 		query["language"] = request.Language
 	}
@@ -26248,6 +26338,10 @@ func (client *Client) GetTaskCopiesWithOptions(request *GetTaskCopiesRequest, he
 
 	if !tea.BoolValue(util.IsUnset(request.CreateToTimeGMT)) {
 		query["createToTimeGMT"] = request.CreateToTimeGMT
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
@@ -26875,6 +26969,10 @@ func (client *Client) ListFormRemarksWithOptions(request *ListFormRemarksRequest
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AppType)) {
 		body["appType"] = request.AppType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.FormInstanceIdList)) {
@@ -27881,6 +27979,10 @@ func (client *Client) RedirectTaskWithOptions(request *RedirectTaskRequest, head
 
 	if !tea.BoolValue(util.IsUnset(request.ByManager)) {
 		body["byManager"] = request.ByManager
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Language)) {

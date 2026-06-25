@@ -9003,6 +9003,7 @@ func (s *QueryStatusHeaders) SetXAcsDingtalkAccessToken(v string) *QueryStatusHe
 }
 
 type QueryStatusRequest struct {
+	PermissionCode *string `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -9017,6 +9018,11 @@ func (s QueryStatusRequest) String() string {
 
 func (s QueryStatusRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryStatusRequest) SetPermissionCode(v string) *QueryStatusRequest {
+	s.PermissionCode = &v
+	return s
 }
 
 func (s *QueryStatusRequest) SetUserId(v string) *QueryStatusRequest {
@@ -9726,6 +9732,7 @@ func (s *SetDisableHeaders) SetXAcsDingtalkAccessToken(v string) *SetDisableHead
 }
 
 type SetDisableRequest struct {
+	PermissionCode *string `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 	// example:
 	//
 	// reasonYYY
@@ -9744,6 +9751,11 @@ func (s SetDisableRequest) String() string {
 
 func (s SetDisableRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SetDisableRequest) SetPermissionCode(v string) *SetDisableRequest {
+	s.PermissionCode = &v
+	return s
 }
 
 func (s *SetDisableRequest) SetReason(v string) *SetDisableRequest {
@@ -9826,6 +9838,7 @@ func (s *SetEnableHeaders) SetXAcsDingtalkAccessToken(v string) *SetEnableHeader
 }
 
 type SetEnableRequest struct {
+	PermissionCode *string `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -9840,6 +9853,11 @@ func (s SetEnableRequest) String() string {
 
 func (s SetEnableRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SetEnableRequest) SetPermissionCode(v string) *SetEnableRequest {
+	s.PermissionCode = &v
+	return s
 }
 
 func (s *SetEnableRequest) SetUserId(v string) *SetEnableRequest {
@@ -9917,6 +9935,7 @@ func (s *SignOutHeaders) SetXAcsDingtalkAccessToken(v string) *SignOutHeaders {
 }
 
 type SignOutRequest struct {
+	PermissionCode        *string            `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 	Reason                *string            `json:"reason,omitempty" xml:"reason,omitempty"`
 	ReasonI18nForEmployee map[string]*string `json:"reasonI18nForEmployee,omitempty" xml:"reasonI18nForEmployee,omitempty"`
 	// This parameter is required.
@@ -9929,6 +9948,11 @@ func (s SignOutRequest) String() string {
 
 func (s SignOutRequest) GoString() string {
 	return s.String()
+}
+
+func (s *SignOutRequest) SetPermissionCode(v string) *SignOutRequest {
+	s.PermissionCode = &v
+	return s
 }
 
 func (s *SignOutRequest) SetReason(v string) *SignOutRequest {
@@ -19336,6 +19360,10 @@ func (client *Client) QueryStatusWithOptions(request *QueryStatusRequest, header
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		query["permissionCode"] = request.PermissionCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		query["userId"] = request.UserId
 	}
@@ -19361,7 +19389,7 @@ func (client *Client) QueryStatusWithOptions(request *QueryStatusRequest, header
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &QueryStatusResponse{}
@@ -19857,6 +19885,10 @@ func (client *Client) SetDisableWithOptions(request *SetDisableRequest, headers 
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		body["permissionCode"] = request.PermissionCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Reason)) {
 		body["reason"] = request.Reason
 	}
@@ -19934,6 +19966,10 @@ func (client *Client) SetEnableWithOptions(request *SetEnableRequest, headers *S
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		body["permissionCode"] = request.PermissionCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
 	}
@@ -20007,6 +20043,10 @@ func (client *Client) SignOutWithOptions(request *SignOutRequest, headers *SignO
 		return _result, _err
 	}
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		body["permissionCode"] = request.PermissionCode
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.Reason)) {
 		body["reason"] = request.Reason
 	}

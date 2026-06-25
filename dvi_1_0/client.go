@@ -5437,6 +5437,7 @@ func (s *SubmitCustomerSplitDataRequest) SetUserId(v string) *SubmitCustomerSpli
 }
 
 type SubmitCustomerSplitDataRequestSplitParams struct {
+	EndTime    *int64  `json:"endTime,omitempty" xml:"endTime,omitempty"`
 	OutBizData *string `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
 	// This parameter is required.
 	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
@@ -5448,6 +5449,11 @@ func (s SubmitCustomerSplitDataRequestSplitParams) String() string {
 
 func (s SubmitCustomerSplitDataRequestSplitParams) GoString() string {
 	return s.String()
+}
+
+func (s *SubmitCustomerSplitDataRequestSplitParams) SetEndTime(v int64) *SubmitCustomerSplitDataRequestSplitParams {
+	s.EndTime = &v
+	return s
 }
 
 func (s *SubmitCustomerSplitDataRequestSplitParams) SetOutBizData(v string) *SubmitCustomerSplitDataRequestSplitParams {

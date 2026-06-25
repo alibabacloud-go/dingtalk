@@ -2291,6 +2291,129 @@ func (s *QueryRobotDingReadStatusResponse) SetBody(v *QueryRobotDingReadStatusRe
 	return s
 }
 
+type QueryRobotInstanceInGroupInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryRobotInstanceInGroupInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotInstanceInGroupInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotInstanceInGroupInfoHeaders) SetCommonHeaders(v map[string]*string) *QueryRobotInstanceInGroupInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryRobotInstanceInGroupInfoHeaders) SetXAcsDingtalkAccessToken(v string) *QueryRobotInstanceInGroupInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryRobotInstanceInGroupInfoRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 10
+	MaxResult *int32 `json:"maxResult,omitempty" xml:"maxResult,omitempty"`
+	// example:
+	//
+	// v1:123456
+	NextToken *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// dingxxxxxxxxcll27gm
+	RobotCode *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+}
+
+func (s QueryRobotInstanceInGroupInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotInstanceInGroupInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotInstanceInGroupInfoRequest) SetMaxResult(v int32) *QueryRobotInstanceInGroupInfoRequest {
+	s.MaxResult = &v
+	return s
+}
+
+func (s *QueryRobotInstanceInGroupInfoRequest) SetNextToken(v string) *QueryRobotInstanceInGroupInfoRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryRobotInstanceInGroupInfoRequest) SetRobotCode(v string) *QueryRobotInstanceInGroupInfoRequest {
+	s.RobotCode = &v
+	return s
+}
+
+type QueryRobotInstanceInGroupInfoResponseBody struct {
+	HasMore             *bool     `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken           *string   `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	OpenConversationIds []*string `json:"openConversationIds,omitempty" xml:"openConversationIds,omitempty" type:"Repeated"`
+}
+
+func (s QueryRobotInstanceInGroupInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotInstanceInGroupInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotInstanceInGroupInfoResponseBody) SetHasMore(v bool) *QueryRobotInstanceInGroupInfoResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryRobotInstanceInGroupInfoResponseBody) SetNextToken(v string) *QueryRobotInstanceInGroupInfoResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryRobotInstanceInGroupInfoResponseBody) SetOpenConversationIds(v []*string) *QueryRobotInstanceInGroupInfoResponseBody {
+	s.OpenConversationIds = v
+	return s
+}
+
+type QueryRobotInstanceInGroupInfoResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryRobotInstanceInGroupInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryRobotInstanceInGroupInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryRobotInstanceInGroupInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryRobotInstanceInGroupInfoResponse) SetHeaders(v map[string]*string) *QueryRobotInstanceInGroupInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryRobotInstanceInGroupInfoResponse) SetStatusCode(v int32) *QueryRobotInstanceInGroupInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryRobotInstanceInGroupInfoResponse) SetBody(v *QueryRobotInstanceInGroupInfoResponseBody) *QueryRobotInstanceInGroupInfoResponse {
+	s.Body = v
+	return s
+}
+
 type QueryRobotPluginHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5133,6 +5256,87 @@ func (client *Client) QueryRobotDingReadStatus(request *QueryRobotDingReadStatus
 	headers := &QueryRobotDingReadStatusHeaders{}
 	_result = &QueryRobotDingReadStatusResponse{}
 	_body, _err := client.QueryRobotDingReadStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取机器人所在群信息
+//
+// @param request - QueryRobotInstanceInGroupInfoRequest
+//
+// @param headers - QueryRobotInstanceInGroupInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryRobotInstanceInGroupInfoResponse
+func (client *Client) QueryRobotInstanceInGroupInfoWithOptions(request *QueryRobotInstanceInGroupInfoRequest, headers *QueryRobotInstanceInGroupInfoHeaders, runtime *util.RuntimeOptions) (_result *QueryRobotInstanceInGroupInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResult)) {
+		body["maxResult"] = request.MaxResult
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotCode)) {
+		body["robotCode"] = request.RobotCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryRobotInstanceInGroupInfo"),
+		Version:     tea.String("robot_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/robot/installed/groups/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryRobotInstanceInGroupInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取机器人所在群信息
+//
+// @param request - QueryRobotInstanceInGroupInfoRequest
+//
+// @return QueryRobotInstanceInGroupInfoResponse
+func (client *Client) QueryRobotInstanceInGroupInfo(request *QueryRobotInstanceInGroupInfoRequest) (_result *QueryRobotInstanceInGroupInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryRobotInstanceInGroupInfoHeaders{}
+	_result = &QueryRobotInstanceInGroupInfoResponse{}
+	_body, _err := client.QueryRobotInstanceInGroupInfoWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -39663,6 +39663,167 @@ func (s *UpdateCoursesOfClassResponse) SetBody(v *UpdateCoursesOfClassResponseBo
 	return s
 }
 
+type UpdateEssayTaskCorrectionResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateEssayTaskCorrectionResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEssayTaskCorrectionResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEssayTaskCorrectionResultHeaders) SetCommonHeaders(v map[string]*string) *UpdateEssayTaskCorrectionResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateEssayTaskCorrectionResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateEssayTaskCorrectionResultRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding123...
+	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	EssayTaskId *string `json:"essayTaskId,omitempty" xml:"essayTaskId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	Ext *string `json:"ext,omitempty" xml:"ext,omitempty"`
+	// example:
+	//
+	// xxx
+	FailedMsg *string `json:"failedMsg,omitempty" xml:"failedMsg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	TaskCode *string `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// xxx
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateEssayTaskCorrectionResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEssayTaskCorrectionResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEssayTaskCorrectionResultRequest) SetCorpId(v string) *UpdateEssayTaskCorrectionResultRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultRequest) SetEssayTaskId(v string) *UpdateEssayTaskCorrectionResultRequest {
+	s.EssayTaskId = &v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultRequest) SetExt(v string) *UpdateEssayTaskCorrectionResultRequest {
+	s.Ext = &v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultRequest) SetFailedMsg(v string) *UpdateEssayTaskCorrectionResultRequest {
+	s.FailedMsg = &v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultRequest) SetStatus(v string) *UpdateEssayTaskCorrectionResultRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultRequest) SetTaskCode(v string) *UpdateEssayTaskCorrectionResultRequest {
+	s.TaskCode = &v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultRequest) SetUserId(v string) *UpdateEssayTaskCorrectionResultRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateEssayTaskCorrectionResultResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdateEssayTaskCorrectionResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEssayTaskCorrectionResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEssayTaskCorrectionResultResponseBody) SetResult(v bool) *UpdateEssayTaskCorrectionResultResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultResponseBody) SetSuccess(v bool) *UpdateEssayTaskCorrectionResultResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UpdateEssayTaskCorrectionResultResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateEssayTaskCorrectionResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateEssayTaskCorrectionResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateEssayTaskCorrectionResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateEssayTaskCorrectionResultResponse) SetHeaders(v map[string]*string) *UpdateEssayTaskCorrectionResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultResponse) SetStatusCode(v int32) *UpdateEssayTaskCorrectionResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateEssayTaskCorrectionResultResponse) SetBody(v *UpdateEssayTaskCorrectionResultResponseBody) *UpdateEssayTaskCorrectionResultResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateEvaluatePerformanceCountHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -60840,6 +61001,103 @@ func (client *Client) UpdateCoursesOfClass(classId *string, request *UpdateCours
 	headers := &UpdateCoursesOfClassHeaders{}
 	_result = &UpdateCoursesOfClassResponse{}
 	_body, _err := client.UpdateCoursesOfClassWithOptions(classId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-更新作文任务批改结果
+//
+// @param request - UpdateEssayTaskCorrectionResultRequest
+//
+// @param headers - UpdateEssayTaskCorrectionResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateEssayTaskCorrectionResultResponse
+func (client *Client) UpdateEssayTaskCorrectionResultWithOptions(request *UpdateEssayTaskCorrectionResultRequest, headers *UpdateEssayTaskCorrectionResultHeaders, runtime *util.RuntimeOptions) (_result *UpdateEssayTaskCorrectionResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EssayTaskId)) {
+		body["essayTaskId"] = request.EssayTaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Ext)) {
+		body["ext"] = request.Ext
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FailedMsg)) {
+		body["failedMsg"] = request.FailedMsg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskCode)) {
+		body["taskCode"] = request.TaskCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateEssayTaskCorrectionResult"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/updateEssayTaskCorrectionResult"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateEssayTaskCorrectionResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-更新作文任务批改结果
+//
+// @param request - UpdateEssayTaskCorrectionResultRequest
+//
+// @return UpdateEssayTaskCorrectionResultResponse
+func (client *Client) UpdateEssayTaskCorrectionResult(request *UpdateEssayTaskCorrectionResultRequest) (_result *UpdateEssayTaskCorrectionResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateEssayTaskCorrectionResultHeaders{}
+	_result = &UpdateEssayTaskCorrectionResultResponse{}
+	_body, _err := client.UpdateEssayTaskCorrectionResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

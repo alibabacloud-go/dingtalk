@@ -39,6 +39,13 @@ type BatchAddOrUpdateRoleMembersRequest struct {
 	//
 	// dingxxxx
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -73,6 +80,11 @@ func (s BatchAddOrUpdateRoleMembersRequest) GoString() string {
 
 func (s *BatchAddOrUpdateRoleMembersRequest) SetCorpId(v string) *BatchAddOrUpdateRoleMembersRequest {
 	s.CorpId = &v
+	return s
+}
+
+func (s *BatchAddOrUpdateRoleMembersRequest) SetEnv(v string) *BatchAddOrUpdateRoleMembersRequest {
+	s.Env = &v
 	return s
 }
 
@@ -182,6 +194,13 @@ type BatchDeleteRoleMembersRequest struct {
 	//
 	// dingxxxx
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	MemberIds  *string `json:"memberIds,omitempty" xml:"memberIds,omitempty"`
 	PageNumber *int32  `json:"pageNumber,omitempty" xml:"pageNumber,omitempty"`
@@ -212,6 +231,11 @@ func (s BatchDeleteRoleMembersRequest) GoString() string {
 
 func (s *BatchDeleteRoleMembersRequest) SetCorpId(v string) *BatchDeleteRoleMembersRequest {
 	s.CorpId = &v
+	return s
+}
+
+func (s *BatchDeleteRoleMembersRequest) SetEnv(v string) *BatchDeleteRoleMembersRequest {
+	s.Env = &v
 	return s
 }
 
@@ -848,6 +872,13 @@ type DeleteMatrixDataByRowIdsRequest struct {
 	//
 	// dingxxxx
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -876,6 +907,11 @@ func (s DeleteMatrixDataByRowIdsRequest) GoString() string {
 
 func (s *DeleteMatrixDataByRowIdsRequest) SetCorpId(v string) *DeleteMatrixDataByRowIdsRequest {
 	s.CorpId = &v
+	return s
+}
+
+func (s *DeleteMatrixDataByRowIdsRequest) SetEnv(v string) *DeleteMatrixDataByRowIdsRequest {
+	s.Env = &v
 	return s
 }
 
@@ -2770,6 +2806,13 @@ type GetMatrixDetailByIdRequest struct {
 	//
 	// dingxxxx
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -2804,6 +2847,11 @@ func (s GetMatrixDetailByIdRequest) GoString() string {
 
 func (s *GetMatrixDetailByIdRequest) SetCorpId(v string) *GetMatrixDetailByIdRequest {
 	s.CorpId = &v
+	return s
+}
+
+func (s *GetMatrixDetailByIdRequest) SetEnv(v string) *GetMatrixDetailByIdRequest {
+	s.Env = &v
 	return s
 }
 
@@ -3129,6 +3177,13 @@ type GetRoleDetailByIdRequest struct {
 	//
 	// dingxxxx
 	CorpId *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// example:
 	//
 	// 100
@@ -3163,6 +3218,11 @@ func (s GetRoleDetailByIdRequest) GoString() string {
 
 func (s *GetRoleDetailByIdRequest) SetCorpId(v string) *GetRoleDetailByIdRequest {
 	s.CorpId = &v
+	return s
+}
+
+func (s *GetRoleDetailByIdRequest) SetEnv(v string) *GetRoleDetailByIdRequest {
+	s.Env = &v
 	return s
 }
 
@@ -3517,6 +3577,13 @@ type SaveAndUpdateMatrixDataRequest struct {
 	//
 	// [{ 	"column_xx": "deptId", 	"column_yy": ["userId"], 	"column_zz": "项目一", 	"rowId": "row_1748398062718" }, { 	"column_xx": "deptId", 	"column_yy": ["userId", "userId"], 	"column_zz": "项目二" }]
 	DataJson *string `json:"dataJson,omitempty" xml:"dataJson,omitempty"`
+	// if can be null:
+	// true
+	//
+	// example:
+	//
+	// vpc,sgp_vpc
+	Env *string `json:"env,omitempty" xml:"env,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -3548,6 +3615,11 @@ func (s *SaveAndUpdateMatrixDataRequest) SetCorpId(v string) *SaveAndUpdateMatri
 
 func (s *SaveAndUpdateMatrixDataRequest) SetDataJson(v string) *SaveAndUpdateMatrixDataRequest {
 	s.DataJson = &v
+	return s
+}
+
+func (s *SaveAndUpdateMatrixDataRequest) SetEnv(v string) *SaveAndUpdateMatrixDataRequest {
+	s.Env = &v
 	return s
 }
 
@@ -5892,6 +5964,10 @@ func (client *Client) BatchAddOrUpdateRoleMembersWithOptions(request *BatchAddOr
 		body["corpId"] = request.CorpId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.MembersInfo)) {
 		body["membersInfo"] = request.MembersInfo
 	}
@@ -5987,6 +6063,10 @@ func (client *Client) BatchDeleteRoleMembersWithOptions(request *BatchDeleteRole
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MemberIds)) {
@@ -6395,6 +6475,10 @@ func (client *Client) DeleteMatrixDataByRowIdsWithOptions(request *DeleteMatrixD
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		body["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MatrixId)) {
@@ -7152,6 +7236,10 @@ func (client *Client) GetMatrixDetailByIdWithOptions(request *GetMatrixDetailByI
 		query["corpId"] = request.CorpId
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.MatrixId)) {
 		query["matrixId"] = request.MatrixId
 	}
@@ -7243,6 +7331,10 @@ func (client *Client) GetRoleDetailByIdWithOptions(request *GetRoleDetailByIdReq
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
 		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		query["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.PageNumber)) {
@@ -7449,6 +7541,10 @@ func (client *Client) SaveAndUpdateMatrixDataWithOptions(request *SaveAndUpdateM
 
 	if !tea.BoolValue(util.IsUnset(request.DataJson)) {
 		body["dataJson"] = request.DataJson
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Env)) {
+		body["env"] = request.Env
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.MatrixId)) {

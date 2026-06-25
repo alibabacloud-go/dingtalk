@@ -1249,6 +1249,116 @@ func (s *CreateInnerAppResponse) SetBody(v *CreateInnerAppResponseBody) *CreateI
 	return s
 }
 
+type DeleteAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAppHeaders) SetCommonHeaders(v map[string]*string) *DeleteAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteAppHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteAppRequest struct {
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s DeleteAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAppRequest) SetUnifiedAppId(v string) *DeleteAppRequest {
+	s.UnifiedAppId = &v
+	return s
+}
+
+func (s *DeleteAppRequest) SetUserId(v string) *DeleteAppRequest {
+	s.UserId = &v
+	return s
+}
+
+type DeleteAppResponseBody struct {
+	AgentId      *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	Message      *string `json:"message,omitempty" xml:"message,omitempty"`
+	Success      *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+}
+
+func (s DeleteAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAppResponseBody) SetAgentId(v string) *DeleteAppResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *DeleteAppResponseBody) SetMessage(v string) *DeleteAppResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *DeleteAppResponseBody) SetSuccess(v bool) *DeleteAppResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *DeleteAppResponseBody) SetUnifiedAppId(v string) *DeleteAppResponseBody {
+	s.UnifiedAppId = &v
+	return s
+}
+
+type DeleteAppResponse struct {
+	Headers    map[string]*string     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteAppResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteAppResponse) SetHeaders(v map[string]*string) *DeleteAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteAppResponse) SetStatusCode(v int32) *DeleteAppResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteAppResponse) SetBody(v *DeleteAppResponseBody) *DeleteAppResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteAppRoleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1429,6 +1539,104 @@ func (s *DeleteInnerAppResponse) SetStatusCode(v int32) *DeleteInnerAppResponse 
 }
 
 func (s *DeleteInnerAppResponse) SetBody(v *DeleteInnerAppResponseBody) *DeleteInnerAppResponse {
+	s.Body = v
+	return s
+}
+
+type EnableRobotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EnableRobotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableRobotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EnableRobotHeaders) SetCommonHeaders(v map[string]*string) *EnableRobotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EnableRobotHeaders) SetXAcsDingtalkAccessToken(v string) *EnableRobotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EnableRobotRequest struct {
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s EnableRobotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableRobotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EnableRobotRequest) SetUnifiedAppId(v string) *EnableRobotRequest {
+	s.UnifiedAppId = &v
+	return s
+}
+
+func (s *EnableRobotRequest) SetUserId(v string) *EnableRobotRequest {
+	s.UserId = &v
+	return s
+}
+
+type EnableRobotResponseBody struct {
+	Success      *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+}
+
+func (s EnableRobotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableRobotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EnableRobotResponseBody) SetSuccess(v bool) *EnableRobotResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *EnableRobotResponseBody) SetUnifiedAppId(v string) *EnableRobotResponseBody {
+	s.UnifiedAppId = &v
+	return s
+}
+
+type EnableRobotResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EnableRobotResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s EnableRobotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnableRobotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EnableRobotResponse) SetHeaders(v map[string]*string) *EnableRobotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EnableRobotResponse) SetStatusCode(v int32) *EnableRobotResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EnableRobotResponse) SetBody(v *EnableRobotResponseBody) *EnableRobotResponse {
 	s.Body = v
 	return s
 }
@@ -2636,6 +2844,116 @@ func (s *GetVersionInfoResponse) SetStatusCode(v int32) *GetVersionInfoResponse 
 }
 
 func (s *GetVersionInfoResponse) SetBody(v *GetVersionInfoResponseBody) *GetVersionInfoResponse {
+	s.Body = v
+	return s
+}
+
+type InactiveAppHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s InactiveAppHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InactiveAppHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *InactiveAppHeaders) SetCommonHeaders(v map[string]*string) *InactiveAppHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *InactiveAppHeaders) SetXAcsDingtalkAccessToken(v string) *InactiveAppHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type InactiveAppRequest struct {
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s InactiveAppRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InactiveAppRequest) GoString() string {
+	return s.String()
+}
+
+func (s *InactiveAppRequest) SetUnifiedAppId(v string) *InactiveAppRequest {
+	s.UnifiedAppId = &v
+	return s
+}
+
+func (s *InactiveAppRequest) SetUserId(v string) *InactiveAppRequest {
+	s.UserId = &v
+	return s
+}
+
+type InactiveAppResponseBody struct {
+	AgentId      *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	Message      *string `json:"message,omitempty" xml:"message,omitempty"`
+	Success      *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+}
+
+func (s InactiveAppResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InactiveAppResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *InactiveAppResponseBody) SetAgentId(v string) *InactiveAppResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *InactiveAppResponseBody) SetMessage(v string) *InactiveAppResponseBody {
+	s.Message = &v
+	return s
+}
+
+func (s *InactiveAppResponseBody) SetSuccess(v bool) *InactiveAppResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *InactiveAppResponseBody) SetUnifiedAppId(v string) *InactiveAppResponseBody {
+	s.UnifiedAppId = &v
+	return s
+}
+
+type InactiveAppResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *InactiveAppResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s InactiveAppResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s InactiveAppResponse) GoString() string {
+	return s.String()
+}
+
+func (s *InactiveAppResponse) SetHeaders(v map[string]*string) *InactiveAppResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *InactiveAppResponse) SetStatusCode(v int32) *InactiveAppResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *InactiveAppResponse) SetBody(v *InactiveAppResponseBody) *InactiveAppResponse {
 	s.Body = v
 	return s
 }
@@ -4269,6 +4587,104 @@ func (s *ListUserVilebleAppResponse) SetBody(v *ListUserVilebleAppResponseBody) 
 	return s
 }
 
+type OfflineRobotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s OfflineRobotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OfflineRobotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *OfflineRobotHeaders) SetCommonHeaders(v map[string]*string) *OfflineRobotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *OfflineRobotHeaders) SetXAcsDingtalkAccessToken(v string) *OfflineRobotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type OfflineRobotRequest struct {
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+	UserId       *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s OfflineRobotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OfflineRobotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *OfflineRobotRequest) SetUnifiedAppId(v string) *OfflineRobotRequest {
+	s.UnifiedAppId = &v
+	return s
+}
+
+func (s *OfflineRobotRequest) SetUserId(v string) *OfflineRobotRequest {
+	s.UserId = &v
+	return s
+}
+
+type OfflineRobotResponseBody struct {
+	Success      *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+}
+
+func (s OfflineRobotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OfflineRobotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *OfflineRobotResponseBody) SetSuccess(v bool) *OfflineRobotResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *OfflineRobotResponseBody) SetUnifiedAppId(v string) *OfflineRobotResponseBody {
+	s.UnifiedAppId = &v
+	return s
+}
+
+type OfflineRobotResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *OfflineRobotResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s OfflineRobotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s OfflineRobotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *OfflineRobotResponse) SetHeaders(v map[string]*string) *OfflineRobotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *OfflineRobotResponse) SetStatusCode(v int32) *OfflineRobotResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *OfflineRobotResponse) SetBody(v *OfflineRobotResponseBody) *OfflineRobotResponse {
+	s.Body = v
+	return s
+}
+
 type PageInnerAppHistoryVersionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4575,6 +4991,170 @@ func (s *PublishInnerAppVersionResponse) SetStatusCode(v int32) *PublishInnerApp
 }
 
 func (s *PublishInnerAppVersionResponse) SetBody(v *PublishInnerAppVersionResponseBody) *PublishInnerAppVersionResponse {
+	s.Body = v
+	return s
+}
+
+type QueryCreateEnterpriseAgentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryCreateEnterpriseAgentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateEnterpriseAgentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateEnterpriseAgentHeaders) SetCommonHeaders(v map[string]*string) *QueryCreateEnterpriseAgentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentHeaders) SetXAcsDingtalkAccessToken(v string) *QueryCreateEnterpriseAgentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryCreateEnterpriseAgentRequest struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Userid *string `json:"userid,omitempty" xml:"userid,omitempty"`
+}
+
+func (s QueryCreateEnterpriseAgentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateEnterpriseAgentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateEnterpriseAgentRequest) SetTaskId(v string) *QueryCreateEnterpriseAgentRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentRequest) SetUserid(v string) *QueryCreateEnterpriseAgentRequest {
+	s.Userid = &v
+	return s
+}
+
+type QueryCreateEnterpriseAgentResponseBody struct {
+	AgentId      *string `json:"agentId,omitempty" xml:"agentId,omitempty"`
+	ClientId     *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
+	ClientSecret *string `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
+	ErrorCode    *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg     *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	ExpiresIn    *int64  `json:"expiresIn,omitempty" xml:"expiresIn,omitempty"`
+	GmtCreate    *int64  `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified  *int64  `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	Interval     *int64  `json:"interval,omitempty" xml:"interval,omitempty"`
+	RetryCount   *int64  `json:"retryCount,omitempty" xml:"retryCount,omitempty"`
+	RobotCode    *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId       *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s QueryCreateEnterpriseAgentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateEnterpriseAgentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetAgentId(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.AgentId = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetClientId(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.ClientId = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetClientSecret(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.ClientSecret = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetErrorCode(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetErrorMsg(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetExpiresIn(v int64) *QueryCreateEnterpriseAgentResponseBody {
+	s.ExpiresIn = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetGmtCreate(v int64) *QueryCreateEnterpriseAgentResponseBody {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetGmtModified(v int64) *QueryCreateEnterpriseAgentResponseBody {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetInterval(v int64) *QueryCreateEnterpriseAgentResponseBody {
+	s.Interval = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetRetryCount(v int64) *QueryCreateEnterpriseAgentResponseBody {
+	s.RetryCount = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetRobotCode(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.RobotCode = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetStatus(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetTaskId(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type QueryCreateEnterpriseAgentResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryCreateEnterpriseAgentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryCreateEnterpriseAgentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryCreateEnterpriseAgentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryCreateEnterpriseAgentResponse) SetHeaders(v map[string]*string) *QueryCreateEnterpriseAgentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponse) SetStatusCode(v int32) *QueryCreateEnterpriseAgentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponse) SetBody(v *QueryCreateEnterpriseAgentResponseBody) *QueryCreateEnterpriseAgentResponse {
 	s.Body = v
 	return s
 }
@@ -5241,6 +5821,152 @@ func (s *SetMicroAppScopeResponse) SetBody(v *SetMicroAppScopeResponseBody) *Set
 	return s
 }
 
+type SubmitCreateEnterpriseAgentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SubmitCreateEnterpriseAgentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCreateEnterpriseAgentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCreateEnterpriseAgentHeaders) SetCommonHeaders(v map[string]*string) *SubmitCreateEnterpriseAgentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentHeaders) SetXAcsDingtalkAccessToken(v string) *SubmitCreateEnterpriseAgentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SubmitCreateEnterpriseAgentRequest struct {
+	AppName        *string `json:"appName,omitempty" xml:"appName,omitempty"`
+	Desc           *string `json:"desc,omitempty" xml:"desc,omitempty"`
+	PreviewMediaId *string `json:"previewMediaId,omitempty" xml:"previewMediaId,omitempty"`
+	RobotMediaId   *string `json:"robotMediaId,omitempty" xml:"robotMediaId,omitempty"`
+	RobotName      *string `json:"robotName,omitempty" xml:"robotName,omitempty"`
+	TaskId         *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	Userid         *string `json:"userid,omitempty" xml:"userid,omitempty"`
+}
+
+func (s SubmitCreateEnterpriseAgentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCreateEnterpriseAgentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCreateEnterpriseAgentRequest) SetAppName(v string) *SubmitCreateEnterpriseAgentRequest {
+	s.AppName = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentRequest) SetDesc(v string) *SubmitCreateEnterpriseAgentRequest {
+	s.Desc = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentRequest) SetPreviewMediaId(v string) *SubmitCreateEnterpriseAgentRequest {
+	s.PreviewMediaId = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentRequest) SetRobotMediaId(v string) *SubmitCreateEnterpriseAgentRequest {
+	s.RobotMediaId = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentRequest) SetRobotName(v string) *SubmitCreateEnterpriseAgentRequest {
+	s.RobotName = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentRequest) SetTaskId(v string) *SubmitCreateEnterpriseAgentRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentRequest) SetUserid(v string) *SubmitCreateEnterpriseAgentRequest {
+	s.Userid = &v
+	return s
+}
+
+type SubmitCreateEnterpriseAgentResponseBody struct {
+	ExpiresIn  *string `json:"expiresIn,omitempty" xml:"expiresIn,omitempty"`
+	Interval   *string `json:"interval,omitempty" xml:"interval,omitempty"`
+	RetryCount *string `json:"retryCount,omitempty" xml:"retryCount,omitempty"`
+	Status     *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskId     *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+}
+
+func (s SubmitCreateEnterpriseAgentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCreateEnterpriseAgentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCreateEnterpriseAgentResponseBody) SetExpiresIn(v string) *SubmitCreateEnterpriseAgentResponseBody {
+	s.ExpiresIn = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentResponseBody) SetInterval(v string) *SubmitCreateEnterpriseAgentResponseBody {
+	s.Interval = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentResponseBody) SetRetryCount(v string) *SubmitCreateEnterpriseAgentResponseBody {
+	s.RetryCount = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentResponseBody) SetStatus(v string) *SubmitCreateEnterpriseAgentResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentResponseBody) SetTaskId(v string) *SubmitCreateEnterpriseAgentResponseBody {
+	s.TaskId = &v
+	return s
+}
+
+type SubmitCreateEnterpriseAgentResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SubmitCreateEnterpriseAgentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SubmitCreateEnterpriseAgentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SubmitCreateEnterpriseAgentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SubmitCreateEnterpriseAgentResponse) SetHeaders(v map[string]*string) *SubmitCreateEnterpriseAgentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentResponse) SetStatusCode(v int32) *SubmitCreateEnterpriseAgentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SubmitCreateEnterpriseAgentResponse) SetBody(v *SubmitCreateEnterpriseAgentResponseBody) *SubmitCreateEnterpriseAgentResponse {
+	s.Body = v
+	return s
+}
+
 type UpdateApaasAppHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5747,6 +6473,146 @@ func (s *UpdatePublishAuditResultResponse) SetStatusCode(v int32) *UpdatePublish
 }
 
 func (s *UpdatePublishAuditResultResponse) SetBody(v *UpdatePublishAuditResultResponseBody) *UpdatePublishAuditResultResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateRobotHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateRobotHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotHeaders) SetCommonHeaders(v map[string]*string) *UpdateRobotHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateRobotHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateRobotHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateRobotRequest struct {
+	Brief           *string `json:"brief,omitempty" xml:"brief,omitempty"`
+	ChatBotEventUrl *string `json:"chatBotEventUrl,omitempty" xml:"chatBotEventUrl,omitempty"`
+	Description     *string `json:"description,omitempty" xml:"description,omitempty"`
+	IconMediaId     *string `json:"iconMediaId,omitempty" xml:"iconMediaId,omitempty"`
+	Mode            *int32  `json:"mode,omitempty" xml:"mode,omitempty"`
+	Name            *string `json:"name,omitempty" xml:"name,omitempty"`
+	OutgoingUrl     *string `json:"outgoingUrl,omitempty" xml:"outgoingUrl,omitempty"`
+	UnifiedAppId    *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+	UserId          *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s UpdateRobotRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotRequest) SetBrief(v string) *UpdateRobotRequest {
+	s.Brief = &v
+	return s
+}
+
+func (s *UpdateRobotRequest) SetChatBotEventUrl(v string) *UpdateRobotRequest {
+	s.ChatBotEventUrl = &v
+	return s
+}
+
+func (s *UpdateRobotRequest) SetDescription(v string) *UpdateRobotRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *UpdateRobotRequest) SetIconMediaId(v string) *UpdateRobotRequest {
+	s.IconMediaId = &v
+	return s
+}
+
+func (s *UpdateRobotRequest) SetMode(v int32) *UpdateRobotRequest {
+	s.Mode = &v
+	return s
+}
+
+func (s *UpdateRobotRequest) SetName(v string) *UpdateRobotRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateRobotRequest) SetOutgoingUrl(v string) *UpdateRobotRequest {
+	s.OutgoingUrl = &v
+	return s
+}
+
+func (s *UpdateRobotRequest) SetUnifiedAppId(v string) *UpdateRobotRequest {
+	s.UnifiedAppId = &v
+	return s
+}
+
+func (s *UpdateRobotRequest) SetUserId(v string) *UpdateRobotRequest {
+	s.UserId = &v
+	return s
+}
+
+type UpdateRobotResponseBody struct {
+	Success      *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
+}
+
+func (s UpdateRobotResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotResponseBody) SetSuccess(v bool) *UpdateRobotResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *UpdateRobotResponseBody) SetUnifiedAppId(v string) *UpdateRobotResponseBody {
+	s.UnifiedAppId = &v
+	return s
+}
+
+type UpdateRobotResponse struct {
+	Headers    map[string]*string       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateRobotResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateRobotResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateRobotResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateRobotResponse) SetHeaders(v map[string]*string) *UpdateRobotResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateRobotResponse) SetStatusCode(v int32) *UpdateRobotResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateRobotResponse) SetBody(v *UpdateRobotResponseBody) *UpdateRobotResponse {
 	s.Body = v
 	return s
 }
@@ -6717,6 +7583,83 @@ func (client *Client) CreateInnerApp(request *CreateInnerAppRequest) (_result *C
 
 // Summary:
 //
+// 删除应用
+//
+// @param request - DeleteAppRequest
+//
+// @param headers - DeleteAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteAppResponse
+func (client *Client) DeleteAppWithOptions(request *DeleteAppRequest, headers *DeleteAppHeaders, runtime *util.RuntimeOptions) (_result *DeleteAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnifiedAppId)) {
+		body["unifiedAppId"] = request.UnifiedAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/app/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteAppResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除应用
+//
+// @param request - DeleteAppRequest
+//
+// @return DeleteAppResponse
+func (client *Client) DeleteApp(request *DeleteAppRequest) (_result *DeleteAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteAppHeaders{}
+	_result = &DeleteAppResponse{}
+	_body, _err := client.DeleteAppWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 删除应用角色
 //
 // @param request - DeleteAppRoleRequest
@@ -6854,6 +7797,83 @@ func (client *Client) DeleteInnerApp(agentId *string, request *DeleteInnerAppReq
 	headers := &DeleteInnerAppHeaders{}
 	_result = &DeleteInnerAppResponse{}
 	_body, _err := client.DeleteInnerAppWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 启用机器人
+//
+// @param request - EnableRobotRequest
+//
+// @param headers - EnableRobotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EnableRobotResponse
+func (client *Client) EnableRobotWithOptions(request *EnableRobotRequest, headers *EnableRobotHeaders, runtime *util.RuntimeOptions) (_result *EnableRobotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnifiedAppId)) {
+		body["unifiedAppId"] = request.UnifiedAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EnableRobot"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/robot/enable"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EnableRobotResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 启用机器人
+//
+// @param request - EnableRobotRequest
+//
+// @return EnableRobotResponse
+func (client *Client) EnableRobot(request *EnableRobotRequest) (_result *EnableRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EnableRobotHeaders{}
+	_result = &EnableRobotResponse{}
+	_body, _err := client.EnableRobotWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7493,6 +8513,83 @@ func (client *Client) GetVersionInfo(request *GetVersionInfoRequest) (_result *G
 	headers := make(map[string]*string)
 	_result = &GetVersionInfoResponse{}
 	_body, _err := client.GetVersionInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 停用应用
+//
+// @param request - InactiveAppRequest
+//
+// @param headers - InactiveAppHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return InactiveAppResponse
+func (client *Client) InactiveAppWithOptions(request *InactiveAppRequest, headers *InactiveAppHeaders, runtime *util.RuntimeOptions) (_result *InactiveAppResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnifiedAppId)) {
+		body["unifiedAppId"] = request.UnifiedAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("InactiveApp"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/app/inactive"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &InactiveAppResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 停用应用
+//
+// @param request - InactiveAppRequest
+//
+// @return InactiveAppResponse
+func (client *Client) InactiveApp(request *InactiveAppRequest) (_result *InactiveAppResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &InactiveAppHeaders{}
+	_result = &InactiveAppResponse{}
+	_body, _err := client.InactiveAppWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8164,6 +9261,83 @@ func (client *Client) ListUserVilebleApp(userId *string) (_result *ListUserVileb
 
 // Summary:
 //
+// 停用机器人
+//
+// @param request - OfflineRobotRequest
+//
+// @param headers - OfflineRobotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return OfflineRobotResponse
+func (client *Client) OfflineRobotWithOptions(request *OfflineRobotRequest, headers *OfflineRobotHeaders, runtime *util.RuntimeOptions) (_result *OfflineRobotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnifiedAppId)) {
+		query["unifiedAppId"] = request.UnifiedAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("OfflineRobot"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/robot/offline"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &OfflineRobotResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 停用机器人
+//
+// @param request - OfflineRobotRequest
+//
+// @return OfflineRobotResponse
+func (client *Client) OfflineRobot(request *OfflineRobotRequest) (_result *OfflineRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &OfflineRobotHeaders{}
+	_result = &OfflineRobotResponse{}
+	_body, _err := client.OfflineRobotWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 获取企业内部小程序历史版本列表
 //
 // @param request - PageInnerAppHistoryVersionRequest
@@ -8317,6 +9491,83 @@ func (client *Client) PublishInnerAppVersion(agentId *string, request *PublishIn
 	headers := &PublishInnerAppVersionHeaders{}
 	_result = &PublishInnerAppVersionResponse{}
 	_body, _err := client.PublishInnerAppVersionWithOptions(agentId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询创建企业自建Agent任务进度
+//
+// @param request - QueryCreateEnterpriseAgentRequest
+//
+// @param headers - QueryCreateEnterpriseAgentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryCreateEnterpriseAgentResponse
+func (client *Client) QueryCreateEnterpriseAgentWithOptions(request *QueryCreateEnterpriseAgentRequest, headers *QueryCreateEnterpriseAgentHeaders, runtime *util.RuntimeOptions) (_result *QueryCreateEnterpriseAgentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Userid)) {
+		body["userid"] = request.Userid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryCreateEnterpriseAgent"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/agent/create/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryCreateEnterpriseAgentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询创建企业自建Agent任务进度
+//
+// @param request - QueryCreateEnterpriseAgentRequest
+//
+// @return QueryCreateEnterpriseAgentResponse
+func (client *Client) QueryCreateEnterpriseAgent(request *QueryCreateEnterpriseAgentRequest) (_result *QueryCreateEnterpriseAgentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryCreateEnterpriseAgentHeaders{}
+	_result = &QueryCreateEnterpriseAgentResponse{}
+	_body, _err := client.QueryCreateEnterpriseAgentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8832,6 +10083,103 @@ func (client *Client) SetMicroAppScope(agentId *string, request *SetMicroAppScop
 
 // Summary:
 //
+// 提交创建企业自建Agent
+//
+// @param request - SubmitCreateEnterpriseAgentRequest
+//
+// @param headers - SubmitCreateEnterpriseAgentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SubmitCreateEnterpriseAgentResponse
+func (client *Client) SubmitCreateEnterpriseAgentWithOptions(request *SubmitCreateEnterpriseAgentRequest, headers *SubmitCreateEnterpriseAgentHeaders, runtime *util.RuntimeOptions) (_result *SubmitCreateEnterpriseAgentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AppName)) {
+		body["appName"] = request.AppName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Desc)) {
+		body["desc"] = request.Desc
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PreviewMediaId)) {
+		body["previewMediaId"] = request.PreviewMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotMediaId)) {
+		body["robotMediaId"] = request.RobotMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RobotName)) {
+		body["robotName"] = request.RobotName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Userid)) {
+		body["userid"] = request.Userid
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SubmitCreateEnterpriseAgent"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/enterpriseAgent/submit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SubmitCreateEnterpriseAgentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 提交创建企业自建Agent
+//
+// @param request - SubmitCreateEnterpriseAgentRequest
+//
+// @return SubmitCreateEnterpriseAgentResponse
+func (client *Client) SubmitCreateEnterpriseAgent(request *SubmitCreateEnterpriseAgentRequest) (_result *SubmitCreateEnterpriseAgentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SubmitCreateEnterpriseAgentHeaders{}
+	_result = &SubmitCreateEnterpriseAgentResponse{}
+	_body, _err := client.SubmitCreateEnterpriseAgentWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 更新apaas应用
 //
 // @param request - UpdateApaasAppRequest
@@ -9187,6 +10535,111 @@ func (client *Client) UpdatePublishAuditResult(request *UpdatePublishAuditResult
 	headers := &UpdatePublishAuditResultHeaders{}
 	_result = &UpdatePublishAuditResultResponse{}
 	_body, _err := client.UpdatePublishAuditResultWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新机器人配置
+//
+// @param request - UpdateRobotRequest
+//
+// @param headers - UpdateRobotHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateRobotResponse
+func (client *Client) UpdateRobotWithOptions(request *UpdateRobotRequest, headers *UpdateRobotHeaders, runtime *util.RuntimeOptions) (_result *UpdateRobotResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Brief)) {
+		body["brief"] = request.Brief
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ChatBotEventUrl)) {
+		body["chatBotEventUrl"] = request.ChatBotEventUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		body["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IconMediaId)) {
+		body["iconMediaId"] = request.IconMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Mode)) {
+		body["mode"] = request.Mode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OutgoingUrl)) {
+		body["outgoingUrl"] = request.OutgoingUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnifiedAppId)) {
+		body["unifiedAppId"] = request.UnifiedAppId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateRobot"),
+		Version:     tea.String("microApp_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/microApp/robot/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateRobotResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新机器人配置
+//
+// @param request - UpdateRobotRequest
+//
+// @return UpdateRobotResponse
+func (client *Client) UpdateRobot(request *UpdateRobotRequest) (_result *UpdateRobotResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateRobotHeaders{}
+	_result = &UpdateRobotResponse{}
+	_body, _err := client.UpdateRobotWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
