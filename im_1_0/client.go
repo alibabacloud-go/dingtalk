@@ -16627,6 +16627,10 @@ func (s *SetRightPanelRequest) SetWidth(v int32) *SetRightPanelRequest {
 }
 
 type SetRightPanelRequestWebWndParams struct {
+	// example:
+	//
+	// xxxxx
+	CloseTipContent *string `json:"closeTipContent,omitempty" xml:"closeTipContent,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -16641,6 +16645,11 @@ func (s SetRightPanelRequestWebWndParams) String() string {
 
 func (s SetRightPanelRequestWebWndParams) GoString() string {
 	return s.String()
+}
+
+func (s *SetRightPanelRequestWebWndParams) SetCloseTipContent(v string) *SetRightPanelRequestWebWndParams {
+	s.CloseTipContent = &v
+	return s
 }
 
 func (s *SetRightPanelRequestWebWndParams) SetTargetURL(v string) *SetRightPanelRequestWebWndParams {

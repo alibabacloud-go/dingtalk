@@ -3625,6 +3625,150 @@ func (s *QueryMeetingRoomGroupResponse) SetBody(v *QueryMeetingRoomGroupResponse
 	return s
 }
 
+type QueryMeetingRoomGroupAdminHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryMeetingRoomGroupAdminHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomGroupAdminHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomGroupAdminHeaders) SetCommonHeaders(v map[string]*string) *QueryMeetingRoomGroupAdminHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryMeetingRoomGroupAdminHeaders) SetXAcsDingtalkAccessToken(v string) *QueryMeetingRoomGroupAdminHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryMeetingRoomGroupAdminRequest struct {
+	// example:
+	//
+	// 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryMeetingRoomGroupAdminRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomGroupAdminRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomGroupAdminRequest) SetUnionId(v string) *QueryMeetingRoomGroupAdminRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryMeetingRoomGroupAdminResponseBody struct {
+	Result *QueryMeetingRoomGroupAdminResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s QueryMeetingRoomGroupAdminResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomGroupAdminResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomGroupAdminResponseBody) SetResult(v *QueryMeetingRoomGroupAdminResponseBodyResult) *QueryMeetingRoomGroupAdminResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryMeetingRoomGroupAdminResponseBodyResult struct {
+	GroupAdmins []*QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins `json:"groupAdmins,omitempty" xml:"groupAdmins,omitempty" type:"Repeated"`
+	// example:
+	//
+	// 172
+	GroupId   *int64  `json:"groupId,omitempty" xml:"groupId,omitempty"`
+	GroupName *string `json:"groupName,omitempty" xml:"groupName,omitempty"`
+}
+
+func (s QueryMeetingRoomGroupAdminResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomGroupAdminResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomGroupAdminResponseBodyResult) SetGroupAdmins(v []*QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins) *QueryMeetingRoomGroupAdminResponseBodyResult {
+	s.GroupAdmins = v
+	return s
+}
+
+func (s *QueryMeetingRoomGroupAdminResponseBodyResult) SetGroupId(v int64) *QueryMeetingRoomGroupAdminResponseBodyResult {
+	s.GroupId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomGroupAdminResponseBodyResult) SetGroupName(v string) *QueryMeetingRoomGroupAdminResponseBodyResult {
+	s.GroupName = &v
+	return s
+}
+
+type QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins struct {
+	MemberId   *string `json:"memberId,omitempty" xml:"memberId,omitempty"`
+	MemberName *string `json:"memberName,omitempty" xml:"memberName,omitempty"`
+}
+
+func (s QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins) SetMemberId(v string) *QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins {
+	s.MemberId = &v
+	return s
+}
+
+func (s *QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins) SetMemberName(v string) *QueryMeetingRoomGroupAdminResponseBodyResultGroupAdmins {
+	s.MemberName = &v
+	return s
+}
+
+type QueryMeetingRoomGroupAdminResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryMeetingRoomGroupAdminResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryMeetingRoomGroupAdminResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryMeetingRoomGroupAdminResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryMeetingRoomGroupAdminResponse) SetHeaders(v map[string]*string) *QueryMeetingRoomGroupAdminResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryMeetingRoomGroupAdminResponse) SetStatusCode(v int32) *QueryMeetingRoomGroupAdminResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryMeetingRoomGroupAdminResponse) SetBody(v *QueryMeetingRoomGroupAdminResponseBody) *QueryMeetingRoomGroupAdminResponse {
+	s.Body = v
+	return s
+}
+
 type QueryMeetingRoomGroupListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6539,6 +6683,79 @@ func (client *Client) QueryMeetingRoomGroup(groupId *string, request *QueryMeeti
 	headers := &QueryMeetingRoomGroupHeaders{}
 	_result = &QueryMeetingRoomGroupResponse{}
 	_body, _err := client.QueryMeetingRoomGroupWithOptions(groupId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取分组管理员信息
+//
+// @param request - QueryMeetingRoomGroupAdminRequest
+//
+// @param headers - QueryMeetingRoomGroupAdminHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryMeetingRoomGroupAdminResponse
+func (client *Client) QueryMeetingRoomGroupAdminWithOptions(groupId *string, request *QueryMeetingRoomGroupAdminRequest, headers *QueryMeetingRoomGroupAdminHeaders, runtime *util.RuntimeOptions) (_result *QueryMeetingRoomGroupAdminResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryMeetingRoomGroupAdmin"),
+		Version:     tea.String("rooms_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/rooms/groupAdmin/" + tea.StringValue(groupId)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryMeetingRoomGroupAdminResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取分组管理员信息
+//
+// @param request - QueryMeetingRoomGroupAdminRequest
+//
+// @return QueryMeetingRoomGroupAdminResponse
+func (client *Client) QueryMeetingRoomGroupAdmin(groupId *string, request *QueryMeetingRoomGroupAdminRequest) (_result *QueryMeetingRoomGroupAdminResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryMeetingRoomGroupAdminHeaders{}
+	_result = &QueryMeetingRoomGroupAdminResponse{}
+	_body, _err := client.QueryMeetingRoomGroupAdminWithOptions(groupId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

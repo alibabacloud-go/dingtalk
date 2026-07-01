@@ -9,6 +9,116 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type ATMDeviceWorkNotifyHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ATMDeviceWorkNotifyHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ATMDeviceWorkNotifyHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ATMDeviceWorkNotifyHeaders) SetCommonHeaders(v map[string]*string) *ATMDeviceWorkNotifyHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ATMDeviceWorkNotifyHeaders) SetXAcsDingtalkAccessToken(v string) *ATMDeviceWorkNotifyHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ATMDeviceWorkNotifyRequest struct {
+	CreatorCorpId  *string `json:"creatorCorpId,omitempty" xml:"creatorCorpId,omitempty"`
+	CreatorUnionId *string `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	NotifyType     *string `json:"notifyType,omitempty" xml:"notifyType,omitempty"`
+	ParamContent   *string `json:"paramContent,omitempty" xml:"paramContent,omitempty"`
+	TargetUrl      *string `json:"targetUrl,omitempty" xml:"targetUrl,omitempty"`
+}
+
+func (s ATMDeviceWorkNotifyRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ATMDeviceWorkNotifyRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ATMDeviceWorkNotifyRequest) SetCreatorCorpId(v string) *ATMDeviceWorkNotifyRequest {
+	s.CreatorCorpId = &v
+	return s
+}
+
+func (s *ATMDeviceWorkNotifyRequest) SetCreatorUnionId(v string) *ATMDeviceWorkNotifyRequest {
+	s.CreatorUnionId = &v
+	return s
+}
+
+func (s *ATMDeviceWorkNotifyRequest) SetNotifyType(v string) *ATMDeviceWorkNotifyRequest {
+	s.NotifyType = &v
+	return s
+}
+
+func (s *ATMDeviceWorkNotifyRequest) SetParamContent(v string) *ATMDeviceWorkNotifyRequest {
+	s.ParamContent = &v
+	return s
+}
+
+func (s *ATMDeviceWorkNotifyRequest) SetTargetUrl(v string) *ATMDeviceWorkNotifyRequest {
+	s.TargetUrl = &v
+	return s
+}
+
+type ATMDeviceWorkNotifyResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ATMDeviceWorkNotifyResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ATMDeviceWorkNotifyResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ATMDeviceWorkNotifyResponseBody) SetSuccess(v bool) *ATMDeviceWorkNotifyResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ATMDeviceWorkNotifyResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ATMDeviceWorkNotifyResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ATMDeviceWorkNotifyResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ATMDeviceWorkNotifyResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ATMDeviceWorkNotifyResponse) SetHeaders(v map[string]*string) *ATMDeviceWorkNotifyResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ATMDeviceWorkNotifyResponse) SetStatusCode(v int32) *ATMDeviceWorkNotifyResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ATMDeviceWorkNotifyResponse) SetBody(v *ATMDeviceWorkNotifyResponseBody) *ATMDeviceWorkNotifyResponse {
+	s.Body = v
+	return s
+}
+
 type AddDeviceVideoConferenceMembersHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1282,6 +1392,95 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 发送考勤机工作台消息
+//
+// @param request - ATMDeviceWorkNotifyRequest
+//
+// @param headers - ATMDeviceWorkNotifyHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ATMDeviceWorkNotifyResponse
+func (client *Client) ATMDeviceWorkNotifyWithOptions(request *ATMDeviceWorkNotifyRequest, headers *ATMDeviceWorkNotifyHeaders, runtime *util.RuntimeOptions) (_result *ATMDeviceWorkNotifyResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorCorpId)) {
+		body["creatorCorpId"] = request.CreatorCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreatorUnionId)) {
+		body["creatorUnionId"] = request.CreatorUnionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NotifyType)) {
+		body["notifyType"] = request.NotifyType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ParamContent)) {
+		body["paramContent"] = request.ParamContent
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TargetUrl)) {
+		body["targetUrl"] = request.TargetUrl
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ATMDeviceWorkNotify"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/atm/notify"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ATMDeviceWorkNotifyResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 发送考勤机工作台消息
+//
+// @param request - ATMDeviceWorkNotifyRequest
+//
+// @return ATMDeviceWorkNotifyResponse
+func (client *Client) ATMDeviceWorkNotify(request *ATMDeviceWorkNotifyRequest) (_result *ATMDeviceWorkNotifyResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ATMDeviceWorkNotifyHeaders{}
+	_result = &ATMDeviceWorkNotifyResponse{}
+	_body, _err := client.ATMDeviceWorkNotifyWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:

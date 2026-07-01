@@ -550,6 +550,154 @@ func (s *CreateRecordingScheduleResponse) SetBody(v *CreateRecordingScheduleResp
 	return s
 }
 
+type CreateTeamHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTeamHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamHeaders) SetCommonHeaders(v map[string]*string) *CreateTeamHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTeamHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTeamRequest struct {
+	AdminUserIds []*string `json:"adminUserIds,omitempty" xml:"adminUserIds,omitempty" type:"Repeated"`
+	DeptIds      []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	DialectCode  *string   `json:"dialectCode,omitempty" xml:"dialectCode,omitempty"`
+	// This parameter is required.
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+	// This parameter is required.
+	SceneCodes []*string `json:"sceneCodes,omitempty" xml:"sceneCodes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	SolutionCode *string   `json:"solutionCode,omitempty" xml:"solutionCode,omitempty"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s CreateTeamRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamRequest) SetAdminUserIds(v []*string) *CreateTeamRequest {
+	s.AdminUserIds = v
+	return s
+}
+
+func (s *CreateTeamRequest) SetDeptIds(v []*int64) *CreateTeamRequest {
+	s.DeptIds = v
+	return s
+}
+
+func (s *CreateTeamRequest) SetDialectCode(v string) *CreateTeamRequest {
+	s.DialectCode = &v
+	return s
+}
+
+func (s *CreateTeamRequest) SetName(v string) *CreateTeamRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateTeamRequest) SetSceneCodes(v []*string) *CreateTeamRequest {
+	s.SceneCodes = v
+	return s
+}
+
+func (s *CreateTeamRequest) SetSolutionCode(v string) *CreateTeamRequest {
+	s.SolutionCode = &v
+	return s
+}
+
+func (s *CreateTeamRequest) SetUserIds(v []*string) *CreateTeamRequest {
+	s.UserIds = v
+	return s
+}
+
+type CreateTeamResponseBody struct {
+	Result *CreateTeamResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateTeamResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamResponseBody) SetResult(v *CreateTeamResponseBodyResult) *CreateTeamResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateTeamResponseBodyResult struct {
+	Name     *string `json:"name,omitempty" xml:"name,omitempty"`
+	TeamCode *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+}
+
+func (s CreateTeamResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamResponseBodyResult) SetName(v string) *CreateTeamResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *CreateTeamResponseBodyResult) SetTeamCode(v string) *CreateTeamResponseBodyResult {
+	s.TeamCode = &v
+	return s
+}
+
+type CreateTeamResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateTeamResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateTeamResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTeamResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTeamResponse) SetHeaders(v map[string]*string) *CreateTeamResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTeamResponse) SetStatusCode(v int32) *CreateTeamResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateTeamResponse) SetBody(v *CreateTeamResponseBody) *CreateTeamResponse {
+	s.Body = v
+	return s
+}
+
 type DeleteRecordingScheduleHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1926,6 +2074,7 @@ func (s *GetServiceQualityInspectionResponseBodyResult) SetSummary(v string) *Ge
 type GetServiceQualityInspectionResponseBodyResultGroupList struct {
 	ItemList []*GetServiceQualityInspectionResponseBodyResultGroupListItemList `json:"itemList,omitempty" xml:"itemList,omitempty" type:"Repeated"`
 	Name     *string                                                           `json:"name,omitempty" xml:"name,omitempty"`
+	Score    *int32                                                            `json:"score,omitempty" xml:"score,omitempty"`
 }
 
 func (s GetServiceQualityInspectionResponseBodyResultGroupList) String() string {
@@ -1943,6 +2092,11 @@ func (s *GetServiceQualityInspectionResponseBodyResultGroupList) SetItemList(v [
 
 func (s *GetServiceQualityInspectionResponseBodyResultGroupList) SetName(v string) *GetServiceQualityInspectionResponseBodyResultGroupList {
 	s.Name = &v
+	return s
+}
+
+func (s *GetServiceQualityInspectionResponseBodyResultGroupList) SetScore(v int32) *GetServiceQualityInspectionResponseBodyResultGroupList {
+	s.Score = &v
 	return s
 }
 
@@ -2116,17 +2270,18 @@ func (s *GetServiceRecordResponseBody) SetResult(v *GetServiceRecordResponseBody
 }
 
 type GetServiceRecordResponseBodyResult struct {
-	CustomerId             *string                                 `json:"customerId,omitempty" xml:"customerId,omitempty"`
-	DeviceSn               *string                                 `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
-	Duration               *string                                 `json:"duration,omitempty" xml:"duration,omitempty"`
-	EndTimestamp           *int64                                  `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
-	OutBizData             *string                                 `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
-	QualityInspectionScore *int32                                  `json:"qualityInspectionScore,omitempty" xml:"qualityInspectionScore,omitempty"`
-	RecordId               *string                                 `json:"recordId,omitempty" xml:"recordId,omitempty"`
-	StartTimestamp         *int64                                  `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
-	Team                   *GetServiceRecordResponseBodyResultTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
-	User                   *GetServiceRecordResponseBodyResultUser `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
-	Valid                  *bool                                   `json:"valid,omitempty" xml:"valid,omitempty"`
+	CustomerId             *string                                      `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	DeviceSn               *string                                      `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	Duration               *string                                      `json:"duration,omitempty" xml:"duration,omitempty"`
+	EndTimestamp           *int64                                       `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	OutBizData             *string                                      `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
+	QualityInspectionScore *int32                                       `json:"qualityInspectionScore,omitempty" xml:"qualityInspectionScore,omitempty"`
+	RecordId               *string                                      `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	SceneInfo              *GetServiceRecordResponseBodyResultSceneInfo `json:"sceneInfo,omitempty" xml:"sceneInfo,omitempty" type:"Struct"`
+	StartTimestamp         *int64                                       `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	Team                   *GetServiceRecordResponseBodyResultTeam      `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
+	User                   *GetServiceRecordResponseBodyResultUser      `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
+	Valid                  *bool                                        `json:"valid,omitempty" xml:"valid,omitempty"`
 }
 
 func (s GetServiceRecordResponseBodyResult) String() string {
@@ -2172,6 +2327,11 @@ func (s *GetServiceRecordResponseBodyResult) SetRecordId(v string) *GetServiceRe
 	return s
 }
 
+func (s *GetServiceRecordResponseBodyResult) SetSceneInfo(v *GetServiceRecordResponseBodyResultSceneInfo) *GetServiceRecordResponseBodyResult {
+	s.SceneInfo = v
+	return s
+}
+
 func (s *GetServiceRecordResponseBodyResult) SetStartTimestamp(v int64) *GetServiceRecordResponseBodyResult {
 	s.StartTimestamp = &v
 	return s
@@ -2189,6 +2349,29 @@ func (s *GetServiceRecordResponseBodyResult) SetUser(v *GetServiceRecordResponse
 
 func (s *GetServiceRecordResponseBodyResult) SetValid(v bool) *GetServiceRecordResponseBodyResult {
 	s.Valid = &v
+	return s
+}
+
+type GetServiceRecordResponseBodyResultSceneInfo struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetServiceRecordResponseBodyResultSceneInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceRecordResponseBodyResultSceneInfo) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceRecordResponseBodyResultSceneInfo) SetCode(v string) *GetServiceRecordResponseBodyResultSceneInfo {
+	s.Code = &v
+	return s
+}
+
+func (s *GetServiceRecordResponseBodyResultSceneInfo) SetName(v string) *GetServiceRecordResponseBodyResultSceneInfo {
+	s.Name = &v
 	return s
 }
 
@@ -2477,6 +2660,543 @@ func (s *GetServiceRecordTranscriptResponse) SetStatusCode(v int32) *GetServiceR
 }
 
 func (s *GetServiceRecordTranscriptResponse) SetBody(v *GetServiceRecordTranscriptResponseBody) *GetServiceRecordTranscriptResponse {
+	s.Body = v
+	return s
+}
+
+type GetSolutionConfigHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSolutionConfigHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSolutionConfigHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSolutionConfigHeaders) SetCommonHeaders(v map[string]*string) *GetSolutionConfigHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSolutionConfigHeaders) SetXAcsDingtalkAccessToken(v string) *GetSolutionConfigHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSolutionConfigResponseBody struct {
+	Result *GetSolutionConfigResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetSolutionConfigResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSolutionConfigResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSolutionConfigResponseBody) SetResult(v *GetSolutionConfigResponseBodyResult) *GetSolutionConfigResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetSolutionConfigResponseBodyResult struct {
+	DialectList  []*GetSolutionConfigResponseBodyResultDialectList  `json:"dialectList,omitempty" xml:"dialectList,omitempty" type:"Repeated"`
+	SolutionList []*GetSolutionConfigResponseBodyResultSolutionList `json:"solutionList,omitempty" xml:"solutionList,omitempty" type:"Repeated"`
+}
+
+func (s GetSolutionConfigResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSolutionConfigResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetSolutionConfigResponseBodyResult) SetDialectList(v []*GetSolutionConfigResponseBodyResultDialectList) *GetSolutionConfigResponseBodyResult {
+	s.DialectList = v
+	return s
+}
+
+func (s *GetSolutionConfigResponseBodyResult) SetSolutionList(v []*GetSolutionConfigResponseBodyResultSolutionList) *GetSolutionConfigResponseBodyResult {
+	s.SolutionList = v
+	return s
+}
+
+type GetSolutionConfigResponseBodyResultDialectList struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetSolutionConfigResponseBodyResultDialectList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSolutionConfigResponseBodyResultDialectList) GoString() string {
+	return s.String()
+}
+
+func (s *GetSolutionConfigResponseBodyResultDialectList) SetCode(v string) *GetSolutionConfigResponseBodyResultDialectList {
+	s.Code = &v
+	return s
+}
+
+func (s *GetSolutionConfigResponseBodyResultDialectList) SetName(v string) *GetSolutionConfigResponseBodyResultDialectList {
+	s.Name = &v
+	return s
+}
+
+type GetSolutionConfigResponseBodyResultSolutionList struct {
+	Code      *string                                                     `json:"code,omitempty" xml:"code,omitempty"`
+	Name      *string                                                     `json:"name,omitempty" xml:"name,omitempty"`
+	SceneList []*GetSolutionConfigResponseBodyResultSolutionListSceneList `json:"sceneList,omitempty" xml:"sceneList,omitempty" type:"Repeated"`
+}
+
+func (s GetSolutionConfigResponseBodyResultSolutionList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSolutionConfigResponseBodyResultSolutionList) GoString() string {
+	return s.String()
+}
+
+func (s *GetSolutionConfigResponseBodyResultSolutionList) SetCode(v string) *GetSolutionConfigResponseBodyResultSolutionList {
+	s.Code = &v
+	return s
+}
+
+func (s *GetSolutionConfigResponseBodyResultSolutionList) SetName(v string) *GetSolutionConfigResponseBodyResultSolutionList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetSolutionConfigResponseBodyResultSolutionList) SetSceneList(v []*GetSolutionConfigResponseBodyResultSolutionListSceneList) *GetSolutionConfigResponseBodyResultSolutionList {
+	s.SceneList = v
+	return s
+}
+
+type GetSolutionConfigResponseBodyResultSolutionListSceneList struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetSolutionConfigResponseBodyResultSolutionListSceneList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSolutionConfigResponseBodyResultSolutionListSceneList) GoString() string {
+	return s.String()
+}
+
+func (s *GetSolutionConfigResponseBodyResultSolutionListSceneList) SetCode(v string) *GetSolutionConfigResponseBodyResultSolutionListSceneList {
+	s.Code = &v
+	return s
+}
+
+func (s *GetSolutionConfigResponseBodyResultSolutionListSceneList) SetName(v string) *GetSolutionConfigResponseBodyResultSolutionListSceneList {
+	s.Name = &v
+	return s
+}
+
+type GetSolutionConfigResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSolutionConfigResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetSolutionConfigResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSolutionConfigResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSolutionConfigResponse) SetHeaders(v map[string]*string) *GetSolutionConfigResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSolutionConfigResponse) SetStatusCode(v int32) *GetSolutionConfigResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSolutionConfigResponse) SetBody(v *GetSolutionConfigResponseBody) *GetSolutionConfigResponse {
+	s.Body = v
+	return s
+}
+
+type GetTeamHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTeamHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamHeaders) SetCommonHeaders(v map[string]*string) *GetTeamHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTeamHeaders) SetXAcsDingtalkAccessToken(v string) *GetTeamHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTeamResponseBody struct {
+	Result *GetTeamResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetTeamResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamResponseBody) SetResult(v *GetTeamResponseBodyResult) *GetTeamResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetTeamResponseBodyResult struct {
+	Code         *string                               `json:"code,omitempty" xml:"code,omitempty"`
+	DialectCode  *string                               `json:"dialectCode,omitempty" xml:"dialectCode,omitempty"`
+	DialectName  *string                               `json:"dialectName,omitempty" xml:"dialectName,omitempty"`
+	Name         *string                               `json:"name,omitempty" xml:"name,omitempty"`
+	SceneList    []*GetTeamResponseBodyResultSceneList `json:"sceneList,omitempty" xml:"sceneList,omitempty" type:"Repeated"`
+	SolutionCode *string                               `json:"solutionCode,omitempty" xml:"solutionCode,omitempty"`
+	SolutionName *string                               `json:"solutionName,omitempty" xml:"solutionName,omitempty"`
+	TagList      []*GetTeamResponseBodyResultTagList   `json:"tagList,omitempty" xml:"tagList,omitempty" type:"Repeated"`
+}
+
+func (s GetTeamResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamResponseBodyResult) SetCode(v string) *GetTeamResponseBodyResult {
+	s.Code = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResult) SetDialectCode(v string) *GetTeamResponseBodyResult {
+	s.DialectCode = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResult) SetDialectName(v string) *GetTeamResponseBodyResult {
+	s.DialectName = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResult) SetName(v string) *GetTeamResponseBodyResult {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResult) SetSceneList(v []*GetTeamResponseBodyResultSceneList) *GetTeamResponseBodyResult {
+	s.SceneList = v
+	return s
+}
+
+func (s *GetTeamResponseBodyResult) SetSolutionCode(v string) *GetTeamResponseBodyResult {
+	s.SolutionCode = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResult) SetSolutionName(v string) *GetTeamResponseBodyResult {
+	s.SolutionName = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResult) SetTagList(v []*GetTeamResponseBodyResultTagList) *GetTeamResponseBodyResult {
+	s.TagList = v
+	return s
+}
+
+type GetTeamResponseBodyResultSceneList struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetTeamResponseBodyResultSceneList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamResponseBodyResultSceneList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamResponseBodyResultSceneList) SetCode(v string) *GetTeamResponseBodyResultSceneList {
+	s.Code = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResultSceneList) SetName(v string) *GetTeamResponseBodyResultSceneList {
+	s.Name = &v
+	return s
+}
+
+type GetTeamResponseBodyResultTagList struct {
+	Code      *string                                      `json:"code,omitempty" xml:"code,omitempty"`
+	Name      *string                                      `json:"name,omitempty" xml:"name,omitempty"`
+	ValueList []*GetTeamResponseBodyResultTagListValueList `json:"valueList,omitempty" xml:"valueList,omitempty" type:"Repeated"`
+}
+
+func (s GetTeamResponseBodyResultTagList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamResponseBodyResultTagList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamResponseBodyResultTagList) SetCode(v string) *GetTeamResponseBodyResultTagList {
+	s.Code = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResultTagList) SetName(v string) *GetTeamResponseBodyResultTagList {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResultTagList) SetValueList(v []*GetTeamResponseBodyResultTagListValueList) *GetTeamResponseBodyResultTagList {
+	s.ValueList = v
+	return s
+}
+
+type GetTeamResponseBodyResultTagListValueList struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetTeamResponseBodyResultTagListValueList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamResponseBodyResultTagListValueList) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamResponseBodyResultTagListValueList) SetCode(v string) *GetTeamResponseBodyResultTagListValueList {
+	s.Code = &v
+	return s
+}
+
+func (s *GetTeamResponseBodyResultTagListValueList) SetName(v string) *GetTeamResponseBodyResultTagListValueList {
+	s.Name = &v
+	return s
+}
+
+type GetTeamResponse struct {
+	Headers    map[string]*string   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTeamResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetTeamResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamResponse) SetHeaders(v map[string]*string) *GetTeamResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTeamResponse) SetStatusCode(v int32) *GetTeamResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTeamResponse) SetBody(v *GetTeamResponseBody) *GetTeamResponse {
+	s.Body = v
+	return s
+}
+
+type GetTeamMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetTeamMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamMemberHeaders) SetCommonHeaders(v map[string]*string) *GetTeamMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetTeamMemberHeaders) SetXAcsDingtalkAccessToken(v string) *GetTeamMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetTeamMemberResponseBody struct {
+	Result *GetTeamMemberResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetTeamMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamMemberResponseBody) SetResult(v *GetTeamMemberResponseBodyResult) *GetTeamMemberResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetTeamMemberResponseBodyResult struct {
+	Admins  []*GetTeamMemberResponseBodyResultAdmins  `json:"admins,omitempty" xml:"admins,omitempty" type:"Repeated"`
+	Depts   []*GetTeamMemberResponseBodyResultDepts   `json:"depts,omitempty" xml:"depts,omitempty" type:"Repeated"`
+	Members []*GetTeamMemberResponseBodyResultMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
+}
+
+func (s GetTeamMemberResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamMemberResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamMemberResponseBodyResult) SetAdmins(v []*GetTeamMemberResponseBodyResultAdmins) *GetTeamMemberResponseBodyResult {
+	s.Admins = v
+	return s
+}
+
+func (s *GetTeamMemberResponseBodyResult) SetDepts(v []*GetTeamMemberResponseBodyResultDepts) *GetTeamMemberResponseBodyResult {
+	s.Depts = v
+	return s
+}
+
+func (s *GetTeamMemberResponseBodyResult) SetMembers(v []*GetTeamMemberResponseBodyResultMembers) *GetTeamMemberResponseBodyResult {
+	s.Members = v
+	return s
+}
+
+type GetTeamMemberResponseBodyResultAdmins struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetTeamMemberResponseBodyResultAdmins) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamMemberResponseBodyResultAdmins) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamMemberResponseBodyResultAdmins) SetName(v string) *GetTeamMemberResponseBodyResultAdmins {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTeamMemberResponseBodyResultAdmins) SetUserId(v string) *GetTeamMemberResponseBodyResultAdmins {
+	s.UserId = &v
+	return s
+}
+
+type GetTeamMemberResponseBodyResultDepts struct {
+	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s GetTeamMemberResponseBodyResultDepts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamMemberResponseBodyResultDepts) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamMemberResponseBodyResultDepts) SetDeptId(v int64) *GetTeamMemberResponseBodyResultDepts {
+	s.DeptId = &v
+	return s
+}
+
+func (s *GetTeamMemberResponseBodyResultDepts) SetName(v string) *GetTeamMemberResponseBodyResultDepts {
+	s.Name = &v
+	return s
+}
+
+type GetTeamMemberResponseBodyResultMembers struct {
+	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetTeamMemberResponseBodyResultMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamMemberResponseBodyResultMembers) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamMemberResponseBodyResultMembers) SetName(v string) *GetTeamMemberResponseBodyResultMembers {
+	s.Name = &v
+	return s
+}
+
+func (s *GetTeamMemberResponseBodyResultMembers) SetUserId(v string) *GetTeamMemberResponseBodyResultMembers {
+	s.UserId = &v
+	return s
+}
+
+type GetTeamMemberResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetTeamMemberResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetTeamMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetTeamMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetTeamMemberResponse) SetHeaders(v map[string]*string) *GetTeamMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetTeamMemberResponse) SetStatusCode(v int32) *GetTeamMemberResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetTeamMemberResponse) SetBody(v *GetTeamMemberResponseBody) *GetTeamMemberResponse {
 	s.Body = v
 	return s
 }
@@ -3202,17 +3922,18 @@ func (s *ListServiceRecordResponseBody) SetTotalCount(v int32) *ListServiceRecor
 }
 
 type ListServiceRecordResponseBodyResult struct {
-	CustomerId             *string                                  `json:"customerId,omitempty" xml:"customerId,omitempty"`
-	DeviceSn               *string                                  `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
-	Duration               *string                                  `json:"duration,omitempty" xml:"duration,omitempty"`
-	EndTimestamp           *int64                                   `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
-	OutBizData             *string                                  `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
-	QualityInspectionScore *int32                                   `json:"qualityInspectionScore,omitempty" xml:"qualityInspectionScore,omitempty"`
-	RecordId               *string                                  `json:"recordId,omitempty" xml:"recordId,omitempty"`
-	StartTimestamp         *int64                                   `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
-	Team                   *ListServiceRecordResponseBodyResultTeam `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
-	User                   *ListServiceRecordResponseBodyResultUser `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
-	Valid                  *bool                                    `json:"valid,omitempty" xml:"valid,omitempty"`
+	CustomerId             *string                                       `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	DeviceSn               *string                                       `json:"deviceSn,omitempty" xml:"deviceSn,omitempty"`
+	Duration               *string                                       `json:"duration,omitempty" xml:"duration,omitempty"`
+	EndTimestamp           *int64                                        `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
+	OutBizData             *string                                       `json:"outBizData,omitempty" xml:"outBizData,omitempty"`
+	QualityInspectionScore *int32                                        `json:"qualityInspectionScore,omitempty" xml:"qualityInspectionScore,omitempty"`
+	RecordId               *string                                       `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	SceneInfo              *ListServiceRecordResponseBodyResultSceneInfo `json:"sceneInfo,omitempty" xml:"sceneInfo,omitempty" type:"Struct"`
+	StartTimestamp         *int64                                        `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
+	Team                   *ListServiceRecordResponseBodyResultTeam      `json:"team,omitempty" xml:"team,omitempty" type:"Struct"`
+	User                   *ListServiceRecordResponseBodyResultUser      `json:"user,omitempty" xml:"user,omitempty" type:"Struct"`
+	Valid                  *bool                                         `json:"valid,omitempty" xml:"valid,omitempty"`
 }
 
 func (s ListServiceRecordResponseBodyResult) String() string {
@@ -3258,6 +3979,11 @@ func (s *ListServiceRecordResponseBodyResult) SetRecordId(v string) *ListService
 	return s
 }
 
+func (s *ListServiceRecordResponseBodyResult) SetSceneInfo(v *ListServiceRecordResponseBodyResultSceneInfo) *ListServiceRecordResponseBodyResult {
+	s.SceneInfo = v
+	return s
+}
+
 func (s *ListServiceRecordResponseBodyResult) SetStartTimestamp(v int64) *ListServiceRecordResponseBodyResult {
 	s.StartTimestamp = &v
 	return s
@@ -3275,6 +4001,29 @@ func (s *ListServiceRecordResponseBodyResult) SetUser(v *ListServiceRecordRespon
 
 func (s *ListServiceRecordResponseBodyResult) SetValid(v bool) *ListServiceRecordResponseBodyResult {
 	s.Valid = &v
+	return s
+}
+
+type ListServiceRecordResponseBodyResultSceneInfo struct {
+	Code *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ListServiceRecordResponseBodyResultSceneInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListServiceRecordResponseBodyResultSceneInfo) GoString() string {
+	return s.String()
+}
+
+func (s *ListServiceRecordResponseBodyResultSceneInfo) SetCode(v string) *ListServiceRecordResponseBodyResultSceneInfo {
+	s.Code = &v
+	return s
+}
+
+func (s *ListServiceRecordResponseBodyResultSceneInfo) SetName(v string) *ListServiceRecordResponseBodyResultSceneInfo {
+	s.Name = &v
 	return s
 }
 
@@ -3697,6 +4446,163 @@ func (s *ListTeamResponse) SetStatusCode(v int32) *ListTeamResponse {
 }
 
 func (s *ListTeamResponse) SetBody(v *ListTeamResponseBody) *ListTeamResponse {
+	s.Body = v
+	return s
+}
+
+type ManageTeamMemberHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ManageTeamMemberHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ManageTeamMemberHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ManageTeamMemberHeaders) SetCommonHeaders(v map[string]*string) *ManageTeamMemberHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ManageTeamMemberHeaders) SetXAcsDingtalkAccessToken(v string) *ManageTeamMemberHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ManageTeamMemberRequest struct {
+	AddMembers    *ManageTeamMemberRequestAddMembers    `json:"addMembers,omitempty" xml:"addMembers,omitempty" type:"Struct"`
+	RemoveMembers *ManageTeamMemberRequestRemoveMembers `json:"removeMembers,omitempty" xml:"removeMembers,omitempty" type:"Struct"`
+	// This parameter is required.
+	TeamCode *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+}
+
+func (s ManageTeamMemberRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ManageTeamMemberRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ManageTeamMemberRequest) SetAddMembers(v *ManageTeamMemberRequestAddMembers) *ManageTeamMemberRequest {
+	s.AddMembers = v
+	return s
+}
+
+func (s *ManageTeamMemberRequest) SetRemoveMembers(v *ManageTeamMemberRequestRemoveMembers) *ManageTeamMemberRequest {
+	s.RemoveMembers = v
+	return s
+}
+
+func (s *ManageTeamMemberRequest) SetTeamCode(v string) *ManageTeamMemberRequest {
+	s.TeamCode = &v
+	return s
+}
+
+type ManageTeamMemberRequestAddMembers struct {
+	AdminUserIds []*string `json:"adminUserIds,omitempty" xml:"adminUserIds,omitempty" type:"Repeated"`
+	DeptIds      []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s ManageTeamMemberRequestAddMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ManageTeamMemberRequestAddMembers) GoString() string {
+	return s.String()
+}
+
+func (s *ManageTeamMemberRequestAddMembers) SetAdminUserIds(v []*string) *ManageTeamMemberRequestAddMembers {
+	s.AdminUserIds = v
+	return s
+}
+
+func (s *ManageTeamMemberRequestAddMembers) SetDeptIds(v []*int64) *ManageTeamMemberRequestAddMembers {
+	s.DeptIds = v
+	return s
+}
+
+func (s *ManageTeamMemberRequestAddMembers) SetUserIds(v []*string) *ManageTeamMemberRequestAddMembers {
+	s.UserIds = v
+	return s
+}
+
+type ManageTeamMemberRequestRemoveMembers struct {
+	AdminUserIds []*string `json:"adminUserIds,omitempty" xml:"adminUserIds,omitempty" type:"Repeated"`
+	DeptIds      []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
+	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
+}
+
+func (s ManageTeamMemberRequestRemoveMembers) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ManageTeamMemberRequestRemoveMembers) GoString() string {
+	return s.String()
+}
+
+func (s *ManageTeamMemberRequestRemoveMembers) SetAdminUserIds(v []*string) *ManageTeamMemberRequestRemoveMembers {
+	s.AdminUserIds = v
+	return s
+}
+
+func (s *ManageTeamMemberRequestRemoveMembers) SetDeptIds(v []*int64) *ManageTeamMemberRequestRemoveMembers {
+	s.DeptIds = v
+	return s
+}
+
+func (s *ManageTeamMemberRequestRemoveMembers) SetUserIds(v []*string) *ManageTeamMemberRequestRemoveMembers {
+	s.UserIds = v
+	return s
+}
+
+type ManageTeamMemberResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s ManageTeamMemberResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ManageTeamMemberResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ManageTeamMemberResponseBody) SetResult(v bool) *ManageTeamMemberResponseBody {
+	s.Result = &v
+	return s
+}
+
+type ManageTeamMemberResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ManageTeamMemberResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ManageTeamMemberResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ManageTeamMemberResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ManageTeamMemberResponse) SetHeaders(v map[string]*string) *ManageTeamMemberResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ManageTeamMemberResponse) SetStatusCode(v int32) *ManageTeamMemberResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ManageTeamMemberResponse) SetBody(v *ManageTeamMemberResponseBody) *ManageTeamMemberResponse {
 	s.Body = v
 	return s
 }
@@ -5777,6 +6683,111 @@ func (s *UpdateRecordingScheduleResponse) SetBody(v *UpdateRecordingScheduleResp
 	return s
 }
 
+type UpdateTeamHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateTeamHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTeamHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTeamHeaders) SetCommonHeaders(v map[string]*string) *UpdateTeamHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateTeamHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateTeamRequest struct {
+	DialectCode *string   `json:"dialectCode,omitempty" xml:"dialectCode,omitempty"`
+	Name        *string   `json:"name,omitempty" xml:"name,omitempty"`
+	SceneCodes  []*string `json:"sceneCodes,omitempty" xml:"sceneCodes,omitempty" type:"Repeated"`
+	// This parameter is required.
+	TeamCode *string `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+}
+
+func (s UpdateTeamRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTeamRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTeamRequest) SetDialectCode(v string) *UpdateTeamRequest {
+	s.DialectCode = &v
+	return s
+}
+
+func (s *UpdateTeamRequest) SetName(v string) *UpdateTeamRequest {
+	s.Name = &v
+	return s
+}
+
+func (s *UpdateTeamRequest) SetSceneCodes(v []*string) *UpdateTeamRequest {
+	s.SceneCodes = v
+	return s
+}
+
+func (s *UpdateTeamRequest) SetTeamCode(v string) *UpdateTeamRequest {
+	s.TeamCode = &v
+	return s
+}
+
+type UpdateTeamResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateTeamResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTeamResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTeamResponseBody) SetResult(v bool) *UpdateTeamResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateTeamResponse struct {
+	Headers    map[string]*string      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateTeamResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateTeamResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateTeamResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateTeamResponse) SetHeaders(v map[string]*string) *UpdateTeamResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateTeamResponse) SetStatusCode(v int32) *UpdateTeamResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateTeamResponse) SetBody(v *UpdateTeamResponseBody) *UpdateTeamResponse {
+	s.Body = v
+	return s
+}
+
 type VideoCustomerSplitHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6352,6 +7363,103 @@ func (client *Client) CreateRecordingSchedule(request *CreateRecordingScheduleRe
 	headers := &CreateRecordingScheduleHeaders{}
 	_result = &CreateRecordingScheduleResponse{}
 	_body, _err := client.CreateRecordingScheduleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建团队
+//
+// @param request - CreateTeamRequest
+//
+// @param headers - CreateTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTeamResponse
+func (client *Client) CreateTeamWithOptions(request *CreateTeamRequest, headers *CreateTeamHeaders, runtime *util.RuntimeOptions) (_result *CreateTeamResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AdminUserIds)) {
+		body["adminUserIds"] = request.AdminUserIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
+		body["deptIds"] = request.DeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DialectCode)) {
+		body["dialectCode"] = request.DialectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneCodes)) {
+		body["sceneCodes"] = request.SceneCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SolutionCode)) {
+		body["solutionCode"] = request.SolutionCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIds)) {
+		body["userIds"] = request.UserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTeam"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/teams"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateTeamResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建团队
+//
+// @param request - CreateTeamRequest
+//
+// @return CreateTeamResponse
+func (client *Client) CreateTeam(request *CreateTeamRequest) (_result *CreateTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTeamHeaders{}
+	_result = &CreateTeamResponse{}
+	_body, _err := client.CreateTeamWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7225,6 +8333,183 @@ func (client *Client) GetServiceRecordTranscript(request *GetServiceRecordTransc
 
 // Summary:
 //
+// 获取分析方案配置
+//
+// @param headers - GetSolutionConfigHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSolutionConfigResponse
+func (client *Client) GetSolutionConfigWithOptions(headers *GetSolutionConfigHeaders, runtime *util.RuntimeOptions) (_result *GetSolutionConfigResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSolutionConfig"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/solutions/configurations"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSolutionConfigResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取分析方案配置
+//
+// @return GetSolutionConfigResponse
+func (client *Client) GetSolutionConfig() (_result *GetSolutionConfigResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSolutionConfigHeaders{}
+	_result = &GetSolutionConfigResponse{}
+	_body, _err := client.GetSolutionConfigWithOptions(headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取团队信息
+//
+// @param headers - GetTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTeamResponse
+func (client *Client) GetTeamWithOptions(teamCode *string, headers *GetTeamHeaders, runtime *util.RuntimeOptions) (_result *GetTeamResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTeam"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/teams/" + tea.StringValue(teamCode)),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTeamResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取团队信息
+//
+// @return GetTeamResponse
+func (client *Client) GetTeam(teamCode *string) (_result *GetTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTeamHeaders{}
+	_result = &GetTeamResponse{}
+	_body, _err := client.GetTeamWithOptions(teamCode, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询团队成员
+//
+// @param headers - GetTeamMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetTeamMemberResponse
+func (client *Client) GetTeamMemberWithOptions(teamCode *string, headers *GetTeamMemberHeaders, runtime *util.RuntimeOptions) (_result *GetTeamMemberResponse, _err error) {
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetTeamMember"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/teams/" + tea.StringValue(teamCode) + "/members"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetTeamMemberResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询团队成员
+//
+// @return GetTeamMemberResponse
+func (client *Client) GetTeamMember(teamCode *string) (_result *GetTeamMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetTeamMemberHeaders{}
+	_result = &GetTeamMemberResponse{}
+	_body, _err := client.GetTeamMemberWithOptions(teamCode, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 获取文件转写的概要信息
 //
 // @param request - GetTranscriptSummaryRequest
@@ -7819,6 +9104,87 @@ func (client *Client) ListTeam(request *ListTeamRequest) (_result *ListTeamRespo
 	headers := &ListTeamHeaders{}
 	_result = &ListTeamResponse{}
 	_body, _err := client.ListTeamWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 团队成员管理
+//
+// @param request - ManageTeamMemberRequest
+//
+// @param headers - ManageTeamMemberHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ManageTeamMemberResponse
+func (client *Client) ManageTeamMemberWithOptions(request *ManageTeamMemberRequest, headers *ManageTeamMemberHeaders, runtime *util.RuntimeOptions) (_result *ManageTeamMemberResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AddMembers)) {
+		body["addMembers"] = request.AddMembers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RemoveMembers)) {
+		body["removeMembers"] = request.RemoveMembers
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		body["teamCode"] = request.TeamCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ManageTeamMember"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/teams/members"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ManageTeamMemberResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 团队成员管理
+//
+// @param request - ManageTeamMemberRequest
+//
+// @return ManageTeamMemberResponse
+func (client *Client) ManageTeamMember(request *ManageTeamMemberRequest) (_result *ManageTeamMemberResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ManageTeamMemberHeaders{}
+	_result = &ManageTeamMemberResponse{}
+	_body, _err := client.ManageTeamMemberWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8829,6 +10195,91 @@ func (client *Client) UpdateRecordingSchedule(request *UpdateRecordingScheduleRe
 	headers := &UpdateRecordingScheduleHeaders{}
 	_result = &UpdateRecordingScheduleResponse{}
 	_body, _err := client.UpdateRecordingScheduleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改团队
+//
+// @param request - UpdateTeamRequest
+//
+// @param headers - UpdateTeamHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateTeamResponse
+func (client *Client) UpdateTeamWithOptions(request *UpdateTeamRequest, headers *UpdateTeamHeaders, runtime *util.RuntimeOptions) (_result *UpdateTeamResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DialectCode)) {
+		body["dialectCode"] = request.DialectCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		body["name"] = request.Name
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SceneCodes)) {
+		body["sceneCodes"] = request.SceneCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.TeamCode)) {
+		body["teamCode"] = request.TeamCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateTeam"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/teams"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateTeamResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 修改团队
+//
+// @param request - UpdateTeamRequest
+//
+// @return UpdateTeamResponse
+func (client *Client) UpdateTeam(request *UpdateTeamRequest) (_result *UpdateTeamResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateTeamHeaders{}
+	_result = &UpdateTeamResponse{}
+	_body, _err := client.UpdateTeamWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

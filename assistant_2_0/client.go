@@ -777,10 +777,12 @@ type PageListAICreditsUsageResponseBodyDataList struct {
 	AbilityName      *string  `json:"abilityName,omitempty" xml:"abilityName,omitempty"`
 	AiCreditsUsedNum *float64 `json:"aiCreditsUsedNum,omitempty" xml:"aiCreditsUsedNum,omitempty"`
 	BizId            *string  `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	DeptName         *string  `json:"deptName,omitempty" xml:"deptName,omitempty"`
 	IsTimeFree       *bool    `json:"isTimeFree,omitempty" xml:"isTimeFree,omitempty"`
 	ScenarioName     *string  `json:"scenarioName,omitempty" xml:"scenarioName,omitempty"`
 	TaskName         *string  `json:"taskName,omitempty" xml:"taskName,omitempty"`
 	UsageTime        *string  `json:"usageTime,omitempty" xml:"usageTime,omitempty"`
+	UserId           *string  `json:"userId,omitempty" xml:"userId,omitempty"`
 	UserName         *string  `json:"userName,omitempty" xml:"userName,omitempty"`
 }
 
@@ -807,6 +809,11 @@ func (s *PageListAICreditsUsageResponseBodyDataList) SetBizId(v string) *PageLis
 	return s
 }
 
+func (s *PageListAICreditsUsageResponseBodyDataList) SetDeptName(v string) *PageListAICreditsUsageResponseBodyDataList {
+	s.DeptName = &v
+	return s
+}
+
 func (s *PageListAICreditsUsageResponseBodyDataList) SetIsTimeFree(v bool) *PageListAICreditsUsageResponseBodyDataList {
 	s.IsTimeFree = &v
 	return s
@@ -824,6 +831,11 @@ func (s *PageListAICreditsUsageResponseBodyDataList) SetTaskName(v string) *Page
 
 func (s *PageListAICreditsUsageResponseBodyDataList) SetUsageTime(v string) *PageListAICreditsUsageResponseBodyDataList {
 	s.UsageTime = &v
+	return s
+}
+
+func (s *PageListAICreditsUsageResponseBodyDataList) SetUserId(v string) *PageListAICreditsUsageResponseBodyDataList {
+	s.UserId = &v
 	return s
 }
 
