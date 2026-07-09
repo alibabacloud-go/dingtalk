@@ -2830,6 +2830,523 @@ func (s *CreateContractReviewTaskResponse) SetBody(v *CreateContractReviewTaskRe
 	return s
 }
 
+type CreateSignFlowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateSignFlowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowHeaders) SetCommonHeaders(v map[string]*string) *CreateSignFlowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateSignFlowHeaders) SetXAcsDingtalkAccessToken(v string) *CreateSignFlowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateSignFlowRequest struct {
+	BizFlowId         *string                                 `json:"bizFlowId,omitempty" xml:"bizFlowId,omitempty"`
+	RequestId         *string                                 `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	SignDocs          []*CreateSignFlowRequestSignDocs        `json:"signDocs,omitempty" xml:"signDocs,omitempty" type:"Repeated"`
+	SignFlowConfig    *CreateSignFlowRequestSignFlowConfig    `json:"signFlowConfig,omitempty" xml:"signFlowConfig,omitempty" type:"Struct"`
+	SignFlowInitiator *CreateSignFlowRequestSignFlowInitiator `json:"signFlowInitiator,omitempty" xml:"signFlowInitiator,omitempty" type:"Struct"`
+	Signers           []*CreateSignFlowRequestSigners         `json:"signers,omitempty" xml:"signers,omitempty" type:"Repeated"`
+}
+
+func (s CreateSignFlowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequest) SetBizFlowId(v string) *CreateSignFlowRequest {
+	s.BizFlowId = &v
+	return s
+}
+
+func (s *CreateSignFlowRequest) SetRequestId(v string) *CreateSignFlowRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *CreateSignFlowRequest) SetSignDocs(v []*CreateSignFlowRequestSignDocs) *CreateSignFlowRequest {
+	s.SignDocs = v
+	return s
+}
+
+func (s *CreateSignFlowRequest) SetSignFlowConfig(v *CreateSignFlowRequestSignFlowConfig) *CreateSignFlowRequest {
+	s.SignFlowConfig = v
+	return s
+}
+
+func (s *CreateSignFlowRequest) SetSignFlowInitiator(v *CreateSignFlowRequestSignFlowInitiator) *CreateSignFlowRequest {
+	s.SignFlowInitiator = v
+	return s
+}
+
+func (s *CreateSignFlowRequest) SetSigners(v []*CreateSignFlowRequestSigners) *CreateSignFlowRequest {
+	s.Signers = v
+	return s
+}
+
+type CreateSignFlowRequestSignDocs struct {
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId  *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s CreateSignFlowRequestSignDocs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignDocs) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignDocs) SetFileId(v string) *CreateSignFlowRequestSignDocs {
+	s.FileId = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignDocs) SetFileName(v string) *CreateSignFlowRequestSignDocs {
+	s.FileName = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignDocs) SetFileSize(v int64) *CreateSignFlowRequestSignDocs {
+	s.FileSize = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignDocs) SetFileType(v string) *CreateSignFlowRequestSignDocs {
+	s.FileType = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignDocs) SetSpaceId(v int64) *CreateSignFlowRequestSignDocs {
+	s.SpaceId = &v
+	return s
+}
+
+type CreateSignFlowRequestSignFlowConfig struct {
+	AutoStart     *bool   `json:"autoStart,omitempty" xml:"autoStart,omitempty"`
+	IsOrderedSign *bool   `json:"isOrderedSign,omitempty" xml:"isOrderedSign,omitempty"`
+	SignFlowName  *string `json:"signFlowName,omitempty" xml:"signFlowName,omitempty"`
+}
+
+func (s CreateSignFlowRequestSignFlowConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignFlowConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignFlowConfig) SetAutoStart(v bool) *CreateSignFlowRequestSignFlowConfig {
+	s.AutoStart = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignFlowConfig) SetIsOrderedSign(v bool) *CreateSignFlowRequestSignFlowConfig {
+	s.IsOrderedSign = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignFlowConfig) SetSignFlowName(v string) *CreateSignFlowRequestSignFlowConfig {
+	s.SignFlowName = &v
+	return s
+}
+
+type CreateSignFlowRequestSignFlowInitiator struct {
+	CompanyId *string `json:"companyId,omitempty" xml:"companyId,omitempty"`
+	OrgName   *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateSignFlowRequestSignFlowInitiator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignFlowInitiator) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignFlowInitiator) SetCompanyId(v string) *CreateSignFlowRequestSignFlowInitiator {
+	s.CompanyId = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignFlowInitiator) SetOrgName(v string) *CreateSignFlowRequestSignFlowInitiator {
+	s.OrgName = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignFlowInitiator) SetUserId(v string) *CreateSignFlowRequestSignFlowInitiator {
+	s.UserId = &v
+	return s
+}
+
+type CreateSignFlowRequestSigners struct {
+	BizTaskId           *string                                            `json:"bizTaskId,omitempty" xml:"bizTaskId,omitempty"`
+	OrgInfo             *CreateSignFlowRequestSignersOrgInfo               `json:"orgInfo,omitempty" xml:"orgInfo,omitempty" type:"Struct"`
+	SignComponentConfig []*CreateSignFlowRequestSignersSignComponentConfig `json:"signComponentConfig,omitempty" xml:"signComponentConfig,omitempty" type:"Repeated"`
+	SignConfig          *CreateSignFlowRequestSignersSignConfig            `json:"signConfig,omitempty" xml:"signConfig,omitempty" type:"Struct"`
+	SignerInfo          *CreateSignFlowRequestSignersSignerInfo            `json:"signerInfo,omitempty" xml:"signerInfo,omitempty" type:"Struct"`
+	SignerType          *string                                            `json:"signerType,omitempty" xml:"signerType,omitempty"`
+}
+
+func (s CreateSignFlowRequestSigners) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSigners) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSigners) SetBizTaskId(v string) *CreateSignFlowRequestSigners {
+	s.BizTaskId = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSigners) SetOrgInfo(v *CreateSignFlowRequestSignersOrgInfo) *CreateSignFlowRequestSigners {
+	s.OrgInfo = v
+	return s
+}
+
+func (s *CreateSignFlowRequestSigners) SetSignComponentConfig(v []*CreateSignFlowRequestSignersSignComponentConfig) *CreateSignFlowRequestSigners {
+	s.SignComponentConfig = v
+	return s
+}
+
+func (s *CreateSignFlowRequestSigners) SetSignConfig(v *CreateSignFlowRequestSignersSignConfig) *CreateSignFlowRequestSigners {
+	s.SignConfig = v
+	return s
+}
+
+func (s *CreateSignFlowRequestSigners) SetSignerInfo(v *CreateSignFlowRequestSignersSignerInfo) *CreateSignFlowRequestSigners {
+	s.SignerInfo = v
+	return s
+}
+
+func (s *CreateSignFlowRequestSigners) SetSignerType(v string) *CreateSignFlowRequestSigners {
+	s.SignerType = &v
+	return s
+}
+
+type CreateSignFlowRequestSignersOrgInfo struct {
+	CompanyId *string `json:"companyId,omitempty" xml:"companyId,omitempty"`
+	OrgName   *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s CreateSignFlowRequestSignersOrgInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignersOrgInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignersOrgInfo) SetCompanyId(v string) *CreateSignFlowRequestSignersOrgInfo {
+	s.CompanyId = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersOrgInfo) SetOrgName(v string) *CreateSignFlowRequestSignersOrgInfo {
+	s.OrgName = &v
+	return s
+}
+
+type CreateSignFlowRequestSignersSignComponentConfig struct {
+	FileId                   *string                                                                  `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	SignFieldComponentConfig *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig `json:"signFieldComponentConfig,omitempty" xml:"signFieldComponentConfig,omitempty" type:"Struct"`
+}
+
+func (s CreateSignFlowRequestSignersSignComponentConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignersSignComponentConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfig) SetFileId(v string) *CreateSignFlowRequestSignersSignComponentConfig {
+	s.FileId = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfig) SetSignFieldComponentConfig(v *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig) *CreateSignFlowRequestSignersSignComponentConfig {
+	s.SignFieldComponentConfig = v
+	return s
+}
+
+type CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig struct {
+	AvailableOrgSealTypes []*string                                                                                  `json:"availableOrgSealTypes,omitempty" xml:"availableOrgSealTypes,omitempty" type:"Repeated"`
+	AvailablePsnSealTypes []*string                                                                                  `json:"availablePsnSealTypes,omitempty" xml:"availablePsnSealTypes,omitempty" type:"Repeated"`
+	CrossPageType         *string                                                                                    `json:"crossPageType,omitempty" xml:"crossPageType,omitempty"`
+	SignDateConfig        *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig     `json:"signDateConfig,omitempty" xml:"signDateConfig,omitempty" type:"Struct"`
+	SignPositionConfig    *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig `json:"signPositionConfig,omitempty" xml:"signPositionConfig,omitempty" type:"Struct"`
+}
+
+func (s CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig) SetAvailableOrgSealTypes(v []*string) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig {
+	s.AvailableOrgSealTypes = v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig) SetAvailablePsnSealTypes(v []*string) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig {
+	s.AvailablePsnSealTypes = v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig) SetCrossPageType(v string) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig {
+	s.CrossPageType = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig) SetSignDateConfig(v *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig {
+	s.SignDateConfig = v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig) SetSignPositionConfig(v *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfig {
+	s.SignPositionConfig = v
+	return s
+}
+
+type CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig struct {
+	DateFormat   *string `json:"dateFormat,omitempty" xml:"dateFormat,omitempty"`
+	ShowSignDate *bool   `json:"showSignDate,omitempty" xml:"showSignDate,omitempty"`
+}
+
+func (s CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) SetDateFormat(v string) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig {
+	s.DateFormat = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) SetShowSignDate(v bool) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignDateConfig {
+	s.ShowSignDate = &v
+	return s
+}
+
+type CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig struct {
+	PositionPage *int64   `json:"positionPage,omitempty" xml:"positionPage,omitempty"`
+	PositionX    *float64 `json:"positionX,omitempty" xml:"positionX,omitempty"`
+	PositionY    *float64 `json:"positionY,omitempty" xml:"positionY,omitempty"`
+}
+
+func (s CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) SetPositionPage(v int64) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig {
+	s.PositionPage = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) SetPositionX(v float64) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig {
+	s.PositionX = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) SetPositionY(v float64) *CreateSignFlowRequestSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig {
+	s.PositionY = &v
+	return s
+}
+
+type CreateSignFlowRequestSignersSignConfig struct {
+	SignOrder *int32 `json:"signOrder,omitempty" xml:"signOrder,omitempty"`
+}
+
+func (s CreateSignFlowRequestSignersSignConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignersSignConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignersSignConfig) SetSignOrder(v int32) *CreateSignFlowRequestSignersSignConfig {
+	s.SignOrder = &v
+	return s
+}
+
+type CreateSignFlowRequestSignersSignerInfo struct {
+	PsnMobile *string `json:"psnMobile,omitempty" xml:"psnMobile,omitempty"`
+	PsnName   *string `json:"psnName,omitempty" xml:"psnName,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreateSignFlowRequestSignersSignerInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowRequestSignersSignerInfo) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowRequestSignersSignerInfo) SetPsnMobile(v string) *CreateSignFlowRequestSignersSignerInfo {
+	s.PsnMobile = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignerInfo) SetPsnName(v string) *CreateSignFlowRequestSignersSignerInfo {
+	s.PsnName = &v
+	return s
+}
+
+func (s *CreateSignFlowRequestSignersSignerInfo) SetUserId(v string) *CreateSignFlowRequestSignersSignerInfo {
+	s.UserId = &v
+	return s
+}
+
+type CreateSignFlowResponseBody struct {
+	Result  *CreateSignFlowResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateSignFlowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowResponseBody) SetResult(v *CreateSignFlowResponseBodyResult) *CreateSignFlowResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateSignFlowResponseBody) SetSuccess(v bool) *CreateSignFlowResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateSignFlowResponseBodyResult struct {
+	Data      *CreateSignFlowResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	RequestId *string                               `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s CreateSignFlowResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowResponseBodyResult) SetData(v *CreateSignFlowResponseBodyResultData) *CreateSignFlowResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *CreateSignFlowResponseBodyResult) SetRequestId(v string) *CreateSignFlowResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type CreateSignFlowResponseBodyResultData struct {
+	AutoStartErrorMsg *string `json:"autoStartErrorMsg,omitempty" xml:"autoStartErrorMsg,omitempty"`
+	BizFlowId         *string `json:"bizFlowId,omitempty" xml:"bizFlowId,omitempty"`
+	InitiateUrl       *string `json:"initiateUrl,omitempty" xml:"initiateUrl,omitempty"`
+	SignFlowId        *string `json:"signFlowId,omitempty" xml:"signFlowId,omitempty"`
+	SignFlowStatus    *string `json:"signFlowStatus,omitempty" xml:"signFlowStatus,omitempty"`
+}
+
+func (s CreateSignFlowResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowResponseBodyResultData) SetAutoStartErrorMsg(v string) *CreateSignFlowResponseBodyResultData {
+	s.AutoStartErrorMsg = &v
+	return s
+}
+
+func (s *CreateSignFlowResponseBodyResultData) SetBizFlowId(v string) *CreateSignFlowResponseBodyResultData {
+	s.BizFlowId = &v
+	return s
+}
+
+func (s *CreateSignFlowResponseBodyResultData) SetInitiateUrl(v string) *CreateSignFlowResponseBodyResultData {
+	s.InitiateUrl = &v
+	return s
+}
+
+func (s *CreateSignFlowResponseBodyResultData) SetSignFlowId(v string) *CreateSignFlowResponseBodyResultData {
+	s.SignFlowId = &v
+	return s
+}
+
+func (s *CreateSignFlowResponseBodyResultData) SetSignFlowStatus(v string) *CreateSignFlowResponseBodyResultData {
+	s.SignFlowStatus = &v
+	return s
+}
+
+type CreateSignFlowResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateSignFlowResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateSignFlowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateSignFlowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateSignFlowResponse) SetHeaders(v map[string]*string) *CreateSignFlowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateSignFlowResponse) SetStatusCode(v int32) *CreateSignFlowResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateSignFlowResponse) SetBody(v *CreateSignFlowResponseBody) *CreateSignFlowResponse {
+	s.Body = v
+	return s
+}
+
 type EsignQueryApprovalInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4650,6 +5167,250 @@ func (s *GetContractSubjectRiskResultResponse) SetStatusCode(v int32) *GetContra
 }
 
 func (s *GetContractSubjectRiskResultResponse) SetBody(v *GetContractSubjectRiskResultResponseBody) *GetContractSubjectRiskResultResponse {
+	s.Body = v
+	return s
+}
+
+type GetFileDownloadUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetFileDownloadUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileDownloadUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileDownloadUrlHeaders) SetCommonHeaders(v map[string]*string) *GetFileDownloadUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetFileDownloadUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetFileDownloadUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetFileDownloadUrlRequest struct {
+	BizFlowId  *string `json:"bizFlowId,omitempty" xml:"bizFlowId,omitempty"`
+	FileId     *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	RequestId  *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	SignFlowId *string `json:"signFlowId,omitempty" xml:"signFlowId,omitempty"`
+}
+
+func (s GetFileDownloadUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileDownloadUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileDownloadUrlRequest) SetBizFlowId(v string) *GetFileDownloadUrlRequest {
+	s.BizFlowId = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlRequest) SetFileId(v string) *GetFileDownloadUrlRequest {
+	s.FileId = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlRequest) SetRequestId(v string) *GetFileDownloadUrlRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlRequest) SetSignFlowId(v string) *GetFileDownloadUrlRequest {
+	s.SignFlowId = &v
+	return s
+}
+
+type GetFileDownloadUrlResponseBody struct {
+	Result  *GetFileDownloadUrlResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                 `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s GetFileDownloadUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileDownloadUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileDownloadUrlResponseBody) SetResult(v *GetFileDownloadUrlResponseBodyResult) *GetFileDownloadUrlResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBody) SetSuccess(v bool) *GetFileDownloadUrlResponseBody {
+	s.Success = &v
+	return s
+}
+
+type GetFileDownloadUrlResponseBodyResult struct {
+	Data      *GetFileDownloadUrlResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	RequestId *string                                   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s GetFileDownloadUrlResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileDownloadUrlResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileDownloadUrlResponseBodyResult) SetData(v *GetFileDownloadUrlResponseBodyResultData) *GetFileDownloadUrlResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResult) SetRequestId(v string) *GetFileDownloadUrlResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type GetFileDownloadUrlResponseBodyResultData struct {
+	Attachment []*GetFileDownloadUrlResponseBodyResultDataAttachment `json:"attachment,omitempty" xml:"attachment,omitempty" type:"Repeated"`
+	SignDocs   []*GetFileDownloadUrlResponseBodyResultDataSignDocs   `json:"signDocs,omitempty" xml:"signDocs,omitempty" type:"Repeated"`
+	SignFlowId *string                                               `json:"signFlowId,omitempty" xml:"signFlowId,omitempty"`
+}
+
+func (s GetFileDownloadUrlResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileDownloadUrlResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultData) SetAttachment(v []*GetFileDownloadUrlResponseBodyResultDataAttachment) *GetFileDownloadUrlResponseBodyResultData {
+	s.Attachment = v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultData) SetSignDocs(v []*GetFileDownloadUrlResponseBodyResultDataSignDocs) *GetFileDownloadUrlResponseBodyResultData {
+	s.SignDocs = v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultData) SetSignFlowId(v string) *GetFileDownloadUrlResponseBodyResultData {
+	s.SignFlowId = &v
+	return s
+}
+
+type GetFileDownloadUrlResponseBodyResultDataAttachment struct {
+	DownloadUrl   *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileStatus    *string `json:"fileStatus,omitempty" xml:"fileStatus,omitempty"`
+	UrlExpireTime *int64  `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
+}
+
+func (s GetFileDownloadUrlResponseBodyResultDataAttachment) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileDownloadUrlResponseBodyResultDataAttachment) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataAttachment) SetDownloadUrl(v string) *GetFileDownloadUrlResponseBodyResultDataAttachment {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataAttachment) SetFileId(v string) *GetFileDownloadUrlResponseBodyResultDataAttachment {
+	s.FileId = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataAttachment) SetFileName(v string) *GetFileDownloadUrlResponseBodyResultDataAttachment {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataAttachment) SetFileStatus(v string) *GetFileDownloadUrlResponseBodyResultDataAttachment {
+	s.FileStatus = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataAttachment) SetUrlExpireTime(v int64) *GetFileDownloadUrlResponseBodyResultDataAttachment {
+	s.UrlExpireTime = &v
+	return s
+}
+
+type GetFileDownloadUrlResponseBodyResultDataSignDocs struct {
+	DownloadUrl   *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	FileId        *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName      *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileStatus    *string `json:"fileStatus,omitempty" xml:"fileStatus,omitempty"`
+	UrlExpireTime *int64  `json:"urlExpireTime,omitempty" xml:"urlExpireTime,omitempty"`
+}
+
+func (s GetFileDownloadUrlResponseBodyResultDataSignDocs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileDownloadUrlResponseBodyResultDataSignDocs) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataSignDocs) SetDownloadUrl(v string) *GetFileDownloadUrlResponseBodyResultDataSignDocs {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataSignDocs) SetFileId(v string) *GetFileDownloadUrlResponseBodyResultDataSignDocs {
+	s.FileId = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataSignDocs) SetFileName(v string) *GetFileDownloadUrlResponseBodyResultDataSignDocs {
+	s.FileName = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataSignDocs) SetFileStatus(v string) *GetFileDownloadUrlResponseBodyResultDataSignDocs {
+	s.FileStatus = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponseBodyResultDataSignDocs) SetUrlExpireTime(v int64) *GetFileDownloadUrlResponseBodyResultDataSignDocs {
+	s.UrlExpireTime = &v
+	return s
+}
+
+type GetFileDownloadUrlResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetFileDownloadUrlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetFileDownloadUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetFileDownloadUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetFileDownloadUrlResponse) SetHeaders(v map[string]*string) *GetFileDownloadUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponse) SetStatusCode(v int32) *GetFileDownloadUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetFileDownloadUrlResponse) SetBody(v *GetFileDownloadUrlResponseBody) *GetFileDownloadUrlResponse {
 	s.Body = v
 	return s
 }
@@ -7145,6 +7906,1222 @@ func (s *QueryContractSignInfoResponse) SetBody(v *QueryContractSignInfoResponse
 	return s
 }
 
+type QuerySignFlowDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySignFlowDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailHeaders) SetCommonHeaders(v map[string]*string) *QuerySignFlowDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySignFlowDetailHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySignFlowDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySignFlowDetailRequest struct {
+	BizFlowId  *string `json:"bizFlowId,omitempty" xml:"bizFlowId,omitempty"`
+	RequestId  *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	SignFlowId *string `json:"signFlowId,omitempty" xml:"signFlowId,omitempty"`
+}
+
+func (s QuerySignFlowDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailRequest) SetBizFlowId(v string) *QuerySignFlowDetailRequest {
+	s.BizFlowId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailRequest) SetRequestId(v string) *QuerySignFlowDetailRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailRequest) SetSignFlowId(v string) *QuerySignFlowDetailRequest {
+	s.SignFlowId = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBody struct {
+	Result  *QuerySignFlowDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                  `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBody) SetResult(v *QuerySignFlowDetailResponseBodyResult) *QuerySignFlowDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBody) SetSuccess(v bool) *QuerySignFlowDetailResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResult struct {
+	Data      *QuerySignFlowDetailResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	RequestId *string                                    `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResult) SetData(v *QuerySignFlowDetailResponseBodyResultData) *QuerySignFlowDetailResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResult) SetRequestId(v string) *QuerySignFlowDetailResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultData struct {
+	BizFlowId         *string                                                     `json:"bizFlowId,omitempty" xml:"bizFlowId,omitempty"`
+	CreateTime        *int64                                                      `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FinishTime        *int64                                                      `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	InitiateUrl       *string                                                     `json:"initiateUrl,omitempty" xml:"initiateUrl,omitempty"`
+	SignDocs          []*QuerySignFlowDetailResponseBodyResultDataSignDocs        `json:"signDocs,omitempty" xml:"signDocs,omitempty" type:"Repeated"`
+	SignFlowConfig    *QuerySignFlowDetailResponseBodyResultDataSignFlowConfig    `json:"signFlowConfig,omitempty" xml:"signFlowConfig,omitempty" type:"Struct"`
+	SignFlowId        *string                                                     `json:"signFlowId,omitempty" xml:"signFlowId,omitempty"`
+	SignFlowInitiator *QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator `json:"signFlowInitiator,omitempty" xml:"signFlowInitiator,omitempty" type:"Struct"`
+	SignFlowStatus    *string                                                     `json:"signFlowStatus,omitempty" xml:"signFlowStatus,omitempty"`
+	SignTasks         []*QuerySignFlowDetailResponseBodyResultDataSignTasks       `json:"signTasks,omitempty" xml:"signTasks,omitempty" type:"Repeated"`
+	Signers           []*QuerySignFlowDetailResponseBodyResultDataSigners         `json:"signers,omitempty" xml:"signers,omitempty" type:"Repeated"`
+	StartTime         *int64                                                      `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetBizFlowId(v string) *QuerySignFlowDetailResponseBodyResultData {
+	s.BizFlowId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetCreateTime(v int64) *QuerySignFlowDetailResponseBodyResultData {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetFinishTime(v int64) *QuerySignFlowDetailResponseBodyResultData {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetInitiateUrl(v string) *QuerySignFlowDetailResponseBodyResultData {
+	s.InitiateUrl = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetSignDocs(v []*QuerySignFlowDetailResponseBodyResultDataSignDocs) *QuerySignFlowDetailResponseBodyResultData {
+	s.SignDocs = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetSignFlowConfig(v *QuerySignFlowDetailResponseBodyResultDataSignFlowConfig) *QuerySignFlowDetailResponseBodyResultData {
+	s.SignFlowConfig = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetSignFlowId(v string) *QuerySignFlowDetailResponseBodyResultData {
+	s.SignFlowId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetSignFlowInitiator(v *QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator) *QuerySignFlowDetailResponseBodyResultData {
+	s.SignFlowInitiator = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetSignFlowStatus(v string) *QuerySignFlowDetailResponseBodyResultData {
+	s.SignFlowStatus = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetSignTasks(v []*QuerySignFlowDetailResponseBodyResultDataSignTasks) *QuerySignFlowDetailResponseBodyResultData {
+	s.SignTasks = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetSigners(v []*QuerySignFlowDetailResponseBodyResultDataSigners) *QuerySignFlowDetailResponseBodyResultData {
+	s.Signers = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultData) SetStartTime(v int64) *QuerySignFlowDetailResponseBodyResultData {
+	s.StartTime = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignDocs struct {
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId  *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignDocs) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignDocs) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignDocs) SetFileId(v string) *QuerySignFlowDetailResponseBodyResultDataSignDocs {
+	s.FileId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignDocs) SetFileName(v string) *QuerySignFlowDetailResponseBodyResultDataSignDocs {
+	s.FileName = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignDocs) SetFileSize(v int64) *QuerySignFlowDetailResponseBodyResultDataSignDocs {
+	s.FileSize = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignDocs) SetFileType(v string) *QuerySignFlowDetailResponseBodyResultDataSignDocs {
+	s.FileType = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignDocs) SetSpaceId(v int64) *QuerySignFlowDetailResponseBodyResultDataSignDocs {
+	s.SpaceId = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignFlowConfig struct {
+	AutoStart     *bool   `json:"autoStart,omitempty" xml:"autoStart,omitempty"`
+	IsOrderedSign *bool   `json:"isOrderedSign,omitempty" xml:"isOrderedSign,omitempty"`
+	SignFlowName  *string `json:"signFlowName,omitempty" xml:"signFlowName,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignFlowConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignFlowConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignFlowConfig) SetAutoStart(v bool) *QuerySignFlowDetailResponseBodyResultDataSignFlowConfig {
+	s.AutoStart = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignFlowConfig) SetIsOrderedSign(v bool) *QuerySignFlowDetailResponseBodyResultDataSignFlowConfig {
+	s.IsOrderedSign = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignFlowConfig) SetSignFlowName(v string) *QuerySignFlowDetailResponseBodyResultDataSignFlowConfig {
+	s.SignFlowName = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator struct {
+	CompanyId *string `json:"companyId,omitempty" xml:"companyId,omitempty"`
+	OrgName   *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator) SetCompanyId(v string) *QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator {
+	s.CompanyId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator) SetOrgName(v string) *QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator {
+	s.OrgName = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator) SetUserId(v string) *QuerySignFlowDetailResponseBodyResultDataSignFlowInitiator {
+	s.UserId = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignTasks struct {
+	ActivateTime      *int64                                                        `json:"activateTime,omitempty" xml:"activateTime,omitempty"`
+	ActualOrgSealType *string                                                       `json:"actualOrgSealType,omitempty" xml:"actualOrgSealType,omitempty"`
+	ActualPsnSealType *string                                                       `json:"actualPsnSealType,omitempty" xml:"actualPsnSealType,omitempty"`
+	BizTaskId         *string                                                       `json:"bizTaskId,omitempty" xml:"bizTaskId,omitempty"`
+	CreateTime        *int64                                                        `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FinishTime        *int64                                                        `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	OrgInfo           *QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo    `json:"orgInfo,omitempty" xml:"orgInfo,omitempty" type:"Struct"`
+	SignOrder         *int32                                                        `json:"signOrder,omitempty" xml:"signOrder,omitempty"`
+	SignTaskId        *string                                                       `json:"signTaskId,omitempty" xml:"signTaskId,omitempty"`
+	SignUrl           *string                                                       `json:"signUrl,omitempty" xml:"signUrl,omitempty"`
+	SignerInfo        *QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo `json:"signerInfo,omitempty" xml:"signerInfo,omitempty" type:"Struct"`
+	SignerType        *string                                                       `json:"signerType,omitempty" xml:"signerType,omitempty"`
+	TaskStatus        *string                                                       `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignTasks) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetActivateTime(v int64) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.ActivateTime = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetActualOrgSealType(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.ActualOrgSealType = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetActualPsnSealType(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.ActualPsnSealType = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetBizTaskId(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.BizTaskId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetCreateTime(v int64) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetFinishTime(v int64) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetOrgInfo(v *QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.OrgInfo = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetSignOrder(v int32) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.SignOrder = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetSignTaskId(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.SignTaskId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetSignUrl(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.SignUrl = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetSignerInfo(v *QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.SignerInfo = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetSignerType(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.SignerType = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasks) SetTaskStatus(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasks {
+	s.TaskStatus = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo struct {
+	CompanyId *string `json:"companyId,omitempty" xml:"companyId,omitempty"`
+	OrgName   *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo) SetCompanyId(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo {
+	s.CompanyId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo) SetOrgName(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasksOrgInfo {
+	s.OrgName = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo struct {
+	PsnMobile *string `json:"psnMobile,omitempty" xml:"psnMobile,omitempty"`
+	PsnName   *string `json:"psnName,omitempty" xml:"psnName,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo) SetPsnMobile(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo {
+	s.PsnMobile = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo) SetPsnName(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo {
+	s.PsnName = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo) SetUserId(v string) *QuerySignFlowDetailResponseBodyResultDataSignTasksSignerInfo {
+	s.UserId = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSigners struct {
+	BizTaskId           *string                                                                `json:"bizTaskId,omitempty" xml:"bizTaskId,omitempty"`
+	OrgInfo             *QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo               `json:"orgInfo,omitempty" xml:"orgInfo,omitempty" type:"Struct"`
+	SignComponentConfig []*QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig `json:"signComponentConfig,omitempty" xml:"signComponentConfig,omitempty" type:"Repeated"`
+	SignConfig          *QuerySignFlowDetailResponseBodyResultDataSignersSignConfig            `json:"signConfig,omitempty" xml:"signConfig,omitempty" type:"Struct"`
+	SignerInfo          *QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo            `json:"signerInfo,omitempty" xml:"signerInfo,omitempty" type:"Struct"`
+	SignerType          *string                                                                `json:"signerType,omitempty" xml:"signerType,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSigners) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSigners) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSigners) SetBizTaskId(v string) *QuerySignFlowDetailResponseBodyResultDataSigners {
+	s.BizTaskId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSigners) SetOrgInfo(v *QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo) *QuerySignFlowDetailResponseBodyResultDataSigners {
+	s.OrgInfo = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSigners) SetSignComponentConfig(v []*QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig) *QuerySignFlowDetailResponseBodyResultDataSigners {
+	s.SignComponentConfig = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSigners) SetSignConfig(v *QuerySignFlowDetailResponseBodyResultDataSignersSignConfig) *QuerySignFlowDetailResponseBodyResultDataSigners {
+	s.SignConfig = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSigners) SetSignerInfo(v *QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo) *QuerySignFlowDetailResponseBodyResultDataSigners {
+	s.SignerInfo = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSigners) SetSignerType(v string) *QuerySignFlowDetailResponseBodyResultDataSigners {
+	s.SignerType = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo struct {
+	CompanyId *string `json:"companyId,omitempty" xml:"companyId,omitempty"`
+	OrgName   *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo) SetCompanyId(v string) *QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo {
+	s.CompanyId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo) SetOrgName(v string) *QuerySignFlowDetailResponseBodyResultDataSignersOrgInfo {
+	s.OrgName = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig struct {
+	FileId                   *string                                                                                      `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	SignFieldComponentConfig *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig `json:"signFieldComponentConfig,omitempty" xml:"signFieldComponentConfig,omitempty" type:"Struct"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig) SetFileId(v string) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig {
+	s.FileId = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig) SetSignFieldComponentConfig(v *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfig {
+	s.SignFieldComponentConfig = v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig struct {
+	AvailableOrgSealTypes []*string                                                                                                      `json:"availableOrgSealTypes,omitempty" xml:"availableOrgSealTypes,omitempty" type:"Repeated"`
+	AvailablePsnSealTypes []*string                                                                                                      `json:"availablePsnSealTypes,omitempty" xml:"availablePsnSealTypes,omitempty" type:"Repeated"`
+	CrossPageType         *string                                                                                                        `json:"crossPageType,omitempty" xml:"crossPageType,omitempty"`
+	SignDateConfig        *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig     `json:"signDateConfig,omitempty" xml:"signDateConfig,omitempty" type:"Struct"`
+	SignPositionConfig    *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig `json:"signPositionConfig,omitempty" xml:"signPositionConfig,omitempty" type:"Struct"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig) SetAvailableOrgSealTypes(v []*string) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig {
+	s.AvailableOrgSealTypes = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig) SetAvailablePsnSealTypes(v []*string) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig {
+	s.AvailablePsnSealTypes = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig) SetCrossPageType(v string) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig {
+	s.CrossPageType = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig) SetSignDateConfig(v *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig {
+	s.SignDateConfig = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig) SetSignPositionConfig(v *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfig {
+	s.SignPositionConfig = v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig struct {
+	DateFormat   *string `json:"dateFormat,omitempty" xml:"dateFormat,omitempty"`
+	ShowSignDate *bool   `json:"showSignDate,omitempty" xml:"showSignDate,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) SetDateFormat(v string) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig {
+	s.DateFormat = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig) SetShowSignDate(v bool) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignDateConfig {
+	s.ShowSignDate = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig struct {
+	PositionPage *int64   `json:"positionPage,omitempty" xml:"positionPage,omitempty"`
+	PositionX    *float64 `json:"positionX,omitempty" xml:"positionX,omitempty"`
+	PositionY    *float64 `json:"positionY,omitempty" xml:"positionY,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) SetPositionPage(v int64) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig {
+	s.PositionPage = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) SetPositionX(v float64) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig {
+	s.PositionX = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig) SetPositionY(v float64) *QuerySignFlowDetailResponseBodyResultDataSignersSignComponentConfigSignFieldComponentConfigSignPositionConfig {
+	s.PositionY = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignersSignConfig struct {
+	SignOrder *int64 `json:"signOrder,omitempty" xml:"signOrder,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignConfig) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignConfig) SetSignOrder(v int64) *QuerySignFlowDetailResponseBodyResultDataSignersSignConfig {
+	s.SignOrder = &v
+	return s
+}
+
+type QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo struct {
+	PsnMobile *string `json:"psnMobile,omitempty" xml:"psnMobile,omitempty"`
+	PsnName   *string `json:"psnName,omitempty" xml:"psnName,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo) SetPsnMobile(v string) *QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo {
+	s.PsnMobile = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo) SetPsnName(v string) *QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo {
+	s.PsnName = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo) SetUserId(v string) *QuerySignFlowDetailResponseBodyResultDataSignersSignerInfo {
+	s.UserId = &v
+	return s
+}
+
+type QuerySignFlowDetailResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySignFlowDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySignFlowDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignFlowDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignFlowDetailResponse) SetHeaders(v map[string]*string) *QuerySignFlowDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponse) SetStatusCode(v int32) *QuerySignFlowDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySignFlowDetailResponse) SetBody(v *QuerySignFlowDetailResponseBody) *QuerySignFlowDetailResponse {
+	s.Body = v
+	return s
+}
+
+type QuerySignTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySignTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskHeaders) SetCommonHeaders(v map[string]*string) *QuerySignTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySignTaskHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySignTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySignTaskRequest struct {
+	BizFlowId  *string `json:"bizFlowId,omitempty" xml:"bizFlowId,omitempty"`
+	RequestId  *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	SignFlowId *string `json:"signFlowId,omitempty" xml:"signFlowId,omitempty"`
+}
+
+func (s QuerySignTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskRequest) SetBizFlowId(v string) *QuerySignTaskRequest {
+	s.BizFlowId = &v
+	return s
+}
+
+func (s *QuerySignTaskRequest) SetRequestId(v string) *QuerySignTaskRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QuerySignTaskRequest) SetSignFlowId(v string) *QuerySignTaskRequest {
+	s.SignFlowId = &v
+	return s
+}
+
+type QuerySignTaskResponseBody struct {
+	Result  *QuerySignTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QuerySignTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskResponseBody) SetResult(v *QuerySignTaskResponseBodyResult) *QuerySignTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QuerySignTaskResponseBody) SetSuccess(v bool) *QuerySignTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QuerySignTaskResponseBodyResult struct {
+	Data      *QuerySignTaskResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	RequestId *string                              `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s QuerySignTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskResponseBodyResult) SetData(v *QuerySignTaskResponseBodyResultData) *QuerySignTaskResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResult) SetRequestId(v string) *QuerySignTaskResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type QuerySignTaskResponseBodyResultData struct {
+	BizFlowId      *string                                         `json:"bizFlowId,omitempty" xml:"bizFlowId,omitempty"`
+	SignFlowId     *string                                         `json:"signFlowId,omitempty" xml:"signFlowId,omitempty"`
+	SignFlowStatus *string                                         `json:"signFlowStatus,omitempty" xml:"signFlowStatus,omitempty"`
+	SignTasks      []*QuerySignTaskResponseBodyResultDataSignTasks `json:"signTasks,omitempty" xml:"signTasks,omitempty" type:"Repeated"`
+}
+
+func (s QuerySignTaskResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskResponseBodyResultData) SetBizFlowId(v string) *QuerySignTaskResponseBodyResultData {
+	s.BizFlowId = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultData) SetSignFlowId(v string) *QuerySignTaskResponseBodyResultData {
+	s.SignFlowId = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultData) SetSignFlowStatus(v string) *QuerySignTaskResponseBodyResultData {
+	s.SignFlowStatus = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultData) SetSignTasks(v []*QuerySignTaskResponseBodyResultDataSignTasks) *QuerySignTaskResponseBodyResultData {
+	s.SignTasks = v
+	return s
+}
+
+type QuerySignTaskResponseBodyResultDataSignTasks struct {
+	ActivateTime      *int64                                                  `json:"activateTime,omitempty" xml:"activateTime,omitempty"`
+	ActualOrgSealType *string                                                 `json:"actualOrgSealType,omitempty" xml:"actualOrgSealType,omitempty"`
+	ActualPsnSealType *string                                                 `json:"actualPsnSealType,omitempty" xml:"actualPsnSealType,omitempty"`
+	BizTaskId         *string                                                 `json:"bizTaskId,omitempty" xml:"bizTaskId,omitempty"`
+	CreateTime        *int64                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	FinishTime        *int64                                                  `json:"finishTime,omitempty" xml:"finishTime,omitempty"`
+	OrgInfo           *QuerySignTaskResponseBodyResultDataSignTasksOrgInfo    `json:"orgInfo,omitempty" xml:"orgInfo,omitempty" type:"Struct"`
+	SignOrder         *int32                                                  `json:"signOrder,omitempty" xml:"signOrder,omitempty"`
+	SignTaskId        *string                                                 `json:"signTaskId,omitempty" xml:"signTaskId,omitempty"`
+	SignUrl           *string                                                 `json:"signUrl,omitempty" xml:"signUrl,omitempty"`
+	SignerInfo        *QuerySignTaskResponseBodyResultDataSignTasksSignerInfo `json:"signerInfo,omitempty" xml:"signerInfo,omitempty" type:"Struct"`
+	SignerType        *string                                                 `json:"signerType,omitempty" xml:"signerType,omitempty"`
+	TaskStatus        *string                                                 `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+}
+
+func (s QuerySignTaskResponseBodyResultDataSignTasks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskResponseBodyResultDataSignTasks) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetActivateTime(v int64) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.ActivateTime = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetActualOrgSealType(v string) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.ActualOrgSealType = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetActualPsnSealType(v string) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.ActualPsnSealType = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetBizTaskId(v string) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.BizTaskId = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetCreateTime(v int64) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetFinishTime(v int64) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.FinishTime = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetOrgInfo(v *QuerySignTaskResponseBodyResultDataSignTasksOrgInfo) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.OrgInfo = v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetSignOrder(v int32) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.SignOrder = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetSignTaskId(v string) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.SignTaskId = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetSignUrl(v string) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.SignUrl = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetSignerInfo(v *QuerySignTaskResponseBodyResultDataSignTasksSignerInfo) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.SignerInfo = v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetSignerType(v string) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.SignerType = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasks) SetTaskStatus(v string) *QuerySignTaskResponseBodyResultDataSignTasks {
+	s.TaskStatus = &v
+	return s
+}
+
+type QuerySignTaskResponseBodyResultDataSignTasksOrgInfo struct {
+	CompanyId *string `json:"companyId,omitempty" xml:"companyId,omitempty"`
+	OrgName   *string `json:"orgName,omitempty" xml:"orgName,omitempty"`
+}
+
+func (s QuerySignTaskResponseBodyResultDataSignTasksOrgInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskResponseBodyResultDataSignTasksOrgInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasksOrgInfo) SetCompanyId(v string) *QuerySignTaskResponseBodyResultDataSignTasksOrgInfo {
+	s.CompanyId = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasksOrgInfo) SetOrgName(v string) *QuerySignTaskResponseBodyResultDataSignTasksOrgInfo {
+	s.OrgName = &v
+	return s
+}
+
+type QuerySignTaskResponseBodyResultDataSignTasksSignerInfo struct {
+	PsnMobile *string `json:"psnMobile,omitempty" xml:"psnMobile,omitempty"`
+	PsnName   *string `json:"psnName,omitempty" xml:"psnName,omitempty"`
+	UserId    *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QuerySignTaskResponseBodyResultDataSignTasksSignerInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskResponseBodyResultDataSignTasksSignerInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasksSignerInfo) SetPsnMobile(v string) *QuerySignTaskResponseBodyResultDataSignTasksSignerInfo {
+	s.PsnMobile = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasksSignerInfo) SetPsnName(v string) *QuerySignTaskResponseBodyResultDataSignTasksSignerInfo {
+	s.PsnName = &v
+	return s
+}
+
+func (s *QuerySignTaskResponseBodyResultDataSignTasksSignerInfo) SetUserId(v string) *QuerySignTaskResponseBodyResultDataSignTasksSignerInfo {
+	s.UserId = &v
+	return s
+}
+
+type QuerySignTaskResponse struct {
+	Headers    map[string]*string         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySignTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySignTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySignTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySignTaskResponse) SetHeaders(v map[string]*string) *QuerySignTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySignTaskResponse) SetStatusCode(v int32) *QuerySignTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySignTaskResponse) SetBody(v *QuerySignTaskResponseBody) *QuerySignTaskResponse {
+	s.Body = v
+	return s
+}
+
+type SearchFileKeywordPositionsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SearchFileKeywordPositionsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFileKeywordPositionsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFileKeywordPositionsHeaders) SetCommonHeaders(v map[string]*string) *SearchFileKeywordPositionsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsHeaders) SetXAcsDingtalkAccessToken(v string) *SearchFileKeywordPositionsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SearchFileKeywordPositionsRequest struct {
+	// This parameter is required.
+	FileId   *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	FileSize *int64  `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	// This parameter is required.
+	Keyword   *string `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	SpaceId *int64 `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s SearchFileKeywordPositionsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFileKeywordPositionsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFileKeywordPositionsRequest) SetFileId(v string) *SearchFileKeywordPositionsRequest {
+	s.FileId = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsRequest) SetFileName(v string) *SearchFileKeywordPositionsRequest {
+	s.FileName = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsRequest) SetFileSize(v int64) *SearchFileKeywordPositionsRequest {
+	s.FileSize = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsRequest) SetFileType(v string) *SearchFileKeywordPositionsRequest {
+	s.FileType = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsRequest) SetKeyword(v string) *SearchFileKeywordPositionsRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsRequest) SetRequestId(v string) *SearchFileKeywordPositionsRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsRequest) SetSpaceId(v int64) *SearchFileKeywordPositionsRequest {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsRequest) SetUserId(v string) *SearchFileKeywordPositionsRequest {
+	s.UserId = &v
+	return s
+}
+
+type SearchFileKeywordPositionsResponseBody struct {
+	Result  *SearchFileKeywordPositionsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                         `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SearchFileKeywordPositionsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFileKeywordPositionsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFileKeywordPositionsResponseBody) SetResult(v *SearchFileKeywordPositionsResponseBodyResult) *SearchFileKeywordPositionsResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponseBody) SetSuccess(v bool) *SearchFileKeywordPositionsResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SearchFileKeywordPositionsResponseBodyResult struct {
+	Data      *SearchFileKeywordPositionsResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	RequestId *string                                           `json:"requestId,omitempty" xml:"requestId,omitempty"`
+}
+
+func (s SearchFileKeywordPositionsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFileKeywordPositionsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResult) SetData(v *SearchFileKeywordPositionsResponseBodyResultData) *SearchFileKeywordPositionsResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResult) SetRequestId(v string) *SearchFileKeywordPositionsResponseBodyResult {
+	s.RequestId = &v
+	return s
+}
+
+type SearchFileKeywordPositionsResponseBodyResultData struct {
+	FileId     *string                                                      `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	Keyword    *string                                                      `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	Positions  []*SearchFileKeywordPositionsResponseBodyResultDataPositions `json:"positions,omitempty" xml:"positions,omitempty" type:"Repeated"`
+	TotalCount *int32                                                       `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s SearchFileKeywordPositionsResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFileKeywordPositionsResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResultData) SetFileId(v string) *SearchFileKeywordPositionsResponseBodyResultData {
+	s.FileId = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResultData) SetKeyword(v string) *SearchFileKeywordPositionsResponseBodyResultData {
+	s.Keyword = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResultData) SetPositions(v []*SearchFileKeywordPositionsResponseBodyResultDataPositions) *SearchFileKeywordPositionsResponseBodyResultData {
+	s.Positions = v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResultData) SetTotalCount(v int32) *SearchFileKeywordPositionsResponseBodyResultData {
+	s.TotalCount = &v
+	return s
+}
+
+type SearchFileKeywordPositionsResponseBodyResultDataPositions struct {
+	Index        *int32   `json:"index,omitempty" xml:"index,omitempty"`
+	PositionPage *int32   `json:"positionPage,omitempty" xml:"positionPage,omitempty"`
+	PositionX    *float64 `json:"positionX,omitempty" xml:"positionX,omitempty"`
+	PositionY    *float64 `json:"positionY,omitempty" xml:"positionY,omitempty"`
+}
+
+func (s SearchFileKeywordPositionsResponseBodyResultDataPositions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFileKeywordPositionsResponseBodyResultDataPositions) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResultDataPositions) SetIndex(v int32) *SearchFileKeywordPositionsResponseBodyResultDataPositions {
+	s.Index = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResultDataPositions) SetPositionPage(v int32) *SearchFileKeywordPositionsResponseBodyResultDataPositions {
+	s.PositionPage = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResultDataPositions) SetPositionX(v float64) *SearchFileKeywordPositionsResponseBodyResultDataPositions {
+	s.PositionX = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponseBodyResultDataPositions) SetPositionY(v float64) *SearchFileKeywordPositionsResponseBodyResultDataPositions {
+	s.PositionY = &v
+	return s
+}
+
+type SearchFileKeywordPositionsResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SearchFileKeywordPositionsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SearchFileKeywordPositionsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SearchFileKeywordPositionsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SearchFileKeywordPositionsResponse) SetHeaders(v map[string]*string) *SearchFileKeywordPositionsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponse) SetStatusCode(v int32) *SearchFileKeywordPositionsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SearchFileKeywordPositionsResponse) SetBody(v *SearchFileKeywordPositionsResponseBody) *SearchFileKeywordPositionsResponse {
+	s.Body = v
+	return s
+}
+
 type SendContractCardHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9008,6 +10985,99 @@ func (client *Client) CreateContractReviewTask(request *CreateContractReviewTask
 
 // Summary:
 //
+// 创建签署流程
+//
+// @param request - CreateSignFlowRequest
+//
+// @param headers - CreateSignFlowHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateSignFlowResponse
+func (client *Client) CreateSignFlowWithOptions(request *CreateSignFlowRequest, headers *CreateSignFlowHeaders, runtime *util.RuntimeOptions) (_result *CreateSignFlowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizFlowId)) {
+		body["bizFlowId"] = request.BizFlowId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignDocs)) {
+		body["signDocs"] = request.SignDocs
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignFlowConfig)) {
+		body["signFlowConfig"] = request.SignFlowConfig
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignFlowInitiator)) {
+		body["signFlowInitiator"] = request.SignFlowInitiator
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Signers)) {
+		body["signers"] = request.Signers
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateSignFlow"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/dingEsign/signFlow"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateSignFlowResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建签署流程
+//
+// @param request - CreateSignFlowRequest
+//
+// @return CreateSignFlowResponse
+func (client *Client) CreateSignFlow(request *CreateSignFlowRequest) (_result *CreateSignFlowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateSignFlowHeaders{}
+	_result = &CreateSignFlowResponse{}
+	_body, _err := client.CreateSignFlowWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 天谷侧查询审批单
 //
 // @param request - EsignQueryApprovalInfoRequest
@@ -9885,6 +11955,91 @@ func (client *Client) GetContractSubjectRiskResult(request *GetContractSubjectRi
 
 // Summary:
 //
+// 获取流程文件下载地址
+//
+// @param request - GetFileDownloadUrlRequest
+//
+// @param headers - GetFileDownloadUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetFileDownloadUrlResponse
+func (client *Client) GetFileDownloadUrlWithOptions(request *GetFileDownloadUrlRequest, headers *GetFileDownloadUrlHeaders, runtime *util.RuntimeOptions) (_result *GetFileDownloadUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizFlowId)) {
+		body["bizFlowId"] = request.BizFlowId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		body["fileId"] = request.FileId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignFlowId)) {
+		body["signFlowId"] = request.SignFlowId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetFileDownloadUrl"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/dingEsign/signFlow/files/downloadUrls"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetFileDownloadUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取流程文件下载地址
+//
+// @param request - GetFileDownloadUrlRequest
+//
+// @return GetFileDownloadUrlResponse
+func (client *Client) GetFileDownloadUrl(request *GetFileDownloadUrlRequest) (_result *GetFileDownloadUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetFileDownloadUrlHeaders{}
+	_result = &GetFileDownloadUrlResponse{}
+	_body, _err := client.GetFileDownloadUrlWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 开通电子签免费试用
 //
 // @param request - OpenEsignFreeTrailRequest
@@ -10666,6 +12821,269 @@ func (client *Client) QueryContractSignInfo(request *QueryContractSignInfoReques
 	headers := &QueryContractSignInfoHeaders{}
 	_result = &QueryContractSignInfoResponse{}
 	_body, _err := client.QueryContractSignInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询签署流程详情
+//
+// @param request - QuerySignFlowDetailRequest
+//
+// @param headers - QuerySignFlowDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySignFlowDetailResponse
+func (client *Client) QuerySignFlowDetailWithOptions(request *QuerySignFlowDetailRequest, headers *QuerySignFlowDetailHeaders, runtime *util.RuntimeOptions) (_result *QuerySignFlowDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizFlowId)) {
+		body["bizFlowId"] = request.BizFlowId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignFlowId)) {
+		body["signFlowId"] = request.SignFlowId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySignFlowDetail"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/dingEsign/signFlow/detail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySignFlowDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询签署流程详情
+//
+// @param request - QuerySignFlowDetailRequest
+//
+// @return QuerySignFlowDetailResponse
+func (client *Client) QuerySignFlowDetail(request *QuerySignFlowDetailRequest) (_result *QuerySignFlowDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySignFlowDetailHeaders{}
+	_result = &QuerySignFlowDetailResponse{}
+	_body, _err := client.QuerySignFlowDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询签署任务
+//
+// @param request - QuerySignTaskRequest
+//
+// @param headers - QuerySignTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySignTaskResponse
+func (client *Client) QuerySignTaskWithOptions(request *QuerySignTaskRequest, headers *QuerySignTaskHeaders, runtime *util.RuntimeOptions) (_result *QuerySignTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizFlowId)) {
+		body["bizFlowId"] = request.BizFlowId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SignFlowId)) {
+		body["signFlowId"] = request.SignFlowId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySignTask"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/dingEsign/signTask/detail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySignTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询签署任务
+//
+// @param request - QuerySignTaskRequest
+//
+// @return QuerySignTaskResponse
+func (client *Client) QuerySignTask(request *QuerySignTaskRequest) (_result *QuerySignTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySignTaskHeaders{}
+	_result = &QuerySignTaskResponse{}
+	_body, _err := client.QuerySignTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询文件关键字位置
+//
+// @param request - SearchFileKeywordPositionsRequest
+//
+// @param headers - SearchFileKeywordPositionsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SearchFileKeywordPositionsResponse
+func (client *Client) SearchFileKeywordPositionsWithOptions(request *SearchFileKeywordPositionsRequest, headers *SearchFileKeywordPositionsHeaders, runtime *util.RuntimeOptions) (_result *SearchFileKeywordPositionsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		body["fileId"] = request.FileId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileName)) {
+		body["fileName"] = request.FileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSize)) {
+		body["fileSize"] = request.FileSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileType)) {
+		body["fileType"] = request.FileType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		body["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceId)) {
+		body["spaceId"] = request.SpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SearchFileKeywordPositions"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/dingEsign/files/keywordPositions"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SearchFileKeywordPositionsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询文件关键字位置
+//
+// @param request - SearchFileKeywordPositionsRequest
+//
+// @return SearchFileKeywordPositionsResponse
+func (client *Client) SearchFileKeywordPositions(request *SearchFileKeywordPositionsRequest) (_result *SearchFileKeywordPositionsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SearchFileKeywordPositionsHeaders{}
+	_result = &SearchFileKeywordPositionsResponse{}
+	_body, _err := client.SearchFileKeywordPositionsWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

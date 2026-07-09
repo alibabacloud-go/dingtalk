@@ -2311,6 +2311,130 @@ func (s *CreateSecondaryManagementGroupResponse) SetBody(v *CreateSecondaryManag
 	return s
 }
 
+type CreateUserGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateUserGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUserGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUserGroupHeaders) SetCommonHeaders(v map[string]*string) *CreateUserGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateUserGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateUserGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateUserGroupRequest struct {
+	// This parameter is required.
+	ClientShow *bool `json:"clientShow,omitempty" xml:"clientShow,omitempty"`
+	// example:
+	//
+	// 静态用户组
+	Description *string `json:"description,omitempty" xml:"description,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 静态用户组
+	Name *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s CreateUserGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUserGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUserGroupRequest) SetClientShow(v bool) *CreateUserGroupRequest {
+	s.ClientShow = &v
+	return s
+}
+
+func (s *CreateUserGroupRequest) SetDescription(v string) *CreateUserGroupRequest {
+	s.Description = &v
+	return s
+}
+
+func (s *CreateUserGroupRequest) SetName(v string) *CreateUserGroupRequest {
+	s.Name = &v
+	return s
+}
+
+type CreateUserGroupResponseBody struct {
+	Result *CreateUserGroupResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreateUserGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUserGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUserGroupResponseBody) SetResult(v *CreateUserGroupResponseBodyResult) *CreateUserGroupResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreateUserGroupResponseBodyResult struct {
+	GroupCode *string `json:"groupCode,omitempty" xml:"groupCode,omitempty"`
+}
+
+func (s CreateUserGroupResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUserGroupResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUserGroupResponseBodyResult) SetGroupCode(v string) *CreateUserGroupResponseBodyResult {
+	s.GroupCode = &v
+	return s
+}
+
+type CreateUserGroupResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateUserGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateUserGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateUserGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateUserGroupResponse) SetHeaders(v map[string]*string) *CreateUserGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateUserGroupResponse) SetStatusCode(v int32) *CreateUserGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateUserGroupResponse) SetBody(v *CreateUserGroupResponseBody) *CreateUserGroupResponse {
+	s.Body = v
+	return s
+}
+
 type DelAccountMappingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2875,6 +2999,114 @@ func (s *DeleteManagementGroupResponse) SetHeaders(v map[string]*string) *Delete
 
 func (s *DeleteManagementGroupResponse) SetStatusCode(v int32) *DeleteManagementGroupResponse {
 	s.StatusCode = &v
+	return s
+}
+
+type DeleteUserGroupHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteUserGroupHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUserGroupHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUserGroupHeaders) SetCommonHeaders(v map[string]*string) *DeleteUserGroupHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteUserGroupHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteUserGroupHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteUserGroupRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// test
+	GroupCode *string `json:"groupCode,omitempty" xml:"groupCode,omitempty"`
+}
+
+func (s DeleteUserGroupRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUserGroupRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUserGroupRequest) SetGroupCode(v string) *DeleteUserGroupRequest {
+	s.GroupCode = &v
+	return s
+}
+
+type DeleteUserGroupResponseBody struct {
+	Result *DeleteUserGroupResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s DeleteUserGroupResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUserGroupResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUserGroupResponseBody) SetResult(v *DeleteUserGroupResponseBodyResult) *DeleteUserGroupResponseBody {
+	s.Result = v
+	return s
+}
+
+type DeleteUserGroupResponseBodyResult struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteUserGroupResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUserGroupResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUserGroupResponseBodyResult) SetSuccess(v bool) *DeleteUserGroupResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+type DeleteUserGroupResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteUserGroupResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteUserGroupResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteUserGroupResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteUserGroupResponse) SetHeaders(v map[string]*string) *DeleteUserGroupResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteUserGroupResponse) SetStatusCode(v int32) *DeleteUserGroupResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteUserGroupResponse) SetBody(v *DeleteUserGroupResponseBody) *DeleteUserGroupResponse {
+	s.Body = v
 	return s
 }
 
@@ -15775,6 +16007,87 @@ func (client *Client) CreateSecondaryManagementGroup(request *CreateSecondaryMan
 
 // Summary:
 //
+// 创建用户组
+//
+// @param request - CreateUserGroupRequest
+//
+// @param headers - CreateUserGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateUserGroupResponse
+func (client *Client) CreateUserGroupWithOptions(request *CreateUserGroupRequest, headers *CreateUserGroupHeaders, runtime *util.RuntimeOptions) (_result *CreateUserGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClientShow)) {
+		query["clientShow"] = request.ClientShow
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Description)) {
+		query["description"] = request.Description
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Name)) {
+		query["name"] = request.Name
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateUserGroup"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/userGroups/create"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateUserGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建用户组
+//
+// @param request - CreateUserGroupRequest
+//
+// @return CreateUserGroupResponse
+func (client *Client) CreateUserGroup(request *CreateUserGroupRequest) (_result *CreateUserGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateUserGroupHeaders{}
+	_result = &CreateUserGroupResponse{}
+	_body, _err := client.CreateUserGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 删除账号映射
 //
 // @param request - DelAccountMappingRequest
@@ -16278,6 +16591,79 @@ func (client *Client) DeleteManagementGroup(groupId *string) (_result *DeleteMan
 	headers := &DeleteManagementGroupHeaders{}
 	_result = &DeleteManagementGroupResponse{}
 	_body, _err := client.DeleteManagementGroupWithOptions(groupId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除静态用户组
+//
+// @param request - DeleteUserGroupRequest
+//
+// @param headers - DeleteUserGroupHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteUserGroupResponse
+func (client *Client) DeleteUserGroupWithOptions(request *DeleteUserGroupRequest, headers *DeleteUserGroupHeaders, runtime *util.RuntimeOptions) (_result *DeleteUserGroupResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GroupCode)) {
+		query["groupCode"] = request.GroupCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteUserGroup"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/userGroups/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteUserGroupResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除静态用户组
+//
+// @param request - DeleteUserGroupRequest
+//
+// @return DeleteUserGroupResponse
+func (client *Client) DeleteUserGroup(request *DeleteUserGroupRequest) (_result *DeleteUserGroupResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteUserGroupHeaders{}
+	_result = &DeleteUserGroupResponse{}
+	_body, _err := client.DeleteUserGroupWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

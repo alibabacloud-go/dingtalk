@@ -3174,6 +3174,156 @@ func (s *GetJobInfoByJobIdResponse) SetBody(v *GetJobInfoByJobIdResponseBody) *G
 	return s
 }
 
+type ImportCandidateByResumeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ImportCandidateByResumeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportCandidateByResumeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ImportCandidateByResumeHeaders) SetCommonHeaders(v map[string]*string) *ImportCandidateByResumeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ImportCandidateByResumeHeaders) SetXAcsDingtalkAccessToken(v string) *ImportCandidateByResumeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ImportCandidateByResumeRequest struct {
+	ChannelCode *string `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	FileId      *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	// This parameter is required.
+	FileName *string `json:"fileName,omitempty" xml:"fileName,omitempty"`
+	// This parameter is required.
+	FileSize *int64 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	// This parameter is required.
+	FileSourceType *int32 `json:"fileSourceType,omitempty" xml:"fileSourceType,omitempty"`
+	// This parameter is required.
+	FileType *string `json:"fileType,omitempty" xml:"fileType,omitempty"`
+	SpaceId  *int64  `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	Url      *string `json:"url,omitempty" xml:"url,omitempty"`
+	OpUserId *string `json:"opUserId,omitempty" xml:"opUserId,omitempty"`
+}
+
+func (s ImportCandidateByResumeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportCandidateByResumeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ImportCandidateByResumeRequest) SetChannelCode(v string) *ImportCandidateByResumeRequest {
+	s.ChannelCode = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeRequest) SetFileId(v string) *ImportCandidateByResumeRequest {
+	s.FileId = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeRequest) SetFileName(v string) *ImportCandidateByResumeRequest {
+	s.FileName = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeRequest) SetFileSize(v int64) *ImportCandidateByResumeRequest {
+	s.FileSize = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeRequest) SetFileSourceType(v int32) *ImportCandidateByResumeRequest {
+	s.FileSourceType = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeRequest) SetFileType(v string) *ImportCandidateByResumeRequest {
+	s.FileType = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeRequest) SetSpaceId(v int64) *ImportCandidateByResumeRequest {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeRequest) SetUrl(v string) *ImportCandidateByResumeRequest {
+	s.Url = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeRequest) SetOpUserId(v string) *ImportCandidateByResumeRequest {
+	s.OpUserId = &v
+	return s
+}
+
+type ImportCandidateByResumeResponseBody struct {
+	CandidateId *string `json:"candidateId,omitempty" xml:"candidateId,omitempty"`
+	CorpId      *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	Name        *string `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s ImportCandidateByResumeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportCandidateByResumeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ImportCandidateByResumeResponseBody) SetCandidateId(v string) *ImportCandidateByResumeResponseBody {
+	s.CandidateId = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeResponseBody) SetCorpId(v string) *ImportCandidateByResumeResponseBody {
+	s.CorpId = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeResponseBody) SetName(v string) *ImportCandidateByResumeResponseBody {
+	s.Name = &v
+	return s
+}
+
+type ImportCandidateByResumeResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ImportCandidateByResumeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ImportCandidateByResumeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ImportCandidateByResumeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ImportCandidateByResumeResponse) SetHeaders(v map[string]*string) *ImportCandidateByResumeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ImportCandidateByResumeResponse) SetStatusCode(v int32) *ImportCandidateByResumeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ImportCandidateByResumeResponse) SetBody(v *ImportCandidateByResumeResponseBody) *ImportCandidateByResumeResponse {
+	s.Body = v
+	return s
+}
+
 type ImportJobDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -6657,6 +6807,113 @@ func (client *Client) GetJobInfoByJobId(jobId *string) (_result *GetJobInfoByJob
 	headers := &GetJobInfoByJobIdHeaders{}
 	_result = &GetJobInfoByJobIdResponse{}
 	_body, _err := client.GetJobInfoByJobIdWithOptions(jobId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 导入简历创建候选人
+//
+// @param request - ImportCandidateByResumeRequest
+//
+// @param headers - ImportCandidateByResumeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ImportCandidateByResumeResponse
+func (client *Client) ImportCandidateByResumeWithOptions(request *ImportCandidateByResumeRequest, headers *ImportCandidateByResumeHeaders, runtime *util.RuntimeOptions) (_result *ImportCandidateByResumeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OpUserId)) {
+		query["opUserId"] = request.OpUserId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCode)) {
+		body["channelCode"] = request.ChannelCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		body["fileId"] = request.FileId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileName)) {
+		body["fileName"] = request.FileName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSize)) {
+		body["fileSize"] = request.FileSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileSourceType)) {
+		body["fileSourceType"] = request.FileSourceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FileType)) {
+		body["fileType"] = request.FileType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceId)) {
+		body["spaceId"] = request.SpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Url)) {
+		body["url"] = request.Url
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ImportCandidateByResume"),
+		Version:     tea.String("ats_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/ats/candidates/importCandidateByResume"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ImportCandidateByResumeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 导入简历创建候选人
+//
+// @param request - ImportCandidateByResumeRequest
+//
+// @return ImportCandidateByResumeResponse
+func (client *Client) ImportCandidateByResume(request *ImportCandidateByResumeRequest) (_result *ImportCandidateByResumeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ImportCandidateByResumeHeaders{}
+	_result = &ImportCandidateByResumeResponse{}
+	_body, _err := client.ImportCandidateByResumeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

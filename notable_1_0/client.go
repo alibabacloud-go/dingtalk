@@ -3203,6 +3203,122 @@ func (s *ListWorkflowsResponse) SetBody(v *ListWorkflowsResponseBody) *ListWorkf
 	return s
 }
 
+type MarkExternalAuthControlledSheetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MarkExternalAuthControlledSheetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MarkExternalAuthControlledSheetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MarkExternalAuthControlledSheetHeaders) SetCommonHeaders(v map[string]*string) *MarkExternalAuthControlledSheetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MarkExternalAuthControlledSheetHeaders) SetXAcsDingtalkAccessToken(v string) *MarkExternalAuthControlledSheetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MarkExternalAuthControlledSheetRequest struct {
+	// This parameter is required.
+	ExternalAuthType *string `json:"externalAuthType,omitempty" xml:"externalAuthType,omitempty"`
+	ExternalConfig   *string `json:"externalConfig,omitempty" xml:"externalConfig,omitempty"`
+	ClientToken      *string `json:"clientToken,omitempty" xml:"clientToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s MarkExternalAuthControlledSheetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MarkExternalAuthControlledSheetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MarkExternalAuthControlledSheetRequest) SetExternalAuthType(v string) *MarkExternalAuthControlledSheetRequest {
+	s.ExternalAuthType = &v
+	return s
+}
+
+func (s *MarkExternalAuthControlledSheetRequest) SetExternalConfig(v string) *MarkExternalAuthControlledSheetRequest {
+	s.ExternalConfig = &v
+	return s
+}
+
+func (s *MarkExternalAuthControlledSheetRequest) SetClientToken(v string) *MarkExternalAuthControlledSheetRequest {
+	s.ClientToken = &v
+	return s
+}
+
+func (s *MarkExternalAuthControlledSheetRequest) SetOperatorId(v string) *MarkExternalAuthControlledSheetRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type MarkExternalAuthControlledSheetResponseBody struct {
+	SheetId *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s MarkExternalAuthControlledSheetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MarkExternalAuthControlledSheetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MarkExternalAuthControlledSheetResponseBody) SetSheetId(v string) *MarkExternalAuthControlledSheetResponseBody {
+	s.SheetId = &v
+	return s
+}
+
+func (s *MarkExternalAuthControlledSheetResponseBody) SetSuccess(v bool) *MarkExternalAuthControlledSheetResponseBody {
+	s.Success = &v
+	return s
+}
+
+type MarkExternalAuthControlledSheetResponse struct {
+	Headers    map[string]*string                           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *MarkExternalAuthControlledSheetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s MarkExternalAuthControlledSheetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MarkExternalAuthControlledSheetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MarkExternalAuthControlledSheetResponse) SetHeaders(v map[string]*string) *MarkExternalAuthControlledSheetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MarkExternalAuthControlledSheetResponse) SetStatusCode(v int32) *MarkExternalAuthControlledSheetResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *MarkExternalAuthControlledSheetResponse) SetBody(v *MarkExternalAuthControlledSheetResponseBody) *MarkExternalAuthControlledSheetResponse {
+	s.Body = v
+	return s
+}
+
 type PrepareImportUploadHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -3841,6 +3957,174 @@ func (s *QueryDocAllRolesResponse) SetBody(v *QueryDocAllRolesResponseBody) *Que
 	return s
 }
 
+type QueryExternalAuthControlledSheetsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryExternalAuthControlledSheetsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExternalAuthControlledSheetsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExternalAuthControlledSheetsHeaders) SetCommonHeaders(v map[string]*string) *QueryExternalAuthControlledSheetsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsHeaders) SetXAcsDingtalkAccessToken(v string) *QueryExternalAuthControlledSheetsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryExternalAuthControlledSheetsRequest struct {
+	ExternalAuthType *string `json:"externalAuthType,omitempty" xml:"externalAuthType,omitempty"`
+	NextToken        *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+	PageSize   *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+}
+
+func (s QueryExternalAuthControlledSheetsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExternalAuthControlledSheetsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExternalAuthControlledSheetsRequest) SetExternalAuthType(v string) *QueryExternalAuthControlledSheetsRequest {
+	s.ExternalAuthType = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsRequest) SetNextToken(v string) *QueryExternalAuthControlledSheetsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsRequest) SetOperatorId(v string) *QueryExternalAuthControlledSheetsRequest {
+	s.OperatorId = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsRequest) SetPageSize(v int32) *QueryExternalAuthControlledSheetsRequest {
+	s.PageSize = &v
+	return s
+}
+
+type QueryExternalAuthControlledSheetsResponseBody struct {
+	HasMore   *bool                                                  `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextToken *string                                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Sheets    []*QueryExternalAuthControlledSheetsResponseBodySheets `json:"sheets,omitempty" xml:"sheets,omitempty" type:"Repeated"`
+}
+
+func (s QueryExternalAuthControlledSheetsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExternalAuthControlledSheetsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBody) SetHasMore(v bool) *QueryExternalAuthControlledSheetsResponseBody {
+	s.HasMore = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBody) SetNextToken(v string) *QueryExternalAuthControlledSheetsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBody) SetSheets(v []*QueryExternalAuthControlledSheetsResponseBodySheets) *QueryExternalAuthControlledSheetsResponseBody {
+	s.Sheets = v
+	return s
+}
+
+type QueryExternalAuthControlledSheetsResponseBodySheets struct {
+	ExternalAuthType *string `json:"externalAuthType,omitempty" xml:"externalAuthType,omitempty"`
+	ExternalConfig   *string `json:"externalConfig,omitempty" xml:"externalConfig,omitempty"`
+	MarkedBy         *string `json:"markedBy,omitempty" xml:"markedBy,omitempty"`
+	MarkedTime       *int64  `json:"markedTime,omitempty" xml:"markedTime,omitempty"`
+	SheetId          *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+	SheetName        *string `json:"sheetName,omitempty" xml:"sheetName,omitempty"`
+}
+
+func (s QueryExternalAuthControlledSheetsResponseBodySheets) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExternalAuthControlledSheetsResponseBodySheets) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBodySheets) SetExternalAuthType(v string) *QueryExternalAuthControlledSheetsResponseBodySheets {
+	s.ExternalAuthType = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBodySheets) SetExternalConfig(v string) *QueryExternalAuthControlledSheetsResponseBodySheets {
+	s.ExternalConfig = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBodySheets) SetMarkedBy(v string) *QueryExternalAuthControlledSheetsResponseBodySheets {
+	s.MarkedBy = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBodySheets) SetMarkedTime(v int64) *QueryExternalAuthControlledSheetsResponseBodySheets {
+	s.MarkedTime = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBodySheets) SetSheetId(v string) *QueryExternalAuthControlledSheetsResponseBodySheets {
+	s.SheetId = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponseBodySheets) SetSheetName(v string) *QueryExternalAuthControlledSheetsResponseBodySheets {
+	s.SheetName = &v
+	return s
+}
+
+type QueryExternalAuthControlledSheetsResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryExternalAuthControlledSheetsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryExternalAuthControlledSheetsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryExternalAuthControlledSheetsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryExternalAuthControlledSheetsResponse) SetHeaders(v map[string]*string) *QueryExternalAuthControlledSheetsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponse) SetStatusCode(v int32) *QueryExternalAuthControlledSheetsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryExternalAuthControlledSheetsResponse) SetBody(v *QueryExternalAuthControlledSheetsResponseBody) *QueryExternalAuthControlledSheetsResponse {
+	s.Body = v
+	return s
+}
+
 type QueryImportStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -4190,6 +4474,109 @@ func (s *TruncateSheetRecordsResponse) SetStatusCode(v int32) *TruncateSheetReco
 }
 
 func (s *TruncateSheetRecordsResponse) SetBody(v *TruncateSheetRecordsResponseBody) *TruncateSheetRecordsResponse {
+	s.Body = v
+	return s
+}
+
+type UnmarkExternalAuthControlledSheetHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UnmarkExternalAuthControlledSheetHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnmarkExternalAuthControlledSheetHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UnmarkExternalAuthControlledSheetHeaders) SetCommonHeaders(v map[string]*string) *UnmarkExternalAuthControlledSheetHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UnmarkExternalAuthControlledSheetHeaders) SetXAcsDingtalkAccessToken(v string) *UnmarkExternalAuthControlledSheetHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UnmarkExternalAuthControlledSheetRequest struct {
+	ClientToken *string `json:"clientToken,omitempty" xml:"clientToken,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s UnmarkExternalAuthControlledSheetRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnmarkExternalAuthControlledSheetRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UnmarkExternalAuthControlledSheetRequest) SetClientToken(v string) *UnmarkExternalAuthControlledSheetRequest {
+	s.ClientToken = &v
+	return s
+}
+
+func (s *UnmarkExternalAuthControlledSheetRequest) SetOperatorId(v string) *UnmarkExternalAuthControlledSheetRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type UnmarkExternalAuthControlledSheetResponseBody struct {
+	SheetId *string `json:"sheetId,omitempty" xml:"sheetId,omitempty"`
+	Success *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UnmarkExternalAuthControlledSheetResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnmarkExternalAuthControlledSheetResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UnmarkExternalAuthControlledSheetResponseBody) SetSheetId(v string) *UnmarkExternalAuthControlledSheetResponseBody {
+	s.SheetId = &v
+	return s
+}
+
+func (s *UnmarkExternalAuthControlledSheetResponseBody) SetSuccess(v bool) *UnmarkExternalAuthControlledSheetResponseBody {
+	s.Success = &v
+	return s
+}
+
+type UnmarkExternalAuthControlledSheetResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UnmarkExternalAuthControlledSheetResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UnmarkExternalAuthControlledSheetResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UnmarkExternalAuthControlledSheetResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UnmarkExternalAuthControlledSheetResponse) SetHeaders(v map[string]*string) *UnmarkExternalAuthControlledSheetResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UnmarkExternalAuthControlledSheetResponse) SetStatusCode(v int32) *UnmarkExternalAuthControlledSheetResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UnmarkExternalAuthControlledSheetResponse) SetBody(v *UnmarkExternalAuthControlledSheetResponseBody) *UnmarkExternalAuthControlledSheetResponse {
 	s.Body = v
 	return s
 }
@@ -6573,6 +6960,93 @@ func (client *Client) ListWorkflows(baseId *string, request *ListWorkflowsReques
 
 // Summary:
 //
+// 标记外部权限受控 Sheet
+//
+// @param request - MarkExternalAuthControlledSheetRequest
+//
+// @param headers - MarkExternalAuthControlledSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MarkExternalAuthControlledSheetResponse
+func (client *Client) MarkExternalAuthControlledSheetWithOptions(baseId *string, sheetIdOrName *string, request *MarkExternalAuthControlledSheetRequest, headers *MarkExternalAuthControlledSheetHeaders, runtime *util.RuntimeOptions) (_result *MarkExternalAuthControlledSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClientToken)) {
+		query["clientToken"] = request.ClientToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExternalAuthType)) {
+		body["externalAuthType"] = request.ExternalAuthType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ExternalConfig)) {
+		body["externalConfig"] = request.ExternalConfig
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("MarkExternalAuthControlledSheet"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/sheets/" + tea.StringValue(sheetIdOrName) + "/externalAuth/mark"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &MarkExternalAuthControlledSheetResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 标记外部权限受控 Sheet
+//
+// @param request - MarkExternalAuthControlledSheetRequest
+//
+// @return MarkExternalAuthControlledSheetResponse
+func (client *Client) MarkExternalAuthControlledSheet(baseId *string, sheetIdOrName *string, request *MarkExternalAuthControlledSheetRequest) (_result *MarkExternalAuthControlledSheetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MarkExternalAuthControlledSheetHeaders{}
+	_result = &MarkExternalAuthControlledSheetResponse{}
+	_body, _err := client.MarkExternalAuthControlledSheetWithOptions(baseId, sheetIdOrName, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 申请加密导入上传链接
 //
 // @param request - PrepareImportUploadRequest
@@ -6895,6 +7369,91 @@ func (client *Client) QueryDocAllRoles(baseId *string, request *QueryDocAllRoles
 
 // Summary:
 //
+// 查询外部权限受控 Sheet 列表
+//
+// @param request - QueryExternalAuthControlledSheetsRequest
+//
+// @param headers - QueryExternalAuthControlledSheetsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryExternalAuthControlledSheetsResponse
+func (client *Client) QueryExternalAuthControlledSheetsWithOptions(baseId *string, request *QueryExternalAuthControlledSheetsRequest, headers *QueryExternalAuthControlledSheetsHeaders, runtime *util.RuntimeOptions) (_result *QueryExternalAuthControlledSheetsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ExternalAuthType)) {
+		query["externalAuthType"] = request.ExternalAuthType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		query["pageSize"] = request.PageSize
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryExternalAuthControlledSheets"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/externalAuth/sheets"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryExternalAuthControlledSheetsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询外部权限受控 Sheet 列表
+//
+// @param request - QueryExternalAuthControlledSheetsRequest
+//
+// @return QueryExternalAuthControlledSheetsResponse
+func (client *Client) QueryExternalAuthControlledSheets(baseId *string, request *QueryExternalAuthControlledSheetsRequest) (_result *QueryExternalAuthControlledSheetsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryExternalAuthControlledSheetsHeaders{}
+	_result = &QueryExternalAuthControlledSheetsResponse{}
+	_body, _err := client.QueryExternalAuthControlledSheetsWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询导入会话状态
 //
 // @param request - QueryImportStatusRequest
@@ -7119,6 +7678,83 @@ func (client *Client) TruncateSheetRecords(baseId *string, sheetIdOrName *string
 	headers := &TruncateSheetRecordsHeaders{}
 	_result = &TruncateSheetRecordsResponse{}
 	_body, _err := client.TruncateSheetRecordsWithOptions(baseId, sheetIdOrName, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 取消标记外部权限受控 Sheet
+//
+// @param request - UnmarkExternalAuthControlledSheetRequest
+//
+// @param headers - UnmarkExternalAuthControlledSheetHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UnmarkExternalAuthControlledSheetResponse
+func (client *Client) UnmarkExternalAuthControlledSheetWithOptions(baseId *string, sheetIdOrName *string, request *UnmarkExternalAuthControlledSheetRequest, headers *UnmarkExternalAuthControlledSheetHeaders, runtime *util.RuntimeOptions) (_result *UnmarkExternalAuthControlledSheetResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ClientToken)) {
+		query["clientToken"] = request.ClientToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UnmarkExternalAuthControlledSheet"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/sheets/" + tea.StringValue(sheetIdOrName) + "/externalAuth/mark"),
+		Method:      tea.String("DELETE"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UnmarkExternalAuthControlledSheetResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 取消标记外部权限受控 Sheet
+//
+// @param request - UnmarkExternalAuthControlledSheetRequest
+//
+// @return UnmarkExternalAuthControlledSheetResponse
+func (client *Client) UnmarkExternalAuthControlledSheet(baseId *string, sheetIdOrName *string, request *UnmarkExternalAuthControlledSheetRequest) (_result *UnmarkExternalAuthControlledSheetResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UnmarkExternalAuthControlledSheetHeaders{}
+	_result = &UnmarkExternalAuthControlledSheetResponse{}
+	_body, _err := client.UnmarkExternalAuthControlledSheetWithOptions(baseId, sheetIdOrName, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
