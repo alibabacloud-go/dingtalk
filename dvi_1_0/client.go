@@ -9372,7 +9372,7 @@ func (client *Client) QueryAudioFile(request *QueryAudioFileRequest) (_result *Q
 
 // Summary:
 //
-// 获取设备列表
+// 批量获取设备详情
 //
 // @param request - QueryDeviceDetailRequest
 //
@@ -9430,7 +9430,7 @@ func (client *Client) QueryDeviceDetailWithOptions(request *QueryDeviceDetailReq
 
 // Summary:
 //
-// 获取设备列表
+// 批量获取设备详情
 //
 // @param request - QueryDeviceDetailRequest
 //

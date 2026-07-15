@@ -1655,7 +1655,13 @@ func (s *QueryCreateMinutesListHeaders) SetXAcsDingtalkAccessToken(v string) *Qu
 }
 
 type QueryCreateMinutesListRequest struct {
+	GmtCreateEnd   *int64 `json:"gmtCreateEnd,omitempty" xml:"gmtCreateEnd,omitempty"`
+	GmtCreateStart *int64 `json:"gmtCreateStart,omitempty" xml:"gmtCreateStart,omitempty"`
 	// This parameter is required.
+	//
+	// example:
+	//
+	// 20
 	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
 	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
 	// This parameter is required.
@@ -1668,6 +1674,16 @@ func (s QueryCreateMinutesListRequest) String() string {
 
 func (s QueryCreateMinutesListRequest) GoString() string {
 	return s.String()
+}
+
+func (s *QueryCreateMinutesListRequest) SetGmtCreateEnd(v int64) *QueryCreateMinutesListRequest {
+	s.GmtCreateEnd = &v
+	return s
+}
+
+func (s *QueryCreateMinutesListRequest) SetGmtCreateStart(v int64) *QueryCreateMinutesListRequest {
+	s.GmtCreateStart = &v
+	return s
 }
 
 func (s *QueryCreateMinutesListRequest) SetMaxResults(v int32) *QueryCreateMinutesListRequest {
@@ -6702,6 +6718,14 @@ func (client *Client) QueryCreateMinutesListWithOptions(request *QueryCreateMinu
 		return _result, _err
 	}
 	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.GmtCreateEnd)) {
+		query["gmtCreateEnd"] = request.GmtCreateEnd
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GmtCreateStart)) {
+		query["gmtCreateStart"] = request.GmtCreateStart
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
 		query["maxResults"] = request.MaxResults
 	}

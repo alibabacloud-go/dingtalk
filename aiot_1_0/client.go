@@ -56,6 +56,7 @@ func (s *CheckDeviceUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *CheckDe
 }
 
 type CheckDeviceUpdateRequest struct {
+	// This parameter is required.
 	Body []*CheckDeviceUpdateRequestBody `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
 }
 
@@ -74,7 +75,8 @@ func (s *CheckDeviceUpdateRequest) SetBody(v []*CheckDeviceUpdateRequestBody) *C
 
 type CheckDeviceUpdateRequestBody struct {
 	CurrentVersion *string `json:"currentVersion,omitempty" xml:"currentVersion,omitempty"`
-	ModuleName     *string `json:"moduleName,omitempty" xml:"moduleName,omitempty"`
+	// This parameter is required.
+	ModuleName *string `json:"moduleName,omitempty" xml:"moduleName,omitempty"`
 }
 
 func (s CheckDeviceUpdateRequestBody) String() string {
@@ -415,6 +417,7 @@ func (s *GetDevicePropertiesHeaders) SetXAcsDingtalkAccessToken(v string) *GetDe
 }
 
 type GetDevicePropertiesRequest struct {
+	// This parameter is required.
 	Body []*string `json:"body,omitempty" xml:"body,omitempty" type:"Repeated"`
 }
 
@@ -764,6 +767,7 @@ func (s *SetDevicePropertiesHeaders) SetXAcsDingtalkAccessToken(v string) *SetDe
 }
 
 type SetDevicePropertiesRequest struct {
+	// This parameter is required.
 	Body map[string]interface{} `json:"body,omitempty" xml:"body,omitempty"`
 }
 
@@ -1125,7 +1129,7 @@ func (client *Client) GetDeviceProperties(productKey *string, deviceName *string
 
 // Summary:
 //
-// 查询设备服务调用记录
+// 查询设备服务调用结果
 //
 // @param headers - GetServiceInvocationHeaders
 //
@@ -1167,7 +1171,7 @@ func (client *Client) GetServiceInvocationWithOptions(invocationId *string, head
 
 // Summary:
 //
-// 查询设备服务调用记录
+// 查询设备服务调用结果
 //
 // @return GetServiceInvocationResponse
 func (client *Client) GetServiceInvocation(invocationId *string) (_result *GetServiceInvocationResponse, _err error) {

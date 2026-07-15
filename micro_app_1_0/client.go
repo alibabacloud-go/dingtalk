@@ -833,6 +833,7 @@ type CreateAgentResponseBody struct {
 	ClientId     *string `json:"clientId,omitempty" xml:"clientId,omitempty"`
 	ClientSecret *string `json:"clientSecret,omitempty" xml:"clientSecret,omitempty"`
 	RobotCode    *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
 }
 
 func (s CreateAgentResponseBody) String() string {
@@ -860,6 +861,11 @@ func (s *CreateAgentResponseBody) SetClientSecret(v string) *CreateAgentResponse
 
 func (s *CreateAgentResponseBody) SetRobotCode(v string) *CreateAgentResponseBody {
 	s.RobotCode = &v
+	return s
+}
+
+func (s *CreateAgentResponseBody) SetUnifiedAppId(v string) *CreateAgentResponseBody {
+	s.UnifiedAppId = &v
 	return s
 }
 
@@ -3330,6 +3336,7 @@ type ListAllInnerAppsResponseBodyAppList struct {
 	// https://www.dingtalk.com
 	PcHomepageLink *string                                       `json:"pcHomepageLink,omitempty" xml:"pcHomepageLink,omitempty"`
 	RobotInfo      *ListAllInnerAppsResponseBodyAppListRobotInfo `json:"robotInfo,omitempty" xml:"robotInfo,omitempty" type:"Struct"`
+	UnifiedAppId   *string                                       `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
 }
 
 func (s ListAllInnerAppsResponseBodyAppList) String() string {
@@ -3397,6 +3404,11 @@ func (s *ListAllInnerAppsResponseBodyAppList) SetPcHomepageLink(v string) *ListA
 
 func (s *ListAllInnerAppsResponseBodyAppList) SetRobotInfo(v *ListAllInnerAppsResponseBodyAppListRobotInfo) *ListAllInnerAppsResponseBodyAppList {
 	s.RobotInfo = v
+	return s
+}
+
+func (s *ListAllInnerAppsResponseBodyAppList) SetUnifiedAppId(v string) *ListAllInnerAppsResponseBodyAppList {
+	s.UnifiedAppId = &v
 	return s
 }
 
@@ -5055,6 +5067,7 @@ type QueryCreateEnterpriseAgentResponseBody struct {
 	RobotCode    *string `json:"robotCode,omitempty" xml:"robotCode,omitempty"`
 	Status       *string `json:"status,omitempty" xml:"status,omitempty"`
 	TaskId       *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UnifiedAppId *string `json:"unifiedAppId,omitempty" xml:"unifiedAppId,omitempty"`
 }
 
 func (s QueryCreateEnterpriseAgentResponseBody) String() string {
@@ -5127,6 +5140,11 @@ func (s *QueryCreateEnterpriseAgentResponseBody) SetStatus(v string) *QueryCreat
 
 func (s *QueryCreateEnterpriseAgentResponseBody) SetTaskId(v string) *QueryCreateEnterpriseAgentResponseBody {
 	s.TaskId = &v
+	return s
+}
+
+func (s *QueryCreateEnterpriseAgentResponseBody) SetUnifiedAppId(v string) *QueryCreateEnterpriseAgentResponseBody {
+	s.UnifiedAppId = &v
 	return s
 }
 

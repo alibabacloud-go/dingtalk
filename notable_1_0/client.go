@@ -286,6 +286,136 @@ func (s *ChangeSwitchResponse) SetBody(v *ChangeSwitchResponseBody) *ChangeSwitc
 	return s
 }
 
+type CopyWorkflowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CopyWorkflowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyWorkflowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CopyWorkflowHeaders) SetCommonHeaders(v map[string]*string) *CopyWorkflowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CopyWorkflowHeaders) SetXAcsDingtalkAccessToken(v string) *CopyWorkflowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CopyWorkflowRequest struct {
+	// This parameter is required.
+	FlowId *string `json:"flowId,omitempty" xml:"flowId,omitempty"`
+	// This parameter is required.
+	FlowVersionId *string `json:"flowVersionId,omitempty" xml:"flowVersionId,omitempty"`
+	IsSystem      *bool   `json:"isSystem,omitempty" xml:"isSystem,omitempty"`
+	// This parameter is required.
+	SourceBaseId *string `json:"sourceBaseId,omitempty" xml:"sourceBaseId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s CopyWorkflowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyWorkflowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CopyWorkflowRequest) SetFlowId(v string) *CopyWorkflowRequest {
+	s.FlowId = &v
+	return s
+}
+
+func (s *CopyWorkflowRequest) SetFlowVersionId(v string) *CopyWorkflowRequest {
+	s.FlowVersionId = &v
+	return s
+}
+
+func (s *CopyWorkflowRequest) SetIsSystem(v bool) *CopyWorkflowRequest {
+	s.IsSystem = &v
+	return s
+}
+
+func (s *CopyWorkflowRequest) SetSourceBaseId(v string) *CopyWorkflowRequest {
+	s.SourceBaseId = &v
+	return s
+}
+
+func (s *CopyWorkflowRequest) SetOperatorId(v string) *CopyWorkflowRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type CopyWorkflowResponseBody struct {
+	FlowId    *string `json:"flowId,omitempty" xml:"flowId,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	VersionId *string `json:"versionId,omitempty" xml:"versionId,omitempty"`
+}
+
+func (s CopyWorkflowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyWorkflowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CopyWorkflowResponseBody) SetFlowId(v string) *CopyWorkflowResponseBody {
+	s.FlowId = &v
+	return s
+}
+
+func (s *CopyWorkflowResponseBody) SetSuccess(v bool) *CopyWorkflowResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *CopyWorkflowResponseBody) SetVersionId(v string) *CopyWorkflowResponseBody {
+	s.VersionId = &v
+	return s
+}
+
+type CopyWorkflowResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CopyWorkflowResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CopyWorkflowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CopyWorkflowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CopyWorkflowResponse) SetHeaders(v map[string]*string) *CopyWorkflowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CopyWorkflowResponse) SetStatusCode(v int32) *CopyWorkflowResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CopyWorkflowResponse) SetBody(v *CopyWorkflowResponseBody) *CopyWorkflowResponse {
+	s.Body = v
+	return s
+}
+
 type CreateFieldHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1247,6 +1377,188 @@ func (s *DeleteSheetResponse) SetBody(v *DeleteSheetResponseBody) *DeleteSheetRe
 	return s
 }
 
+type DeleteWorkflowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteWorkflowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkflowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkflowHeaders) SetCommonHeaders(v map[string]*string) *DeleteWorkflowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteWorkflowHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteWorkflowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteWorkflowRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DeleteWorkflowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkflowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkflowRequest) SetOperatorId(v string) *DeleteWorkflowRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DeleteWorkflowResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DeleteWorkflowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkflowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkflowResponseBody) SetSuccess(v bool) *DeleteWorkflowResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DeleteWorkflowResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteWorkflowResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteWorkflowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteWorkflowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteWorkflowResponse) SetHeaders(v map[string]*string) *DeleteWorkflowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteWorkflowResponse) SetStatusCode(v int32) *DeleteWorkflowResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteWorkflowResponse) SetBody(v *DeleteWorkflowResponseBody) *DeleteWorkflowResponse {
+	s.Body = v
+	return s
+}
+
+type DisableWorkflowHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DisableWorkflowHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DisableWorkflowHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DisableWorkflowHeaders) SetCommonHeaders(v map[string]*string) *DisableWorkflowHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DisableWorkflowHeaders) SetXAcsDingtalkAccessToken(v string) *DisableWorkflowHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DisableWorkflowRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s DisableWorkflowRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DisableWorkflowRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DisableWorkflowRequest) SetOperatorId(v string) *DisableWorkflowRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type DisableWorkflowResponseBody struct {
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s DisableWorkflowResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DisableWorkflowResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DisableWorkflowResponseBody) SetSuccess(v bool) *DisableWorkflowResponseBody {
+	s.Success = &v
+	return s
+}
+
+type DisableWorkflowResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DisableWorkflowResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DisableWorkflowResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DisableWorkflowResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DisableWorkflowResponse) SetHeaders(v map[string]*string) *DisableWorkflowResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DisableWorkflowResponse) SetStatusCode(v int32) *DisableWorkflowResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DisableWorkflowResponse) SetBody(v *DisableWorkflowResponseBody) *DisableWorkflowResponse {
+	s.Body = v
+	return s
+}
+
 type EnableWorkflowHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1403,9 +1715,10 @@ func (s *ExecuteImportRequest) SetOperatorId(v string) *ExecuteImportRequest {
 }
 
 type ExecuteImportRequestAppendConfig struct {
-	FieldMapping map[string]*string `json:"fieldMapping,omitempty" xml:"fieldMapping,omitempty"`
-	HeaderRow    *int32             `json:"headerRow,omitempty" xml:"headerRow,omitempty"`
-	SrcSheetName *string            `json:"srcSheetName,omitempty" xml:"srcSheetName,omitempty"`
+	FieldIdMapping map[string]*string `json:"fieldIdMapping,omitempty" xml:"fieldIdMapping,omitempty"`
+	FieldMapping   map[string]*string `json:"fieldMapping,omitempty" xml:"fieldMapping,omitempty"`
+	HeaderRow      *int32             `json:"headerRow,omitempty" xml:"headerRow,omitempty"`
+	SrcSheetName   *string            `json:"srcSheetName,omitempty" xml:"srcSheetName,omitempty"`
 	// This parameter is required.
 	TableId *string `json:"tableId,omitempty" xml:"tableId,omitempty"`
 }
@@ -1416,6 +1729,11 @@ func (s ExecuteImportRequestAppendConfig) String() string {
 
 func (s ExecuteImportRequestAppendConfig) GoString() string {
 	return s.String()
+}
+
+func (s *ExecuteImportRequestAppendConfig) SetFieldIdMapping(v map[string]*string) *ExecuteImportRequestAppendConfig {
+	s.FieldIdMapping = v
+	return s
 }
 
 func (s *ExecuteImportRequestAppendConfig) SetFieldMapping(v map[string]*string) *ExecuteImportRequestAppendConfig {
@@ -2667,11 +2985,8 @@ func (s *InsertRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *InsertRecor
 
 type InsertRecordsRequest struct {
 	// This parameter is required.
-	Records []*InsertRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
-	// example:
-	//
-	// 550e8400-e29b-41d4-a716-446655440000
-	ClientToken *string `json:"clientToken,omitempty" xml:"clientToken,omitempty"`
+	Records     []*InsertRecordsRequestRecords `json:"records,omitempty" xml:"records,omitempty" type:"Repeated"`
+	ClientToken *string                        `json:"clientToken,omitempty" xml:"clientToken,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -2808,6 +3123,7 @@ func (s *ListRecordsHeaders) SetXAcsDingtalkAccessToken(v string) *ListRecordsHe
 }
 
 type ListRecordsRequest struct {
+	CalcFields     *bool                     `json:"calcFields,omitempty" xml:"calcFields,omitempty"`
 	FieldIdOrNames []*string                 `json:"fieldIdOrNames,omitempty" xml:"fieldIdOrNames,omitempty" type:"Repeated"`
 	Filter         *ListRecordsRequestFilter `json:"filter,omitempty" xml:"filter,omitempty" type:"Struct"`
 	MaxResults     *int32                    `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
@@ -2826,6 +3142,11 @@ func (s ListRecordsRequest) String() string {
 
 func (s ListRecordsRequest) GoString() string {
 	return s.String()
+}
+
+func (s *ListRecordsRequest) SetCalcFields(v bool) *ListRecordsRequest {
+	s.CalcFields = &v
+	return s
 }
 
 func (s *ListRecordsRequest) SetFieldIdOrNames(v []*string) *ListRecordsRequest {
@@ -5374,6 +5695,97 @@ func (client *Client) ChangeSwitch(baseId *string, request *ChangeSwitchRequest)
 
 // Summary:
 //
+// 复制工作流
+//
+// @param request - CopyWorkflowRequest
+//
+// @param headers - CopyWorkflowHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CopyWorkflowResponse
+func (client *Client) CopyWorkflowWithOptions(baseId *string, request *CopyWorkflowRequest, headers *CopyWorkflowHeaders, runtime *util.RuntimeOptions) (_result *CopyWorkflowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FlowId)) {
+		body["flowId"] = request.FlowId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FlowVersionId)) {
+		body["flowVersionId"] = request.FlowVersionId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.IsSystem)) {
+		body["isSystem"] = request.IsSystem
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceBaseId)) {
+		body["sourceBaseId"] = request.SourceBaseId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CopyWorkflow"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/workflows/copy"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CopyWorkflowResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 复制工作流
+//
+// @param request - CopyWorkflowRequest
+//
+// @return CopyWorkflowResponse
+func (client *Client) CopyWorkflow(baseId *string, request *CopyWorkflowRequest) (_result *CopyWorkflowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CopyWorkflowHeaders{}
+	_result = &CopyWorkflowResponse{}
+	_body, _err := client.CopyWorkflowWithOptions(baseId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 新增数据表字段
 //
 // @param request - CreateFieldRequest
@@ -5934,6 +6346,152 @@ func (client *Client) DeleteSheet(baseId *string, sheetIdOrName *string, request
 	headers := &DeleteSheetHeaders{}
 	_result = &DeleteSheetResponse{}
 	_body, _err := client.DeleteSheetWithOptions(baseId, sheetIdOrName, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除工作流
+//
+// @param request - DeleteWorkflowRequest
+//
+// @param headers - DeleteWorkflowHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteWorkflowResponse
+func (client *Client) DeleteWorkflowWithOptions(baseId *string, flowId *string, request *DeleteWorkflowRequest, headers *DeleteWorkflowHeaders, runtime *util.RuntimeOptions) (_result *DeleteWorkflowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteWorkflow"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/workflows/" + tea.StringValue(flowId) + "/delete"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteWorkflowResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除工作流
+//
+// @param request - DeleteWorkflowRequest
+//
+// @return DeleteWorkflowResponse
+func (client *Client) DeleteWorkflow(baseId *string, flowId *string, request *DeleteWorkflowRequest) (_result *DeleteWorkflowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteWorkflowHeaders{}
+	_result = &DeleteWorkflowResponse{}
+	_body, _err := client.DeleteWorkflowWithOptions(baseId, flowId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 关闭工作流
+//
+// @param request - DisableWorkflowRequest
+//
+// @param headers - DisableWorkflowHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DisableWorkflowResponse
+func (client *Client) DisableWorkflowWithOptions(baseId *string, flowId *string, request *DisableWorkflowRequest, headers *DisableWorkflowHeaders, runtime *util.RuntimeOptions) (_result *DisableWorkflowResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DisableWorkflow"),
+		Version:     tea.String("notable_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/notable/bases/" + tea.StringValue(baseId) + "/workflows/" + tea.StringValue(flowId) + "/disable"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DisableWorkflowResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 关闭工作流
+//
+// @param request - DisableWorkflowRequest
+//
+// @return DisableWorkflowResponse
+func (client *Client) DisableWorkflow(baseId *string, flowId *string, request *DisableWorkflowRequest) (_result *DisableWorkflowResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DisableWorkflowHeaders{}
+	_result = &DisableWorkflowResponse{}
+	_body, _err := client.DisableWorkflowWithOptions(baseId, flowId, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -6806,6 +7364,10 @@ func (client *Client) ListRecordsWithOptions(baseId *string, sheetIdOrName *stri
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CalcFields)) {
+		body["calcFields"] = request.CalcFields
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.FieldIdOrNames)) {
 		body["fieldIdOrNames"] = request.FieldIdOrNames
 	}

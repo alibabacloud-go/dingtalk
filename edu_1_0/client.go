@@ -6985,6 +6985,381 @@ func (s *CardQueryCardFeedsResponse) SetBody(v *CardQueryCardFeedsResponseBody) 
 	return s
 }
 
+type CardSubmitCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CardSubmitCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardSubmitCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CardSubmitCardHeaders) SetCommonHeaders(v map[string]*string) *CardSubmitCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CardSubmitCardHeaders) SetXAcsDingtalkAccessToken(v string) *CardSubmitCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CardSubmitCardRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// industry_center
+	CardBizCode *string `json:"cardBizCode,omitempty" xml:"cardBizCode,omitempty"`
+	// This parameter is required.
+	CardBizId *string `json:"cardBizId,omitempty" xml:"cardBizId,omitempty"`
+	// This parameter is required.
+	CardId       *string `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	CardTaskCode *string `json:"cardTaskCode,omitempty" xml:"cardTaskCode,omitempty"`
+	// This parameter is required.
+	CardTaskId *string `json:"cardTaskId,omitempty" xml:"cardTaskId,omitempty"`
+	Content    *string `json:"content,omitempty" xml:"content,omitempty"`
+	DetailUrl  *string `json:"detailUrl,omitempty" xml:"detailUrl,omitempty"`
+	EditUrl    *string `json:"editUrl,omitempty" xml:"editUrl,omitempty"`
+	// This parameter is required.
+	Medias           *string  `json:"medias,omitempty" xml:"medias,omitempty"`
+	MeteringNumber   *float64 `json:"meteringNumber,omitempty" xml:"meteringNumber,omitempty"`
+	ReissueCard      *bool    `json:"reissueCard,omitempty" xml:"reissueCard,omitempty"`
+	ResultEvaluation *string  `json:"resultEvaluation,omitempty" xml:"resultEvaluation,omitempty"`
+	// This parameter is required.
+	SourceType         *string `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
+	SpecifiedStudentId *string `json:"specifiedStudentId,omitempty" xml:"specifiedStudentId,omitempty"`
+	UnitOfMeasurement  *string `json:"unitOfMeasurement,omitempty" xml:"unitOfMeasurement,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CardSubmitCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardSubmitCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CardSubmitCardRequest) SetCardBizCode(v string) *CardSubmitCardRequest {
+	s.CardBizCode = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetCardBizId(v string) *CardSubmitCardRequest {
+	s.CardBizId = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetCardId(v string) *CardSubmitCardRequest {
+	s.CardId = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetCardTaskCode(v string) *CardSubmitCardRequest {
+	s.CardTaskCode = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetCardTaskId(v string) *CardSubmitCardRequest {
+	s.CardTaskId = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetContent(v string) *CardSubmitCardRequest {
+	s.Content = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetDetailUrl(v string) *CardSubmitCardRequest {
+	s.DetailUrl = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetEditUrl(v string) *CardSubmitCardRequest {
+	s.EditUrl = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetMedias(v string) *CardSubmitCardRequest {
+	s.Medias = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetMeteringNumber(v float64) *CardSubmitCardRequest {
+	s.MeteringNumber = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetReissueCard(v bool) *CardSubmitCardRequest {
+	s.ReissueCard = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetResultEvaluation(v string) *CardSubmitCardRequest {
+	s.ResultEvaluation = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetSourceType(v string) *CardSubmitCardRequest {
+	s.SourceType = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetSpecifiedStudentId(v string) *CardSubmitCardRequest {
+	s.SpecifiedStudentId = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetUnitOfMeasurement(v string) *CardSubmitCardRequest {
+	s.UnitOfMeasurement = &v
+	return s
+}
+
+func (s *CardSubmitCardRequest) SetUserId(v string) *CardSubmitCardRequest {
+	s.UserId = &v
+	return s
+}
+
+type CardSubmitCardResponseBody struct {
+	Result  *CardSubmitCardResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                             `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CardSubmitCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardSubmitCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CardSubmitCardResponseBody) SetResult(v *CardSubmitCardResponseBodyResult) *CardSubmitCardResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CardSubmitCardResponseBody) SetSuccess(v bool) *CardSubmitCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CardSubmitCardResponseBodyResult struct {
+	Id *int64 `json:"id,omitempty" xml:"id,omitempty"`
+}
+
+func (s CardSubmitCardResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardSubmitCardResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CardSubmitCardResponseBodyResult) SetId(v int64) *CardSubmitCardResponseBodyResult {
+	s.Id = &v
+	return s
+}
+
+type CardSubmitCardResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CardSubmitCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CardSubmitCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardSubmitCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CardSubmitCardResponse) SetHeaders(v map[string]*string) *CardSubmitCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CardSubmitCardResponse) SetStatusCode(v int32) *CardSubmitCardResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CardSubmitCardResponse) SetBody(v *CardSubmitCardResponseBody) *CardSubmitCardResponse {
+	s.Body = v
+	return s
+}
+
+type CardUpdateCardHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CardUpdateCardHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardUpdateCardHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CardUpdateCardHeaders) SetCommonHeaders(v map[string]*string) *CardUpdateCardHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CardUpdateCardHeaders) SetXAcsDingtalkAccessToken(v string) *CardUpdateCardHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CardUpdateCardRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// industry_centry
+	CardBizCode *string `json:"cardBizCode,omitempty" xml:"cardBizCode,omitempty"`
+	// This parameter is required.
+	CardId *int64                     `json:"cardId,omitempty" xml:"cardId,omitempty"`
+	Data   *CardUpdateCardRequestData `json:"data,omitempty" xml:"data,omitempty" type:"Struct"`
+	// This parameter is required.
+	Identifier *string `json:"identifier,omitempty" xml:"identifier,omitempty"`
+	// This parameter is required.
+	ShouldSendUpdateMsg *bool `json:"shouldSendUpdateMsg,omitempty" xml:"shouldSendUpdateMsg,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// QUPEIYIN
+	SourceType *string `json:"sourceType,omitempty" xml:"sourceType,omitempty"`
+	// This parameter is required.
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CardUpdateCardRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardUpdateCardRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CardUpdateCardRequest) SetCardBizCode(v string) *CardUpdateCardRequest {
+	s.CardBizCode = &v
+	return s
+}
+
+func (s *CardUpdateCardRequest) SetCardId(v int64) *CardUpdateCardRequest {
+	s.CardId = &v
+	return s
+}
+
+func (s *CardUpdateCardRequest) SetData(v *CardUpdateCardRequestData) *CardUpdateCardRequest {
+	s.Data = v
+	return s
+}
+
+func (s *CardUpdateCardRequest) SetIdentifier(v string) *CardUpdateCardRequest {
+	s.Identifier = &v
+	return s
+}
+
+func (s *CardUpdateCardRequest) SetShouldSendUpdateMsg(v bool) *CardUpdateCardRequest {
+	s.ShouldSendUpdateMsg = &v
+	return s
+}
+
+func (s *CardUpdateCardRequest) SetSourceType(v string) *CardUpdateCardRequest {
+	s.SourceType = &v
+	return s
+}
+
+func (s *CardUpdateCardRequest) SetUserId(v string) *CardUpdateCardRequest {
+	s.UserId = &v
+	return s
+}
+
+type CardUpdateCardRequestData struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+	Title   *string `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s CardUpdateCardRequestData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardUpdateCardRequestData) GoString() string {
+	return s.String()
+}
+
+func (s *CardUpdateCardRequestData) SetContent(v string) *CardUpdateCardRequestData {
+	s.Content = &v
+	return s
+}
+
+func (s *CardUpdateCardRequestData) SetTitle(v string) *CardUpdateCardRequestData {
+	s.Title = &v
+	return s
+}
+
+type CardUpdateCardResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CardUpdateCardResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardUpdateCardResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CardUpdateCardResponseBody) SetResult(v bool) *CardUpdateCardResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *CardUpdateCardResponseBody) SetSuccess(v bool) *CardUpdateCardResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CardUpdateCardResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CardUpdateCardResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CardUpdateCardResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CardUpdateCardResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CardUpdateCardResponse) SetHeaders(v map[string]*string) *CardUpdateCardResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CardUpdateCardResponse) SetStatusCode(v int32) *CardUpdateCardResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CardUpdateCardResponse) SetBody(v *CardUpdateCardResponseBody) *CardUpdateCardResponse {
+	s.Body = v
+	return s
+}
+
 type CheckRestrictionHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -45169,6 +45544,236 @@ func (client *Client) CardQueryCardFeeds(request *CardQueryCardFeedsRequest) (_r
 	headers := &CardQueryCardFeedsHeaders{}
 	_result = &CardQueryCardFeedsResponse{}
 	_body, _err := client.CardQueryCardFeedsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 教育业务打卡任务提交
+//
+// @param request - CardSubmitCardRequest
+//
+// @param headers - CardSubmitCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CardSubmitCardResponse
+func (client *Client) CardSubmitCardWithOptions(request *CardSubmitCardRequest, headers *CardSubmitCardHeaders, runtime *util.RuntimeOptions) (_result *CardSubmitCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CardBizCode)) {
+		body["cardBizCode"] = request.CardBizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardBizId)) {
+		body["cardBizId"] = request.CardBizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardId)) {
+		body["cardId"] = request.CardId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTaskCode)) {
+		body["cardTaskCode"] = request.CardTaskCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardTaskId)) {
+		body["cardTaskId"] = request.CardTaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Content)) {
+		body["content"] = request.Content
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DetailUrl)) {
+		body["detailUrl"] = request.DetailUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EditUrl)) {
+		body["editUrl"] = request.EditUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Medias)) {
+		body["medias"] = request.Medias
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MeteringNumber)) {
+		body["meteringNumber"] = request.MeteringNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ReissueCard)) {
+		body["reissueCard"] = request.ReissueCard
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ResultEvaluation)) {
+		body["resultEvaluation"] = request.ResultEvaluation
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceType)) {
+		body["sourceType"] = request.SourceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpecifiedStudentId)) {
+		body["specifiedStudentId"] = request.SpecifiedStudentId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnitOfMeasurement)) {
+		body["unitOfMeasurement"] = request.UnitOfMeasurement
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CardSubmitCard"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/cards/user/task/submit"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CardSubmitCardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 教育业务打卡任务提交
+//
+// @param request - CardSubmitCardRequest
+//
+// @return CardSubmitCardResponse
+func (client *Client) CardSubmitCard(request *CardSubmitCardRequest) (_result *CardSubmitCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CardSubmitCardHeaders{}
+	_result = &CardSubmitCardResponse{}
+	_body, _err := client.CardSubmitCardWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 教育业务打卡任务更新
+//
+// @param request - CardUpdateCardRequest
+//
+// @param headers - CardUpdateCardHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CardUpdateCardResponse
+func (client *Client) CardUpdateCardWithOptions(request *CardUpdateCardRequest, headers *CardUpdateCardHeaders, runtime *util.RuntimeOptions) (_result *CardUpdateCardResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CardBizCode)) {
+		body["cardBizCode"] = request.CardBizCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CardId)) {
+		body["cardId"] = request.CardId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Data)) {
+		body["data"] = request.Data
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Identifier)) {
+		body["identifier"] = request.Identifier
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShouldSendUpdateMsg)) {
+		body["shouldSendUpdateMsg"] = request.ShouldSendUpdateMsg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SourceType)) {
+		body["sourceType"] = request.SourceType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CardUpdateCard"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/cards/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CardUpdateCardResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 教育业务打卡任务更新
+//
+// @param request - CardUpdateCardRequest
+//
+// @return CardUpdateCardResponse
+func (client *Client) CardUpdateCard(request *CardUpdateCardRequest) (_result *CardUpdateCardResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CardUpdateCardHeaders{}
+	_result = &CardUpdateCardResponse{}
+	_body, _err := client.CardUpdateCardWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

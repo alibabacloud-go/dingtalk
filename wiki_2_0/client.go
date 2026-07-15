@@ -1275,6 +1275,10 @@ type GetNodeResponseBodyNode struct {
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// example:
 	//
+	// node_create_timestamp
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// example:
+	//
 	// node_creator_id
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// example:
@@ -1289,6 +1293,10 @@ type GetNodeResponseBodyNode struct {
 	//
 	// node_modified_time
 	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// node_modified_timestamp
+	ModifiedTimestamp *int64 `json:"modifiedTimestamp,omitempty" xml:"modifiedTimestamp,omitempty"`
 	// example:
 	//
 	// node_modifier_id
@@ -1342,6 +1350,11 @@ func (s *GetNodeResponseBodyNode) SetCreateTime(v string) *GetNodeResponseBodyNo
 	return s
 }
 
+func (s *GetNodeResponseBodyNode) SetCreateTimestamp(v int64) *GetNodeResponseBodyNode {
+	s.CreateTimestamp = &v
+	return s
+}
+
 func (s *GetNodeResponseBodyNode) SetCreatorId(v string) *GetNodeResponseBodyNode {
 	s.CreatorId = &v
 	return s
@@ -1359,6 +1372,11 @@ func (s *GetNodeResponseBodyNode) SetHasChildren(v bool) *GetNodeResponseBodyNod
 
 func (s *GetNodeResponseBodyNode) SetModifiedTime(v string) *GetNodeResponseBodyNode {
 	s.ModifiedTime = &v
+	return s
+}
+
+func (s *GetNodeResponseBodyNode) SetModifiedTimestamp(v int64) *GetNodeResponseBodyNode {
+	s.ModifiedTimestamp = &v
 	return s
 }
 
@@ -1575,6 +1593,10 @@ type GetNodeByUrlResponseBodyNode struct {
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// example:
 	//
+	// node_create_timestamp
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// example:
+	//
 	// node_creator_id
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// example:
@@ -1589,6 +1611,10 @@ type GetNodeByUrlResponseBodyNode struct {
 	//
 	// node_modified_time
 	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// node_modified_timestamp
+	ModifiedTimestamp *int64 `json:"modifiedTimestamp,omitempty" xml:"modifiedTimestamp,omitempty"`
 	// example:
 	//
 	// node_modifier_id
@@ -1642,6 +1668,11 @@ func (s *GetNodeByUrlResponseBodyNode) SetCreateTime(v string) *GetNodeByUrlResp
 	return s
 }
 
+func (s *GetNodeByUrlResponseBodyNode) SetCreateTimestamp(v int64) *GetNodeByUrlResponseBodyNode {
+	s.CreateTimestamp = &v
+	return s
+}
+
 func (s *GetNodeByUrlResponseBodyNode) SetCreatorId(v string) *GetNodeByUrlResponseBodyNode {
 	s.CreatorId = &v
 	return s
@@ -1659,6 +1690,11 @@ func (s *GetNodeByUrlResponseBodyNode) SetHasChildren(v bool) *GetNodeByUrlRespo
 
 func (s *GetNodeByUrlResponseBodyNode) SetModifiedTime(v string) *GetNodeByUrlResponseBodyNode {
 	s.ModifiedTime = &v
+	return s
+}
+
+func (s *GetNodeByUrlResponseBodyNode) SetModifiedTimestamp(v int64) *GetNodeByUrlResponseBodyNode {
+	s.ModifiedTimestamp = &v
 	return s
 }
 
@@ -1871,6 +1907,10 @@ type GetNodesResponseBodyNodes struct {
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// example:
 	//
+	// node_create_timestamp
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// example:
+	//
 	// node_creator_id
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// example:
@@ -1885,6 +1925,10 @@ type GetNodesResponseBodyNodes struct {
 	//
 	// node_modified_time
 	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// node_modified_timestamp
+	ModifiedTimestamp *int64 `json:"modifiedTimestamp,omitempty" xml:"modifiedTimestamp,omitempty"`
 	// example:
 	//
 	// node_modifier_id
@@ -1938,6 +1982,11 @@ func (s *GetNodesResponseBodyNodes) SetCreateTime(v string) *GetNodesResponseBod
 	return s
 }
 
+func (s *GetNodesResponseBodyNodes) SetCreateTimestamp(v int64) *GetNodesResponseBodyNodes {
+	s.CreateTimestamp = &v
+	return s
+}
+
 func (s *GetNodesResponseBodyNodes) SetCreatorId(v string) *GetNodesResponseBodyNodes {
 	s.CreatorId = &v
 	return s
@@ -1955,6 +2004,11 @@ func (s *GetNodesResponseBodyNodes) SetHasChildren(v bool) *GetNodesResponseBody
 
 func (s *GetNodesResponseBodyNodes) SetModifiedTime(v string) *GetNodesResponseBodyNodes {
 	s.ModifiedTime = &v
+	return s
+}
+
+func (s *GetNodesResponseBodyNodes) SetModifiedTimestamp(v int64) *GetNodesResponseBodyNodes {
+	s.ModifiedTimestamp = &v
 	return s
 }
 
@@ -3085,6 +3139,10 @@ type ListNodesResponseBodyNodes struct {
 	CreateTime *string `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	// example:
 	//
+	// node_create_timestamp
+	CreateTimestamp *int64 `json:"createTimestamp,omitempty" xml:"createTimestamp,omitempty"`
+	// example:
+	//
 	// node_creator_id
 	CreatorId *string `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
 	// example:
@@ -3099,6 +3157,10 @@ type ListNodesResponseBodyNodes struct {
 	//
 	// node_modified_time
 	ModifiedTime *string `json:"modifiedTime,omitempty" xml:"modifiedTime,omitempty"`
+	// example:
+	//
+	// node_modified_timestamp
+	ModifiedTimestamp *int64 `json:"modifiedTimestamp,omitempty" xml:"modifiedTimestamp,omitempty"`
 	// example:
 	//
 	// node_modifier_id
@@ -3152,6 +3214,11 @@ func (s *ListNodesResponseBodyNodes) SetCreateTime(v string) *ListNodesResponseB
 	return s
 }
 
+func (s *ListNodesResponseBodyNodes) SetCreateTimestamp(v int64) *ListNodesResponseBodyNodes {
+	s.CreateTimestamp = &v
+	return s
+}
+
 func (s *ListNodesResponseBodyNodes) SetCreatorId(v string) *ListNodesResponseBodyNodes {
 	s.CreatorId = &v
 	return s
@@ -3169,6 +3236,11 @@ func (s *ListNodesResponseBodyNodes) SetHasChildren(v bool) *ListNodesResponseBo
 
 func (s *ListNodesResponseBodyNodes) SetModifiedTime(v string) *ListNodesResponseBodyNodes {
 	s.ModifiedTime = &v
+	return s
+}
+
+func (s *ListNodesResponseBodyNodes) SetModifiedTimestamp(v int64) *ListNodesResponseBodyNodes {
+	s.ModifiedTimestamp = &v
 	return s
 }
 
