@@ -323,6 +323,31 @@ func (s *GetDeviceDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetDevice
 	return s
 }
 
+type GetDeviceDetailRequest struct {
+	// This parameter is required.
+	DeviceName *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	// This parameter is required.
+	ProductKey *string `json:"productKey,omitempty" xml:"productKey,omitempty"`
+}
+
+func (s GetDeviceDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetDeviceDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetDeviceDetailRequest) SetDeviceName(v string) *GetDeviceDetailRequest {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *GetDeviceDetailRequest) SetProductKey(v string) *GetDeviceDetailRequest {
+	s.ProductKey = &v
+	return s
+}
+
 type GetDeviceDetailResponseBody struct {
 	ActivatedAt     *string `json:"activatedAt,omitempty" xml:"activatedAt,omitempty"`
 	Connectivity    *string `json:"connectivity,omitempty" xml:"connectivity,omitempty"`
@@ -518,6 +543,24 @@ func (s *GetServiceInvocationHeaders) SetCommonHeaders(v map[string]*string) *Ge
 
 func (s *GetServiceInvocationHeaders) SetXAcsDingtalkAccessToken(v string) *GetServiceInvocationHeaders {
 	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetServiceInvocationRequest struct {
+	// This parameter is required.
+	InvocationId *string `json:"invocationId,omitempty" xml:"invocationId,omitempty"`
+}
+
+func (s GetServiceInvocationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetServiceInvocationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetServiceInvocationRequest) SetInvocationId(v string) *GetServiceInvocationRequest {
+	s.InvocationId = &v
 	return s
 }
 
@@ -1004,12 +1047,27 @@ func (client *Client) ConfirmFirmwareUpgrade(productKey *string, deviceName *str
 //
 // 查询指定设备的详情
 //
+// @param request - GetDeviceDetailRequest
+//
 // @param headers - GetDeviceDetailHeaders
 //
 // @param runtime - runtime options for this request RuntimeOptions
 //
 // @return GetDeviceDetailResponse
-func (client *Client) GetDeviceDetailWithOptions(productKey *string, deviceName *string, headers *GetDeviceDetailHeaders, runtime *util.RuntimeOptions) (_result *GetDeviceDetailResponse, _err error) {
+func (client *Client) GetDeviceDetailWithOptions(request *GetDeviceDetailRequest, headers *GetDeviceDetailHeaders, runtime *util.RuntimeOptions) (_result *GetDeviceDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeviceName)) {
+		query["deviceName"] = request.DeviceName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProductKey)) {
+		query["productKey"] = request.ProductKey
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1021,12 +1079,13 @@ func (client *Client) GetDeviceDetailWithOptions(productKey *string, deviceName 
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("GetDeviceDetail"),
 		Version:     tea.String("aiot_1.0"),
 		Protocol:    tea.String("HTTP"),
-		Pathname:    tea.String("/v1.0/aiot/products/" + tea.StringValue(productKey) + "/devices/" + tea.StringValue(deviceName)),
+		Pathname:    tea.String("/v1.0/aiot/products/deviceDetail"),
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
@@ -1046,12 +1105,14 @@ func (client *Client) GetDeviceDetailWithOptions(productKey *string, deviceName 
 //
 // 查询指定设备的详情
 //
+// @param request - GetDeviceDetailRequest
+//
 // @return GetDeviceDetailResponse
-func (client *Client) GetDeviceDetail(productKey *string, deviceName *string) (_result *GetDeviceDetailResponse, _err error) {
+func (client *Client) GetDeviceDetail(request *GetDeviceDetailRequest) (_result *GetDeviceDetailResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetDeviceDetailHeaders{}
 	_result = &GetDeviceDetailResponse{}
-	_body, _err := client.GetDeviceDetailWithOptions(productKey, deviceName, headers, runtime)
+	_body, _err := client.GetDeviceDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1131,12 +1192,23 @@ func (client *Client) GetDeviceProperties(productKey *string, deviceName *string
 //
 // 查询设备服务调用结果
 //
+// @param request - GetServiceInvocationRequest
+//
 // @param headers - GetServiceInvocationHeaders
 //
 // @param runtime - runtime options for this request RuntimeOptions
 //
 // @return GetServiceInvocationResponse
-func (client *Client) GetServiceInvocationWithOptions(invocationId *string, headers *GetServiceInvocationHeaders, runtime *util.RuntimeOptions) (_result *GetServiceInvocationResponse, _err error) {
+func (client *Client) GetServiceInvocationWithOptions(request *GetServiceInvocationRequest, headers *GetServiceInvocationHeaders, runtime *util.RuntimeOptions) (_result *GetServiceInvocationResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.InvocationId)) {
+		query["invocationId"] = request.InvocationId
+	}
+
 	realHeaders := make(map[string]*string)
 	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
 		realHeaders = headers.CommonHeaders
@@ -1148,12 +1220,13 @@ func (client *Client) GetServiceInvocationWithOptions(invocationId *string, head
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("GetServiceInvocation"),
 		Version:     tea.String("aiot_1.0"),
 		Protocol:    tea.String("HTTP"),
-		Pathname:    tea.String("/v1.0/aiot/serviceInvocations/" + tea.StringValue(invocationId)),
+		Pathname:    tea.String("/v1.0/aiot/serviceInvocations"),
 		Method:      tea.String("GET"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
@@ -1173,12 +1246,14 @@ func (client *Client) GetServiceInvocationWithOptions(invocationId *string, head
 //
 // 查询设备服务调用结果
 //
+// @param request - GetServiceInvocationRequest
+//
 // @return GetServiceInvocationResponse
-func (client *Client) GetServiceInvocation(invocationId *string) (_result *GetServiceInvocationResponse, _err error) {
+func (client *Client) GetServiceInvocation(request *GetServiceInvocationRequest) (_result *GetServiceInvocationResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
 	headers := &GetServiceInvocationHeaders{}
 	_result = &GetServiceInvocationResponse{}
-	_body, _err := client.GetServiceInvocationWithOptions(invocationId, headers, runtime)
+	_body, _err := client.GetServiceInvocationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

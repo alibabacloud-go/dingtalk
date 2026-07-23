@@ -1151,6 +1151,7 @@ type GetAudioFileInfoResponseBodyResult struct {
 	FileId        *string                `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	FileName      *string                `json:"fileName,omitempty" xml:"fileName,omitempty"`
 	FileSize      *int64                 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	Sn            *string                `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s GetAudioFileInfoResponseBodyResult) String() string {
@@ -1193,6 +1194,11 @@ func (s *GetAudioFileInfoResponseBodyResult) SetFileName(v string) *GetAudioFile
 
 func (s *GetAudioFileInfoResponseBodyResult) SetFileSize(v int64) *GetAudioFileInfoResponseBodyResult {
 	s.FileSize = &v
+	return s
+}
+
+func (s *GetAudioFileInfoResponseBodyResult) SetSn(v string) *GetAudioFileInfoResponseBodyResult {
+	s.Sn = &v
 	return s
 }
 
@@ -3753,9 +3759,10 @@ func (s *ListDeviceRecordingDurationResponseBody) SetTotalCount(v int32) *ListDe
 }
 
 type ListDeviceRecordingDurationResponseBodyResult struct {
-	Duration       *string `json:"duration,omitempty" xml:"duration,omitempty"`
+	Duration       *int64  `json:"duration,omitempty" xml:"duration,omitempty"`
 	EndTimestamp   *int64  `json:"endTimestamp,omitempty" xml:"endTimestamp,omitempty"`
 	RecordId       *string `json:"recordId,omitempty" xml:"recordId,omitempty"`
+	Sn             *string `json:"sn,omitempty" xml:"sn,omitempty"`
 	StartTimestamp *int64  `json:"startTimestamp,omitempty" xml:"startTimestamp,omitempty"`
 }
 
@@ -3767,7 +3774,7 @@ func (s ListDeviceRecordingDurationResponseBodyResult) GoString() string {
 	return s.String()
 }
 
-func (s *ListDeviceRecordingDurationResponseBodyResult) SetDuration(v string) *ListDeviceRecordingDurationResponseBodyResult {
+func (s *ListDeviceRecordingDurationResponseBodyResult) SetDuration(v int64) *ListDeviceRecordingDurationResponseBodyResult {
 	s.Duration = &v
 	return s
 }
@@ -3779,6 +3786,11 @@ func (s *ListDeviceRecordingDurationResponseBodyResult) SetEndTimestamp(v int64)
 
 func (s *ListDeviceRecordingDurationResponseBodyResult) SetRecordId(v string) *ListDeviceRecordingDurationResponseBodyResult {
 	s.RecordId = &v
+	return s
+}
+
+func (s *ListDeviceRecordingDurationResponseBodyResult) SetSn(v string) *ListDeviceRecordingDurationResponseBodyResult {
+	s.Sn = &v
 	return s
 }
 
@@ -5009,6 +5021,7 @@ type QueryAudioFileResponseBodyResult struct {
 	FileId        *string                `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	FileName      *string                `json:"fileName,omitempty" xml:"fileName,omitempty"`
 	FileSize      *int64                 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	Sn            *string                `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s QueryAudioFileResponseBodyResult) String() string {
@@ -5051,6 +5064,11 @@ func (s *QueryAudioFileResponseBodyResult) SetFileName(v string) *QueryAudioFile
 
 func (s *QueryAudioFileResponseBodyResult) SetFileSize(v int64) *QueryAudioFileResponseBodyResult {
 	s.FileSize = &v
+	return s
+}
+
+func (s *QueryAudioFileResponseBodyResult) SetSn(v string) *QueryAudioFileResponseBodyResult {
+	s.Sn = &v
 	return s
 }
 
@@ -5513,6 +5531,7 @@ type QueryFileInfoByMinutesIdResponseBodyResult struct {
 	FileId        *string                `json:"fileId,omitempty" xml:"fileId,omitempty"`
 	FileName      *string                `json:"fileName,omitempty" xml:"fileName,omitempty"`
 	FileSize      *int64                 `json:"fileSize,omitempty" xml:"fileSize,omitempty"`
+	Sn            *string                `json:"sn,omitempty" xml:"sn,omitempty"`
 }
 
 func (s QueryFileInfoByMinutesIdResponseBodyResult) String() string {
@@ -5555,6 +5574,11 @@ func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetFileName(v string) *Quer
 
 func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetFileSize(v int64) *QueryFileInfoByMinutesIdResponseBodyResult {
 	s.FileSize = &v
+	return s
+}
+
+func (s *QueryFileInfoByMinutesIdResponseBodyResult) SetSn(v string) *QueryFileInfoByMinutesIdResponseBodyResult {
+	s.Sn = &v
 	return s
 }
 
@@ -6679,6 +6703,160 @@ func (s *UpdateRecordingScheduleResponse) SetStatusCode(v int32) *UpdateRecordin
 }
 
 func (s *UpdateRecordingScheduleResponse) SetBody(v *UpdateRecordingScheduleResponseBody) *UpdateRecordingScheduleResponse {
+	s.Body = v
+	return s
+}
+
+type UpdateServiceRecordRestrictHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateServiceRecordRestrictHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateServiceRecordRestrictHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateServiceRecordRestrictHeaders) SetCommonHeaders(v map[string]*string) *UpdateServiceRecordRestrictHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateServiceRecordRestrictHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateServiceRecordRestrictHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateServiceRecordRestrictRequest struct {
+	// This parameter is required.
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	RecordIds []*string `json:"recordIds,omitempty" xml:"recordIds,omitempty" type:"Repeated"`
+}
+
+func (s UpdateServiceRecordRestrictRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateServiceRecordRestrictRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateServiceRecordRestrictRequest) SetAction(v string) *UpdateServiceRecordRestrictRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *UpdateServiceRecordRestrictRequest) SetRecordIds(v []*string) *UpdateServiceRecordRestrictRequest {
+	s.RecordIds = v
+	return s
+}
+
+type UpdateServiceRecordRestrictShrinkRequest struct {
+	// This parameter is required.
+	Action *string `json:"action,omitempty" xml:"action,omitempty"`
+	// This parameter is required.
+	RecordIdsShrink *string `json:"recordIds,omitempty" xml:"recordIds,omitempty"`
+}
+
+func (s UpdateServiceRecordRestrictShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateServiceRecordRestrictShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateServiceRecordRestrictShrinkRequest) SetAction(v string) *UpdateServiceRecordRestrictShrinkRequest {
+	s.Action = &v
+	return s
+}
+
+func (s *UpdateServiceRecordRestrictShrinkRequest) SetRecordIdsShrink(v string) *UpdateServiceRecordRestrictShrinkRequest {
+	s.RecordIdsShrink = &v
+	return s
+}
+
+type UpdateServiceRecordRestrictResponseBody struct {
+	Result *UpdateServiceRecordRestrictResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s UpdateServiceRecordRestrictResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateServiceRecordRestrictResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateServiceRecordRestrictResponseBody) SetResult(v *UpdateServiceRecordRestrictResponseBodyResult) *UpdateServiceRecordRestrictResponseBody {
+	s.Result = v
+	return s
+}
+
+type UpdateServiceRecordRestrictResponseBodyResult struct {
+	FailCount       *int32    `json:"failCount,omitempty" xml:"failCount,omitempty"`
+	FailedRecordIds []*string `json:"failedRecordIds,omitempty" xml:"failedRecordIds,omitempty" type:"Repeated"`
+	SuccessCount    *int32    `json:"successCount,omitempty" xml:"successCount,omitempty"`
+	Total           *int32    `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s UpdateServiceRecordRestrictResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateServiceRecordRestrictResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateServiceRecordRestrictResponseBodyResult) SetFailCount(v int32) *UpdateServiceRecordRestrictResponseBodyResult {
+	s.FailCount = &v
+	return s
+}
+
+func (s *UpdateServiceRecordRestrictResponseBodyResult) SetFailedRecordIds(v []*string) *UpdateServiceRecordRestrictResponseBodyResult {
+	s.FailedRecordIds = v
+	return s
+}
+
+func (s *UpdateServiceRecordRestrictResponseBodyResult) SetSuccessCount(v int32) *UpdateServiceRecordRestrictResponseBodyResult {
+	s.SuccessCount = &v
+	return s
+}
+
+func (s *UpdateServiceRecordRestrictResponseBodyResult) SetTotal(v int32) *UpdateServiceRecordRestrictResponseBodyResult {
+	s.Total = &v
+	return s
+}
+
+type UpdateServiceRecordRestrictResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateServiceRecordRestrictResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateServiceRecordRestrictResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateServiceRecordRestrictResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateServiceRecordRestrictResponse) SetHeaders(v map[string]*string) *UpdateServiceRecordRestrictResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateServiceRecordRestrictResponse) SetStatusCode(v int32) *UpdateServiceRecordRestrictResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateServiceRecordRestrictResponse) SetBody(v *UpdateServiceRecordRestrictResponseBody) *UpdateServiceRecordRestrictResponse {
 	s.Body = v
 	return s
 }
@@ -10195,6 +10373,89 @@ func (client *Client) UpdateRecordingSchedule(request *UpdateRecordingScheduleRe
 	headers := &UpdateRecordingScheduleHeaders{}
 	_result = &UpdateRecordingScheduleResponse{}
 	_body, _err := client.UpdateRecordingScheduleWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量更新服务记录约束规则
+//
+// @param tmpReq - UpdateServiceRecordRestrictRequest
+//
+// @param headers - UpdateServiceRecordRestrictHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateServiceRecordRestrictResponse
+func (client *Client) UpdateServiceRecordRestrictWithOptions(tmpReq *UpdateServiceRecordRestrictRequest, headers *UpdateServiceRecordRestrictHeaders, runtime *util.RuntimeOptions) (_result *UpdateServiceRecordRestrictResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &UpdateServiceRecordRestrictShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.RecordIds)) {
+		request.RecordIdsShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.RecordIds, tea.String("recordIds"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Action)) {
+		query["action"] = request.Action
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecordIdsShrink)) {
+		query["recordIds"] = request.RecordIdsShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateServiceRecordRestrict"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service/batch-update-restrict"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateServiceRecordRestrictResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量更新服务记录约束规则
+//
+// @param request - UpdateServiceRecordRestrictRequest
+//
+// @return UpdateServiceRecordRestrictResponse
+func (client *Client) UpdateServiceRecordRestrict(request *UpdateServiceRecordRestrictRequest) (_result *UpdateServiceRecordRestrictResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateServiceRecordRestrictHeaders{}
+	_result = &UpdateServiceRecordRestrictResponse{}
+	_body, _err := client.UpdateServiceRecordRestrictWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

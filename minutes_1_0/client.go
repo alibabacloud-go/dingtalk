@@ -2961,14 +2961,15 @@ func (s *QueryMinutesTodoResponseBody) SetDingtalkTodoList(v []*QueryMinutesTodo
 }
 
 type QueryMinutesTodoResponseBodyDingtalkTodoList struct {
-	CreatedTime    *int64                                                      `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
-	CreatorUnionId *string                                                     `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
-	Deadline       *string                                                     `json:"deadline,omitempty" xml:"deadline,omitempty"`
-	DingtalkTodoId *string                                                     `json:"dingtalkTodoId,omitempty" xml:"dingtalkTodoId,omitempty"`
-	ExecutorList   []*QueryMinutesTodoResponseBodyDingtalkTodoListExecutorList `json:"executorList,omitempty" xml:"executorList,omitempty" type:"Repeated"`
-	IsDone         *bool                                                       `json:"isDone,omitempty" xml:"isDone,omitempty"`
-	MinutesTodoId  *string                                                     `json:"minutesTodoId,omitempty" xml:"minutesTodoId,omitempty"`
-	Title          *string                                                     `json:"title,omitempty" xml:"title,omitempty"`
+	CreatedTime        *int64                                                      `json:"createdTime,omitempty" xml:"createdTime,omitempty"`
+	CreatorUnionId     *string                                                     `json:"creatorUnionId,omitempty" xml:"creatorUnionId,omitempty"`
+	Deadline           *string                                                     `json:"deadline,omitempty" xml:"deadline,omitempty"`
+	DingtalkTodoId     *string                                                     `json:"dingtalkTodoId,omitempty" xml:"dingtalkTodoId,omitempty"`
+	ExecutorList       []*QueryMinutesTodoResponseBodyDingtalkTodoListExecutorList `json:"executorList,omitempty" xml:"executorList,omitempty" type:"Repeated"`
+	IsDone             *bool                                                       `json:"isDone,omitempty" xml:"isDone,omitempty"`
+	MinutesTodoId      *string                                                     `json:"minutesTodoId,omitempty" xml:"minutesTodoId,omitempty"`
+	OpenDingtalkTodoId *string                                                     `json:"openDingtalkTodoId,omitempty" xml:"openDingtalkTodoId,omitempty"`
+	Title              *string                                                     `json:"title,omitempty" xml:"title,omitempty"`
 }
 
 func (s QueryMinutesTodoResponseBodyDingtalkTodoList) String() string {
@@ -3011,6 +3012,11 @@ func (s *QueryMinutesTodoResponseBodyDingtalkTodoList) SetIsDone(v bool) *QueryM
 
 func (s *QueryMinutesTodoResponseBodyDingtalkTodoList) SetMinutesTodoId(v string) *QueryMinutesTodoResponseBodyDingtalkTodoList {
 	s.MinutesTodoId = &v
+	return s
+}
+
+func (s *QueryMinutesTodoResponseBodyDingtalkTodoList) SetOpenDingtalkTodoId(v string) *QueryMinutesTodoResponseBodyDingtalkTodoList {
+	s.OpenDingtalkTodoId = &v
 	return s
 }
 

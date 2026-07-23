@@ -486,6 +486,624 @@ func (s *CreateOpportunityResponse) SetStatusCode(v int32) *CreateOpportunityRes
 	return s
 }
 
+type PurchaseMixViewHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s PurchaseMixViewHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewHeaders) SetCommonHeaders(v map[string]*string) *PurchaseMixViewHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *PurchaseMixViewHeaders) SetXAcsDingtalkAccessToken(v string) *PurchaseMixViewHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type PurchaseMixViewRequest struct {
+	ChannelCode       *string                       `json:"channelCode,omitempty" xml:"channelCode,omitempty"`
+	CombineActivityId *int64                        `json:"combineActivityId,omitempty" xml:"combineActivityId,omitempty"`
+	CreateOrder       *bool                         `json:"createOrder,omitempty" xml:"createOrder,omitempty"`
+	List              []*PurchaseMixViewRequestList `json:"list,omitempty" xml:"list,omitempty" type:"Repeated"`
+	Memo              *string                       `json:"memo,omitempty" xml:"memo,omitempty"`
+	MergeOrderName    *string                       `json:"mergeOrderName,omitempty" xml:"mergeOrderName,omitempty"`
+	NeedModelTypeList []*string                     `json:"needModelTypeList,omitempty" xml:"needModelTypeList,omitempty" type:"Repeated"`
+	ObjId             *int64                        `json:"objId,omitempty" xml:"objId,omitempty"`
+	ObjType           *int64                        `json:"objType,omitempty" xml:"objType,omitempty"`
+	OrderParamMap     map[string]interface{}        `json:"orderParamMap,omitempty" xml:"orderParamMap,omitempty"`
+	OuterTradeCode    *string                       `json:"outerTradeCode,omitempty" xml:"outerTradeCode,omitempty"`
+	OuterTradeType    *string                       `json:"outerTradeType,omitempty" xml:"outerTradeType,omitempty"`
+	PlanId            *int64                        `json:"planId,omitempty" xml:"planId,omitempty"`
+	RequestId         *string                       `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Uid               *int64                        `json:"uid,omitempty" xml:"uid,omitempty"`
+	UnPay             *bool                         `json:"unPay,omitempty" xml:"unPay,omitempty"`
+}
+
+func (s PurchaseMixViewRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewRequest) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewRequest) SetChannelCode(v string) *PurchaseMixViewRequest {
+	s.ChannelCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetCombineActivityId(v int64) *PurchaseMixViewRequest {
+	s.CombineActivityId = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetCreateOrder(v bool) *PurchaseMixViewRequest {
+	s.CreateOrder = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetList(v []*PurchaseMixViewRequestList) *PurchaseMixViewRequest {
+	s.List = v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetMemo(v string) *PurchaseMixViewRequest {
+	s.Memo = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetMergeOrderName(v string) *PurchaseMixViewRequest {
+	s.MergeOrderName = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetNeedModelTypeList(v []*string) *PurchaseMixViewRequest {
+	s.NeedModelTypeList = v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetObjId(v int64) *PurchaseMixViewRequest {
+	s.ObjId = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetObjType(v int64) *PurchaseMixViewRequest {
+	s.ObjType = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetOrderParamMap(v map[string]interface{}) *PurchaseMixViewRequest {
+	s.OrderParamMap = v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetOuterTradeCode(v string) *PurchaseMixViewRequest {
+	s.OuterTradeCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetOuterTradeType(v string) *PurchaseMixViewRequest {
+	s.OuterTradeType = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetPlanId(v int64) *PurchaseMixViewRequest {
+	s.PlanId = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetRequestId(v string) *PurchaseMixViewRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetUid(v int64) *PurchaseMixViewRequest {
+	s.Uid = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequest) SetUnPay(v bool) *PurchaseMixViewRequest {
+	s.UnPay = &v
+	return s
+}
+
+type PurchaseMixViewRequestList struct {
+	ActivityId         *int64                                          `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	ArticleCode        *string                                         `json:"articleCode,omitempty" xml:"articleCode,omitempty"`
+	ArticleItemCode    *string                                         `json:"articleItemCode,omitempty" xml:"articleItemCode,omitempty"`
+	ArticleItemId      *int64                                          `json:"articleItemId,omitempty" xml:"articleItemId,omitempty"`
+	ArticleItemName    *string                                         `json:"articleItemName,omitempty" xml:"articleItemName,omitempty"`
+	BizType            *int64                                          `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	CouponId           *int64                                          `json:"couponId,omitempty" xml:"couponId,omitempty"`
+	CycNum             *int64                                          `json:"cycNum,omitempty" xml:"cycNum,omitempty"`
+	CycType            *int64                                          `json:"cycType,omitempty" xml:"cycType,omitempty"`
+	CycUnit            *int64                                          `json:"cycUnit,omitempty" xml:"cycUnit,omitempty"`
+	Extend1            *int64                                          `json:"extend1,omitempty" xml:"extend1,omitempty"`
+	InstanceNum        *int64                                          `json:"instanceNum,omitempty" xml:"instanceNum,omitempty"`
+	IsCredit           *bool                                           `json:"isCredit,omitempty" xml:"isCredit,omitempty"`
+	ItemComponentList  []*PurchaseMixViewRequestListItemComponentList  `json:"itemComponentList,omitempty" xml:"itemComponentList,omitempty" type:"Repeated"`
+	MinorItemParamList []*PurchaseMixViewRequestListMinorItemParamList `json:"minorItemParamList,omitempty" xml:"minorItemParamList,omitempty" type:"Repeated"`
+	OrderParamMap      map[string]interface{}                          `json:"orderParamMap,omitempty" xml:"orderParamMap,omitempty"`
+	OrderType          *string                                         `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	SaleMarketType     *string                                         `json:"saleMarketType,omitempty" xml:"saleMarketType,omitempty"`
+	SaleOrgId          *int64                                          `json:"saleOrgId,omitempty" xml:"saleOrgId,omitempty"`
+	SubQuantity        *int64                                          `json:"subQuantity,omitempty" xml:"subQuantity,omitempty"`
+	TradeModelType     *string                                         `json:"tradeModelType,omitempty" xml:"tradeModelType,omitempty"`
+}
+
+func (s PurchaseMixViewRequestList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewRequestList) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewRequestList) SetActivityId(v int64) *PurchaseMixViewRequestList {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetArticleCode(v string) *PurchaseMixViewRequestList {
+	s.ArticleCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetArticleItemCode(v string) *PurchaseMixViewRequestList {
+	s.ArticleItemCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetArticleItemId(v int64) *PurchaseMixViewRequestList {
+	s.ArticleItemId = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetArticleItemName(v string) *PurchaseMixViewRequestList {
+	s.ArticleItemName = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetBizType(v int64) *PurchaseMixViewRequestList {
+	s.BizType = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetCouponId(v int64) *PurchaseMixViewRequestList {
+	s.CouponId = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetCycNum(v int64) *PurchaseMixViewRequestList {
+	s.CycNum = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetCycType(v int64) *PurchaseMixViewRequestList {
+	s.CycType = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetCycUnit(v int64) *PurchaseMixViewRequestList {
+	s.CycUnit = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetExtend1(v int64) *PurchaseMixViewRequestList {
+	s.Extend1 = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetInstanceNum(v int64) *PurchaseMixViewRequestList {
+	s.InstanceNum = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetIsCredit(v bool) *PurchaseMixViewRequestList {
+	s.IsCredit = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetItemComponentList(v []*PurchaseMixViewRequestListItemComponentList) *PurchaseMixViewRequestList {
+	s.ItemComponentList = v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetMinorItemParamList(v []*PurchaseMixViewRequestListMinorItemParamList) *PurchaseMixViewRequestList {
+	s.MinorItemParamList = v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetOrderParamMap(v map[string]interface{}) *PurchaseMixViewRequestList {
+	s.OrderParamMap = v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetOrderType(v string) *PurchaseMixViewRequestList {
+	s.OrderType = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetSaleMarketType(v string) *PurchaseMixViewRequestList {
+	s.SaleMarketType = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetSaleOrgId(v int64) *PurchaseMixViewRequestList {
+	s.SaleOrgId = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetSubQuantity(v int64) *PurchaseMixViewRequestList {
+	s.SubQuantity = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestList) SetTradeModelType(v string) *PurchaseMixViewRequestList {
+	s.TradeModelType = &v
+	return s
+}
+
+type PurchaseMixViewRequestListItemComponentList struct {
+	ComponentCode    *string                                                        `json:"componentCode,omitempty" xml:"componentCode,omitempty"`
+	ComponentName    *string                                                        `json:"componentName,omitempty" xml:"componentName,omitempty"`
+	ItemPropertyList []*PurchaseMixViewRequestListItemComponentListItemPropertyList `json:"itemPropertyList,omitempty" xml:"itemPropertyList,omitempty" type:"Repeated"`
+}
+
+func (s PurchaseMixViewRequestListItemComponentList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewRequestListItemComponentList) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewRequestListItemComponentList) SetComponentCode(v string) *PurchaseMixViewRequestListItemComponentList {
+	s.ComponentCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestListItemComponentList) SetComponentName(v string) *PurchaseMixViewRequestListItemComponentList {
+	s.ComponentName = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestListItemComponentList) SetItemPropertyList(v []*PurchaseMixViewRequestListItemComponentListItemPropertyList) *PurchaseMixViewRequestListItemComponentList {
+	s.ItemPropertyList = v
+	return s
+}
+
+type PurchaseMixViewRequestListItemComponentListItemPropertyList struct {
+	Code  *string `json:"code,omitempty" xml:"code,omitempty"`
+	Name  *string `json:"name,omitempty" xml:"name,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s PurchaseMixViewRequestListItemComponentListItemPropertyList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewRequestListItemComponentListItemPropertyList) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewRequestListItemComponentListItemPropertyList) SetCode(v string) *PurchaseMixViewRequestListItemComponentListItemPropertyList {
+	s.Code = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestListItemComponentListItemPropertyList) SetName(v string) *PurchaseMixViewRequestListItemComponentListItemPropertyList {
+	s.Name = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestListItemComponentListItemPropertyList) SetValue(v string) *PurchaseMixViewRequestListItemComponentListItemPropertyList {
+	s.Value = &v
+	return s
+}
+
+type PurchaseMixViewRequestListMinorItemParamList struct {
+	MinorItemCode      *string `json:"minorItemCode,omitempty" xml:"minorItemCode,omitempty"`
+	MinorItemGroupCode *string `json:"minorItemGroupCode,omitempty" xml:"minorItemGroupCode,omitempty"`
+}
+
+func (s PurchaseMixViewRequestListMinorItemParamList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewRequestListMinorItemParamList) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewRequestListMinorItemParamList) SetMinorItemCode(v string) *PurchaseMixViewRequestListMinorItemParamList {
+	s.MinorItemCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewRequestListMinorItemParamList) SetMinorItemGroupCode(v string) *PurchaseMixViewRequestListMinorItemParamList {
+	s.MinorItemGroupCode = &v
+	return s
+}
+
+type PurchaseMixViewResponseBody struct {
+	ErrorCode *string                            `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                            `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *PurchaseMixViewResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s PurchaseMixViewResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewResponseBody) SetErrorCode(v string) *PurchaseMixViewResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBody) SetErrorMsg(v string) *PurchaseMixViewResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBody) SetResult(v *PurchaseMixViewResponseBodyResult) *PurchaseMixViewResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBody) SetSuccess(v bool) *PurchaseMixViewResponseBody {
+	s.Success = &v
+	return s
+}
+
+type PurchaseMixViewResponseBodyResult struct {
+	AliyunArticleItemViewUnitList      []*PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList    `json:"aliyunArticleItemViewUnitList,omitempty" xml:"aliyunArticleItemViewUnitList,omitempty" type:"Repeated"`
+	MixPromotionVO                     *PurchaseMixViewResponseBodyResultMixPromotionVO                     `json:"mixPromotionVO,omitempty" xml:"mixPromotionVO,omitempty" type:"Struct"`
+	RecommendedMarketingCollocationDTO *PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO `json:"recommendedMarketingCollocationDTO,omitempty" xml:"recommendedMarketingCollocationDTO,omitempty" type:"Struct"`
+}
+
+func (s PurchaseMixViewResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewResponseBodyResult) SetAliyunArticleItemViewUnitList(v []*PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) *PurchaseMixViewResponseBodyResult {
+	s.AliyunArticleItemViewUnitList = v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResult) SetMixPromotionVO(v *PurchaseMixViewResponseBodyResultMixPromotionVO) *PurchaseMixViewResponseBodyResult {
+	s.MixPromotionVO = v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResult) SetRecommendedMarketingCollocationDTO(v *PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO) *PurchaseMixViewResponseBodyResult {
+	s.RecommendedMarketingCollocationDTO = v
+	return s
+}
+
+type PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList struct {
+	ActualPayFee    *float64  `json:"actualPayFee,omitempty" xml:"actualPayFee,omitempty"`
+	ArticleCode     *string   `json:"articleCode,omitempty" xml:"articleCode,omitempty"`
+	ArticleItemCode *string   `json:"articleItemCode,omitempty" xml:"articleItemCode,omitempty"`
+	BizTagList      []*string `json:"bizTagList,omitempty" xml:"bizTagList,omitempty" type:"Repeated"`
+	EndDate         *int64    `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	OrderType       *string   `json:"orderType,omitempty" xml:"orderType,omitempty"`
+	PayFee          *float64  `json:"payFee,omitempty" xml:"payFee,omitempty"`
+	StartDate       *int64    `json:"startDate,omitempty" xml:"startDate,omitempty"`
+}
+
+func (s PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) SetActualPayFee(v float64) *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList {
+	s.ActualPayFee = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) SetArticleCode(v string) *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList {
+	s.ArticleCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) SetArticleItemCode(v string) *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList {
+	s.ArticleItemCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) SetBizTagList(v []*string) *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList {
+	s.BizTagList = v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) SetEndDate(v int64) *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList {
+	s.EndDate = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) SetOrderType(v string) *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList {
+	s.OrderType = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) SetPayFee(v float64) *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList {
+	s.PayFee = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList) SetStartDate(v int64) *PurchaseMixViewResponseBodyResultAliyunArticleItemViewUnitList {
+	s.StartDate = &v
+	return s
+}
+
+type PurchaseMixViewResponseBodyResultMixPromotionVO struct {
+	ActivityId       *int64                 `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	ActivityName     *string                `json:"activityName,omitempty" xml:"activityName,omitempty"`
+	ActivityUrl      *string                `json:"activityUrl,omitempty" xml:"activityUrl,omitempty"`
+	EndTime          *int64                 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ExtendParam      map[string]interface{} `json:"extendParam,omitempty" xml:"extendParam,omitempty"`
+	ForbiddenCoupon  *bool                  `json:"forbiddenCoupon,omitempty" xml:"forbiddenCoupon,omitempty"`
+	IsSelected       *bool                  `json:"isSelected,omitempty" xml:"isSelected,omitempty"`
+	MarketActivityId *int64                 `json:"marketActivityId,omitempty" xml:"marketActivityId,omitempty"`
+	PromotionId      *int64                 `json:"promotionId,omitempty" xml:"promotionId,omitempty"`
+	PromotionName    *string                `json:"promotionName,omitempty" xml:"promotionName,omitempty"`
+	PromotionType    *string                `json:"promotionType,omitempty" xml:"promotionType,omitempty"`
+	Source           *string                `json:"source,omitempty" xml:"source,omitempty"`
+	StartTime        *int64                 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Type             *string                `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s PurchaseMixViewResponseBodyResultMixPromotionVO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewResponseBodyResultMixPromotionVO) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetActivityId(v int64) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetActivityName(v string) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.ActivityName = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetActivityUrl(v string) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.ActivityUrl = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetEndTime(v int64) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.EndTime = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetExtendParam(v map[string]interface{}) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.ExtendParam = v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetForbiddenCoupon(v bool) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.ForbiddenCoupon = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetIsSelected(v bool) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.IsSelected = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetMarketActivityId(v int64) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.MarketActivityId = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetPromotionId(v int64) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.PromotionId = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetPromotionName(v string) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.PromotionName = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetPromotionType(v string) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.PromotionType = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetSource(v string) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.Source = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetStartTime(v int64) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.StartTime = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultMixPromotionVO) SetType(v string) *PurchaseMixViewResponseBodyResultMixPromotionVO {
+	s.Type = &v
+	return s
+}
+
+type PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO struct {
+	ActivityId *int64 `json:"activityId,omitempty" xml:"activityId,omitempty"`
+	CouponId   *int64 `json:"couponId,omitempty" xml:"couponId,omitempty"`
+}
+
+func (s PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO) SetActivityId(v int64) *PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO {
+	s.ActivityId = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO) SetCouponId(v int64) *PurchaseMixViewResponseBodyResultRecommendedMarketingCollocationDTO {
+	s.CouponId = &v
+	return s
+}
+
+type PurchaseMixViewResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *PurchaseMixViewResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s PurchaseMixViewResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PurchaseMixViewResponse) GoString() string {
+	return s.String()
+}
+
+func (s *PurchaseMixViewResponse) SetHeaders(v map[string]*string) *PurchaseMixViewResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *PurchaseMixViewResponse) SetStatusCode(v int32) *PurchaseMixViewResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *PurchaseMixViewResponse) SetBody(v *PurchaseMixViewResponseBody) *PurchaseMixViewResponse {
+	s.Body = v
+	return s
+}
+
 type QueryTradeOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1075,6 +1693,139 @@ func (client *Client) CreateOpportunity(request *CreateOpportunityRequest) (_res
 	headers := &CreateOpportunityHeaders{}
 	_result = &CreateOpportunityResponse{}
 	_body, _err := client.CreateOpportunityWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # QwenWoker询价接口
+//
+// @param request - PurchaseMixViewRequest
+//
+// @param headers - PurchaseMixViewHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return PurchaseMixViewResponse
+func (client *Client) PurchaseMixViewWithOptions(request *PurchaseMixViewRequest, headers *PurchaseMixViewHeaders, runtime *util.RuntimeOptions) (_result *PurchaseMixViewResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ChannelCode)) {
+		body["channelCode"] = request.ChannelCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CombineActivityId)) {
+		body["combineActivityId"] = request.CombineActivityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreateOrder)) {
+		body["createOrder"] = request.CreateOrder
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.List)) {
+		body["list"] = request.List
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Memo)) {
+		body["memo"] = request.Memo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MergeOrderName)) {
+		body["mergeOrderName"] = request.MergeOrderName
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NeedModelTypeList)) {
+		body["needModelTypeList"] = request.NeedModelTypeList
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjId)) {
+		body["objId"] = request.ObjId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ObjType)) {
+		body["objType"] = request.ObjType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OrderParamMap)) {
+		body["orderParamMap"] = request.OrderParamMap
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OuterTradeCode)) {
+		body["outerTradeCode"] = request.OuterTradeCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OuterTradeType)) {
+		body["outerTradeType"] = request.OuterTradeType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PlanId)) {
+		body["planId"] = request.PlanId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Uid)) {
+		body["uid"] = request.Uid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnPay)) {
+		body["unPay"] = request.UnPay
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("PurchaseMixView"),
+		Version:     tea.String("trade_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/trade/purchase/mixView"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &PurchaseMixViewResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// # QwenWoker询价接口
+//
+// @param request - PurchaseMixViewRequest
+//
+// @return PurchaseMixViewResponse
+func (client *Client) PurchaseMixView(request *PurchaseMixViewRequest) (_result *PurchaseMixViewResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &PurchaseMixViewHeaders{}
+	_result = &PurchaseMixViewResponse{}
+	_body, _err := client.PurchaseMixViewWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

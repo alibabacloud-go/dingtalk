@@ -2629,6 +2629,134 @@ func (s *ExchangeMainAdminResponse) SetBody(v *ExchangeMainAdminResponseBody) *E
 	return s
 }
 
+type ExclusiveBannerHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ExclusiveBannerHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveBannerHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveBannerHeaders) SetCommonHeaders(v map[string]*string) *ExclusiveBannerHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ExclusiveBannerHeaders) SetXAcsDingtalkAccessToken(v string) *ExclusiveBannerHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ExclusiveBannerRequest struct {
+	AllOrg       *bool     `json:"allOrg,omitempty" xml:"allOrg,omitempty"`
+	Duration     *int64    `json:"duration,omitempty" xml:"duration,omitempty"`
+	EndTime      *int64    `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	ImageMediaId *string   `json:"imageMediaId,omitempty" xml:"imageMediaId,omitempty"`
+	OpenLink     *string   `json:"openLink,omitempty" xml:"openLink,omitempty"`
+	StartTime    *int64    `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	UserList     []*string `json:"userList,omitempty" xml:"userList,omitempty" type:"Repeated"`
+}
+
+func (s ExclusiveBannerRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveBannerRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveBannerRequest) SetAllOrg(v bool) *ExclusiveBannerRequest {
+	s.AllOrg = &v
+	return s
+}
+
+func (s *ExclusiveBannerRequest) SetDuration(v int64) *ExclusiveBannerRequest {
+	s.Duration = &v
+	return s
+}
+
+func (s *ExclusiveBannerRequest) SetEndTime(v int64) *ExclusiveBannerRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *ExclusiveBannerRequest) SetImageMediaId(v string) *ExclusiveBannerRequest {
+	s.ImageMediaId = &v
+	return s
+}
+
+func (s *ExclusiveBannerRequest) SetOpenLink(v string) *ExclusiveBannerRequest {
+	s.OpenLink = &v
+	return s
+}
+
+func (s *ExclusiveBannerRequest) SetStartTime(v int64) *ExclusiveBannerRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *ExclusiveBannerRequest) SetUserList(v []*string) *ExclusiveBannerRequest {
+	s.UserList = v
+	return s
+}
+
+type ExclusiveBannerResponseBody struct {
+	Result  *bool `json:"result,omitempty" xml:"result,omitempty"`
+	Success *bool `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s ExclusiveBannerResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveBannerResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveBannerResponseBody) SetResult(v bool) *ExclusiveBannerResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *ExclusiveBannerResponseBody) SetSuccess(v bool) *ExclusiveBannerResponseBody {
+	s.Success = &v
+	return s
+}
+
+type ExclusiveBannerResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ExclusiveBannerResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ExclusiveBannerResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ExclusiveBannerResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ExclusiveBannerResponse) SetHeaders(v map[string]*string) *ExclusiveBannerResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ExclusiveBannerResponse) SetStatusCode(v int32) *ExclusiveBannerResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ExclusiveBannerResponse) SetBody(v *ExclusiveBannerResponseBody) *ExclusiveBannerResponse {
+	s.Body = v
+	return s
+}
+
 type ExclusiveCreateDingPortalHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -13655,7 +13783,8 @@ type ListAuditLogResponseBodyList struct {
 	// example:
 	//
 	// 张三
-	RealName *string `json:"realName,omitempty" xml:"realName,omitempty"`
+	RealName   *string `json:"realName,omitempty" xml:"realName,omitempty"`
+	ReceiverId *string `json:"receiverId,omitempty" xml:"receiverId,omitempty"`
 	// example:
 	//
 	// 总经理办公室
@@ -13808,6 +13937,11 @@ func (s *ListAuditLogResponseBodyList) SetPrevWorkSpacePcUrl(v string) *ListAudi
 
 func (s *ListAuditLogResponseBodyList) SetRealName(v string) *ListAuditLogResponseBodyList {
 	s.RealName = &v
+	return s
+}
+
+func (s *ListAuditLogResponseBodyList) SetReceiverId(v string) *ListAuditLogResponseBodyList {
+	s.ReceiverId = &v
 	return s
 }
 
@@ -25931,6 +26065,103 @@ func (client *Client) ExchangeMainAdmin(request *ExchangeMainAdminRequest) (_res
 	headers := &ExchangeMainAdminHeaders{}
 	_result = &ExchangeMainAdminResponse{}
 	_body, _err := client.ExchangeMainAdminWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 专属运营Banner头图消息推送
+//
+// @param request - ExclusiveBannerRequest
+//
+// @param headers - ExclusiveBannerHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ExclusiveBannerResponse
+func (client *Client) ExclusiveBannerWithOptions(request *ExclusiveBannerRequest, headers *ExclusiveBannerHeaders, runtime *util.RuntimeOptions) (_result *ExclusiveBannerResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AllOrg)) {
+		body["allOrg"] = request.AllOrg
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Duration)) {
+		body["duration"] = request.Duration
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ImageMediaId)) {
+		body["imageMediaId"] = request.ImageMediaId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenLink)) {
+		body["openLink"] = request.OpenLink
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserList)) {
+		body["userList"] = request.UserList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ExclusiveBanner"),
+		Version:     tea.String("exclusive_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/exclusive/customize/marketing/banner"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ExclusiveBannerResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 专属运营Banner头图消息推送
+//
+// @param request - ExclusiveBannerRequest
+//
+// @return ExclusiveBannerResponse
+func (client *Client) ExclusiveBanner(request *ExclusiveBannerRequest) (_result *ExclusiveBannerResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ExclusiveBannerHeaders{}
+	_result = &ExclusiveBannerResponse{}
+	_body, _err := client.ExclusiveBannerWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

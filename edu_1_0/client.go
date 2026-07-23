@@ -2828,9 +2828,11 @@ type BatchCreateRequestData struct {
 	// This parameter is required.
 	RemindHour *int32 `json:"remindHour,omitempty" xml:"remindHour,omitempty"`
 	// This parameter is required.
-	RemindMinute *int32  `json:"remindMinute,omitempty" xml:"remindMinute,omitempty"`
-	TargetRole   *string `json:"targetRole,omitempty" xml:"targetRole,omitempty"`
-	TemplateId   *int64  `json:"templateId,omitempty" xml:"templateId,omitempty"`
+	RemindMinute             *int32  `json:"remindMinute,omitempty" xml:"remindMinute,omitempty"`
+	RemindNotPunchCardHour   *int32  `json:"remindNotPunchCardHour,omitempty" xml:"remindNotPunchCardHour,omitempty"`
+	RemindNotPunchCardMinute *int32  `json:"remindNotPunchCardMinute,omitempty" xml:"remindNotPunchCardMinute,omitempty"`
+	TargetRole               *string `json:"targetRole,omitempty" xml:"targetRole,omitempty"`
+	TemplateId               *int64  `json:"templateId,omitempty" xml:"templateId,omitempty"`
 	// This parameter is required.
 	Title             *string `json:"title,omitempty" xml:"title,omitempty"`
 	UnitOfMeasurement *string `json:"unitOfMeasurement,omitempty" xml:"unitOfMeasurement,omitempty"`
@@ -2906,6 +2908,16 @@ func (s *BatchCreateRequestData) SetRemindHour(v int32) *BatchCreateRequestData 
 
 func (s *BatchCreateRequestData) SetRemindMinute(v int32) *BatchCreateRequestData {
 	s.RemindMinute = &v
+	return s
+}
+
+func (s *BatchCreateRequestData) SetRemindNotPunchCardHour(v int32) *BatchCreateRequestData {
+	s.RemindNotPunchCardHour = &v
+	return s
+}
+
+func (s *BatchCreateRequestData) SetRemindNotPunchCardMinute(v int32) *BatchCreateRequestData {
+	s.RemindNotPunchCardMinute = &v
 	return s
 }
 
@@ -30941,6 +30953,300 @@ func (s *QueryOrgCorrectTaskDetailResponse) SetBody(v *QueryOrgCorrectTaskDetail
 	return s
 }
 
+type QueryOrgCorrectTaskWithWrongQuestionHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionHeaders) SetCommonHeaders(v map[string]*string) *QueryOrgCorrectTaskWithWrongQuestionHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionHeaders) SetXAcsDingtalkAccessToken(v string) *QueryOrgCorrectTaskWithWrongQuestionHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryOrgCorrectTaskWithWrongQuestionRequest struct {
+	// This parameter is required.
+	EndTime *int64 `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	PageNo *int64 `json:"pageNo,omitempty" xml:"pageNo,omitempty"`
+	// This parameter is required.
+	PageSize *int64 `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// ding26d260744657eb6378f
+	QueryCorpId *string `json:"queryCorpId,omitempty" xml:"queryCorpId,omitempty"`
+	// This parameter is required.
+	StartTime *int64 `json:"startTime,omitempty" xml:"startTime,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionRequest) SetEndTime(v int64) *QueryOrgCorrectTaskWithWrongQuestionRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionRequest) SetPageNo(v int64) *QueryOrgCorrectTaskWithWrongQuestionRequest {
+	s.PageNo = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionRequest) SetPageSize(v int64) *QueryOrgCorrectTaskWithWrongQuestionRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionRequest) SetQueryCorpId(v string) *QueryOrgCorrectTaskWithWrongQuestionRequest {
+	s.QueryCorpId = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionRequest) SetStartTime(v int64) *QueryOrgCorrectTaskWithWrongQuestionRequest {
+	s.StartTime = &v
+	return s
+}
+
+type QueryOrgCorrectTaskWithWrongQuestionResponseBody struct {
+	ErrorCode *string                                                   `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                                                   `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    []*QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+	Success   *bool                                                     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBody) SetErrorCode(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBody) SetErrorMsg(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBody) SetResult(v []*QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) *QueryOrgCorrectTaskWithWrongQuestionResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBody) SetSuccess(v bool) *QueryOrgCorrectTaskWithWrongQuestionResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult struct {
+	ClassId               *int64                                                                         `json:"classId,omitempty" xml:"classId,omitempty"`
+	ClassName             *string                                                                        `json:"className,omitempty" xml:"className,omitempty"`
+	CorpId                *string                                                                        `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CorrectedPdfUrl       *string                                                                        `json:"correctedPdfUrl,omitempty" xml:"correctedPdfUrl,omitempty"`
+	CreateTime            *int64                                                                         `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	ExtInfo               map[string]interface{}                                                         `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	GradeName             *string                                                                        `json:"gradeName,omitempty" xml:"gradeName,omitempty"`
+	PaperName             *string                                                                        `json:"paperName,omitempty" xml:"paperName,omitempty"`
+	ScannedPdfUrl         *string                                                                        `json:"scannedPdfUrl,omitempty" xml:"scannedPdfUrl,omitempty"`
+	StudentWrongQuestions []*QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions `json:"studentWrongQuestions,omitempty" xml:"studentWrongQuestions,omitempty" type:"Repeated"`
+	SubmitTime            *int64                                                                         `json:"submitTime,omitempty" xml:"submitTime,omitempty"`
+	TaskCode              *string                                                                        `json:"taskCode,omitempty" xml:"taskCode,omitempty"`
+	TeacherId             *string                                                                        `json:"teacherId,omitempty" xml:"teacherId,omitempty"`
+	TeacherPdfUrl         *string                                                                        `json:"teacherPdfUrl,omitempty" xml:"teacherPdfUrl,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetClassId(v int64) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.ClassId = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetClassName(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.ClassName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetCorpId(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetCorrectedPdfUrl(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.CorrectedPdfUrl = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetCreateTime(v int64) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetExtInfo(v map[string]interface{}) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.ExtInfo = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetGradeName(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.GradeName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetPaperName(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.PaperName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetScannedPdfUrl(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.ScannedPdfUrl = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetStudentWrongQuestions(v []*QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.StudentWrongQuestions = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetSubmitTime(v int64) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.SubmitTime = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetTaskCode(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.TaskCode = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetTeacherId(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.TeacherId = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult) SetTeacherPdfUrl(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResult {
+	s.TeacherPdfUrl = &v
+	return s
+}
+
+type QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions struct {
+	AssignmentPicUrlList []*string                                                                                          `json:"assignmentPicUrlList,omitempty" xml:"assignmentPicUrlList,omitempty" type:"Repeated"`
+	StudentId            *string                                                                                            `json:"studentId,omitempty" xml:"studentId,omitempty"`
+	StudentName          *string                                                                                            `json:"studentName,omitempty" xml:"studentName,omitempty"`
+	WrongQuestionRecords []*QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords `json:"wrongQuestionRecords,omitempty" xml:"wrongQuestionRecords,omitempty" type:"Repeated"`
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions) SetAssignmentPicUrlList(v []*string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions {
+	s.AssignmentPicUrlList = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions) SetStudentId(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions {
+	s.StudentId = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions) SetStudentName(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions {
+	s.StudentName = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions) SetWrongQuestionRecords(v []*QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestions {
+	s.WrongQuestionRecords = v
+	return s
+}
+
+type QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords struct {
+	QuestionCutUrl *string `json:"questionCutUrl,omitempty" xml:"questionCutUrl,omitempty"`
+	QuestionId     *string `json:"questionId,omitempty" xml:"questionId,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords) SetQuestionCutUrl(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords {
+	s.QuestionCutUrl = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords) SetQuestionId(v string) *QueryOrgCorrectTaskWithWrongQuestionResponseBodyResultStudentWrongQuestionsWrongQuestionRecords {
+	s.QuestionId = &v
+	return s
+}
+
+type QueryOrgCorrectTaskWithWrongQuestionResponse struct {
+	Headers    map[string]*string                                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryOrgCorrectTaskWithWrongQuestionResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryOrgCorrectTaskWithWrongQuestionResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponse) SetHeaders(v map[string]*string) *QueryOrgCorrectTaskWithWrongQuestionResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponse) SetStatusCode(v int32) *QueryOrgCorrectTaskWithWrongQuestionResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryOrgCorrectTaskWithWrongQuestionResponse) SetBody(v *QueryOrgCorrectTaskWithWrongQuestionResponseBody) *QueryOrgCorrectTaskWithWrongQuestionResponse {
+	s.Body = v
+	return s
+}
+
 type QueryOrgRelationListHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -43988,7 +44294,7 @@ func (client *Client) BatchCreateWithOptions(request *BatchCreateRequest, header
 		Method:      tea.String("POST"),
 		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
-		ReqBodyType: tea.String("json"),
+		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
 	}
 	_result = &BatchCreateResponse{}
@@ -57054,6 +57360,95 @@ func (client *Client) QueryOrgCorrectTaskDetail(request *QueryOrgCorrectTaskDeta
 	headers := &QueryOrgCorrectTaskDetailHeaders{}
 	_result = &QueryOrgCorrectTaskDetailResponse{}
 	_body, _err := client.QueryOrgCorrectTaskDetailWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-查询批改错题明细
+//
+// @param request - QueryOrgCorrectTaskWithWrongQuestionRequest
+//
+// @param headers - QueryOrgCorrectTaskWithWrongQuestionHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryOrgCorrectTaskWithWrongQuestionResponse
+func (client *Client) QueryOrgCorrectTaskWithWrongQuestionWithOptions(request *QueryOrgCorrectTaskWithWrongQuestionRequest, headers *QueryOrgCorrectTaskWithWrongQuestionHeaders, runtime *util.RuntimeOptions) (_result *QueryOrgCorrectTaskWithWrongQuestionResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNo)) {
+		body["pageNo"] = request.PageNo
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.QueryCorpId)) {
+		body["queryCorpId"] = request.QueryCorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryOrgCorrectTaskWithWrongQuestion"),
+		Version:     tea.String("edu_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/edu/assignment/queryTaskWrongQuestionDetail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryOrgCorrectTaskWithWrongQuestionResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 作业批改-查询批改错题明细
+//
+// @param request - QueryOrgCorrectTaskWithWrongQuestionRequest
+//
+// @return QueryOrgCorrectTaskWithWrongQuestionResponse
+func (client *Client) QueryOrgCorrectTaskWithWrongQuestion(request *QueryOrgCorrectTaskWithWrongQuestionRequest) (_result *QueryOrgCorrectTaskWithWrongQuestionResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryOrgCorrectTaskWithWrongQuestionHeaders{}
+	_result = &QueryOrgCorrectTaskWithWrongQuestionResponse{}
+	_body, _err := client.QueryOrgCorrectTaskWithWrongQuestionWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
