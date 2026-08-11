@@ -1249,6 +1249,7 @@ func (s *GenerateSummaryHeaders) SetXAcsDingtalkAccessToken(v string) *GenerateS
 }
 
 type GenerateSummaryRequest struct {
+	AsyncGenerate *bool `json:"asyncGenerate,omitempty" xml:"asyncGenerate,omitempty"`
 	// example:
 	//
 	// 1
@@ -1282,6 +1283,11 @@ func (s GenerateSummaryRequest) GoString() string {
 	return s.String()
 }
 
+func (s *GenerateSummaryRequest) SetAsyncGenerate(v bool) *GenerateSummaryRequest {
+	s.AsyncGenerate = &v
+	return s
+}
+
 func (s *GenerateSummaryRequest) SetDiyTemplateVersion(v string) *GenerateSummaryRequest {
 	s.DiyTemplateVersion = &v
 	return s
@@ -1308,8 +1314,9 @@ func (s *GenerateSummaryRequest) SetUnionId(v string) *GenerateSummaryRequest {
 }
 
 type GenerateSummaryResponseBody struct {
-	SummaryText *string `json:"summaryText,omitempty" xml:"summaryText,omitempty"`
-	TaskUuid    *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	GeneratingStatus *string `json:"generatingStatus,omitempty" xml:"generatingStatus,omitempty"`
+	SummaryText      *string `json:"summaryText,omitempty" xml:"summaryText,omitempty"`
+	TaskUuid         *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
 }
 
 func (s GenerateSummaryResponseBody) String() string {
@@ -1318,6 +1325,11 @@ func (s GenerateSummaryResponseBody) String() string {
 
 func (s GenerateSummaryResponseBody) GoString() string {
 	return s.String()
+}
+
+func (s *GenerateSummaryResponseBody) SetGeneratingStatus(v string) *GenerateSummaryResponseBody {
+	s.GeneratingStatus = &v
+	return s
 }
 
 func (s *GenerateSummaryResponseBody) SetSummaryText(v string) *GenerateSummaryResponseBody {
@@ -1355,6 +1367,108 @@ func (s *GenerateSummaryResponse) SetStatusCode(v int32) *GenerateSummaryRespons
 }
 
 func (s *GenerateSummaryResponse) SetBody(v *GenerateSummaryResponseBody) *GenerateSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type MoveOutTempStorageHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s MoveOutTempStorageHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MoveOutTempStorageHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *MoveOutTempStorageHeaders) SetCommonHeaders(v map[string]*string) *MoveOutTempStorageHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *MoveOutTempStorageHeaders) SetXAcsDingtalkAccessToken(v string) *MoveOutTempStorageHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type MoveOutTempStorageRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a1b2c3d4e5f67890a1b2c3d4e5f67890
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s MoveOutTempStorageRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MoveOutTempStorageRequest) GoString() string {
+	return s.String()
+}
+
+func (s *MoveOutTempStorageRequest) SetTaskUuid(v string) *MoveOutTempStorageRequest {
+	s.TaskUuid = &v
+	return s
+}
+
+func (s *MoveOutTempStorageRequest) SetUnionId(v string) *MoveOutTempStorageRequest {
+	s.UnionId = &v
+	return s
+}
+
+type MoveOutTempStorageResponseBody struct {
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+}
+
+func (s MoveOutTempStorageResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MoveOutTempStorageResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *MoveOutTempStorageResponseBody) SetTaskUuid(v string) *MoveOutTempStorageResponseBody {
+	s.TaskUuid = &v
+	return s
+}
+
+type MoveOutTempStorageResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *MoveOutTempStorageResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s MoveOutTempStorageResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s MoveOutTempStorageResponse) GoString() string {
+	return s.String()
+}
+
+func (s *MoveOutTempStorageResponse) SetHeaders(v map[string]*string) *MoveOutTempStorageResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *MoveOutTempStorageResponse) SetStatusCode(v int32) *MoveOutTempStorageResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *MoveOutTempStorageResponse) SetBody(v *MoveOutTempStorageResponseBody) *MoveOutTempStorageResponse {
 	s.Body = v
 	return s
 }
@@ -4850,7 +4964,8 @@ func (s *QueryUserMinutesPermissionHeaders) SetXAcsDingtalkAccessToken(v string)
 }
 
 type QueryUserMinutesPermissionResponseBody struct {
-	HasPermission *bool `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
+	HasPermission      *bool     `json:"hasPermission,omitempty" xml:"hasPermission,omitempty"`
+	RoleSubResourceIds []*string `json:"roleSubResourceIds,omitempty" xml:"roleSubResourceIds,omitempty" type:"Repeated"`
 	// 角色类型：manager-管理员, owner-所有者, editor-可编辑, read_download-可查看/下载, read-仅查看, none-无权限
 	RoleType *string `json:"roleType,omitempty" xml:"roleType,omitempty"`
 }
@@ -4865,6 +4980,11 @@ func (s QueryUserMinutesPermissionResponseBody) GoString() string {
 
 func (s *QueryUserMinutesPermissionResponseBody) SetHasPermission(v bool) *QueryUserMinutesPermissionResponseBody {
 	s.HasPermission = &v
+	return s
+}
+
+func (s *QueryUserMinutesPermissionResponseBody) SetRoleSubResourceIds(v []*string) *QueryUserMinutesPermissionResponseBody {
+	s.RoleSubResourceIds = v
 	return s
 }
 
@@ -6480,6 +6600,10 @@ func (client *Client) GenerateSummaryWithOptions(taskUuid *string, request *Gene
 	}
 
 	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AsyncGenerate)) {
+		body["asyncGenerate"] = request.AsyncGenerate
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.DiyTemplateVersion)) {
 		body["diyTemplateVersion"] = request.DiyTemplateVersion
 	}
@@ -6542,6 +6666,83 @@ func (client *Client) GenerateSummary(taskUuid *string, request *GenerateSummary
 	headers := &GenerateSummaryHeaders{}
 	_result = &GenerateSummaryResponse{}
 	_body, _err := client.GenerateSummaryWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 移动临时存储听记到正式存储
+//
+// @param request - MoveOutTempStorageRequest
+//
+// @param headers - MoveOutTempStorageHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return MoveOutTempStorageResponse
+func (client *Client) MoveOutTempStorageWithOptions(request *MoveOutTempStorageRequest, headers *MoveOutTempStorageHeaders, runtime *util.RuntimeOptions) (_result *MoveOutTempStorageResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskUuid)) {
+		query["taskUuid"] = request.TaskUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("MoveOutTempStorage"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/moveOutTempStorage"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &MoveOutTempStorageResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 移动临时存储听记到正式存储
+//
+// @param request - MoveOutTempStorageRequest
+//
+// @return MoveOutTempStorageResponse
+func (client *Client) MoveOutTempStorage(request *MoveOutTempStorageRequest) (_result *MoveOutTempStorageResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &MoveOutTempStorageHeaders{}
+	_result = &MoveOutTempStorageResponse{}
+	_body, _err := client.MoveOutTempStorageWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

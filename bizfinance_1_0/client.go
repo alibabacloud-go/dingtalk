@@ -3967,27 +3967,33 @@ func (s *GetInvoiceByPageResponseBodyResult) SetTotalCount(v int64) *GetInvoiceB
 }
 
 type GetInvoiceByPageResponseBodyResultList struct {
-	AccountPeriod              *string                                                             `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
-	Amount                     *string                                                             `json:"amount,omitempty" xml:"amount,omitempty"`
-	AmountWithTax              *string                                                             `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
-	CheckCode                  *string                                                             `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
-	CheckTime                  *string                                                             `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
-	DrewDate                   *string                                                             `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
-	ElectronicUrl              *string                                                             `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
-	FinanceType                *string                                                             `json:"financeType,omitempty" xml:"financeType,omitempty"`
-	FundType                   *string                                                             `json:"fundType,omitempty" xml:"fundType,omitempty"`
-	GeneralInvoiceDetailVOList []*GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
-	ImageUrl                   *string                                                             `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
-	InvoiceCode                *string                                                             `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
-	InvoiceNo                  *string                                                             `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
+	AccountPeriod                *string                                                               `json:"accountPeriod,omitempty" xml:"accountPeriod,omitempty"`
+	Amount                       *string                                                               `json:"amount,omitempty" xml:"amount,omitempty"`
+	AmountWithTax                *string                                                               `json:"amountWithTax,omitempty" xml:"amountWithTax,omitempty"`
+	CertificationDate            *string                                                               `json:"certificationDate,omitempty" xml:"certificationDate,omitempty"`
+	CertificationPeriod          *string                                                               `json:"certificationPeriod,omitempty" xml:"certificationPeriod,omitempty"`
+	CheckCode                    *string                                                               `json:"checkCode,omitempty" xml:"checkCode,omitempty"`
+	CheckTime                    *string                                                               `json:"checkTime,omitempty" xml:"checkTime,omitempty"`
+	DrewDate                     *string                                                               `json:"drewDate,omitempty" xml:"drewDate,omitempty"`
+	EFlightItineraryDetailVOList []*GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList `json:"eFlightItineraryDetailVOList,omitempty" xml:"eFlightItineraryDetailVOList,omitempty" type:"Repeated"`
+	ETrainTicketDetailVOList     []*GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList     `json:"eTrainTicketDetailVOList,omitempty" xml:"eTrainTicketDetailVOList,omitempty" type:"Repeated"`
+	ElectronicUrl                *string                                                               `json:"electronicUrl,omitempty" xml:"electronicUrl,omitempty"`
+	FinanceType                  *string                                                               `json:"financeType,omitempty" xml:"financeType,omitempty"`
+	FundType                     *string                                                               `json:"fundType,omitempty" xml:"fundType,omitempty"`
+	GeneralInvoiceDetailVOList   []*GetInvoiceByPageResponseBodyResultListGeneralInvoiceDetailVOList   `json:"generalInvoiceDetailVOList,omitempty" xml:"generalInvoiceDetailVOList,omitempty" type:"Repeated"`
+	ImageUrl                     *string                                                               `json:"imageUrl,omitempty" xml:"imageUrl,omitempty"`
+	InvoiceCode                  *string                                                               `json:"invoiceCode,omitempty" xml:"invoiceCode,omitempty"`
+	InvoiceNo                    *string                                                               `json:"invoiceNo,omitempty" xml:"invoiceNo,omitempty"`
 	// example:
 	//
 	// abc
 	InvoiceStatus               *string                                                              `json:"invoiceStatus,omitempty" xml:"invoiceStatus,omitempty"`
 	InvoiceType                 *string                                                              `json:"invoiceType,omitempty" xml:"invoiceType,omitempty"`
 	MachineCode                 *string                                                              `json:"machineCode,omitempty" xml:"machineCode,omitempty"`
+	OfdUrl                      *string                                                              `json:"ofdUrl,omitempty" xml:"ofdUrl,omitempty"`
 	OilFlag                     *string                                                              `json:"oilFlag,omitempty" xml:"oilFlag,omitempty"`
 	Payee                       *string                                                              `json:"payee,omitempty" xml:"payee,omitempty"`
+	PdfUrl                      *string                                                              `json:"pdfUrl,omitempty" xml:"pdfUrl,omitempty"`
 	ProcessInstCode             *string                                                              `json:"processInstCode,omitempty" xml:"processInstCode,omitempty"`
 	ProcessInstType             *string                                                              `json:"processInstType,omitempty" xml:"processInstType,omitempty"`
 	PurchaserAddress            *string                                                              `json:"purchaserAddress,omitempty" xml:"purchaserAddress,omitempty"`
@@ -4010,6 +4016,7 @@ type GetInvoiceByPageResponseBodyResultList struct {
 	VerifyStatus                *string                                                              `json:"verifyStatus,omitempty" xml:"verifyStatus,omitempty"`
 	VoucherCode                 *string                                                              `json:"voucherCode,omitempty" xml:"voucherCode,omitempty"`
 	VoucherStatus               *string                                                              `json:"voucherStatus,omitempty" xml:"voucherStatus,omitempty"`
+	XmlUrl                      *string                                                              `json:"xmlUrl,omitempty" xml:"xmlUrl,omitempty"`
 }
 
 func (s GetInvoiceByPageResponseBodyResultList) String() string {
@@ -4035,6 +4042,16 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetAmountWithTax(v string) *Get
 	return s
 }
 
+func (s *GetInvoiceByPageResponseBodyResultList) SetCertificationDate(v string) *GetInvoiceByPageResponseBodyResultList {
+	s.CertificationDate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultList) SetCertificationPeriod(v string) *GetInvoiceByPageResponseBodyResultList {
+	s.CertificationPeriod = &v
+	return s
+}
+
 func (s *GetInvoiceByPageResponseBodyResultList) SetCheckCode(v string) *GetInvoiceByPageResponseBodyResultList {
 	s.CheckCode = &v
 	return s
@@ -4047,6 +4064,16 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetCheckTime(v string) *GetInvo
 
 func (s *GetInvoiceByPageResponseBodyResultList) SetDrewDate(v string) *GetInvoiceByPageResponseBodyResultList {
 	s.DrewDate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultList) SetEFlightItineraryDetailVOList(v []*GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) *GetInvoiceByPageResponseBodyResultList {
+	s.EFlightItineraryDetailVOList = v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultList) SetETrainTicketDetailVOList(v []*GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) *GetInvoiceByPageResponseBodyResultList {
+	s.ETrainTicketDetailVOList = v
 	return s
 }
 
@@ -4100,6 +4127,11 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetMachineCode(v string) *GetIn
 	return s
 }
 
+func (s *GetInvoiceByPageResponseBodyResultList) SetOfdUrl(v string) *GetInvoiceByPageResponseBodyResultList {
+	s.OfdUrl = &v
+	return s
+}
+
 func (s *GetInvoiceByPageResponseBodyResultList) SetOilFlag(v string) *GetInvoiceByPageResponseBodyResultList {
 	s.OilFlag = &v
 	return s
@@ -4107,6 +4139,11 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetOilFlag(v string) *GetInvoic
 
 func (s *GetInvoiceByPageResponseBodyResultList) SetPayee(v string) *GetInvoiceByPageResponseBodyResultList {
 	s.Payee = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultList) SetPdfUrl(v string) *GetInvoiceByPageResponseBodyResultList {
+	s.PdfUrl = &v
 	return s
 }
 
@@ -4217,6 +4254,189 @@ func (s *GetInvoiceByPageResponseBodyResultList) SetVoucherCode(v string) *GetIn
 
 func (s *GetInvoiceByPageResponseBodyResultList) SetVoucherStatus(v string) *GetInvoiceByPageResponseBodyResultList {
 	s.VoucherStatus = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultList) SetXmlUrl(v string) *GetInvoiceByPageResponseBodyResultList {
+	s.XmlUrl = &v
+	return s
+}
+
+type GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList struct {
+	Carrier             *string `json:"carrier,omitempty" xml:"carrier,omitempty"`
+	ClassName           *string `json:"className,omitempty" xml:"className,omitempty"`
+	FlightNumber        *string `json:"flightNumber,omitempty" xml:"flightNumber,omitempty"`
+	FlyDate             *string `json:"flyDate,omitempty" xml:"flyDate,omitempty"`
+	FlyFrom             *string `json:"flyFrom,omitempty" xml:"flyFrom,omitempty"`
+	FlyTime             *string `json:"flyTime,omitempty" xml:"flyTime,omitempty"`
+	FlyTo               *string `json:"flyTo,omitempty" xml:"flyTo,omitempty"`
+	InvoiceDetailNumber *string `json:"invoiceDetailNumber,omitempty" xml:"invoiceDetailNumber,omitempty"`
+	InvoiceId           *string `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	Seat                *string `json:"seat,omitempty" xml:"seat,omitempty"`
+}
+
+func (s GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetCarrier(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.Carrier = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetClassName(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.ClassName = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetFlightNumber(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.FlightNumber = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetFlyDate(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.FlyDate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetFlyFrom(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.FlyFrom = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetFlyTime(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.FlyTime = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetFlyTo(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.FlyTo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetInvoiceDetailNumber(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.InvoiceDetailNumber = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetInvoiceId(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.InvoiceId = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList) SetSeat(v string) *GetInvoiceByPageResponseBodyResultListEFlightItineraryDetailVOList {
+	s.Seat = &v
+	return s
+}
+
+type GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList struct {
+	AirConditionType *string `json:"airConditionType,omitempty" xml:"airConditionType,omitempty"`
+	CarriageNo       *string `json:"carriageNo,omitempty" xml:"carriageNo,omitempty"`
+	Destination      *string `json:"destination,omitempty" xml:"destination,omitempty"`
+	EticketNo        *string `json:"eticketNo,omitempty" xml:"eticketNo,omitempty"`
+	GetOnTime        *string `json:"getOnTime,omitempty" xml:"getOnTime,omitempty"`
+	InvoiceId        *string `json:"invoiceId,omitempty" xml:"invoiceId,omitempty"`
+	Origin           *string `json:"origin,omitempty" xml:"origin,omitempty"`
+	Passenger        *string `json:"passenger,omitempty" xml:"passenger,omitempty"`
+	PassengerUserId  *string `json:"passengerUserId,omitempty" xml:"passengerUserId,omitempty"`
+	Remark           *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	SeatClass        *string `json:"seatClass,omitempty" xml:"seatClass,omitempty"`
+	SeatNo           *string `json:"seatNo,omitempty" xml:"seatNo,omitempty"`
+	StartTime        *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	TaxRate          *string `json:"taxRate,omitempty" xml:"taxRate,omitempty"`
+	TicketType       *string `json:"ticketType,omitempty" xml:"ticketType,omitempty"`
+	TrainNo          *string `json:"trainNo,omitempty" xml:"trainNo,omitempty"`
+}
+
+func (s GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) GoString() string {
+	return s.String()
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetAirConditionType(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.AirConditionType = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetCarriageNo(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.CarriageNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetDestination(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.Destination = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetEticketNo(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.EticketNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetGetOnTime(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.GetOnTime = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetInvoiceId(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.InvoiceId = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetOrigin(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.Origin = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetPassenger(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.Passenger = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetPassengerUserId(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.PassengerUserId = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetRemark(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.Remark = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetSeatClass(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.SeatClass = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetSeatNo(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.SeatNo = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetStartTime(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.StartTime = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetTaxRate(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.TaxRate = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetTicketType(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.TicketType = &v
+	return s
+}
+
+func (s *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList) SetTrainNo(v string) *GetInvoiceByPageResponseBodyResultListETrainTicketDetailVOList {
+	s.TrainNo = &v
 	return s
 }
 

@@ -9,6 +9,579 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type AnalyzeSubjectTransactionRiskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskHeaders) SetCommonHeaders(v map[string]*string) *AnalyzeSubjectTransactionRiskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskHeaders) SetXAcsDingtalkAccessToken(v string) *AnalyzeSubjectTransactionRiskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskRequest struct {
+	// This parameter is required.
+	ContractId *int64 `json:"contractId,omitempty" xml:"contractId,omitempty"`
+	// This parameter is required.
+	CorpId           *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	HistoryEndTime   *int64  `json:"historyEndTime,omitempty" xml:"historyEndTime,omitempty"`
+	HistoryStartTime *int64  `json:"historyStartTime,omitempty" xml:"historyStartTime,omitempty"`
+	// This parameter is required.
+	StaffId *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	// This parameter is required.
+	SubjectUniqueCode *string `json:"subjectUniqueCode,omitempty" xml:"subjectUniqueCode,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskRequest) SetContractId(v int64) *AnalyzeSubjectTransactionRiskRequest {
+	s.ContractId = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskRequest) SetCorpId(v string) *AnalyzeSubjectTransactionRiskRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskRequest) SetHistoryEndTime(v int64) *AnalyzeSubjectTransactionRiskRequest {
+	s.HistoryEndTime = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskRequest) SetHistoryStartTime(v int64) *AnalyzeSubjectTransactionRiskRequest {
+	s.HistoryStartTime = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskRequest) SetStaffId(v string) *AnalyzeSubjectTransactionRiskRequest {
+	s.StaffId = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskRequest) SetSubjectUniqueCode(v string) *AnalyzeSubjectTransactionRiskRequest {
+	s.SubjectUniqueCode = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBody struct {
+	Result  *AnalyzeSubjectTransactionRiskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                            `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBody) SetResult(v *AnalyzeSubjectTransactionRiskResponseBodyResult) *AnalyzeSubjectTransactionRiskResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBody) SetSuccess(v bool) *AnalyzeSubjectTransactionRiskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResult struct {
+	AiAnalysis         *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis         `json:"aiAnalysis,omitempty" xml:"aiAnalysis,omitempty" type:"Struct"`
+	CurrentContract    *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract    `json:"currentContract,omitempty" xml:"currentContract,omitempty" type:"Struct"`
+	DataStatus         *string                                                            `json:"dataStatus,omitempty" xml:"dataStatus,omitempty"`
+	HistoryCooperation *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation `json:"historyCooperation,omitempty" xml:"historyCooperation,omitempty" type:"Struct"`
+	SubjectInfo        *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo        `json:"subjectInfo,omitempty" xml:"subjectInfo,omitempty" type:"Struct"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResult) SetAiAnalysis(v *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis) *AnalyzeSubjectTransactionRiskResponseBodyResult {
+	s.AiAnalysis = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResult) SetCurrentContract(v *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) *AnalyzeSubjectTransactionRiskResponseBodyResult {
+	s.CurrentContract = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResult) SetDataStatus(v string) *AnalyzeSubjectTransactionRiskResponseBodyResult {
+	s.DataStatus = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResult) SetHistoryCooperation(v *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) *AnalyzeSubjectTransactionRiskResponseBodyResult {
+	s.HistoryCooperation = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResult) SetSubjectInfo(v *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo) *AnalyzeSubjectTransactionRiskResponseBodyResult {
+	s.SubjectInfo = v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis struct {
+	KeyRisks    []*AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks `json:"keyRisks,omitempty" xml:"keyRisks,omitempty" type:"Repeated"`
+	Limitations []*string                                                            `json:"limitations,omitempty" xml:"limitations,omitempty" type:"Repeated"`
+	Status      *string                                                              `json:"status,omitempty" xml:"status,omitempty"`
+	Summary     *string                                                              `json:"summary,omitempty" xml:"summary,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis) SetKeyRisks(v []*AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks) *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis {
+	s.KeyRisks = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis) SetLimitations(v []*string) *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis {
+	s.Limitations = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis) SetStatus(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis {
+	s.Status = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis) SetSummary(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysis {
+	s.Summary = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks struct {
+	Evidence   *string `json:"evidence,omitempty" xml:"evidence,omitempty"`
+	Impact     *string `json:"impact,omitempty" xml:"impact,omitempty"`
+	RiskName   *string `json:"riskName,omitempty" xml:"riskName,omitempty"`
+	Suggestion *string `json:"suggestion,omitempty" xml:"suggestion,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks) SetEvidence(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks {
+	s.Evidence = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks) SetImpact(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks {
+	s.Impact = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks) SetRiskName(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks {
+	s.RiskName = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks) SetSuggestion(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultAiAnalysisKeyRisks {
+	s.Suggestion = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract struct {
+	AcceptanceTerms      *string   `json:"acceptanceTerms,omitempty" xml:"acceptanceTerms,omitempty"`
+	BreachLiability      *string   `json:"breachLiability,omitempty" xml:"breachLiability,omitempty"`
+	ContractAmount       *string   `json:"contractAmount,omitempty" xml:"contractAmount,omitempty"`
+	ContractId           *int64    `json:"contractId,omitempty" xml:"contractId,omitempty"`
+	ContractName         *string   `json:"contractName,omitempty" xml:"contractName,omitempty"`
+	ContractSubject      *string   `json:"contractSubject,omitempty" xml:"contractSubject,omitempty"`
+	ContractType         *string   `json:"contractType,omitempty" xml:"contractType,omitempty"`
+	ContractVersion      *int64    `json:"contractVersion,omitempty" xml:"contractVersion,omitempty"`
+	Currency             *string   `json:"currency,omitempty" xml:"currency,omitempty"`
+	DataStatus           *string   `json:"dataStatus,omitempty" xml:"dataStatus,omitempty"`
+	DeliveryTerms        *string   `json:"deliveryTerms,omitempty" xml:"deliveryTerms,omitempty"`
+	DisputeResolution    *string   `json:"disputeResolution,omitempty" xml:"disputeResolution,omitempty"`
+	GuaranteeTerms       *string   `json:"guaranteeTerms,omitempty" xml:"guaranteeTerms,omitempty"`
+	MissingFields        []*string `json:"missingFields,omitempty" xml:"missingFields,omitempty" type:"Repeated"`
+	PaymentTerms         *string   `json:"paymentTerms,omitempty" xml:"paymentTerms,omitempty"`
+	PerformancePeriod    *string   `json:"performancePeriod,omitempty" xml:"performancePeriod,omitempty"`
+	TerminationTerms     *string   `json:"terminationTerms,omitempty" xml:"terminationTerms,omitempty"`
+	TransactionDirection *string   `json:"transactionDirection,omitempty" xml:"transactionDirection,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetAcceptanceTerms(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.AcceptanceTerms = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetBreachLiability(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.BreachLiability = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetContractAmount(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.ContractAmount = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetContractId(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.ContractId = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetContractName(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.ContractName = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetContractSubject(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.ContractSubject = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetContractType(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.ContractType = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetContractVersion(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.ContractVersion = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetCurrency(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.Currency = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetDataStatus(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.DataStatus = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetDeliveryTerms(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.DeliveryTerms = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetDisputeResolution(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.DisputeResolution = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetGuaranteeTerms(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.GuaranteeTerms = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetMissingFields(v []*string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.MissingFields = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetPaymentTerms(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.PaymentTerms = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetPerformancePeriod(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.PerformancePeriod = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetTerminationTerms(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.TerminationTerms = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract) SetTransactionDirection(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultCurrentContract {
+	s.TransactionDirection = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation struct {
+	ExpenseAmounts            *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts     `json:"expenseAmounts,omitempty" xml:"expenseAmounts,omitempty" type:"Struct"`
+	HistoryDataStatus         *string                                                                              `json:"historyDataStatus,omitempty" xml:"historyDataStatus,omitempty"`
+	HistoryEndTime            *int64                                                                               `json:"historyEndTime,omitempty" xml:"historyEndTime,omitempty"`
+	HistoryStartTime          *int64                                                                               `json:"historyStartTime,omitempty" xml:"historyStartTime,omitempty"`
+	IncomeAmounts             *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts      `json:"incomeAmounts,omitempty" xml:"incomeAmounts,omitempty" type:"Struct"`
+	PerformanceAnomalies      []*string                                                                            `json:"performanceAnomalies,omitempty" xml:"performanceAnomalies,omitempty" type:"Repeated"`
+	PerformanceDataStatus     *string                                                                              `json:"performanceDataStatus,omitempty" xml:"performanceDataStatus,omitempty"`
+	PeriodContractCount       *int64                                                                               `json:"periodContractCount,omitempty" xml:"periodContractCount,omitempty"`
+	RelatedContracts          []*AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts `json:"relatedContracts,omitempty" xml:"relatedContracts,omitempty" type:"Repeated"`
+	TotalRelatedContractCount *int64                                                                               `json:"totalRelatedContractCount,omitempty" xml:"totalRelatedContractCount,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetExpenseAmounts(v *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.ExpenseAmounts = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetHistoryDataStatus(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.HistoryDataStatus = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetHistoryEndTime(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.HistoryEndTime = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetHistoryStartTime(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.HistoryStartTime = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetIncomeAmounts(v *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.IncomeAmounts = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetPerformanceAnomalies(v []*string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.PerformanceAnomalies = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetPerformanceDataStatus(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.PerformanceDataStatus = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetPeriodContractCount(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.PeriodContractCount = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetRelatedContracts(v []*AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.RelatedContracts = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation) SetTotalRelatedContractCount(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperation {
+	s.TotalRelatedContractCount = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts struct {
+	CNY *string `json:"cNY,omitempty" xml:"cNY,omitempty"`
+	USD *string `json:"uSD,omitempty" xml:"uSD,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts) SetCNY(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts {
+	s.CNY = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts) SetUSD(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationExpenseAmounts {
+	s.USD = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts struct {
+	CNY *string `json:"cNY,omitempty" xml:"cNY,omitempty"`
+	USD *string `json:"uSD,omitempty" xml:"uSD,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts) SetCNY(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts {
+	s.CNY = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts) SetUSD(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationIncomeAmounts {
+	s.USD = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts struct {
+	ContractAmount       *string `json:"contractAmount,omitempty" xml:"contractAmount,omitempty"`
+	ContractId           *int64  `json:"contractId,omitempty" xml:"contractId,omitempty"`
+	ContractName         *string `json:"contractName,omitempty" xml:"contractName,omitempty"`
+	ContractType         *string `json:"contractType,omitempty" xml:"contractType,omitempty"`
+	Currency             *string `json:"currency,omitempty" xml:"currency,omitempty"`
+	EndDate              *int64  `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	StartDate            *int64  `json:"startDate,omitempty" xml:"startDate,omitempty"`
+	TransactionDirection *string `json:"transactionDirection,omitempty" xml:"transactionDirection,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) SetContractAmount(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts {
+	s.ContractAmount = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) SetContractId(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts {
+	s.ContractId = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) SetContractName(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts {
+	s.ContractName = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) SetContractType(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts {
+	s.ContractType = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) SetCurrency(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts {
+	s.Currency = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) SetEndDate(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts {
+	s.EndDate = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) SetStartDate(v int64) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts {
+	s.StartDate = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts) SetTransactionDirection(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultHistoryCooperationRelatedContracts {
+	s.TransactionDirection = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo struct {
+	CreditCode         *string   `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
+	RelatedOwnSubjects []*string `json:"relatedOwnSubjects,omitempty" xml:"relatedOwnSubjects,omitempty" type:"Repeated"`
+	SubjectName        *string   `json:"subjectName,omitempty" xml:"subjectName,omitempty"`
+	SubjectTags        []*string `json:"subjectTags,omitempty" xml:"subjectTags,omitempty" type:"Repeated"`
+	UniqueCode         *string   `json:"uniqueCode,omitempty" xml:"uniqueCode,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo) SetCreditCode(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo {
+	s.CreditCode = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo) SetRelatedOwnSubjects(v []*string) *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo {
+	s.RelatedOwnSubjects = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo) SetSubjectName(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo {
+	s.SubjectName = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo) SetSubjectTags(v []*string) *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo {
+	s.SubjectTags = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo) SetUniqueCode(v string) *AnalyzeSubjectTransactionRiskResponseBodyResultSubjectInfo {
+	s.UniqueCode = &v
+	return s
+}
+
+type AnalyzeSubjectTransactionRiskResponse struct {
+	Headers    map[string]*string                         `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                     `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AnalyzeSubjectTransactionRiskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AnalyzeSubjectTransactionRiskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AnalyzeSubjectTransactionRiskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponse) SetHeaders(v map[string]*string) *AnalyzeSubjectTransactionRiskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponse) SetStatusCode(v int32) *AnalyzeSubjectTransactionRiskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AnalyzeSubjectTransactionRiskResponse) SetBody(v *AnalyzeSubjectTransactionRiskResponseBody) *AnalyzeSubjectTransactionRiskResponse {
+	s.Body = v
+	return s
+}
+
 type AsyncCreateContractAnalysisHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8891,6 +9464,652 @@ func (s *QuerySignTaskResponse) SetBody(v *QuerySignTaskResponseBody) *QuerySign
 	return s
 }
 
+type QuerySubjectPublicRiskRequest struct {
+	BizId          *string `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	CompanyId      *string `json:"companyId,omitempty" xml:"companyId,omitempty"`
+	ContractAmount *int64  `json:"contractAmount,omitempty" xml:"contractAmount,omitempty"`
+	ContractType   *string `json:"contractType,omitempty" xml:"contractType,omitempty"`
+	// This parameter is required.
+	CorpId             *string `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreditCode         *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
+	From               *string `json:"from,omitempty" xml:"from,omitempty"`
+	RegistrationNumber *string `json:"registrationNumber,omitempty" xml:"registrationNumber,omitempty"`
+	// This parameter is required.
+	StaffId     *string `json:"staffId,omitempty" xml:"staffId,omitempty"`
+	SubjectName *string `json:"subjectName,omitempty" xml:"subjectName,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetBizId(v string) *QuerySubjectPublicRiskRequest {
+	s.BizId = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetCompanyId(v string) *QuerySubjectPublicRiskRequest {
+	s.CompanyId = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetContractAmount(v int64) *QuerySubjectPublicRiskRequest {
+	s.ContractAmount = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetContractType(v string) *QuerySubjectPublicRiskRequest {
+	s.ContractType = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetCorpId(v string) *QuerySubjectPublicRiskRequest {
+	s.CorpId = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetCreditCode(v string) *QuerySubjectPublicRiskRequest {
+	s.CreditCode = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetFrom(v string) *QuerySubjectPublicRiskRequest {
+	s.From = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetRegistrationNumber(v string) *QuerySubjectPublicRiskRequest {
+	s.RegistrationNumber = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetStaffId(v string) *QuerySubjectPublicRiskRequest {
+	s.StaffId = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskRequest) SetSubjectName(v string) *QuerySubjectPublicRiskRequest {
+	s.SubjectName = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBody struct {
+	Result  *QuerySubjectPublicRiskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBody) SetResult(v *QuerySubjectPublicRiskResponseBodyResult) *QuerySubjectPublicRiskResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBody) SetSuccess(v bool) *QuerySubjectPublicRiskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResult struct {
+	AiRiskSummary         *string                                              `json:"aiRiskSummary,omitempty" xml:"aiRiskSummary,omitempty"`
+	AiSampleRiskCount     *int64                                               `json:"aiSampleRiskCount,omitempty" xml:"aiSampleRiskCount,omitempty"`
+	AiSummaryStatus       *string                                              `json:"aiSummaryStatus,omitempty" xml:"aiSummaryStatus,omitempty"`
+	BizId                 *string                                              `json:"bizId,omitempty" xml:"bizId,omitempty"`
+	CompanyInfo           *QuerySubjectPublicRiskResponseBodyResultCompanyInfo `json:"companyInfo,omitempty" xml:"companyInfo,omitempty" type:"Struct"`
+	DataStatus            *string                                              `json:"dataStatus,omitempty" xml:"dataStatus,omitempty"`
+	DataUpdatedAt         *int64                                               `json:"dataUpdatedAt,omitempty" xml:"dataUpdatedAt,omitempty"`
+	FreeBenefitRestEnough *bool                                                `json:"freeBenefitRestEnough,omitempty" xml:"freeBenefitRestEnough,omitempty"`
+	RiskTypes             []*string                                            `json:"riskTypes,omitempty" xml:"riskTypes,omitempty" type:"Repeated"`
+	Risks                 *QuerySubjectPublicRiskResponseBodyResultRisks       `json:"risks,omitempty" xml:"risks,omitempty" type:"Struct"`
+	SubjectExist          *bool                                                `json:"subjectExist,omitempty" xml:"subjectExist,omitempty"`
+	TotalRiskNumber       *int64                                               `json:"totalRiskNumber,omitempty" xml:"totalRiskNumber,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetAiRiskSummary(v string) *QuerySubjectPublicRiskResponseBodyResult {
+	s.AiRiskSummary = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetAiSampleRiskCount(v int64) *QuerySubjectPublicRiskResponseBodyResult {
+	s.AiSampleRiskCount = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetAiSummaryStatus(v string) *QuerySubjectPublicRiskResponseBodyResult {
+	s.AiSummaryStatus = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetBizId(v string) *QuerySubjectPublicRiskResponseBodyResult {
+	s.BizId = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetCompanyInfo(v *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) *QuerySubjectPublicRiskResponseBodyResult {
+	s.CompanyInfo = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetDataStatus(v string) *QuerySubjectPublicRiskResponseBodyResult {
+	s.DataStatus = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetDataUpdatedAt(v int64) *QuerySubjectPublicRiskResponseBodyResult {
+	s.DataUpdatedAt = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetFreeBenefitRestEnough(v bool) *QuerySubjectPublicRiskResponseBodyResult {
+	s.FreeBenefitRestEnough = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetRiskTypes(v []*string) *QuerySubjectPublicRiskResponseBodyResult {
+	s.RiskTypes = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetRisks(v *QuerySubjectPublicRiskResponseBodyResultRisks) *QuerySubjectPublicRiskResponseBodyResult {
+	s.Risks = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetSubjectExist(v bool) *QuerySubjectPublicRiskResponseBodyResult {
+	s.SubjectExist = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResult) SetTotalRiskNumber(v int64) *QuerySubjectPublicRiskResponseBodyResult {
+	s.TotalRiskNumber = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultCompanyInfo struct {
+	BankAccountName   *string `json:"bankAccountName,omitempty" xml:"bankAccountName,omitempty"`
+	BankAccountNumber *string `json:"bankAccountNumber,omitempty" xml:"bankAccountNumber,omitempty"`
+	BankName          *string `json:"bankName,omitempty" xml:"bankName,omitempty"`
+	CompanyName       *string `json:"companyName,omitempty" xml:"companyName,omitempty"`
+	CreditCode        *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
+	LegalPersonName   *string `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
+	PhoneNumber       *string `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
+	RegLocation       *string `json:"regLocation,omitempty" xml:"regLocation,omitempty"`
+	Remark            *string `json:"remark,omitempty" xml:"remark,omitempty"`
+	TaxNumber         *string `json:"taxNumber,omitempty" xml:"taxNumber,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultCompanyInfo) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultCompanyInfo) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetBankAccountName(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.BankAccountName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetBankAccountNumber(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.BankAccountNumber = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetBankName(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.BankName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetCompanyName(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.CompanyName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetCreditCode(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.CreditCode = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetLegalPersonName(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.LegalPersonName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetPhoneNumber(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.PhoneNumber = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetRegLocation(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.RegLocation = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetRemark(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.Remark = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultCompanyInfo) SetTaxNumber(v string) *QuerySubjectPublicRiskResponseBodyResultCompanyInfo {
+	s.TaxNumber = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisks struct {
+	BusinessRisk *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk `json:"business_risk,omitempty" xml:"business_risk,omitempty" type:"Struct"`
+	JusticeRisk  *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk  `json:"justice_risk,omitempty" xml:"justice_risk,omitempty" type:"Struct"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisks) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisks) SetBusinessRisk(v *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk) *QuerySubjectPublicRiskResponseBodyResultRisks {
+	s.BusinessRisk = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisks) SetJusticeRisk(v *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk) *QuerySubjectPublicRiskResponseBodyResultRisks {
+	s.JusticeRisk = v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk struct {
+	RiskName     *string                                                            `json:"riskName,omitempty" xml:"riskName,omitempty"`
+	RiskNumber   *int64                                                             `json:"riskNumber,omitempty" xml:"riskNumber,omitempty"`
+	RiskType     *string                                                            `json:"riskType,omitempty" xml:"riskType,omitempty"`
+	SubRiskTypes []*string                                                          `json:"subRiskTypes,omitempty" xml:"subRiskTypes,omitempty" type:"Repeated"`
+	SubRisks     *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisks `json:"subRisks,omitempty" xml:"subRisks,omitempty" type:"Struct"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk) SetRiskName(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk {
+	s.RiskName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk) SetRiskNumber(v int64) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk {
+	s.RiskNumber = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk) SetRiskType(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk {
+	s.RiskType = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk) SetSubRiskTypes(v []*string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk {
+	s.SubRiskTypes = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk) SetSubRisks(v *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisks) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRisk {
+	s.SubRisks = v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisks struct {
+	AdministrativePunishment *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment `json:"administrative_punishment,omitempty" xml:"administrative_punishment,omitempty" type:"Struct"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisks) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisks) SetAdministrativePunishment(v *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisks {
+	s.AdministrativePunishment = v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment struct {
+	Columns       []*QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns `json:"columns,omitempty" xml:"columns,omitempty" type:"Repeated"`
+	Items         []*QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems   `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NoticeText    *string                                                                                             `json:"noticeText,omitempty" xml:"noticeText,omitempty"`
+	SubRiskName   *string                                                                                             `json:"subRiskName,omitempty" xml:"subRiskName,omitempty"`
+	SubRiskNumber *int64                                                                                              `json:"subRiskNumber,omitempty" xml:"subRiskNumber,omitempty"`
+	SubRiskType   *string                                                                                             `json:"subRiskType,omitempty" xml:"subRiskType,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) SetColumns(v []*QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment {
+	s.Columns = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) SetItems(v []*QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment {
+	s.Items = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) SetNoticeText(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment {
+	s.NoticeText = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) SetSubRiskName(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment {
+	s.SubRiskName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) SetSubRiskNumber(v int64) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment {
+	s.SubRiskNumber = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment) SetSubRiskType(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishment {
+	s.SubRiskType = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns struct {
+	ColumnName *string `json:"columnName,omitempty" xml:"columnName,omitempty"`
+	ColumnType *string `json:"columnType,omitempty" xml:"columnType,omitempty"`
+	IsDate     *bool   `json:"isDate,omitempty" xml:"isDate,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns) SetColumnName(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns {
+	s.ColumnName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns) SetColumnType(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns {
+	s.ColumnType = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns) SetIsDate(v bool) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentColumns {
+	s.IsDate = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems struct {
+	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
+	DecisionDate   *string `json:"decisionDate,omitempty" xml:"decisionDate,omitempty"`
+	DepartmentName *string `json:"departmentName,omitempty" xml:"departmentName,omitempty"`
+	PunishNumber   *string `json:"punishNumber,omitempty" xml:"punishNumber,omitempty"`
+	Reason         *string `json:"reason,omitempty" xml:"reason,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems) SetContent(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems {
+	s.Content = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems) SetDecisionDate(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems {
+	s.DecisionDate = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems) SetDepartmentName(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems {
+	s.DepartmentName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems) SetPunishNumber(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems {
+	s.PunishNumber = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems) SetReason(v string) *QuerySubjectPublicRiskResponseBodyResultRisksBusinessRiskSubRisksAdministrativePunishmentItems {
+	s.Reason = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk struct {
+	RiskName     *string                                                           `json:"riskName,omitempty" xml:"riskName,omitempty"`
+	RiskNumber   *int64                                                            `json:"riskNumber,omitempty" xml:"riskNumber,omitempty"`
+	RiskType     *string                                                           `json:"riskType,omitempty" xml:"riskType,omitempty"`
+	SubRiskTypes []*string                                                         `json:"subRiskTypes,omitempty" xml:"subRiskTypes,omitempty" type:"Repeated"`
+	SubRisks     *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisks `json:"subRisks,omitempty" xml:"subRisks,omitempty" type:"Struct"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk) SetRiskName(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk {
+	s.RiskName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk) SetRiskNumber(v int64) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk {
+	s.RiskNumber = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk) SetRiskType(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk {
+	s.RiskType = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk) SetSubRiskTypes(v []*string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk {
+	s.SubRiskTypes = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk) SetSubRisks(v *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisks) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRisk {
+	s.SubRisks = v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisks struct {
+	CourtOpeningAnnouncement *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement `json:"court_opening_announcement,omitempty" xml:"court_opening_announcement,omitempty" type:"Struct"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisks) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisks) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisks) SetCourtOpeningAnnouncement(v *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisks {
+	s.CourtOpeningAnnouncement = v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement struct {
+	Columns       []*QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns `json:"columns,omitempty" xml:"columns,omitempty" type:"Repeated"`
+	Items         []*QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems   `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NoticeText    *string                                                                                            `json:"noticeText,omitempty" xml:"noticeText,omitempty"`
+	SubRiskName   *string                                                                                            `json:"subRiskName,omitempty" xml:"subRiskName,omitempty"`
+	SubRiskNumber *int64                                                                                             `json:"subRiskNumber,omitempty" xml:"subRiskNumber,omitempty"`
+	SubRiskType   *string                                                                                            `json:"subRiskType,omitempty" xml:"subRiskType,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) SetColumns(v []*QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement {
+	s.Columns = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) SetItems(v []*QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement {
+	s.Items = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) SetNoticeText(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement {
+	s.NoticeText = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) SetSubRiskName(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement {
+	s.SubRiskName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) SetSubRiskNumber(v int64) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement {
+	s.SubRiskNumber = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement) SetSubRiskType(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncement {
+	s.SubRiskType = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns struct {
+	ColumnName *string `json:"columnName,omitempty" xml:"columnName,omitempty"`
+	ColumnType *string `json:"columnType,omitempty" xml:"columnType,omitempty"`
+	IsDate     *bool   `json:"isDate,omitempty" xml:"isDate,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns) SetColumnName(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns {
+	s.ColumnName = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns) SetColumnType(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns {
+	s.ColumnType = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns) SetIsDate(v bool) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementColumns {
+	s.IsDate = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems struct {
+	CaseNo     *string `json:"caseNo,omitempty" xml:"caseNo,omitempty"`
+	CaseReason *string `json:"caseReason,omitempty" xml:"caseReason,omitempty"`
+	Court      *string `json:"court,omitempty" xml:"court,omitempty"`
+	StartDate  *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems) SetCaseNo(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems {
+	s.CaseNo = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems) SetCaseReason(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems {
+	s.CaseReason = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems) SetCourt(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems {
+	s.Court = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems) SetStartDate(v string) *QuerySubjectPublicRiskResponseBodyResultRisksJusticeRiskSubRisksCourtOpeningAnnouncementItems {
+	s.StartDate = &v
+	return s
+}
+
+type QuerySubjectPublicRiskResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySubjectPublicRiskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySubjectPublicRiskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySubjectPublicRiskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySubjectPublicRiskResponse) SetHeaders(v map[string]*string) *QuerySubjectPublicRiskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponse) SetStatusCode(v int32) *QuerySubjectPublicRiskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySubjectPublicRiskResponse) SetBody(v *QuerySubjectPublicRiskResponseBody) *QuerySubjectPublicRiskResponse {
+	s.Body = v
+	return s
+}
+
 type SearchFileKeywordPositionsHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -9665,12 +10884,106 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 	}
 
 	client.Spi = gatewayClient
+	client.SignatureAlgorithm = tea.String("v2")
 	client.EndpointRule = tea.String("")
 	if tea.BoolValue(util.Empty(client.Endpoint)) {
 		client.Endpoint = tea.String("api.dingtalk.com")
 	}
 
 	return nil
+}
+
+// Summary:
+//
+// 相对方交易风险分析
+//
+// @param request - AnalyzeSubjectTransactionRiskRequest
+//
+// @param headers - AnalyzeSubjectTransactionRiskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AnalyzeSubjectTransactionRiskResponse
+func (client *Client) AnalyzeSubjectTransactionRiskWithOptions(request *AnalyzeSubjectTransactionRiskRequest, headers *AnalyzeSubjectTransactionRiskHeaders, runtime *util.RuntimeOptions) (_result *AnalyzeSubjectTransactionRiskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContractId)) {
+		query["contractId"] = request.ContractId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HistoryEndTime)) {
+		query["historyEndTime"] = request.HistoryEndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.HistoryStartTime)) {
+		query["historyStartTime"] = request.HistoryStartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
+		query["staffId"] = request.StaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectUniqueCode)) {
+		query["subjectUniqueCode"] = request.SubjectUniqueCode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AnalyzeSubjectTransactionRisk"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/subjects/transaction-risks/analyze"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AnalyzeSubjectTransactionRiskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 相对方交易风险分析
+//
+// @param request - AnalyzeSubjectTransactionRiskRequest
+//
+// @return AnalyzeSubjectTransactionRiskResponse
+func (client *Client) AnalyzeSubjectTransactionRisk(request *AnalyzeSubjectTransactionRiskRequest) (_result *AnalyzeSubjectTransactionRiskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AnalyzeSubjectTransactionRiskHeaders{}
+	_result = &AnalyzeSubjectTransactionRiskResponse{}
+	_body, _err := client.AnalyzeSubjectTransactionRiskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
 }
 
 // Summary:
@@ -12983,6 +14296,106 @@ func (client *Client) QuerySignTask(request *QuerySignTaskRequest) (_result *Que
 	headers := &QuerySignTaskHeaders{}
 	_result = &QuerySignTaskResponse{}
 	_body, _err := client.QuerySignTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 相对方企业风险查询
+//
+// @param request - QuerySubjectPublicRiskRequest
+//
+// @param headers - map
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySubjectPublicRiskResponse
+func (client *Client) QuerySubjectPublicRiskWithOptions(request *QuerySubjectPublicRiskRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *QuerySubjectPublicRiskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.BizId)) {
+		query["bizId"] = request.BizId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CompanyId)) {
+		query["companyId"] = request.CompanyId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContractAmount)) {
+		query["contractAmount"] = request.ContractAmount
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ContractType)) {
+		query["contractType"] = request.ContractType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CorpId)) {
+		query["corpId"] = request.CorpId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CreditCode)) {
+		query["creditCode"] = request.CreditCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.From)) {
+		query["from"] = request.From
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RegistrationNumber)) {
+		query["registrationNumber"] = request.RegistrationNumber
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StaffId)) {
+		query["staffId"] = request.StaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SubjectName)) {
+		query["subjectName"] = request.SubjectName
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: headers,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySubjectPublicRisk"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/subjects/risks/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("Anonymous"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySubjectPublicRiskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 相对方企业风险查询
+//
+// @param request - QuerySubjectPublicRiskRequest
+//
+// @return QuerySubjectPublicRiskResponse
+func (client *Client) QuerySubjectPublicRisk(request *QuerySubjectPublicRiskRequest) (_result *QuerySubjectPublicRiskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := make(map[string]*string)
+	_result = &QuerySubjectPublicRiskResponse{}
+	_body, _err := client.QuerySubjectPublicRiskWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

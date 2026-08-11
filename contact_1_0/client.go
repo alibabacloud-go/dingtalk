@@ -2335,11 +2335,12 @@ func (s *CreateUserGroupHeaders) SetXAcsDingtalkAccessToken(v string) *CreateUse
 }
 
 type CreateUserGroupRequest struct {
-	// This parameter is required.
 	ClientShow *bool `json:"clientShow,omitempty" xml:"clientShow,omitempty"`
+	// This parameter is required.
+	//
 	// example:
 	//
-	// 静态用户组
+	// 静态用户组描述
 	Description *string `json:"description,omitempty" xml:"description,omitempty"`
 	// This parameter is required.
 	//
@@ -5475,6 +5476,92 @@ func (s *GetUserResponse) SetStatusCode(v int32) *GetUserResponse {
 }
 
 func (s *GetUserResponse) SetBody(v *GetUserResponseBody) *GetUserResponse {
+	s.Body = v
+	return s
+}
+
+type GetUserByDingTalkIdHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUserByDingTalkIdHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserByDingTalkIdHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserByDingTalkIdHeaders) SetCommonHeaders(v map[string]*string) *GetUserByDingTalkIdHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUserByDingTalkIdHeaders) SetXAcsDingtalkAccessToken(v string) *GetUserByDingTalkIdHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUserByDingTalkIdRequest struct {
+	DingtalkId *string `json:"dingtalkId,omitempty" xml:"dingtalkId,omitempty"`
+}
+
+func (s GetUserByDingTalkIdRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserByDingTalkIdRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserByDingTalkIdRequest) SetDingtalkId(v string) *GetUserByDingTalkIdRequest {
+	s.DingtalkId = &v
+	return s
+}
+
+type GetUserByDingTalkIdResponseBody struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s GetUserByDingTalkIdResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserByDingTalkIdResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserByDingTalkIdResponseBody) SetUserId(v string) *GetUserByDingTalkIdResponseBody {
+	s.UserId = &v
+	return s
+}
+
+type GetUserByDingTalkIdResponse struct {
+	Headers    map[string]*string               `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                           `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUserByDingTalkIdResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetUserByDingTalkIdResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUserByDingTalkIdResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUserByDingTalkIdResponse) SetHeaders(v map[string]*string) *GetUserByDingTalkIdResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUserByDingTalkIdResponse) SetStatusCode(v int32) *GetUserByDingTalkIdResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetUserByDingTalkIdResponse) SetBody(v *GetUserByDingTalkIdResponseBody) *GetUserByDingTalkIdResponse {
 	s.Body = v
 	return s
 }
@@ -16021,17 +16108,17 @@ func (client *Client) CreateUserGroupWithOptions(request *CreateUserGroupRequest
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.ClientShow)) {
-		query["clientShow"] = request.ClientShow
+		body["clientShow"] = request.ClientShow
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Description)) {
-		query["description"] = request.Description
+		body["description"] = request.Description
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Name)) {
-		query["name"] = request.Name
+		body["name"] = request.Name
 	}
 
 	realHeaders := make(map[string]*string)
@@ -16045,7 +16132,7 @@ func (client *Client) CreateUserGroupWithOptions(request *CreateUserGroupRequest
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("CreateUserGroup"),
@@ -16614,9 +16701,9 @@ func (client *Client) DeleteUserGroupWithOptions(request *DeleteUserGroupRequest
 	if _err != nil {
 		return _result, _err
 	}
-	query := map[string]interface{}{}
+	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.GroupCode)) {
-		query["groupCode"] = request.GroupCode
+		body["groupCode"] = request.GroupCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -16630,7 +16717,7 @@ func (client *Client) DeleteUserGroupWithOptions(request *DeleteUserGroupRequest
 
 	req := &openapi.OpenApiRequest{
 		Headers: realHeaders,
-		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
 	}
 	params := &openapi.Params{
 		Action:      tea.String("DeleteUserGroup"),
@@ -17811,6 +17898,79 @@ func (client *Client) GetUser(unionId *string) (_result *GetUserResponse, _err e
 	headers := &GetUserHeaders{}
 	_result = &GetUserResponse{}
 	_body, _err := client.GetUserWithOptions(unionId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据钉钉号获取员工信息
+//
+// @param request - GetUserByDingTalkIdRequest
+//
+// @param headers - GetUserByDingTalkIdHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUserByDingTalkIdResponse
+func (client *Client) GetUserByDingTalkIdWithOptions(request *GetUserByDingTalkIdRequest, headers *GetUserByDingTalkIdHeaders, runtime *util.RuntimeOptions) (_result *GetUserByDingTalkIdResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DingtalkId)) {
+		query["dingtalkId"] = request.DingtalkId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUserByDingTalkId"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/user/getByDingTalkId"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetUserByDingTalkIdResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据钉钉号获取员工信息
+//
+// @param request - GetUserByDingTalkIdRequest
+//
+// @return GetUserByDingTalkIdResponse
+func (client *Client) GetUserByDingTalkId(request *GetUserByDingTalkIdRequest) (_result *GetUserByDingTalkIdResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUserByDingTalkIdHeaders{}
+	_result = &GetUserByDingTalkIdResponse{}
+	_body, _err := client.GetUserByDingTalkIdWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

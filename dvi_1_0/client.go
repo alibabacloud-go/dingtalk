@@ -575,7 +575,6 @@ func (s *CreateTeamHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTeamHead
 
 type CreateTeamRequest struct {
 	AdminUserIds []*string `json:"adminUserIds,omitempty" xml:"adminUserIds,omitempty" type:"Repeated"`
-	DeptIds      []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 	DialectCode  *string   `json:"dialectCode,omitempty" xml:"dialectCode,omitempty"`
 	// This parameter is required.
 	Name *string `json:"name,omitempty" xml:"name,omitempty"`
@@ -596,11 +595,6 @@ func (s CreateTeamRequest) GoString() string {
 
 func (s *CreateTeamRequest) SetAdminUserIds(v []*string) *CreateTeamRequest {
 	s.AdminUserIds = v
-	return s
-}
-
-func (s *CreateTeamRequest) SetDeptIds(v []*int64) *CreateTeamRequest {
-	s.DeptIds = v
 	return s
 }
 
@@ -3082,7 +3076,6 @@ func (s *GetTeamMemberResponseBody) SetResult(v *GetTeamMemberResponseBodyResult
 
 type GetTeamMemberResponseBodyResult struct {
 	Admins  []*GetTeamMemberResponseBodyResultAdmins  `json:"admins,omitempty" xml:"admins,omitempty" type:"Repeated"`
-	Depts   []*GetTeamMemberResponseBodyResultDepts   `json:"depts,omitempty" xml:"depts,omitempty" type:"Repeated"`
 	Members []*GetTeamMemberResponseBodyResultMembers `json:"members,omitempty" xml:"members,omitempty" type:"Repeated"`
 }
 
@@ -3096,11 +3089,6 @@ func (s GetTeamMemberResponseBodyResult) GoString() string {
 
 func (s *GetTeamMemberResponseBodyResult) SetAdmins(v []*GetTeamMemberResponseBodyResultAdmins) *GetTeamMemberResponseBodyResult {
 	s.Admins = v
-	return s
-}
-
-func (s *GetTeamMemberResponseBodyResult) SetDepts(v []*GetTeamMemberResponseBodyResultDepts) *GetTeamMemberResponseBodyResult {
-	s.Depts = v
 	return s
 }
 
@@ -3129,29 +3117,6 @@ func (s *GetTeamMemberResponseBodyResultAdmins) SetName(v string) *GetTeamMember
 
 func (s *GetTeamMemberResponseBodyResultAdmins) SetUserId(v string) *GetTeamMemberResponseBodyResultAdmins {
 	s.UserId = &v
-	return s
-}
-
-type GetTeamMemberResponseBodyResultDepts struct {
-	DeptId *int64  `json:"deptId,omitempty" xml:"deptId,omitempty"`
-	Name   *string `json:"name,omitempty" xml:"name,omitempty"`
-}
-
-func (s GetTeamMemberResponseBodyResultDepts) String() string {
-	return tea.Prettify(s)
-}
-
-func (s GetTeamMemberResponseBodyResultDepts) GoString() string {
-	return s.String()
-}
-
-func (s *GetTeamMemberResponseBodyResultDepts) SetDeptId(v int64) *GetTeamMemberResponseBodyResultDepts {
-	s.DeptId = &v
-	return s
-}
-
-func (s *GetTeamMemberResponseBodyResultDepts) SetName(v string) *GetTeamMemberResponseBodyResultDepts {
-	s.Name = &v
 	return s
 }
 
@@ -4517,7 +4482,6 @@ func (s *ManageTeamMemberRequest) SetTeamCode(v string) *ManageTeamMemberRequest
 
 type ManageTeamMemberRequestAddMembers struct {
 	AdminUserIds []*string `json:"adminUserIds,omitempty" xml:"adminUserIds,omitempty" type:"Repeated"`
-	DeptIds      []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -4534,11 +4498,6 @@ func (s *ManageTeamMemberRequestAddMembers) SetAdminUserIds(v []*string) *Manage
 	return s
 }
 
-func (s *ManageTeamMemberRequestAddMembers) SetDeptIds(v []*int64) *ManageTeamMemberRequestAddMembers {
-	s.DeptIds = v
-	return s
-}
-
 func (s *ManageTeamMemberRequestAddMembers) SetUserIds(v []*string) *ManageTeamMemberRequestAddMembers {
 	s.UserIds = v
 	return s
@@ -4546,7 +4505,6 @@ func (s *ManageTeamMemberRequestAddMembers) SetUserIds(v []*string) *ManageTeamM
 
 type ManageTeamMemberRequestRemoveMembers struct {
 	AdminUserIds []*string `json:"adminUserIds,omitempty" xml:"adminUserIds,omitempty" type:"Repeated"`
-	DeptIds      []*int64  `json:"deptIds,omitempty" xml:"deptIds,omitempty" type:"Repeated"`
 	UserIds      []*string `json:"userIds,omitempty" xml:"userIds,omitempty" type:"Repeated"`
 }
 
@@ -4560,11 +4518,6 @@ func (s ManageTeamMemberRequestRemoveMembers) GoString() string {
 
 func (s *ManageTeamMemberRequestRemoveMembers) SetAdminUserIds(v []*string) *ManageTeamMemberRequestRemoveMembers {
 	s.AdminUserIds = v
-	return s
-}
-
-func (s *ManageTeamMemberRequestRemoveMembers) SetDeptIds(v []*int64) *ManageTeamMemberRequestRemoveMembers {
-	s.DeptIds = v
 	return s
 }
 
@@ -7567,10 +7520,6 @@ func (client *Client) CreateTeamWithOptions(request *CreateTeamRequest, headers 
 	body := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.AdminUserIds)) {
 		body["adminUserIds"] = request.AdminUserIds
-	}
-
-	if !tea.BoolValue(util.IsUnset(request.DeptIds)) {
-		body["deptIds"] = request.DeptIds
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.DialectCode)) {

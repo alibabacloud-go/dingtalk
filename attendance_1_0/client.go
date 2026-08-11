@@ -5817,7 +5817,11 @@ type GetShiftResponseBodyResultShiftSetting struct {
 	// example:
 	//
 	// 2020-09-06 15:49:27
-	GmtModified *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	GmtModified            *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	OvertimeBehindDuration *int64  `json:"overtimeBehindDuration,omitempty" xml:"overtimeBehindDuration,omitempty"`
+	OvertimeFrontDuration  *int64  `json:"overtimeFrontDuration,omitempty" xml:"overtimeFrontDuration,omitempty"`
+	OvertimeOpen           *bool   `json:"overtimeOpen,omitempty" xml:"overtimeOpen,omitempty"`
+	OvertimeType           *int64  `json:"overtimeType,omitempty" xml:"overtimeType,omitempty"`
 	// example:
 	//
 	// 678215070
@@ -5861,6 +5865,26 @@ func (s *GetShiftResponseBodyResultShiftSetting) SetGmtCreate(v string) *GetShif
 
 func (s *GetShiftResponseBodyResultShiftSetting) SetGmtModified(v string) *GetShiftResponseBodyResultShiftSetting {
 	s.GmtModified = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetOvertimeBehindDuration(v int64) *GetShiftResponseBodyResultShiftSetting {
+	s.OvertimeBehindDuration = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetOvertimeFrontDuration(v int64) *GetShiftResponseBodyResultShiftSetting {
+	s.OvertimeFrontDuration = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetOvertimeOpen(v bool) *GetShiftResponseBodyResultShiftSetting {
+	s.OvertimeOpen = &v
+	return s
+}
+
+func (s *GetShiftResponseBodyResultShiftSetting) SetOvertimeType(v int64) *GetShiftResponseBodyResultShiftSetting {
+	s.OvertimeType = &v
 	return s
 }
 
@@ -10380,11 +10404,15 @@ type ShiftAddRequestSetting struct {
 	// example:
 	//
 	// 480
-	DemandWorkTimeMinutes *int32                                 `json:"demandWorkTimeMinutes,omitempty" xml:"demandWorkTimeMinutes,omitempty"`
-	EnableOutsideLateBack *bool                                  `json:"enableOutsideLateBack,omitempty" xml:"enableOutsideLateBack,omitempty"`
-	Extras                map[string]interface{}                 `json:"extras,omitempty" xml:"extras,omitempty"`
-	IsFlexible            *bool                                  `json:"isFlexible,omitempty" xml:"isFlexible,omitempty"`
-	LateBackSetting       *ShiftAddRequestSettingLateBackSetting `json:"lateBackSetting,omitempty" xml:"lateBackSetting,omitempty" type:"Struct"`
+	DemandWorkTimeMinutes  *int32                                 `json:"demandWorkTimeMinutes,omitempty" xml:"demandWorkTimeMinutes,omitempty"`
+	EnableOutsideLateBack  *bool                                  `json:"enableOutsideLateBack,omitempty" xml:"enableOutsideLateBack,omitempty"`
+	Extras                 map[string]interface{}                 `json:"extras,omitempty" xml:"extras,omitempty"`
+	IsFlexible             *bool                                  `json:"isFlexible,omitempty" xml:"isFlexible,omitempty"`
+	LateBackSetting        *ShiftAddRequestSettingLateBackSetting `json:"lateBackSetting,omitempty" xml:"lateBackSetting,omitempty" type:"Struct"`
+	OvertimeBehindDuration *int64                                 `json:"overtimeBehindDuration,omitempty" xml:"overtimeBehindDuration,omitempty"`
+	OvertimeFrontDuration  *int64                                 `json:"overtimeFrontDuration,omitempty" xml:"overtimeFrontDuration,omitempty"`
+	OvertimeOpen           *bool                                  `json:"overtimeOpen,omitempty" xml:"overtimeOpen,omitempty"`
+	OvertimeType           *int64                                 `json:"overtimeType,omitempty" xml:"overtimeType,omitempty"`
 	// example:
 	//
 	// 1234
@@ -10447,6 +10475,26 @@ func (s *ShiftAddRequestSetting) SetIsFlexible(v bool) *ShiftAddRequestSetting {
 
 func (s *ShiftAddRequestSetting) SetLateBackSetting(v *ShiftAddRequestSettingLateBackSetting) *ShiftAddRequestSetting {
 	s.LateBackSetting = v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetOvertimeBehindDuration(v int64) *ShiftAddRequestSetting {
+	s.OvertimeBehindDuration = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetOvertimeFrontDuration(v int64) *ShiftAddRequestSetting {
+	s.OvertimeFrontDuration = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetOvertimeOpen(v bool) *ShiftAddRequestSetting {
+	s.OvertimeOpen = &v
+	return s
+}
+
+func (s *ShiftAddRequestSetting) SetOvertimeType(v int64) *ShiftAddRequestSetting {
+	s.OvertimeType = &v
 	return s
 }
 

@@ -1718,6 +1718,10 @@ func (s *OpenUserSubAdminDTO) SetPermissionGroupCodes(v []*string) *OpenUserSubA
 type PerfTask struct {
 	// example:
 	//
+	// 2026年/2026年第一季度
+	CycleName *string `json:"cycleName,omitempty" xml:"cycleName,omitempty"`
+	// example:
+	//
 	// 328497234
 	Id *string `json:"id,omitempty" xml:"id,omitempty"`
 	// example:
@@ -1744,6 +1748,11 @@ func (s PerfTask) String() string {
 
 func (s PerfTask) GoString() string {
 	return s.String()
+}
+
+func (s *PerfTask) SetCycleName(v string) *PerfTask {
+	s.CycleName = &v
+	return s
 }
 
 func (s *PerfTask) SetId(v string) *PerfTask {
