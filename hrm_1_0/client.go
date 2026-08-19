@@ -26,6 +26,122 @@ func (s *ResultValue) SetStatus(v string) *ResultValue {
 	return s
 }
 
+type AISaleAttachmentPermissonHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AISaleAttachmentPermissonHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleAttachmentPermissonHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleAttachmentPermissonHeaders) SetCommonHeaders(v map[string]*string) *AISaleAttachmentPermissonHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AISaleAttachmentPermissonHeaders) SetXAcsDingtalkAccessToken(v string) *AISaleAttachmentPermissonHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AISaleAttachmentPermissonRequest struct {
+	FileId  *string `json:"fileId,omitempty" xml:"fileId,omitempty"`
+	SpaceId *string `json:"spaceId,omitempty" xml:"spaceId,omitempty"`
+	UserId  *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AISaleAttachmentPermissonRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleAttachmentPermissonRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleAttachmentPermissonRequest) SetFileId(v string) *AISaleAttachmentPermissonRequest {
+	s.FileId = &v
+	return s
+}
+
+func (s *AISaleAttachmentPermissonRequest) SetSpaceId(v string) *AISaleAttachmentPermissonRequest {
+	s.SpaceId = &v
+	return s
+}
+
+func (s *AISaleAttachmentPermissonRequest) SetUserId(v string) *AISaleAttachmentPermissonRequest {
+	s.UserId = &v
+	return s
+}
+
+type AISaleAttachmentPermissonResponseBody struct {
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AISaleAttachmentPermissonResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleAttachmentPermissonResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleAttachmentPermissonResponseBody) SetErrorCode(v string) *AISaleAttachmentPermissonResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *AISaleAttachmentPermissonResponseBody) SetErrorMsg(v string) *AISaleAttachmentPermissonResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *AISaleAttachmentPermissonResponseBody) SetResult(v string) *AISaleAttachmentPermissonResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *AISaleAttachmentPermissonResponseBody) SetSuccess(v bool) *AISaleAttachmentPermissonResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AISaleAttachmentPermissonResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AISaleAttachmentPermissonResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AISaleAttachmentPermissonResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleAttachmentPermissonResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleAttachmentPermissonResponse) SetHeaders(v map[string]*string) *AISaleAttachmentPermissonResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AISaleAttachmentPermissonResponse) SetStatusCode(v int32) *AISaleAttachmentPermissonResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AISaleAttachmentPermissonResponse) SetBody(v *AISaleAttachmentPermissonResponseBody) *AISaleAttachmentPermissonResponse {
+	s.Body = v
+	return s
+}
+
 type AISaleEntityCreateHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -53,6 +169,7 @@ type AISaleEntityCreateRequest struct {
 	EntityId       *string                                    `json:"entityId,omitempty" xml:"entityId,omitempty"`
 	EntityType     *string                                    `json:"entityType,omitempty" xml:"entityType,omitempty"`
 	FieldInstances []*AISaleEntityCreateRequestFieldInstances `json:"fieldInstances,omitempty" xml:"fieldInstances,omitempty" type:"Repeated"`
+	Source         *string                                    `json:"source,omitempty" xml:"source,omitempty"`
 	UserId         *string                                    `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -76,6 +193,11 @@ func (s *AISaleEntityCreateRequest) SetEntityType(v string) *AISaleEntityCreateR
 
 func (s *AISaleEntityCreateRequest) SetFieldInstances(v []*AISaleEntityCreateRequestFieldInstances) *AISaleEntityCreateRequest {
 	s.FieldInstances = v
+	return s
+}
+
+func (s *AISaleEntityCreateRequest) SetSource(v string) *AISaleEntityCreateRequest {
+	s.Source = &v
 	return s
 }
 
@@ -146,7 +268,6 @@ type AISaleEntityCreateResponseBodyResult struct {
 	EntityId       *string                                               `json:"entityId,omitempty" xml:"entityId,omitempty"`
 	EntityType     *string                                               `json:"entityType,omitempty" xml:"entityType,omitempty"`
 	FieldInstances []*AISaleEntityCreateResponseBodyResultFieldInstances `json:"fieldInstances,omitempty" xml:"fieldInstances,omitempty" type:"Repeated"`
-	UserId         *string                                               `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s AISaleEntityCreateResponseBodyResult) String() string {
@@ -169,11 +290,6 @@ func (s *AISaleEntityCreateResponseBodyResult) SetEntityType(v string) *AISaleEn
 
 func (s *AISaleEntityCreateResponseBodyResult) SetFieldInstances(v []*AISaleEntityCreateResponseBodyResultFieldInstances) *AISaleEntityCreateResponseBodyResult {
 	s.FieldInstances = v
-	return s
-}
-
-func (s *AISaleEntityCreateResponseBodyResult) SetUserId(v string) *AISaleEntityCreateResponseBodyResult {
-	s.UserId = &v
 	return s
 }
 
@@ -1048,6 +1164,7 @@ type AISaleEntityUpdateRequest struct {
 	EntityId       *string                                    `json:"entityId,omitempty" xml:"entityId,omitempty"`
 	EntityType     *string                                    `json:"entityType,omitempty" xml:"entityType,omitempty"`
 	FieldInstances []*AISaleEntityUpdateRequestFieldInstances `json:"fieldInstances,omitempty" xml:"fieldInstances,omitempty" type:"Repeated"`
+	Source         *string                                    `json:"source,omitempty" xml:"source,omitempty"`
 	UserId         *string                                    `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
@@ -1071,6 +1188,11 @@ func (s *AISaleEntityUpdateRequest) SetEntityType(v string) *AISaleEntityUpdateR
 
 func (s *AISaleEntityUpdateRequest) SetFieldInstances(v []*AISaleEntityUpdateRequestFieldInstances) *AISaleEntityUpdateRequest {
 	s.FieldInstances = v
+	return s
+}
+
+func (s *AISaleEntityUpdateRequest) SetSource(v string) *AISaleEntityUpdateRequest {
+	s.Source = &v
 	return s
 }
 
@@ -1289,6 +1411,434 @@ func (s *AISaleEntityUpdateResponse) SetBody(v *AISaleEntityUpdateResponseBody) 
 	return s
 }
 
+type AISaleFlashMinutesAnalysisHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AISaleFlashMinutesAnalysisHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleFlashMinutesAnalysisHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleFlashMinutesAnalysisHeaders) SetCommonHeaders(v map[string]*string) *AISaleFlashMinutesAnalysisHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AISaleFlashMinutesAnalysisHeaders) SetXAcsDingtalkAccessToken(v string) *AISaleFlashMinutesAnalysisHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AISaleFlashMinutesAnalysisRequest struct {
+	EntityId *string `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	UserId   *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AISaleFlashMinutesAnalysisRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleFlashMinutesAnalysisRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleFlashMinutesAnalysisRequest) SetEntityId(v string) *AISaleFlashMinutesAnalysisRequest {
+	s.EntityId = &v
+	return s
+}
+
+func (s *AISaleFlashMinutesAnalysisRequest) SetUserId(v string) *AISaleFlashMinutesAnalysisRequest {
+	s.UserId = &v
+	return s
+}
+
+type AISaleFlashMinutesAnalysisResponseBody struct {
+	ErrorCode *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *string `json:"result,omitempty" xml:"result,omitempty"`
+	Success   *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AISaleFlashMinutesAnalysisResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleFlashMinutesAnalysisResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleFlashMinutesAnalysisResponseBody) SetErrorCode(v string) *AISaleFlashMinutesAnalysisResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *AISaleFlashMinutesAnalysisResponseBody) SetErrorMsg(v string) *AISaleFlashMinutesAnalysisResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *AISaleFlashMinutesAnalysisResponseBody) SetResult(v string) *AISaleFlashMinutesAnalysisResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *AISaleFlashMinutesAnalysisResponseBody) SetSuccess(v bool) *AISaleFlashMinutesAnalysisResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AISaleFlashMinutesAnalysisResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AISaleFlashMinutesAnalysisResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AISaleFlashMinutesAnalysisResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleFlashMinutesAnalysisResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleFlashMinutesAnalysisResponse) SetHeaders(v map[string]*string) *AISaleFlashMinutesAnalysisResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AISaleFlashMinutesAnalysisResponse) SetStatusCode(v int32) *AISaleFlashMinutesAnalysisResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AISaleFlashMinutesAnalysisResponse) SetBody(v *AISaleFlashMinutesAnalysisResponseBody) *AISaleFlashMinutesAnalysisResponse {
+	s.Body = v
+	return s
+}
+
+type AISaleGetMemoryHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AISaleGetMemoryHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleGetMemoryHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleGetMemoryHeaders) SetCommonHeaders(v map[string]*string) *AISaleGetMemoryHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AISaleGetMemoryHeaders) SetXAcsDingtalkAccessToken(v string) *AISaleGetMemoryHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AISaleGetMemoryRequest struct {
+	CreatorId       *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	Cursor          *string   `json:"cursor,omitempty" xml:"cursor,omitempty"`
+	CustomerScopeId *string   `json:"customerScopeId,omitempty" xml:"customerScopeId,omitempty"`
+	EntityId        *string   `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	EntityIds       []*string `json:"entityIds,omitempty" xml:"entityIds,omitempty" type:"Repeated"`
+	EntityType      *string   `json:"entityType,omitempty" xml:"entityType,omitempty"`
+	Keyword         *string   `json:"keyword,omitempty" xml:"keyword,omitempty"`
+	MemoryCategory  *string   `json:"memoryCategory,omitempty" xml:"memoryCategory,omitempty"`
+	MinImportance   *int32    `json:"minImportance,omitempty" xml:"minImportance,omitempty"`
+	PageSize        *int32    `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	UserId          *string   `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AISaleGetMemoryRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleGetMemoryRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleGetMemoryRequest) SetCreatorId(v string) *AISaleGetMemoryRequest {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetCursor(v string) *AISaleGetMemoryRequest {
+	s.Cursor = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetCustomerScopeId(v string) *AISaleGetMemoryRequest {
+	s.CustomerScopeId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetEntityId(v string) *AISaleGetMemoryRequest {
+	s.EntityId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetEntityIds(v []*string) *AISaleGetMemoryRequest {
+	s.EntityIds = v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetEntityType(v string) *AISaleGetMemoryRequest {
+	s.EntityType = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetKeyword(v string) *AISaleGetMemoryRequest {
+	s.Keyword = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetMemoryCategory(v string) *AISaleGetMemoryRequest {
+	s.MemoryCategory = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetMinImportance(v int32) *AISaleGetMemoryRequest {
+	s.MinImportance = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetPageSize(v int32) *AISaleGetMemoryRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *AISaleGetMemoryRequest) SetUserId(v string) *AISaleGetMemoryRequest {
+	s.UserId = &v
+	return s
+}
+
+type AISaleGetMemoryResponseBody struct {
+	ErrorCode *string                            `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                            `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *AISaleGetMemoryResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *bool                              `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AISaleGetMemoryResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleGetMemoryResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleGetMemoryResponseBody) SetErrorCode(v string) *AISaleGetMemoryResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBody) SetErrorMsg(v string) *AISaleGetMemoryResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBody) SetResult(v *AISaleGetMemoryResponseBodyResult) *AISaleGetMemoryResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBody) SetSuccess(v bool) *AISaleGetMemoryResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AISaleGetMemoryResponseBodyResult struct {
+	Data       []*AISaleGetMemoryResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	HasMore    *bool                                    `json:"hasMore,omitempty" xml:"hasMore,omitempty"`
+	NextCursor *string                                  `json:"nextCursor,omitempty" xml:"nextCursor,omitempty"`
+	PageSize   *int32                                   `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	Total      *int32                                   `json:"total,omitempty" xml:"total,omitempty"`
+}
+
+func (s AISaleGetMemoryResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleGetMemoryResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleGetMemoryResponseBodyResult) SetData(v []*AISaleGetMemoryResponseBodyResultData) *AISaleGetMemoryResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResult) SetHasMore(v bool) *AISaleGetMemoryResponseBodyResult {
+	s.HasMore = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResult) SetNextCursor(v string) *AISaleGetMemoryResponseBodyResult {
+	s.NextCursor = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResult) SetPageSize(v int32) *AISaleGetMemoryResponseBodyResult {
+	s.PageSize = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResult) SetTotal(v int32) *AISaleGetMemoryResponseBodyResult {
+	s.Total = &v
+	return s
+}
+
+type AISaleGetMemoryResponseBodyResultData struct {
+	ContactId        *string   `json:"contactId,omitempty" xml:"contactId,omitempty"`
+	CorpId           *string   `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreatorId        *string   `json:"creatorId,omitempty" xml:"creatorId,omitempty"`
+	CustomerId       *string   `json:"customerId,omitempty" xml:"customerId,omitempty"`
+	EntityId         *string   `json:"entityId,omitempty" xml:"entityId,omitempty"`
+	EntityType       *string   `json:"entityType,omitempty" xml:"entityType,omitempty"`
+	ExtInfo          *string   `json:"extInfo,omitempty" xml:"extInfo,omitempty"`
+	GmtCreate        *int64    `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified      *int64    `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	HappenedAt       *int64    `json:"happenedAt,omitempty" xml:"happenedAt,omitempty"`
+	Importance       *int32    `json:"importance,omitempty" xml:"importance,omitempty"`
+	MemoryCategory   *string   `json:"memoryCategory,omitempty" xml:"memoryCategory,omitempty"`
+	MemoryContent    *string   `json:"memoryContent,omitempty" xml:"memoryContent,omitempty"`
+	MemoryId         *string   `json:"memoryId,omitempty" xml:"memoryId,omitempty"`
+	MemoryTitle      *string   `json:"memoryTitle,omitempty" xml:"memoryTitle,omitempty"`
+	SourceActivityId *string   `json:"sourceActivityId,omitempty" xml:"sourceActivityId,omitempty"`
+	Tags             []*string `json:"tags,omitempty" xml:"tags,omitempty" type:"Repeated"`
+}
+
+func (s AISaleGetMemoryResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleGetMemoryResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetContactId(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.ContactId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetCorpId(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.CorpId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetCreatorId(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.CreatorId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetCustomerId(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.CustomerId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetEntityId(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.EntityId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetEntityType(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.EntityType = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetExtInfo(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.ExtInfo = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetGmtCreate(v int64) *AISaleGetMemoryResponseBodyResultData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetGmtModified(v int64) *AISaleGetMemoryResponseBodyResultData {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetHappenedAt(v int64) *AISaleGetMemoryResponseBodyResultData {
+	s.HappenedAt = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetImportance(v int32) *AISaleGetMemoryResponseBodyResultData {
+	s.Importance = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetMemoryCategory(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.MemoryCategory = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetMemoryContent(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.MemoryContent = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetMemoryId(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.MemoryId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetMemoryTitle(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.MemoryTitle = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetSourceActivityId(v string) *AISaleGetMemoryResponseBodyResultData {
+	s.SourceActivityId = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponseBodyResultData) SetTags(v []*string) *AISaleGetMemoryResponseBodyResultData {
+	s.Tags = v
+	return s
+}
+
+type AISaleGetMemoryResponse struct {
+	Headers    map[string]*string           `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                       `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AISaleGetMemoryResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AISaleGetMemoryResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleGetMemoryResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleGetMemoryResponse) SetHeaders(v map[string]*string) *AISaleGetMemoryResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AISaleGetMemoryResponse) SetStatusCode(v int32) *AISaleGetMemoryResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AISaleGetMemoryResponse) SetBody(v *AISaleGetMemoryResponseBody) *AISaleGetMemoryResponse {
+	s.Body = v
+	return s
+}
+
 type AISaleSchemaGetHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1394,19 +1944,20 @@ func (s *AISaleSchemaGetResponseBodyResult) SetFields(v []*AISaleSchemaGetRespon
 }
 
 type AISaleSchemaGetResponseBodyResultFields struct {
-	DefaultValue *string                                           `json:"defaultValue,omitempty" xml:"defaultValue,omitempty"`
-	Description  *string                                           `json:"description,omitempty" xml:"description,omitempty"`
-	EntityType   *string                                           `json:"entityType,omitempty" xml:"entityType,omitempty"`
-	FieldKey     *string                                           `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
-	FieldLabel   *string                                           `json:"fieldLabel,omitempty" xml:"fieldLabel,omitempty"`
-	FieldType    *string                                           `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
-	GroupName    *string                                           `json:"groupName,omitempty" xml:"groupName,omitempty"`
-	ItemType     *string                                           `json:"itemType,omitempty" xml:"itemType,omitempty"`
-	Options      []*AISaleSchemaGetResponseBodyResultFieldsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
-	Placeholder  *string                                           `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
-	Required     *bool                                             `json:"required,omitempty" xml:"required,omitempty"`
-	SortOrder    *int32                                            `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
-	Source       *string                                           `json:"source,omitempty" xml:"source,omitempty"`
+	DefaultValue *string                                             `json:"defaultValue,omitempty" xml:"defaultValue,omitempty"`
+	Description  *string                                             `json:"description,omitempty" xml:"description,omitempty"`
+	EntityType   *string                                             `json:"entityType,omitempty" xml:"entityType,omitempty"`
+	FieldKey     *string                                             `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	FieldLabel   *string                                             `json:"fieldLabel,omitempty" xml:"fieldLabel,omitempty"`
+	FieldType    *string                                             `json:"fieldType,omitempty" xml:"fieldType,omitempty"`
+	GroupName    *string                                             `json:"groupName,omitempty" xml:"groupName,omitempty"`
+	ItemType     *string                                             `json:"itemType,omitempty" xml:"itemType,omitempty"`
+	Options      []*AISaleSchemaGetResponseBodyResultFieldsOptions   `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	Placeholder  *string                                             `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Required     *bool                                               `json:"required,omitempty" xml:"required,omitempty"`
+	SortOrder    *int32                                              `json:"sortOrder,omitempty" xml:"sortOrder,omitempty"`
+	Source       *string                                             `json:"source,omitempty" xml:"source,omitempty"`
+	SubFields    []*AISaleSchemaGetResponseBodyResultFieldsSubFields `json:"subFields,omitempty" xml:"subFields,omitempty" type:"Repeated"`
 }
 
 func (s AISaleSchemaGetResponseBodyResultFields) String() string {
@@ -1482,6 +2033,11 @@ func (s *AISaleSchemaGetResponseBodyResultFields) SetSource(v string) *AISaleSch
 	return s
 }
 
+func (s *AISaleSchemaGetResponseBodyResultFields) SetSubFields(v []*AISaleSchemaGetResponseBodyResultFieldsSubFields) *AISaleSchemaGetResponseBodyResultFields {
+	s.SubFields = v
+	return s
+}
+
 type AISaleSchemaGetResponseBodyResultFieldsOptions struct {
 	Label *string `json:"label,omitempty" xml:"label,omitempty"`
 	Value *string `json:"value,omitempty" xml:"value,omitempty"`
@@ -1501,6 +2057,70 @@ func (s *AISaleSchemaGetResponseBodyResultFieldsOptions) SetLabel(v string) *AIS
 }
 
 func (s *AISaleSchemaGetResponseBodyResultFieldsOptions) SetValue(v string) *AISaleSchemaGetResponseBodyResultFieldsOptions {
+	s.Value = &v
+	return s
+}
+
+type AISaleSchemaGetResponseBodyResultFieldsSubFields struct {
+	FieldKey    *string                                                    `json:"fieldKey,omitempty" xml:"fieldKey,omitempty"`
+	FieldLabel  *string                                                    `json:"fieldLabel,omitempty" xml:"fieldLabel,omitempty"`
+	Options     []*AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions `json:"options,omitempty" xml:"options,omitempty" type:"Repeated"`
+	Placeholder *string                                                    `json:"placeholder,omitempty" xml:"placeholder,omitempty"`
+	Required    *bool                                                      `json:"required,omitempty" xml:"required,omitempty"`
+}
+
+func (s AISaleSchemaGetResponseBodyResultFieldsSubFields) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleSchemaGetResponseBodyResultFieldsSubFields) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleSchemaGetResponseBodyResultFieldsSubFields) SetFieldKey(v string) *AISaleSchemaGetResponseBodyResultFieldsSubFields {
+	s.FieldKey = &v
+	return s
+}
+
+func (s *AISaleSchemaGetResponseBodyResultFieldsSubFields) SetFieldLabel(v string) *AISaleSchemaGetResponseBodyResultFieldsSubFields {
+	s.FieldLabel = &v
+	return s
+}
+
+func (s *AISaleSchemaGetResponseBodyResultFieldsSubFields) SetOptions(v []*AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions) *AISaleSchemaGetResponseBodyResultFieldsSubFields {
+	s.Options = v
+	return s
+}
+
+func (s *AISaleSchemaGetResponseBodyResultFieldsSubFields) SetPlaceholder(v string) *AISaleSchemaGetResponseBodyResultFieldsSubFields {
+	s.Placeholder = &v
+	return s
+}
+
+func (s *AISaleSchemaGetResponseBodyResultFieldsSubFields) SetRequired(v bool) *AISaleSchemaGetResponseBodyResultFieldsSubFields {
+	s.Required = &v
+	return s
+}
+
+type AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions struct {
+	Label *string `json:"label,omitempty" xml:"label,omitempty"`
+	Value *string `json:"value,omitempty" xml:"value,omitempty"`
+}
+
+func (s AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions) SetLabel(v string) *AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions {
+	s.Label = &v
+	return s
+}
+
+func (s *AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions) SetValue(v string) *AISaleSchemaGetResponseBodyResultFieldsSubFieldsOptions {
 	s.Value = &v
 	return s
 }
@@ -1530,6 +2150,278 @@ func (s *AISaleSchemaGetResponse) SetStatusCode(v int32) *AISaleSchemaGetRespons
 }
 
 func (s *AISaleSchemaGetResponse) SetBody(v *AISaleSchemaGetResponseBody) *AISaleSchemaGetResponse {
+	s.Body = v
+	return s
+}
+
+type AISaleSyncAiTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AISaleSyncAiTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleSyncAiTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleSyncAiTaskHeaders) SetCommonHeaders(v map[string]*string) *AISaleSyncAiTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AISaleSyncAiTaskHeaders) SetXAcsDingtalkAccessToken(v string) *AISaleSyncAiTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AISaleSyncAiTaskRequest struct {
+	ScenarioCode *string                `json:"scenarioCode,omitempty" xml:"scenarioCode,omitempty"`
+	UserId       *string                `json:"userId,omitempty" xml:"userId,omitempty"`
+	UserPrompt   *string                `json:"userPrompt,omitempty" xml:"userPrompt,omitempty"`
+	Variables    map[string]interface{} `json:"variables,omitempty" xml:"variables,omitempty"`
+}
+
+func (s AISaleSyncAiTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleSyncAiTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleSyncAiTaskRequest) SetScenarioCode(v string) *AISaleSyncAiTaskRequest {
+	s.ScenarioCode = &v
+	return s
+}
+
+func (s *AISaleSyncAiTaskRequest) SetUserId(v string) *AISaleSyncAiTaskRequest {
+	s.UserId = &v
+	return s
+}
+
+func (s *AISaleSyncAiTaskRequest) SetUserPrompt(v string) *AISaleSyncAiTaskRequest {
+	s.UserPrompt = &v
+	return s
+}
+
+func (s *AISaleSyncAiTaskRequest) SetVariables(v map[string]interface{}) *AISaleSyncAiTaskRequest {
+	s.Variables = v
+	return s
+}
+
+type AISaleSyncAiTaskResponseBody struct {
+	ErrorCode *string                             `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                             `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *AISaleSyncAiTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *string                             `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AISaleSyncAiTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleSyncAiTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleSyncAiTaskResponseBody) SetErrorCode(v string) *AISaleSyncAiTaskResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *AISaleSyncAiTaskResponseBody) SetErrorMsg(v string) *AISaleSyncAiTaskResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *AISaleSyncAiTaskResponseBody) SetResult(v *AISaleSyncAiTaskResponseBodyResult) *AISaleSyncAiTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AISaleSyncAiTaskResponseBody) SetSuccess(v string) *AISaleSyncAiTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AISaleSyncAiTaskResponseBodyResult struct {
+	Content *string `json:"content,omitempty" xml:"content,omitempty"`
+}
+
+func (s AISaleSyncAiTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleSyncAiTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleSyncAiTaskResponseBodyResult) SetContent(v string) *AISaleSyncAiTaskResponseBodyResult {
+	s.Content = &v
+	return s
+}
+
+type AISaleSyncAiTaskResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AISaleSyncAiTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AISaleSyncAiTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleSyncAiTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleSyncAiTaskResponse) SetHeaders(v map[string]*string) *AISaleSyncAiTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AISaleSyncAiTaskResponse) SetStatusCode(v int32) *AISaleSyncAiTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AISaleSyncAiTaskResponse) SetBody(v *AISaleSyncAiTaskResponseBody) *AISaleSyncAiTaskResponse {
+	s.Body = v
+	return s
+}
+
+type AISaleTaskResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s AISaleTaskResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleTaskResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleTaskResultHeaders) SetCommonHeaders(v map[string]*string) *AISaleTaskResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *AISaleTaskResultHeaders) SetXAcsDingtalkAccessToken(v string) *AISaleTaskResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type AISaleTaskResultRequest struct {
+	TaskId *string `json:"taskId,omitempty" xml:"taskId,omitempty"`
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s AISaleTaskResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleTaskResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleTaskResultRequest) SetTaskId(v string) *AISaleTaskResultRequest {
+	s.TaskId = &v
+	return s
+}
+
+func (s *AISaleTaskResultRequest) SetUserId(v string) *AISaleTaskResultRequest {
+	s.UserId = &v
+	return s
+}
+
+type AISaleTaskResultResponseBody struct {
+	ErrorCode *string                             `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                             `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *AISaleTaskResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *bool                               `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s AISaleTaskResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleTaskResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleTaskResultResponseBody) SetErrorCode(v string) *AISaleTaskResultResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *AISaleTaskResultResponseBody) SetErrorMsg(v string) *AISaleTaskResultResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *AISaleTaskResultResponseBody) SetResult(v *AISaleTaskResultResponseBodyResult) *AISaleTaskResultResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *AISaleTaskResultResponseBody) SetSuccess(v bool) *AISaleTaskResultResponseBody {
+	s.Success = &v
+	return s
+}
+
+type AISaleTaskResultResponseBodyResult struct {
+	TaskResult *string `json:"taskResult,omitempty" xml:"taskResult,omitempty"`
+	TaskStatus *int32  `json:"taskStatus,omitempty" xml:"taskStatus,omitempty"`
+}
+
+func (s AISaleTaskResultResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleTaskResultResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleTaskResultResponseBodyResult) SetTaskResult(v string) *AISaleTaskResultResponseBodyResult {
+	s.TaskResult = &v
+	return s
+}
+
+func (s *AISaleTaskResultResponseBodyResult) SetTaskStatus(v int32) *AISaleTaskResultResponseBodyResult {
+	s.TaskStatus = &v
+	return s
+}
+
+type AISaleTaskResultResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *AISaleTaskResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s AISaleTaskResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s AISaleTaskResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *AISaleTaskResultResponse) SetHeaders(v map[string]*string) *AISaleTaskResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *AISaleTaskResultResponse) SetStatusCode(v int32) *AISaleTaskResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *AISaleTaskResultResponse) SetBody(v *AISaleTaskResultResponseBody) *AISaleTaskResultResponse {
 	s.Body = v
 	return s
 }
@@ -14725,6 +15617,87 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 附件授权
+//
+// @param request - AISaleAttachmentPermissonRequest
+//
+// @param headers - AISaleAttachmentPermissonHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AISaleAttachmentPermissonResponse
+func (client *Client) AISaleAttachmentPermissonWithOptions(request *AISaleAttachmentPermissonRequest, headers *AISaleAttachmentPermissonHeaders, runtime *util.RuntimeOptions) (_result *AISaleAttachmentPermissonResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FileId)) {
+		body["fileId"] = request.FileId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SpaceId)) {
+		body["spaceId"] = request.SpaceId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AISaleAttachmentPermisson"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/ai-sale/api/v1/attachment/permission"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AISaleAttachmentPermissonResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 附件授权
+//
+// @param request - AISaleAttachmentPermissonRequest
+//
+// @return AISaleAttachmentPermissonResponse
+func (client *Client) AISaleAttachmentPermisson(request *AISaleAttachmentPermissonRequest) (_result *AISaleAttachmentPermissonResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AISaleAttachmentPermissonHeaders{}
+	_result = &AISaleAttachmentPermissonResponse{}
+	_body, _err := client.AISaleAttachmentPermissonWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // # AI营销创建实体
 //
 // @param request - AISaleEntityCreateRequest
@@ -14750,6 +15723,10 @@ func (client *Client) AISaleEntityCreateWithOptions(request *AISaleEntityCreateR
 
 	if !tea.BoolValue(util.IsUnset(request.FieldInstances)) {
 		body["fieldInstances"] = request.FieldInstances
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
@@ -15007,6 +15984,10 @@ func (client *Client) AISaleEntityUpdateWithOptions(request *AISaleEntityUpdateR
 		body["fieldInstances"] = request.FieldInstances
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.Source)) {
+		body["source"] = request.Source
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
 		body["userId"] = request.UserId
 	}
@@ -15056,6 +16037,196 @@ func (client *Client) AISaleEntityUpdate(request *AISaleEntityUpdateRequest) (_r
 	headers := &AISaleEntityUpdateHeaders{}
 	_result = &AISaleEntityUpdateResponse{}
 	_body, _err := client.AISaleEntityUpdateWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI营销活动听记总结分析
+//
+// @param request - AISaleFlashMinutesAnalysisRequest
+//
+// @param headers - AISaleFlashMinutesAnalysisHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AISaleFlashMinutesAnalysisResponse
+func (client *Client) AISaleFlashMinutesAnalysisWithOptions(request *AISaleFlashMinutesAnalysisRequest, headers *AISaleFlashMinutesAnalysisHeaders, runtime *util.RuntimeOptions) (_result *AISaleFlashMinutesAnalysisResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EntityId)) {
+		body["entityId"] = request.EntityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AISaleFlashMinutesAnalysis"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/ai-sale/api/v1/common/flashMinutesAnalysis"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AISaleFlashMinutesAnalysisResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI营销活动听记总结分析
+//
+// @param request - AISaleFlashMinutesAnalysisRequest
+//
+// @return AISaleFlashMinutesAnalysisResponse
+func (client *Client) AISaleFlashMinutesAnalysis(request *AISaleFlashMinutesAnalysisRequest) (_result *AISaleFlashMinutesAnalysisResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AISaleFlashMinutesAnalysisHeaders{}
+	_result = &AISaleFlashMinutesAnalysisResponse{}
+	_body, _err := client.AISaleFlashMinutesAnalysisWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 活动助理记忆列表查询
+//
+// @param request - AISaleGetMemoryRequest
+//
+// @param headers - AISaleGetMemoryHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AISaleGetMemoryResponse
+func (client *Client) AISaleGetMemoryWithOptions(request *AISaleGetMemoryRequest, headers *AISaleGetMemoryHeaders, runtime *util.RuntimeOptions) (_result *AISaleGetMemoryResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CreatorId)) {
+		body["creatorId"] = request.CreatorId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Cursor)) {
+		body["cursor"] = request.Cursor
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.CustomerScopeId)) {
+		body["customerScopeId"] = request.CustomerScopeId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EntityId)) {
+		body["entityId"] = request.EntityId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EntityIds)) {
+		body["entityIds"] = request.EntityIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EntityType)) {
+		body["entityType"] = request.EntityType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Keyword)) {
+		body["keyword"] = request.Keyword
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MemoryCategory)) {
+		body["memoryCategory"] = request.MemoryCategory
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MinImportance)) {
+		body["minImportance"] = request.MinImportance
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AISaleGetMemory"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/ai-sale/api/v1/memory/list"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AISaleGetMemoryResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 活动助理记忆列表查询
+//
+// @param request - AISaleGetMemoryRequest
+//
+// @return AISaleGetMemoryResponse
+func (client *Client) AISaleGetMemory(request *AISaleGetMemoryRequest) (_result *AISaleGetMemoryResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AISaleGetMemoryHeaders{}
+	_result = &AISaleGetMemoryResponse{}
+	_body, _err := client.AISaleGetMemoryWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -15133,6 +16304,168 @@ func (client *Client) AISaleSchemaGet(request *AISaleSchemaGetRequest) (_result 
 	headers := &AISaleSchemaGetHeaders{}
 	_result = &AISaleSchemaGetResponse{}
 	_body, _err := client.AISaleSchemaGetWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI营销的同步AI任务
+//
+// @param request - AISaleSyncAiTaskRequest
+//
+// @param headers - AISaleSyncAiTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AISaleSyncAiTaskResponse
+func (client *Client) AISaleSyncAiTaskWithOptions(request *AISaleSyncAiTaskRequest, headers *AISaleSyncAiTaskHeaders, runtime *util.RuntimeOptions) (_result *AISaleSyncAiTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ScenarioCode)) {
+		body["scenarioCode"] = request.ScenarioCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserPrompt)) {
+		body["userPrompt"] = request.UserPrompt
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Variables)) {
+		body["variables"] = request.Variables
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AISaleSyncAiTask"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/ai-sale/api/v1/common/executeSyncAiTask"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AISaleSyncAiTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI营销的同步AI任务
+//
+// @param request - AISaleSyncAiTaskRequest
+//
+// @return AISaleSyncAiTaskResponse
+func (client *Client) AISaleSyncAiTask(request *AISaleSyncAiTaskRequest) (_result *AISaleSyncAiTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AISaleSyncAiTaskHeaders{}
+	_result = &AISaleSyncAiTaskResponse{}
+	_body, _err := client.AISaleSyncAiTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI营销任务结果查询
+//
+// @param request - AISaleTaskResultRequest
+//
+// @param headers - AISaleTaskResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return AISaleTaskResultResponse
+func (client *Client) AISaleTaskResultWithOptions(request *AISaleTaskResultRequest, headers *AISaleTaskResultHeaders, runtime *util.RuntimeOptions) (_result *AISaleTaskResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskId)) {
+		body["taskId"] = request.TaskId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		body["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("AISaleTaskResult"),
+		Version:     tea.String("hrm_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/hrm/ai-sale/api/v1/common/taskResult"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &AISaleTaskResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// # AI营销任务结果查询
+//
+// @param request - AISaleTaskResultRequest
+//
+// @return AISaleTaskResultResponse
+func (client *Client) AISaleTaskResult(request *AISaleTaskResultRequest) (_result *AISaleTaskResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &AISaleTaskResultHeaders{}
+	_result = &AISaleTaskResultResponse{}
+	_body, _err := client.AISaleTaskResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

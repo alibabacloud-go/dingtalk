@@ -5575,6 +5575,243 @@ func (s *GetNewestInnerGroupsResponse) SetBody(v *GetNewestInnerGroupsResponseBo
 	return s
 }
 
+type GetSceneGroupDetailInfoHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetSceneGroupDetailInfoHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSceneGroupDetailInfoHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetSceneGroupDetailInfoHeaders) SetCommonHeaders(v map[string]*string) *GetSceneGroupDetailInfoHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoHeaders) SetXAcsDingtalkAccessToken(v string) *GetSceneGroupDetailInfoHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetSceneGroupDetailInfoRequest struct {
+	CoolAppCode *string `json:"cool_app_code,omitempty" xml:"cool_app_code,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cidXXXXXXX
+	OpenConversationId *string `json:"open_conversation_id,omitempty" xml:"open_conversation_id,omitempty"`
+}
+
+func (s GetSceneGroupDetailInfoRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSceneGroupDetailInfoRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetSceneGroupDetailInfoRequest) SetCoolAppCode(v string) *GetSceneGroupDetailInfoRequest {
+	s.CoolAppCode = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoRequest) SetOpenConversationId(v string) *GetSceneGroupDetailInfoRequest {
+	s.OpenConversationId = &v
+	return s
+}
+
+type GetSceneGroupDetailInfoResponseBody struct {
+	GroupUrl          *string                                               `json:"group_url,omitempty" xml:"group_url,omitempty"`
+	Icon              *string                                               `json:"icon,omitempty" xml:"icon,omitempty"`
+	ManagementOptions *GetSceneGroupDetailInfoResponseBodyManagementOptions `json:"management_options,omitempty" xml:"management_options,omitempty" type:"Struct"`
+	MemberAmount      *int32                                                `json:"member_amount,omitempty" xml:"member_amount,omitempty"`
+	// example:
+	//
+	// cidXXXXXXXXX==
+	OpenConversationId *string   `json:"open_conversation_id,omitempty" xml:"open_conversation_id,omitempty"`
+	OwnerUnionId       *string   `json:"owner_union_id,omitempty" xml:"owner_union_id,omitempty"`
+	OwnerUserId        *string   `json:"owner_user_id,omitempty" xml:"owner_user_id,omitempty"`
+	SceneData          *string   `json:"scene_data,omitempty" xml:"scene_data,omitempty"`
+	Status             *int32    `json:"status,omitempty" xml:"status,omitempty"`
+	SubAdminStaffIds   []*string `json:"sub_admin_staff_ids,omitempty" xml:"sub_admin_staff_ids,omitempty" type:"Repeated"`
+	SubAdminUnionIds   []*string `json:"sub_admin_union_ids,omitempty" xml:"sub_admin_union_ids,omitempty" type:"Repeated"`
+	Success            *bool     `json:"success,omitempty" xml:"success,omitempty"`
+	TemplateId         *string   `json:"template_id,omitempty" xml:"template_id,omitempty"`
+	Title              *string   `json:"title,omitempty" xml:"title,omitempty"`
+}
+
+func (s GetSceneGroupDetailInfoResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSceneGroupDetailInfoResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetGroupUrl(v string) *GetSceneGroupDetailInfoResponseBody {
+	s.GroupUrl = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetIcon(v string) *GetSceneGroupDetailInfoResponseBody {
+	s.Icon = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetManagementOptions(v *GetSceneGroupDetailInfoResponseBodyManagementOptions) *GetSceneGroupDetailInfoResponseBody {
+	s.ManagementOptions = v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetMemberAmount(v int32) *GetSceneGroupDetailInfoResponseBody {
+	s.MemberAmount = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetOpenConversationId(v string) *GetSceneGroupDetailInfoResponseBody {
+	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetOwnerUnionId(v string) *GetSceneGroupDetailInfoResponseBody {
+	s.OwnerUnionId = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetOwnerUserId(v string) *GetSceneGroupDetailInfoResponseBody {
+	s.OwnerUserId = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetSceneData(v string) *GetSceneGroupDetailInfoResponseBody {
+	s.SceneData = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetStatus(v int32) *GetSceneGroupDetailInfoResponseBody {
+	s.Status = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetSubAdminStaffIds(v []*string) *GetSceneGroupDetailInfoResponseBody {
+	s.SubAdminStaffIds = v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetSubAdminUnionIds(v []*string) *GetSceneGroupDetailInfoResponseBody {
+	s.SubAdminUnionIds = v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetSuccess(v bool) *GetSceneGroupDetailInfoResponseBody {
+	s.Success = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetTemplateId(v string) *GetSceneGroupDetailInfoResponseBody {
+	s.TemplateId = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBody) SetTitle(v string) *GetSceneGroupDetailInfoResponseBody {
+	s.Title = &v
+	return s
+}
+
+type GetSceneGroupDetailInfoResponseBodyManagementOptions struct {
+	ChatBannedType      *string `json:"chat_banned_type,omitempty" xml:"chat_banned_type,omitempty"`
+	ManagementType      *string `json:"management_type,omitempty" xml:"management_type,omitempty"`
+	MentionAllAuthority *string `json:"mention_all_authority,omitempty" xml:"mention_all_authority,omitempty"`
+	NotQuitWhenEmpLeave *string `json:"not_quit_when_emp_leave,omitempty" xml:"not_quit_when_emp_leave,omitempty"`
+	OnlyAdminCanAddMem  *string `json:"only_admin_can_add_mem,omitempty" xml:"only_admin_can_add_mem,omitempty"`
+	Searchable          *string `json:"searchable,omitempty" xml:"searchable,omitempty"`
+	ShowHistoryType     *string `json:"show_history_type,omitempty" xml:"show_history_type,omitempty"`
+	ValidationType      *string `json:"validation_type,omitempty" xml:"validation_type,omitempty"`
+}
+
+func (s GetSceneGroupDetailInfoResponseBodyManagementOptions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSceneGroupDetailInfoResponseBodyManagementOptions) GoString() string {
+	return s.String()
+}
+
+func (s *GetSceneGroupDetailInfoResponseBodyManagementOptions) SetChatBannedType(v string) *GetSceneGroupDetailInfoResponseBodyManagementOptions {
+	s.ChatBannedType = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBodyManagementOptions) SetManagementType(v string) *GetSceneGroupDetailInfoResponseBodyManagementOptions {
+	s.ManagementType = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBodyManagementOptions) SetMentionAllAuthority(v string) *GetSceneGroupDetailInfoResponseBodyManagementOptions {
+	s.MentionAllAuthority = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBodyManagementOptions) SetNotQuitWhenEmpLeave(v string) *GetSceneGroupDetailInfoResponseBodyManagementOptions {
+	s.NotQuitWhenEmpLeave = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBodyManagementOptions) SetOnlyAdminCanAddMem(v string) *GetSceneGroupDetailInfoResponseBodyManagementOptions {
+	s.OnlyAdminCanAddMem = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBodyManagementOptions) SetSearchable(v string) *GetSceneGroupDetailInfoResponseBodyManagementOptions {
+	s.Searchable = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBodyManagementOptions) SetShowHistoryType(v string) *GetSceneGroupDetailInfoResponseBodyManagementOptions {
+	s.ShowHistoryType = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponseBodyManagementOptions) SetValidationType(v string) *GetSceneGroupDetailInfoResponseBodyManagementOptions {
+	s.ValidationType = &v
+	return s
+}
+
+type GetSceneGroupDetailInfoResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetSceneGroupDetailInfoResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetSceneGroupDetailInfoResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetSceneGroupDetailInfoResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetSceneGroupDetailInfoResponse) SetHeaders(v map[string]*string) *GetSceneGroupDetailInfoResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponse) SetStatusCode(v int32) *GetSceneGroupDetailInfoResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoResponse) SetBody(v *GetSceneGroupDetailInfoResponseBody) *GetSceneGroupDetailInfoResponse {
+	s.Body = v
+	return s
+}
+
 type GetSceneGroupInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -21044,7 +21281,7 @@ func (client *Client) BatchQueryFamilySchoolMessage(request *BatchQueryFamilySch
 
 // Summary:
 //
-// 查询群成员
+// 查询场景群成员
 //
 // @param request - BatchQueryGroupMemberRequest
 //
@@ -21110,7 +21347,7 @@ func (client *Client) BatchQueryGroupMemberWithOptions(request *BatchQueryGroupM
 
 // Summary:
 //
-// 查询群成员
+// 查询场景群成员
 //
 // @param request - BatchQueryGroupMemberRequest
 //
@@ -23014,7 +23251,7 @@ func (client *Client) DismissGroupConversation(request *DismissGroupConversation
 
 // Summary:
 //
-// 解散群
+// 解散场景群
 //
 // @param request - DsbandOpenSceneGroupRequest
 //
@@ -23068,7 +23305,7 @@ func (client *Client) DsbandOpenSceneGroupWithOptions(request *DsbandOpenSceneGr
 
 // Summary:
 //
-// 解散群
+// 解散场景群
 //
 // @param request - DsbandOpenSceneGroupRequest
 //
@@ -23771,7 +24008,84 @@ func (client *Client) GetNewestInnerGroups(request *GetNewestInnerGroupsRequest)
 
 // Summary:
 //
-// 查询群简要信息
+// 查询场景群信息
+//
+// @param request - GetSceneGroupDetailInfoRequest
+//
+// @param headers - GetSceneGroupDetailInfoHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetSceneGroupDetailInfoResponse
+func (client *Client) GetSceneGroupDetailInfoWithOptions(request *GetSceneGroupDetailInfoRequest, headers *GetSceneGroupDetailInfoHeaders, runtime *util.RuntimeOptions) (_result *GetSceneGroupDetailInfoResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CoolAppCode)) {
+		body["cool_app_code"] = request.CoolAppCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
+		body["open_conversation_id"] = request.OpenConversationId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetSceneGroupDetailInfo"),
+		Version:     tea.String("im_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/im/sceneGroups/queryDetail"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetSceneGroupDetailInfoResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询场景群信息
+//
+// @param request - GetSceneGroupDetailInfoRequest
+//
+// @return GetSceneGroupDetailInfoResponse
+func (client *Client) GetSceneGroupDetailInfo(request *GetSceneGroupDetailInfoRequest) (_result *GetSceneGroupDetailInfoResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetSceneGroupDetailInfoHeaders{}
+	_result = &GetSceneGroupDetailInfoResponse{}
+	_body, _err := client.GetSceneGroupDetailInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询场景群简要信息
 //
 // @param request - GetSceneGroupInfoRequest
 //
@@ -23829,7 +24143,7 @@ func (client *Client) GetSceneGroupInfoWithOptions(request *GetSceneGroupInfoReq
 
 // Summary:
 //
-// 查询群简要信息
+// 查询场景群简要信息
 //
 // @param request - GetSceneGroupInfoRequest
 //
@@ -27857,7 +28171,7 @@ func (client *Client) QueryRecentConversations(request *QueryRecentConversations
 
 // Summary:
 //
-// 查询群内群模板机器人
+// 查询场景群内群模板机器人
 //
 // @param request - QuerySceneGroupTemplateRobotRequest
 //
@@ -27915,7 +28229,7 @@ func (client *Client) QuerySceneGroupTemplateRobotWithOptions(request *QueryScen
 
 // Summary:
 //
-// 查询群内群模板机器人
+// 查询场景群内群模板机器人
 //
 // @param request - QuerySceneGroupTemplateRobotRequest
 //
@@ -30977,7 +31291,7 @@ func (client *Client) UpdateGroupPermission(request *UpdateGroupPermissionReques
 
 // Summary:
 //
-// 更新群管理员
+// 更新场景群管理员
 //
 // @param request - UpdateGroupSubAdminRequest
 //
@@ -31043,7 +31357,7 @@ func (client *Client) UpdateGroupSubAdminWithOptions(request *UpdateGroupSubAdmi
 
 // Summary:
 //
-// 更新群管理员
+// 更新场景群管理员
 //
 // @param request - UpdateGroupSubAdminRequest
 //
@@ -31151,7 +31465,7 @@ func (client *Client) UpdateInteractiveCard(request *UpdateInteractiveCardReques
 
 // Summary:
 //
-// 设置群成员禁言状态
+// 设置场景群成员禁言状态
 //
 // @param request - UpdateMemberBanWordsRequest
 //
@@ -31221,7 +31535,7 @@ func (client *Client) UpdateMemberBanWordsWithOptions(request *UpdateMemberBanWo
 
 // Summary:
 //
-// 设置群成员禁言状态
+// 设置场景群成员禁言状态
 //
 // @param request - UpdateMemberBanWordsRequest
 //
@@ -31240,7 +31554,7 @@ func (client *Client) UpdateMemberBanWords(request *UpdateMemberBanWordsRequest)
 
 // Summary:
 //
-// 更新群成员的群昵称
+// 更新场景群成员的群昵称
 //
 // @param request - UpdateMemberGroupNickRequest
 //
@@ -31302,7 +31616,7 @@ func (client *Client) UpdateMemberGroupNickWithOptions(request *UpdateMemberGrou
 
 // Summary:
 //
-// 更新群成员的群昵称
+// 更新场景群成员的群昵称
 //
 // @param request - UpdateMemberGroupNickRequest
 //

@@ -10553,6 +10553,7 @@ func (s *GetPublicDevicesHeaders) SetXAcsDingtalkAccessToken(v string) *GetPubli
 
 type GetPublicDevicesRequest struct {
 	DeviceUuid          *string   `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	DidList             []*string `json:"didList,omitempty" xml:"didList,omitempty" type:"Repeated"`
 	EncryptDeviceIdList []*string `json:"encryptDeviceIdList,omitempty" xml:"encryptDeviceIdList,omitempty" type:"Repeated"`
 	// example:
 	//
@@ -10599,6 +10600,11 @@ func (s GetPublicDevicesRequest) GoString() string {
 
 func (s *GetPublicDevicesRequest) SetDeviceUuid(v string) *GetPublicDevicesRequest {
 	s.DeviceUuid = &v
+	return s
+}
+
+func (s *GetPublicDevicesRequest) SetDidList(v []*string) *GetPublicDevicesRequest {
+	s.DidList = v
 	return s
 }
 
@@ -10654,6 +10660,7 @@ func (s *GetPublicDevicesRequest) SetTitle(v string) *GetPublicDevicesRequest {
 
 type GetPublicDevicesShrinkRequest struct {
 	DeviceUuid                *string `json:"deviceUuid,omitempty" xml:"deviceUuid,omitempty"`
+	DidListShrink             *string `json:"didList,omitempty" xml:"didList,omitempty"`
 	EncryptDeviceIdListShrink *string `json:"encryptDeviceIdList,omitempty" xml:"encryptDeviceIdList,omitempty"`
 	// example:
 	//
@@ -10700,6 +10707,11 @@ func (s GetPublicDevicesShrinkRequest) GoString() string {
 
 func (s *GetPublicDevicesShrinkRequest) SetDeviceUuid(v string) *GetPublicDevicesShrinkRequest {
 	s.DeviceUuid = &v
+	return s
+}
+
+func (s *GetPublicDevicesShrinkRequest) SetDidListShrink(v string) *GetPublicDevicesShrinkRequest {
+	s.DidListShrink = &v
 	return s
 }
 
@@ -29864,6 +29876,10 @@ func (client *Client) GetPublicDevicesWithOptions(tmpReq *GetPublicDevicesReques
 	}
 	request := &GetPublicDevicesShrinkRequest{}
 	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.DidList)) {
+		request.DidListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.DidList, tea.String("didList"), tea.String("json"))
+	}
+
 	if !tea.BoolValue(util.IsUnset(tmpReq.EncryptDeviceIdList)) {
 		request.EncryptDeviceIdListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.EncryptDeviceIdList, tea.String("encryptDeviceIdList"), tea.String("json"))
 	}
@@ -29875,6 +29891,10 @@ func (client *Client) GetPublicDevicesWithOptions(tmpReq *GetPublicDevicesReques
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.DeviceUuid)) {
 		query["deviceUuid"] = request.DeviceUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.DidListShrink)) {
+		query["didList"] = request.DidListShrink
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.EncryptDeviceIdListShrink)) {

@@ -4753,7 +4753,8 @@ type GetProcessInstanceResponseBodyResultTasks struct {
 	// example:
 	//
 	// NEW
-	Status *string `json:"status,omitempty" xml:"status,omitempty"`
+	Status        *string `json:"status,omitempty" xml:"status,omitempty"`
+	TaskGroupName *string `json:"taskGroupName,omitempty" xml:"taskGroupName,omitempty"`
 	// example:
 	//
 	// 111
@@ -4809,6 +4810,11 @@ func (s *GetProcessInstanceResponseBodyResultTasks) SetResult(v string) *GetProc
 
 func (s *GetProcessInstanceResponseBodyResultTasks) SetStatus(v string) *GetProcessInstanceResponseBodyResultTasks {
 	s.Status = &v
+	return s
+}
+
+func (s *GetProcessInstanceResponseBodyResultTasks) SetTaskGroupName(v string) *GetProcessInstanceResponseBodyResultTasks {
+	s.TaskGroupName = &v
 	return s
 }
 

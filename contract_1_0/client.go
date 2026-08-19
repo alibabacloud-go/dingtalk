@@ -3920,6 +3920,180 @@ func (s *CreateSignFlowResponse) SetBody(v *CreateSignFlowResponseBody) *CreateS
 	return s
 }
 
+type CreateTemplateProcessTaskHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreateTemplateProcessTaskHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateProcessTaskHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateProcessTaskHeaders) SetCommonHeaders(v map[string]*string) *CreateTemplateProcessTaskHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskHeaders) SetXAcsDingtalkAccessToken(v string) *CreateTemplateProcessTaskHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreateTemplateProcessTaskRequest struct {
+	FillData []*CreateTemplateProcessTaskRequestFillData `json:"fillData,omitempty" xml:"fillData,omitempty" type:"Repeated"`
+	FormId   *string                                     `json:"formId,omitempty" xml:"formId,omitempty"`
+	Mode     *string                                     `json:"mode,omitempty" xml:"mode,omitempty"`
+}
+
+func (s CreateTemplateProcessTaskRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateProcessTaskRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateProcessTaskRequest) SetFillData(v []*CreateTemplateProcessTaskRequestFillData) *CreateTemplateProcessTaskRequest {
+	s.FillData = v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskRequest) SetFormId(v string) *CreateTemplateProcessTaskRequest {
+	s.FormId = &v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskRequest) SetMode(v string) *CreateTemplateProcessTaskRequest {
+	s.Mode = &v
+	return s
+}
+
+type CreateTemplateProcessTaskRequestFillData struct {
+	StructKey   *string `json:"structKey,omitempty" xml:"structKey,omitempty"`
+	StructValue *string `json:"structValue,omitempty" xml:"structValue,omitempty"`
+}
+
+func (s CreateTemplateProcessTaskRequestFillData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateProcessTaskRequestFillData) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateProcessTaskRequestFillData) SetStructKey(v string) *CreateTemplateProcessTaskRequestFillData {
+	s.StructKey = &v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskRequestFillData) SetStructValue(v string) *CreateTemplateProcessTaskRequestFillData {
+	s.StructValue = &v
+	return s
+}
+
+type CreateTemplateProcessTaskResponseBody struct {
+	ErrorCode *string                                      `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                                      `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *CreateTemplateProcessTaskResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *bool                                        `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s CreateTemplateProcessTaskResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateProcessTaskResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateProcessTaskResponseBody) SetErrorCode(v string) *CreateTemplateProcessTaskResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskResponseBody) SetErrorMsg(v string) *CreateTemplateProcessTaskResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskResponseBody) SetResult(v *CreateTemplateProcessTaskResponseBodyResult) *CreateTemplateProcessTaskResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskResponseBody) SetSuccess(v bool) *CreateTemplateProcessTaskResponseBody {
+	s.Success = &v
+	return s
+}
+
+type CreateTemplateProcessTaskResponseBodyResult struct {
+	DownloadUrl  *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	FillTaskId   *string `json:"fillTaskId,omitempty" xml:"fillTaskId,omitempty"`
+	Mode         *string `json:"mode,omitempty" xml:"mode,omitempty"`
+	RenderTaskId *string `json:"renderTaskId,omitempty" xml:"renderTaskId,omitempty"`
+}
+
+func (s CreateTemplateProcessTaskResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateProcessTaskResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateProcessTaskResponseBodyResult) SetDownloadUrl(v string) *CreateTemplateProcessTaskResponseBodyResult {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskResponseBodyResult) SetFillTaskId(v string) *CreateTemplateProcessTaskResponseBodyResult {
+	s.FillTaskId = &v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskResponseBodyResult) SetMode(v string) *CreateTemplateProcessTaskResponseBodyResult {
+	s.Mode = &v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskResponseBodyResult) SetRenderTaskId(v string) *CreateTemplateProcessTaskResponseBodyResult {
+	s.RenderTaskId = &v
+	return s
+}
+
+type CreateTemplateProcessTaskResponse struct {
+	Headers    map[string]*string                     `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                 `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreateTemplateProcessTaskResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreateTemplateProcessTaskResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateTemplateProcessTaskResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreateTemplateProcessTaskResponse) SetHeaders(v map[string]*string) *CreateTemplateProcessTaskResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskResponse) SetStatusCode(v int32) *CreateTemplateProcessTaskResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreateTemplateProcessTaskResponse) SetBody(v *CreateTemplateProcessTaskResponseBody) *CreateTemplateProcessTaskResponse {
+	s.Body = v
+	return s
+}
+
 type EsignQueryApprovalInfoHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -7220,6 +7394,240 @@ func (s *QueryContractAppsTermsExtractResultResponse) SetBody(v *QueryContractAp
 	return s
 }
 
+type QueryContractCompareListHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryContractCompareListHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractCompareListHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractCompareListHeaders) SetCommonHeaders(v map[string]*string) *QueryContractCompareListHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryContractCompareListHeaders) SetXAcsDingtalkAccessToken(v string) *QueryContractCompareListHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryContractCompareListRequest struct {
+	EndTime   *string `json:"endTime,omitempty" xml:"endTime,omitempty"`
+	PageNum   *int32  `json:"pageNum,omitempty" xml:"pageNum,omitempty"`
+	PageSize  *int32  `json:"pageSize,omitempty" xml:"pageSize,omitempty"`
+	RequestId *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	StartTime *string `json:"startTime,omitempty" xml:"startTime,omitempty"`
+	Status    *string `json:"status,omitempty" xml:"status,omitempty"`
+	UnionId   *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s QueryContractCompareListRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractCompareListRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractCompareListRequest) SetEndTime(v string) *QueryContractCompareListRequest {
+	s.EndTime = &v
+	return s
+}
+
+func (s *QueryContractCompareListRequest) SetPageNum(v int32) *QueryContractCompareListRequest {
+	s.PageNum = &v
+	return s
+}
+
+func (s *QueryContractCompareListRequest) SetPageSize(v int32) *QueryContractCompareListRequest {
+	s.PageSize = &v
+	return s
+}
+
+func (s *QueryContractCompareListRequest) SetRequestId(v string) *QueryContractCompareListRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryContractCompareListRequest) SetStartTime(v string) *QueryContractCompareListRequest {
+	s.StartTime = &v
+	return s
+}
+
+func (s *QueryContractCompareListRequest) SetStatus(v string) *QueryContractCompareListRequest {
+	s.Status = &v
+	return s
+}
+
+func (s *QueryContractCompareListRequest) SetUnionId(v string) *QueryContractCompareListRequest {
+	s.UnionId = &v
+	return s
+}
+
+type QueryContractCompareListResponseBody struct {
+	ErrorCode *string                                     `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                                     `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *QueryContractCompareListResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *bool                                       `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryContractCompareListResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractCompareListResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractCompareListResponseBody) SetErrorCode(v string) *QueryContractCompareListResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBody) SetErrorMsg(v string) *QueryContractCompareListResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBody) SetResult(v *QueryContractCompareListResponseBodyResult) *QueryContractCompareListResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBody) SetSuccess(v bool) *QueryContractCompareListResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryContractCompareListResponseBodyResult struct {
+	CurrentPage *int32                                            `json:"currentPage,omitempty" xml:"currentPage,omitempty"`
+	Data        []*QueryContractCompareListResponseBodyResultData `json:"data,omitempty" xml:"data,omitempty" type:"Repeated"`
+	TotalCount  *int32                                            `json:"totalCount,omitempty" xml:"totalCount,omitempty"`
+}
+
+func (s QueryContractCompareListResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractCompareListResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractCompareListResponseBodyResult) SetCurrentPage(v int32) *QueryContractCompareListResponseBodyResult {
+	s.CurrentPage = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResult) SetData(v []*QueryContractCompareListResponseBodyResultData) *QueryContractCompareListResponseBodyResult {
+	s.Data = v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResult) SetTotalCount(v int32) *QueryContractCompareListResponseBodyResult {
+	s.TotalCount = &v
+	return s
+}
+
+type QueryContractCompareListResponseBodyResultData struct {
+	ComparativeFileName *string `json:"comparativeFileName,omitempty" xml:"comparativeFileName,omitempty"`
+	CompareStatus       *string `json:"compareStatus,omitempty" xml:"compareStatus,omitempty"`
+	CompareTaskId       *string `json:"compareTaskId,omitempty" xml:"compareTaskId,omitempty"`
+	GmtCreate           *string `json:"gmtCreate,omitempty" xml:"gmtCreate,omitempty"`
+	GmtModified         *string `json:"gmtModified,omitempty" xml:"gmtModified,omitempty"`
+	InitiatorUid        *string `json:"initiatorUid,omitempty" xml:"initiatorUid,omitempty"`
+	RequestId           *string `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	Result              *string `json:"result,omitempty" xml:"result,omitempty"`
+	StandardFileName    *string `json:"standardFileName,omitempty" xml:"standardFileName,omitempty"`
+}
+
+func (s QueryContractCompareListResponseBodyResultData) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractCompareListResponseBodyResultData) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetComparativeFileName(v string) *QueryContractCompareListResponseBodyResultData {
+	s.ComparativeFileName = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetCompareStatus(v string) *QueryContractCompareListResponseBodyResultData {
+	s.CompareStatus = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetCompareTaskId(v string) *QueryContractCompareListResponseBodyResultData {
+	s.CompareTaskId = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetGmtCreate(v string) *QueryContractCompareListResponseBodyResultData {
+	s.GmtCreate = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetGmtModified(v string) *QueryContractCompareListResponseBodyResultData {
+	s.GmtModified = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetInitiatorUid(v string) *QueryContractCompareListResponseBodyResultData {
+	s.InitiatorUid = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetRequestId(v string) *QueryContractCompareListResponseBodyResultData {
+	s.RequestId = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetResult(v string) *QueryContractCompareListResponseBodyResultData {
+	s.Result = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponseBodyResultData) SetStandardFileName(v string) *QueryContractCompareListResponseBodyResultData {
+	s.StandardFileName = &v
+	return s
+}
+
+type QueryContractCompareListResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryContractCompareListResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryContractCompareListResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryContractCompareListResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryContractCompareListResponse) SetHeaders(v map[string]*string) *QueryContractCompareListResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryContractCompareListResponse) SetStatusCode(v int32) *QueryContractCompareListResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryContractCompareListResponse) SetBody(v *QueryContractCompareListResponseBody) *QueryContractCompareListResponse {
+	s.Body = v
+	return s
+}
+
 type QueryContractCompareResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -8475,6 +8883,139 @@ func (s *QueryContractSignInfoResponse) SetStatusCode(v int32) *QueryContractSig
 }
 
 func (s *QueryContractSignInfoResponse) SetBody(v *QueryContractSignInfoResponseBody) *QueryContractSignInfoResponse {
+	s.Body = v
+	return s
+}
+
+type QueryFileProcessResultHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryFileProcessResultHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileProcessResultHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileProcessResultHeaders) SetCommonHeaders(v map[string]*string) *QueryFileProcessResultHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryFileProcessResultHeaders) SetXAcsDingtalkAccessToken(v string) *QueryFileProcessResultHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryFileProcessResultRequest struct {
+	RenderTaskId *string `json:"renderTaskId,omitempty" xml:"renderTaskId,omitempty"`
+}
+
+func (s QueryFileProcessResultRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileProcessResultRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileProcessResultRequest) SetRenderTaskId(v string) *QueryFileProcessResultRequest {
+	s.RenderTaskId = &v
+	return s
+}
+
+type QueryFileProcessResultResponseBody struct {
+	ErrorCode *string                                   `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg  *string                                   `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result    *QueryFileProcessResultResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+	Success   *bool                                     `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s QueryFileProcessResultResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileProcessResultResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileProcessResultResponseBody) SetErrorCode(v string) *QueryFileProcessResultResponseBody {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *QueryFileProcessResultResponseBody) SetErrorMsg(v string) *QueryFileProcessResultResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *QueryFileProcessResultResponseBody) SetResult(v *QueryFileProcessResultResponseBodyResult) *QueryFileProcessResultResponseBody {
+	s.Result = v
+	return s
+}
+
+func (s *QueryFileProcessResultResponseBody) SetSuccess(v bool) *QueryFileProcessResultResponseBody {
+	s.Success = &v
+	return s
+}
+
+type QueryFileProcessResultResponseBodyResult struct {
+	DownloadUrl  *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	PdfStatus    *string `json:"pdfStatus,omitempty" xml:"pdfStatus,omitempty"`
+	RenderTaskId *string `json:"renderTaskId,omitempty" xml:"renderTaskId,omitempty"`
+}
+
+func (s QueryFileProcessResultResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileProcessResultResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileProcessResultResponseBodyResult) SetDownloadUrl(v string) *QueryFileProcessResultResponseBodyResult {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *QueryFileProcessResultResponseBodyResult) SetPdfStatus(v string) *QueryFileProcessResultResponseBodyResult {
+	s.PdfStatus = &v
+	return s
+}
+
+func (s *QueryFileProcessResultResponseBodyResult) SetRenderTaskId(v string) *QueryFileProcessResultResponseBodyResult {
+	s.RenderTaskId = &v
+	return s
+}
+
+type QueryFileProcessResultResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryFileProcessResultResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryFileProcessResultResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryFileProcessResultResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryFileProcessResultResponse) SetHeaders(v map[string]*string) *QueryFileProcessResultResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryFileProcessResultResponse) SetStatusCode(v int32) *QueryFileProcessResultResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryFileProcessResultResponse) SetBody(v *QueryFileProcessResultResponseBody) *QueryFileProcessResultResponse {
 	s.Body = v
 	return s
 }
@@ -12391,6 +12932,87 @@ func (client *Client) CreateSignFlow(request *CreateSignFlowRequest) (_result *C
 
 // Summary:
 //
+// 模版合成文件任务创建接口
+//
+// @param request - CreateTemplateProcessTaskRequest
+//
+// @param headers - CreateTemplateProcessTaskHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreateTemplateProcessTaskResponse
+func (client *Client) CreateTemplateProcessTaskWithOptions(request *CreateTemplateProcessTaskRequest, headers *CreateTemplateProcessTaskHeaders, runtime *util.RuntimeOptions) (_result *CreateTemplateProcessTaskResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.FillData)) {
+		body["fillData"] = request.FillData
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FormId)) {
+		body["formId"] = request.FormId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Mode)) {
+		body["mode"] = request.Mode
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreateTemplateProcessTask"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/template/file/createTask"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreateTemplateProcessTaskResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 模版合成文件任务创建接口
+//
+// @param request - CreateTemplateProcessTaskRequest
+//
+// @return CreateTemplateProcessTaskResponse
+func (client *Client) CreateTemplateProcessTask(request *CreateTemplateProcessTaskRequest) (_result *CreateTemplateProcessTaskResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreateTemplateProcessTaskHeaders{}
+	_result = &CreateTemplateProcessTaskResponse{}
+	_body, _err := client.CreateTemplateProcessTaskWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 天谷侧查询审批单
 //
 // @param request - EsignQueryApprovalInfoRequest
@@ -13831,6 +14453,103 @@ func (client *Client) QueryContractAppsTermsExtractResult(request *QueryContract
 
 // Summary:
 //
+// 查询合同比对任务列表
+//
+// @param request - QueryContractCompareListRequest
+//
+// @param headers - QueryContractCompareListHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryContractCompareListResponse
+func (client *Client) QueryContractCompareListWithOptions(request *QueryContractCompareListRequest, headers *QueryContractCompareListHeaders, runtime *util.RuntimeOptions) (_result *QueryContractCompareListResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.EndTime)) {
+		body["endTime"] = request.EndTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageNum)) {
+		body["pageNum"] = request.PageNum
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PageSize)) {
+		body["pageSize"] = request.PageSize
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartTime)) {
+		body["startTime"] = request.StartTime
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Status)) {
+		body["status"] = request.Status
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryContractCompareList"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/comparisonResults/queryList"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryContractCompareListResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询合同比对任务列表
+//
+// @param request - QueryContractCompareListRequest
+//
+// @return QueryContractCompareListResponse
+func (client *Client) QueryContractCompareList(request *QueryContractCompareListRequest) (_result *QueryContractCompareListResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryContractCompareListHeaders{}
+	_result = &QueryContractCompareListResponse{}
+	_body, _err := client.QueryContractCompareListWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询合同比对结果
 //
 // @param request - QueryContractCompareResultRequest
@@ -14134,6 +14853,79 @@ func (client *Client) QueryContractSignInfo(request *QueryContractSignInfoReques
 	headers := &QueryContractSignInfoHeaders{}
 	_result = &QueryContractSignInfoResponse{}
 	_body, _err := client.QueryContractSignInfoWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询文件合成结果
+//
+// @param request - QueryFileProcessResultRequest
+//
+// @param headers - QueryFileProcessResultHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryFileProcessResultResponse
+func (client *Client) QueryFileProcessResultWithOptions(request *QueryFileProcessResultRequest, headers *QueryFileProcessResultHeaders, runtime *util.RuntimeOptions) (_result *QueryFileProcessResultResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.RenderTaskId)) {
+		body["renderTaskId"] = request.RenderTaskId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryFileProcessResult"),
+		Version:     tea.String("contract_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contract/template/file/queryResult"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryFileProcessResultResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询文件合成结果
+//
+// @param request - QueryFileProcessResultRequest
+//
+// @return QueryFileProcessResultResponse
+func (client *Client) QueryFileProcessResult(request *QueryFileProcessResultRequest) (_result *QueryFileProcessResultResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryFileProcessResultHeaders{}
+	_result = &QueryFileProcessResultResponse{}
+	_body, _err := client.QueryFileProcessResultWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
