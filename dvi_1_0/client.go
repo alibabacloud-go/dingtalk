@@ -49,6 +49,169 @@ func (s *ResultUserDeviceStatusMapValueStatus) SetValue(v string) *ResultUserDev
 	return s
 }
 
+type BatchQueryA1IndustryDeviceBindingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchQueryA1IndustryDeviceBindingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryA1IndustryDeviceBindingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingHeaders) SetCommonHeaders(v map[string]*string) *BatchQueryA1IndustryDeviceBindingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingHeaders) SetXAcsDingtalkAccessToken(v string) *BatchQueryA1IndustryDeviceBindingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchQueryA1IndustryDeviceBindingRequest struct {
+	// This parameter is required.
+	SnList []*string `json:"snList,omitempty" xml:"snList,omitempty" type:"Repeated"`
+}
+
+func (s BatchQueryA1IndustryDeviceBindingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryA1IndustryDeviceBindingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingRequest) SetSnList(v []*string) *BatchQueryA1IndustryDeviceBindingRequest {
+	s.SnList = v
+	return s
+}
+
+type BatchQueryA1IndustryDeviceBindingResponseBody struct {
+	Result *BatchQueryA1IndustryDeviceBindingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s BatchQueryA1IndustryDeviceBindingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryA1IndustryDeviceBindingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBody) SetResult(v *BatchQueryA1IndustryDeviceBindingResponseBodyResult) *BatchQueryA1IndustryDeviceBindingResponseBody {
+	s.Result = v
+	return s
+}
+
+type BatchQueryA1IndustryDeviceBindingResponseBodyResult struct {
+	PartialSuccess *bool                                                         `json:"partialSuccess,omitempty" xml:"partialSuccess,omitempty"`
+	Results        []*BatchQueryA1IndustryDeviceBindingResponseBodyResultResults `json:"results,omitempty" xml:"results,omitempty" type:"Repeated"`
+}
+
+func (s BatchQueryA1IndustryDeviceBindingResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryA1IndustryDeviceBindingResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResult) SetPartialSuccess(v bool) *BatchQueryA1IndustryDeviceBindingResponseBodyResult {
+	s.PartialSuccess = &v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResult) SetResults(v []*BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) *BatchQueryA1IndustryDeviceBindingResponseBodyResult {
+	s.Results = v
+	return s
+}
+
+type BatchQueryA1IndustryDeviceBindingResponseBodyResultResults struct {
+	BindTimestamp *int64  `json:"bindTimestamp,omitempty" xml:"bindTimestamp,omitempty"`
+	BindingStatus *string `json:"bindingStatus,omitempty" xml:"bindingStatus,omitempty"`
+	ErrorCode     *int32  `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMessage  *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
+	Sn            *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	Success       *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) SetBindTimestamp(v int64) *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults {
+	s.BindTimestamp = &v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) SetBindingStatus(v string) *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults {
+	s.BindingStatus = &v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) SetErrorCode(v int32) *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) SetErrorMessage(v string) *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults {
+	s.ErrorMessage = &v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) SetSn(v string) *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults {
+	s.Sn = &v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) SetSuccess(v bool) *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults {
+	s.Success = &v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults) SetUnionId(v string) *BatchQueryA1IndustryDeviceBindingResponseBodyResultResults {
+	s.UnionId = &v
+	return s
+}
+
+type BatchQueryA1IndustryDeviceBindingResponse struct {
+	Headers    map[string]*string                             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchQueryA1IndustryDeviceBindingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchQueryA1IndustryDeviceBindingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchQueryA1IndustryDeviceBindingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponse) SetHeaders(v map[string]*string) *BatchQueryA1IndustryDeviceBindingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponse) SetStatusCode(v int32) *BatchQueryA1IndustryDeviceBindingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchQueryA1IndustryDeviceBindingResponse) SetBody(v *BatchQueryA1IndustryDeviceBindingResponseBody) *BatchQueryA1IndustryDeviceBindingResponse {
+	s.Body = v
+	return s
+}
+
 type BatchQueryUserDeviceStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -149,6 +312,121 @@ func (s *BatchQueryUserDeviceStatusResponse) SetStatusCode(v int32) *BatchQueryU
 }
 
 func (s *BatchQueryUserDeviceStatusResponse) SetBody(v *BatchQueryUserDeviceStatusResponseBody) *BatchQueryUserDeviceStatusResponse {
+	s.Body = v
+	return s
+}
+
+type BatchUpdateDeviceCutCustomerSwitchHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchHeaders) SetCommonHeaders(v map[string]*string) *BatchUpdateDeviceCutCustomerSwitchHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchHeaders) SetXAcsDingtalkAccessToken(v string) *BatchUpdateDeviceCutCustomerSwitchHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type BatchUpdateDeviceCutCustomerSwitchRequest struct {
+	Enabled *bool     `json:"enabled,omitempty" xml:"enabled,omitempty"`
+	SnList  []*string `json:"snList,omitempty" xml:"snList,omitempty" type:"Repeated"`
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchRequest) SetEnabled(v bool) *BatchUpdateDeviceCutCustomerSwitchRequest {
+	s.Enabled = &v
+	return s
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchRequest) SetSnList(v []*string) *BatchUpdateDeviceCutCustomerSwitchRequest {
+	s.SnList = v
+	return s
+}
+
+type BatchUpdateDeviceCutCustomerSwitchShrinkRequest struct {
+	Enabled      *bool   `json:"enabled,omitempty" xml:"enabled,omitempty"`
+	SnListShrink *string `json:"snList,omitempty" xml:"snList,omitempty"`
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchShrinkRequest) SetEnabled(v bool) *BatchUpdateDeviceCutCustomerSwitchShrinkRequest {
+	s.Enabled = &v
+	return s
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchShrinkRequest) SetSnListShrink(v string) *BatchUpdateDeviceCutCustomerSwitchShrinkRequest {
+	s.SnListShrink = &v
+	return s
+}
+
+type BatchUpdateDeviceCutCustomerSwitchResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchResponseBody) SetResult(v bool) *BatchUpdateDeviceCutCustomerSwitchResponseBody {
+	s.Result = &v
+	return s
+}
+
+type BatchUpdateDeviceCutCustomerSwitchResponse struct {
+	Headers    map[string]*string                              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *BatchUpdateDeviceCutCustomerSwitchResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s BatchUpdateDeviceCutCustomerSwitchResponse) GoString() string {
+	return s.String()
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchResponse) SetHeaders(v map[string]*string) *BatchUpdateDeviceCutCustomerSwitchResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchResponse) SetStatusCode(v int32) *BatchUpdateDeviceCutCustomerSwitchResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *BatchUpdateDeviceCutCustomerSwitchResponse) SetBody(v *BatchUpdateDeviceCutCustomerSwitchResponseBody) *BatchUpdateDeviceCutCustomerSwitchResponse {
 	s.Body = v
 	return s
 }
@@ -757,6 +1035,296 @@ func (s *DeleteRecordingScheduleResponse) SetStatusCode(v int32) *DeleteRecordin
 }
 
 func (s *DeleteRecordingScheduleResponse) SetBody(v *DeleteRecordingScheduleResponseBody) *DeleteRecordingScheduleResponse {
+	s.Body = v
+	return s
+}
+
+type GetA1DeviceBindingHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetA1DeviceBindingHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceBindingHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceBindingHeaders) SetCommonHeaders(v map[string]*string) *GetA1DeviceBindingHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetA1DeviceBindingHeaders) SetXAcsDingtalkAccessToken(v string) *GetA1DeviceBindingHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetA1DeviceBindingRequest struct {
+	// This parameter is required.
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s GetA1DeviceBindingRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceBindingRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceBindingRequest) SetSn(v string) *GetA1DeviceBindingRequest {
+	s.Sn = &v
+	return s
+}
+
+type GetA1DeviceBindingResponseBody struct {
+	Result *GetA1DeviceBindingResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetA1DeviceBindingResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceBindingResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceBindingResponseBody) SetResult(v *GetA1DeviceBindingResponseBodyResult) *GetA1DeviceBindingResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetA1DeviceBindingResponseBodyResult struct {
+	Binding *GetA1DeviceBindingResponseBodyResultBinding `json:"binding,omitempty" xml:"binding,omitempty" type:"Struct"`
+}
+
+func (s GetA1DeviceBindingResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceBindingResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceBindingResponseBodyResult) SetBinding(v *GetA1DeviceBindingResponseBodyResultBinding) *GetA1DeviceBindingResponseBodyResult {
+	s.Binding = v
+	return s
+}
+
+type GetA1DeviceBindingResponseBodyResultBinding struct {
+	BindTimestamp *int64  `json:"bindTimestamp,omitempty" xml:"bindTimestamp,omitempty"`
+	BindingStatus *string `json:"bindingStatus,omitempty" xml:"bindingStatus,omitempty"`
+	Sn            *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetA1DeviceBindingResponseBodyResultBinding) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceBindingResponseBodyResultBinding) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceBindingResponseBodyResultBinding) SetBindTimestamp(v int64) *GetA1DeviceBindingResponseBodyResultBinding {
+	s.BindTimestamp = &v
+	return s
+}
+
+func (s *GetA1DeviceBindingResponseBodyResultBinding) SetBindingStatus(v string) *GetA1DeviceBindingResponseBodyResultBinding {
+	s.BindingStatus = &v
+	return s
+}
+
+func (s *GetA1DeviceBindingResponseBodyResultBinding) SetSn(v string) *GetA1DeviceBindingResponseBodyResultBinding {
+	s.Sn = &v
+	return s
+}
+
+func (s *GetA1DeviceBindingResponseBodyResultBinding) SetUnionId(v string) *GetA1DeviceBindingResponseBodyResultBinding {
+	s.UnionId = &v
+	return s
+}
+
+type GetA1DeviceBindingResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetA1DeviceBindingResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetA1DeviceBindingResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceBindingResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceBindingResponse) SetHeaders(v map[string]*string) *GetA1DeviceBindingResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetA1DeviceBindingResponse) SetStatusCode(v int32) *GetA1DeviceBindingResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetA1DeviceBindingResponse) SetBody(v *GetA1DeviceBindingResponseBody) *GetA1DeviceBindingResponse {
+	s.Body = v
+	return s
+}
+
+type GetA1DeviceDetailHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetA1DeviceDetailHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceDetailHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceDetailHeaders) SetCommonHeaders(v map[string]*string) *GetA1DeviceDetailHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetA1DeviceDetailHeaders) SetXAcsDingtalkAccessToken(v string) *GetA1DeviceDetailHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetA1DeviceDetailRequest struct {
+	// This parameter is required.
+	Sn *string `json:"sn,omitempty" xml:"sn,omitempty"`
+}
+
+func (s GetA1DeviceDetailRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceDetailRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceDetailRequest) SetSn(v string) *GetA1DeviceDetailRequest {
+	s.Sn = &v
+	return s
+}
+
+type GetA1DeviceDetailResponseBody struct {
+	Result *GetA1DeviceDetailResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s GetA1DeviceDetailResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceDetailResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceDetailResponseBody) SetResult(v *GetA1DeviceDetailResponseBodyResult) *GetA1DeviceDetailResponseBody {
+	s.Result = v
+	return s
+}
+
+type GetA1DeviceDetailResponseBodyResult struct {
+	Device *GetA1DeviceDetailResponseBodyResultDevice `json:"device,omitempty" xml:"device,omitempty" type:"Struct"`
+}
+
+func (s GetA1DeviceDetailResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceDetailResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceDetailResponseBodyResult) SetDevice(v *GetA1DeviceDetailResponseBodyResultDevice) *GetA1DeviceDetailResponseBodyResult {
+	s.Device = v
+	return s
+}
+
+type GetA1DeviceDetailResponseBodyResultDevice struct {
+	BindTimestamp *int64  `json:"bindTimestamp,omitempty" xml:"bindTimestamp,omitempty"`
+	BindingStatus *string `json:"bindingStatus,omitempty" xml:"bindingStatus,omitempty"`
+	DeviceModel   *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
+	DeviceName    *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	Sn            *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s GetA1DeviceDetailResponseBodyResultDevice) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceDetailResponseBodyResultDevice) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceDetailResponseBodyResultDevice) SetBindTimestamp(v int64) *GetA1DeviceDetailResponseBodyResultDevice {
+	s.BindTimestamp = &v
+	return s
+}
+
+func (s *GetA1DeviceDetailResponseBodyResultDevice) SetBindingStatus(v string) *GetA1DeviceDetailResponseBodyResultDevice {
+	s.BindingStatus = &v
+	return s
+}
+
+func (s *GetA1DeviceDetailResponseBodyResultDevice) SetDeviceModel(v string) *GetA1DeviceDetailResponseBodyResultDevice {
+	s.DeviceModel = &v
+	return s
+}
+
+func (s *GetA1DeviceDetailResponseBodyResultDevice) SetDeviceName(v string) *GetA1DeviceDetailResponseBodyResultDevice {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *GetA1DeviceDetailResponseBodyResultDevice) SetSn(v string) *GetA1DeviceDetailResponseBodyResultDevice {
+	s.Sn = &v
+	return s
+}
+
+func (s *GetA1DeviceDetailResponseBodyResultDevice) SetUnionId(v string) *GetA1DeviceDetailResponseBodyResultDevice {
+	s.UnionId = &v
+	return s
+}
+
+type GetA1DeviceDetailResponse struct {
+	Headers    map[string]*string             `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                         `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetA1DeviceDetailResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetA1DeviceDetailResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetA1DeviceDetailResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetA1DeviceDetailResponse) SetHeaders(v map[string]*string) *GetA1DeviceDetailResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetA1DeviceDetailResponse) SetStatusCode(v int32) *GetA1DeviceDetailResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetA1DeviceDetailResponse) SetBody(v *GetA1DeviceDetailResponseBody) *GetA1DeviceDetailResponse {
 	s.Body = v
 	return s
 }
@@ -3283,6 +3851,168 @@ func (s *GetTranscriptSummaryResponse) SetBody(v *GetTranscriptSummaryResponseBo
 	return s
 }
 
+type ListA1DeviceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListA1DeviceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListA1DeviceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListA1DeviceHeaders) SetCommonHeaders(v map[string]*string) *ListA1DeviceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListA1DeviceHeaders) SetXAcsDingtalkAccessToken(v string) *ListA1DeviceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListA1DeviceRequest struct {
+	MaxResults *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken  *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListA1DeviceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListA1DeviceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListA1DeviceRequest) SetMaxResults(v int32) *ListA1DeviceRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListA1DeviceRequest) SetNextToken(v string) *ListA1DeviceRequest {
+	s.NextToken = &v
+	return s
+}
+
+type ListA1DeviceResponseBody struct {
+	Result *ListA1DeviceResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s ListA1DeviceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListA1DeviceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListA1DeviceResponseBody) SetResult(v *ListA1DeviceResponseBodyResult) *ListA1DeviceResponseBody {
+	s.Result = v
+	return s
+}
+
+type ListA1DeviceResponseBodyResult struct {
+	Items     []*ListA1DeviceResponseBodyResultItems `json:"items,omitempty" xml:"items,omitempty" type:"Repeated"`
+	NextToken *string                                `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListA1DeviceResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListA1DeviceResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *ListA1DeviceResponseBodyResult) SetItems(v []*ListA1DeviceResponseBodyResultItems) *ListA1DeviceResponseBodyResult {
+	s.Items = v
+	return s
+}
+
+func (s *ListA1DeviceResponseBodyResult) SetNextToken(v string) *ListA1DeviceResponseBodyResult {
+	s.NextToken = &v
+	return s
+}
+
+type ListA1DeviceResponseBodyResultItems struct {
+	BindTimestamp *int64  `json:"bindTimestamp,omitempty" xml:"bindTimestamp,omitempty"`
+	BindingStatus *string `json:"bindingStatus,omitempty" xml:"bindingStatus,omitempty"`
+	DeviceModel   *string `json:"deviceModel,omitempty" xml:"deviceModel,omitempty"`
+	DeviceName    *string `json:"deviceName,omitempty" xml:"deviceName,omitempty"`
+	Sn            *string `json:"sn,omitempty" xml:"sn,omitempty"`
+	UnionId       *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ListA1DeviceResponseBodyResultItems) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListA1DeviceResponseBodyResultItems) GoString() string {
+	return s.String()
+}
+
+func (s *ListA1DeviceResponseBodyResultItems) SetBindTimestamp(v int64) *ListA1DeviceResponseBodyResultItems {
+	s.BindTimestamp = &v
+	return s
+}
+
+func (s *ListA1DeviceResponseBodyResultItems) SetBindingStatus(v string) *ListA1DeviceResponseBodyResultItems {
+	s.BindingStatus = &v
+	return s
+}
+
+func (s *ListA1DeviceResponseBodyResultItems) SetDeviceModel(v string) *ListA1DeviceResponseBodyResultItems {
+	s.DeviceModel = &v
+	return s
+}
+
+func (s *ListA1DeviceResponseBodyResultItems) SetDeviceName(v string) *ListA1DeviceResponseBodyResultItems {
+	s.DeviceName = &v
+	return s
+}
+
+func (s *ListA1DeviceResponseBodyResultItems) SetSn(v string) *ListA1DeviceResponseBodyResultItems {
+	s.Sn = &v
+	return s
+}
+
+func (s *ListA1DeviceResponseBodyResultItems) SetUnionId(v string) *ListA1DeviceResponseBodyResultItems {
+	s.UnionId = &v
+	return s
+}
+
+type ListA1DeviceResponse struct {
+	Headers    map[string]*string        `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                    `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListA1DeviceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListA1DeviceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListA1DeviceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListA1DeviceResponse) SetHeaders(v map[string]*string) *ListA1DeviceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListA1DeviceResponse) SetStatusCode(v int32) *ListA1DeviceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListA1DeviceResponse) SetBody(v *ListA1DeviceResponseBody) *ListA1DeviceResponse {
+	s.Body = v
+	return s
+}
+
 type ListCustomerHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5564,6 +6294,427 @@ func (s *QueryFileInfoByMinutesIdResponse) SetBody(v *QueryFileInfoByMinutesIdRe
 	return s
 }
 
+type QuerySalesInsightsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QuerySalesInsightsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsHeaders) SetCommonHeaders(v map[string]*string) *QuerySalesInsightsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QuerySalesInsightsHeaders) SetXAcsDingtalkAccessToken(v string) *QuerySalesInsightsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QuerySalesInsightsRequest struct {
+	AnalysisDate *string   `json:"analysisDate,omitempty" xml:"analysisDate,omitempty"`
+	UserIdList   []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s QuerySalesInsightsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsRequest) SetAnalysisDate(v string) *QuerySalesInsightsRequest {
+	s.AnalysisDate = &v
+	return s
+}
+
+func (s *QuerySalesInsightsRequest) SetUserIdList(v []*string) *QuerySalesInsightsRequest {
+	s.UserIdList = v
+	return s
+}
+
+type QuerySalesInsightsShrinkRequest struct {
+	AnalysisDate     *string `json:"analysisDate,omitempty" xml:"analysisDate,omitempty"`
+	UserIdListShrink *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+}
+
+func (s QuerySalesInsightsShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsShrinkRequest) SetAnalysisDate(v string) *QuerySalesInsightsShrinkRequest {
+	s.AnalysisDate = &v
+	return s
+}
+
+func (s *QuerySalesInsightsShrinkRequest) SetUserIdListShrink(v string) *QuerySalesInsightsShrinkRequest {
+	s.UserIdListShrink = &v
+	return s
+}
+
+type QuerySalesInsightsResponseBody struct {
+	Result []*QuerySalesInsightsResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QuerySalesInsightsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsResponseBody) SetResult(v []*QuerySalesInsightsResponseBodyResult) *QuerySalesInsightsResponseBody {
+	s.Result = v
+	return s
+}
+
+type QuerySalesInsightsResponseBodyResult struct {
+	AnalysisDate    *string                                              `json:"analysisDate,omitempty" xml:"analysisDate,omitempty"`
+	CapabilityRadar *QuerySalesInsightsResponseBodyResultCapabilityRadar `json:"capabilityRadar,omitempty" xml:"capabilityRadar,omitempty" type:"Struct"`
+	InsightList     []*QuerySalesInsightsResponseBodyResultInsightList   `json:"insightList,omitempty" xml:"insightList,omitempty" type:"Repeated"`
+	TeamCode        *string                                              `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	UserId          *string                                              `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QuerySalesInsightsResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsResponseBodyResult) SetAnalysisDate(v string) *QuerySalesInsightsResponseBodyResult {
+	s.AnalysisDate = &v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResult) SetCapabilityRadar(v *QuerySalesInsightsResponseBodyResultCapabilityRadar) *QuerySalesInsightsResponseBodyResult {
+	s.CapabilityRadar = v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResult) SetInsightList(v []*QuerySalesInsightsResponseBodyResultInsightList) *QuerySalesInsightsResponseBodyResult {
+	s.InsightList = v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResult) SetTeamCode(v string) *QuerySalesInsightsResponseBodyResult {
+	s.TeamCode = &v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResult) SetUserId(v string) *QuerySalesInsightsResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type QuerySalesInsightsResponseBodyResultCapabilityRadar struct {
+	Dimensions []*QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions `json:"dimensions,omitempty" xml:"dimensions,omitempty" type:"Repeated"`
+}
+
+func (s QuerySalesInsightsResponseBodyResultCapabilityRadar) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsResponseBodyResultCapabilityRadar) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsResponseBodyResultCapabilityRadar) SetDimensions(v []*QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions) *QuerySalesInsightsResponseBodyResultCapabilityRadar {
+	s.Dimensions = v
+	return s
+}
+
+type QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions struct {
+	Label *string  `json:"label,omitempty" xml:"label,omitempty"`
+	Score *float32 `json:"score,omitempty" xml:"score,omitempty"`
+}
+
+func (s QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions) SetLabel(v string) *QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions {
+	s.Label = &v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions) SetScore(v float32) *QuerySalesInsightsResponseBodyResultCapabilityRadarDimensions {
+	s.Score = &v
+	return s
+}
+
+type QuerySalesInsightsResponseBodyResultInsightList struct {
+	CommonSummary []*QuerySalesInsightsResponseBodyResultInsightListCommonSummary `json:"commonSummary,omitempty" xml:"commonSummary,omitempty" type:"Repeated"`
+	Name          *string                                                         `json:"name,omitempty" xml:"name,omitempty"`
+}
+
+func (s QuerySalesInsightsResponseBodyResultInsightList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsResponseBodyResultInsightList) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsResponseBodyResultInsightList) SetCommonSummary(v []*QuerySalesInsightsResponseBodyResultInsightListCommonSummary) *QuerySalesInsightsResponseBodyResultInsightList {
+	s.CommonSummary = v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResultInsightList) SetName(v string) *QuerySalesInsightsResponseBodyResultInsightList {
+	s.Name = &v
+	return s
+}
+
+type QuerySalesInsightsResponseBodyResultInsightListCommonSummary struct {
+	Content      *string `json:"content,omitempty" xml:"content,omitempty"`
+	Name         *string `json:"name,omitempty" xml:"name,omitempty"`
+	Priority     *string `json:"priority,omitempty" xml:"priority,omitempty"`
+	PriorityText *string `json:"priorityText,omitempty" xml:"priorityText,omitempty"`
+}
+
+func (s QuerySalesInsightsResponseBodyResultInsightListCommonSummary) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsResponseBodyResultInsightListCommonSummary) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsResponseBodyResultInsightListCommonSummary) SetContent(v string) *QuerySalesInsightsResponseBodyResultInsightListCommonSummary {
+	s.Content = &v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResultInsightListCommonSummary) SetName(v string) *QuerySalesInsightsResponseBodyResultInsightListCommonSummary {
+	s.Name = &v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResultInsightListCommonSummary) SetPriority(v string) *QuerySalesInsightsResponseBodyResultInsightListCommonSummary {
+	s.Priority = &v
+	return s
+}
+
+func (s *QuerySalesInsightsResponseBodyResultInsightListCommonSummary) SetPriorityText(v string) *QuerySalesInsightsResponseBodyResultInsightListCommonSummary {
+	s.PriorityText = &v
+	return s
+}
+
+type QuerySalesInsightsResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QuerySalesInsightsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QuerySalesInsightsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QuerySalesInsightsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QuerySalesInsightsResponse) SetHeaders(v map[string]*string) *QuerySalesInsightsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QuerySalesInsightsResponse) SetStatusCode(v int32) *QuerySalesInsightsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QuerySalesInsightsResponse) SetBody(v *QuerySalesInsightsResponseBody) *QuerySalesInsightsResponse {
+	s.Body = v
+	return s
+}
+
+type QueryServiceRecordLocationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryServiceRecordLocationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordLocationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordLocationHeaders) SetCommonHeaders(v map[string]*string) *QueryServiceRecordLocationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryServiceRecordLocationHeaders) SetXAcsDingtalkAccessToken(v string) *QueryServiceRecordLocationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryServiceRecordLocationRequest struct {
+	LocationAmountLimit *int64    `json:"locationAmountLimit,omitempty" xml:"locationAmountLimit,omitempty"`
+	RecordIdList        []*string `json:"recordIdList,omitempty" xml:"recordIdList,omitempty" type:"Repeated"`
+}
+
+func (s QueryServiceRecordLocationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordLocationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordLocationRequest) SetLocationAmountLimit(v int64) *QueryServiceRecordLocationRequest {
+	s.LocationAmountLimit = &v
+	return s
+}
+
+func (s *QueryServiceRecordLocationRequest) SetRecordIdList(v []*string) *QueryServiceRecordLocationRequest {
+	s.RecordIdList = v
+	return s
+}
+
+type QueryServiceRecordLocationShrinkRequest struct {
+	LocationAmountLimit *int64  `json:"locationAmountLimit,omitempty" xml:"locationAmountLimit,omitempty"`
+	RecordIdListShrink  *string `json:"recordIdList,omitempty" xml:"recordIdList,omitempty"`
+}
+
+func (s QueryServiceRecordLocationShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordLocationShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordLocationShrinkRequest) SetLocationAmountLimit(v int64) *QueryServiceRecordLocationShrinkRequest {
+	s.LocationAmountLimit = &v
+	return s
+}
+
+func (s *QueryServiceRecordLocationShrinkRequest) SetRecordIdListShrink(v string) *QueryServiceRecordLocationShrinkRequest {
+	s.RecordIdListShrink = &v
+	return s
+}
+
+type QueryServiceRecordLocationResponseBody struct {
+	Result []*QueryServiceRecordLocationResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryServiceRecordLocationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordLocationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordLocationResponseBody) SetResult(v []*QueryServiceRecordLocationResponseBodyResult) *QueryServiceRecordLocationResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryServiceRecordLocationResponseBodyResult struct {
+	Locations []*QueryServiceRecordLocationResponseBodyResultLocations `json:"locations,omitempty" xml:"locations,omitempty" type:"Repeated"`
+	RecordId  *string                                                  `json:"recordId,omitempty" xml:"recordId,omitempty"`
+}
+
+func (s QueryServiceRecordLocationResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordLocationResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordLocationResponseBodyResult) SetLocations(v []*QueryServiceRecordLocationResponseBodyResultLocations) *QueryServiceRecordLocationResponseBodyResult {
+	s.Locations = v
+	return s
+}
+
+func (s *QueryServiceRecordLocationResponseBodyResult) SetRecordId(v string) *QueryServiceRecordLocationResponseBodyResult {
+	s.RecordId = &v
+	return s
+}
+
+type QueryServiceRecordLocationResponseBodyResultLocations struct {
+	Latitude  *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	Time      *int64  `json:"time,omitempty" xml:"time,omitempty"`
+}
+
+func (s QueryServiceRecordLocationResponseBodyResultLocations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordLocationResponseBodyResultLocations) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordLocationResponseBodyResultLocations) SetLatitude(v string) *QueryServiceRecordLocationResponseBodyResultLocations {
+	s.Latitude = &v
+	return s
+}
+
+func (s *QueryServiceRecordLocationResponseBodyResultLocations) SetLongitude(v string) *QueryServiceRecordLocationResponseBodyResultLocations {
+	s.Longitude = &v
+	return s
+}
+
+func (s *QueryServiceRecordLocationResponseBodyResultLocations) SetTime(v int64) *QueryServiceRecordLocationResponseBodyResultLocations {
+	s.Time = &v
+	return s
+}
+
+type QueryServiceRecordLocationResponse struct {
+	Headers    map[string]*string                      `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                  `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryServiceRecordLocationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryServiceRecordLocationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryServiceRecordLocationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryServiceRecordLocationResponse) SetHeaders(v map[string]*string) *QueryServiceRecordLocationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryServiceRecordLocationResponse) SetStatusCode(v int32) *QueryServiceRecordLocationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryServiceRecordLocationResponse) SetBody(v *QueryServiceRecordLocationResponseBody) *QueryServiceRecordLocationResponse {
+	s.Body = v
+	return s
+}
+
 type QueryStaffStatisticDataHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5671,16 +6822,17 @@ func (s *QueryStaffStatisticDataResponseBody) SetTotalCount(v int64) *QueryStaff
 }
 
 type QueryStaffStatisticDataResponseBodyResult struct {
-	AverageQualityInspectionScorePerService *float64               `json:"averageQualityInspectionScorePerService,omitempty" xml:"averageQualityInspectionScorePerService,omitempty"`
-	Day                                     *string                `json:"day,omitempty" xml:"day,omitempty"`
-	HighestQualityInspectionScore           *float64               `json:"highestQualityInspectionScore,omitempty" xml:"highestQualityInspectionScore,omitempty"`
-	SaleSopPercentage                       map[string]interface{} `json:"saleSopPercentage,omitempty" xml:"saleSopPercentage,omitempty"`
-	ServiceRecordCount                      *int64                 `json:"serviceRecordCount,omitempty" xml:"serviceRecordCount,omitempty"`
-	StaffName                               *string                `json:"staffName,omitempty" xml:"staffName,omitempty"`
-	TeamCode                                *string                `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
-	TeamName                                *string                `json:"teamName,omitempty" xml:"teamName,omitempty"`
-	TotalServiceTime                        *int64                 `json:"totalServiceTime,omitempty" xml:"totalServiceTime,omitempty"`
-	UserId                                  *string                `json:"userId,omitempty" xml:"userId,omitempty"`
+	AverageQualityInspectionScorePerService *float64                                                         `json:"averageQualityInspectionScorePerService,omitempty" xml:"averageQualityInspectionScorePerService,omitempty"`
+	Day                                     *string                                                          `json:"day,omitempty" xml:"day,omitempty"`
+	HighestQualityInspectionScore           *float64                                                         `json:"highestQualityInspectionScore,omitempty" xml:"highestQualityInspectionScore,omitempty"`
+	QualityInspectL1Data                    []*QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data `json:"qualityInspectL1Data,omitempty" xml:"qualityInspectL1Data,omitempty" type:"Repeated"`
+	SaleSopPercentage                       map[string]interface{}                                           `json:"saleSopPercentage,omitempty" xml:"saleSopPercentage,omitempty"`
+	ServiceRecordCount                      *int64                                                           `json:"serviceRecordCount,omitempty" xml:"serviceRecordCount,omitempty"`
+	StaffName                               *string                                                          `json:"staffName,omitempty" xml:"staffName,omitempty"`
+	TeamCode                                *string                                                          `json:"teamCode,omitempty" xml:"teamCode,omitempty"`
+	TeamName                                *string                                                          `json:"teamName,omitempty" xml:"teamName,omitempty"`
+	TotalServiceTime                        *int64                                                           `json:"totalServiceTime,omitempty" xml:"totalServiceTime,omitempty"`
+	UserId                                  *string                                                          `json:"userId,omitempty" xml:"userId,omitempty"`
 }
 
 func (s QueryStaffStatisticDataResponseBodyResult) String() string {
@@ -5703,6 +6855,11 @@ func (s *QueryStaffStatisticDataResponseBodyResult) SetDay(v string) *QueryStaff
 
 func (s *QueryStaffStatisticDataResponseBodyResult) SetHighestQualityInspectionScore(v float64) *QueryStaffStatisticDataResponseBodyResult {
 	s.HighestQualityInspectionScore = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResult) SetQualityInspectL1Data(v []*QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) *QueryStaffStatisticDataResponseBodyResult {
+	s.QualityInspectL1Data = v
 	return s
 }
 
@@ -5741,6 +6898,53 @@ func (s *QueryStaffStatisticDataResponseBodyResult) SetUserId(v string) *QuerySt
 	return s
 }
 
+type QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data struct {
+	HitRate     *string `json:"hitRate,omitempty" xml:"hitRate,omitempty"`
+	Level1Code  *string `json:"level1Code,omitempty" xml:"level1Code,omitempty"`
+	Level1Name  *string `json:"level1Name,omitempty" xml:"level1Name,omitempty"`
+	RecordCount *string `json:"recordCount,omitempty" xml:"recordCount,omitempty"`
+	SceneCode   *string `json:"sceneCode,omitempty" xml:"sceneCode,omitempty"`
+	TotalScore  *string `json:"totalScore,omitempty" xml:"totalScore,omitempty"`
+}
+
+func (s QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) GoString() string {
+	return s.String()
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) SetHitRate(v string) *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data {
+	s.HitRate = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) SetLevel1Code(v string) *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data {
+	s.Level1Code = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) SetLevel1Name(v string) *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data {
+	s.Level1Name = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) SetRecordCount(v string) *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data {
+	s.RecordCount = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) SetSceneCode(v string) *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data {
+	s.SceneCode = &v
+	return s
+}
+
+func (s *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data) SetTotalScore(v string) *QueryStaffStatisticDataResponseBodyResultQualityInspectL1Data {
+	s.TotalScore = &v
+	return s
+}
+
 type QueryStaffStatisticDataResponse struct {
 	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
 	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
@@ -5766,6 +6970,167 @@ func (s *QueryStaffStatisticDataResponse) SetStatusCode(v int32) *QueryStaffStat
 }
 
 func (s *QueryStaffStatisticDataResponse) SetBody(v *QueryStaffStatisticDataResponseBody) *QueryStaffStatisticDataResponse {
+	s.Body = v
+	return s
+}
+
+type QueryUserBindDeviceLocationHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s QueryUserBindDeviceLocationHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBindDeviceLocationHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBindDeviceLocationHeaders) SetCommonHeaders(v map[string]*string) *QueryUserBindDeviceLocationHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *QueryUserBindDeviceLocationHeaders) SetXAcsDingtalkAccessToken(v string) *QueryUserBindDeviceLocationHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type QueryUserBindDeviceLocationRequest struct {
+	UserIdList []*string `json:"userIdList,omitempty" xml:"userIdList,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserBindDeviceLocationRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBindDeviceLocationRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBindDeviceLocationRequest) SetUserIdList(v []*string) *QueryUserBindDeviceLocationRequest {
+	s.UserIdList = v
+	return s
+}
+
+type QueryUserBindDeviceLocationShrinkRequest struct {
+	UserIdListShrink *string `json:"userIdList,omitempty" xml:"userIdList,omitempty"`
+}
+
+func (s QueryUserBindDeviceLocationShrinkRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBindDeviceLocationShrinkRequest) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBindDeviceLocationShrinkRequest) SetUserIdListShrink(v string) *QueryUserBindDeviceLocationShrinkRequest {
+	s.UserIdListShrink = &v
+	return s
+}
+
+type QueryUserBindDeviceLocationResponseBody struct {
+	Result []*QueryUserBindDeviceLocationResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Repeated"`
+}
+
+func (s QueryUserBindDeviceLocationResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBindDeviceLocationResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBindDeviceLocationResponseBody) SetResult(v []*QueryUserBindDeviceLocationResponseBodyResult) *QueryUserBindDeviceLocationResponseBody {
+	s.Result = v
+	return s
+}
+
+type QueryUserBindDeviceLocationResponseBodyResult struct {
+	LatestLocation *QueryUserBindDeviceLocationResponseBodyResultLatestLocation `json:"latestLocation,omitempty" xml:"latestLocation,omitempty" type:"Struct"`
+	Sn             *string                                                      `json:"sn,omitempty" xml:"sn,omitempty"`
+	UserId         *string                                                      `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s QueryUserBindDeviceLocationResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBindDeviceLocationResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBindDeviceLocationResponseBodyResult) SetLatestLocation(v *QueryUserBindDeviceLocationResponseBodyResultLatestLocation) *QueryUserBindDeviceLocationResponseBodyResult {
+	s.LatestLocation = v
+	return s
+}
+
+func (s *QueryUserBindDeviceLocationResponseBodyResult) SetSn(v string) *QueryUserBindDeviceLocationResponseBodyResult {
+	s.Sn = &v
+	return s
+}
+
+func (s *QueryUserBindDeviceLocationResponseBodyResult) SetUserId(v string) *QueryUserBindDeviceLocationResponseBodyResult {
+	s.UserId = &v
+	return s
+}
+
+type QueryUserBindDeviceLocationResponseBodyResultLatestLocation struct {
+	Latitude  *string `json:"latitude,omitempty" xml:"latitude,omitempty"`
+	Longitude *string `json:"longitude,omitempty" xml:"longitude,omitempty"`
+	Time      *int64  `json:"time,omitempty" xml:"time,omitempty"`
+}
+
+func (s QueryUserBindDeviceLocationResponseBodyResultLatestLocation) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBindDeviceLocationResponseBodyResultLatestLocation) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBindDeviceLocationResponseBodyResultLatestLocation) SetLatitude(v string) *QueryUserBindDeviceLocationResponseBodyResultLatestLocation {
+	s.Latitude = &v
+	return s
+}
+
+func (s *QueryUserBindDeviceLocationResponseBodyResultLatestLocation) SetLongitude(v string) *QueryUserBindDeviceLocationResponseBodyResultLatestLocation {
+	s.Longitude = &v
+	return s
+}
+
+func (s *QueryUserBindDeviceLocationResponseBodyResultLatestLocation) SetTime(v int64) *QueryUserBindDeviceLocationResponseBodyResultLatestLocation {
+	s.Time = &v
+	return s
+}
+
+type QueryUserBindDeviceLocationResponse struct {
+	Headers    map[string]*string                       `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                   `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *QueryUserBindDeviceLocationResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s QueryUserBindDeviceLocationResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s QueryUserBindDeviceLocationResponse) GoString() string {
+	return s.String()
+}
+
+func (s *QueryUserBindDeviceLocationResponse) SetHeaders(v map[string]*string) *QueryUserBindDeviceLocationResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *QueryUserBindDeviceLocationResponse) SetStatusCode(v int32) *QueryUserBindDeviceLocationResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *QueryUserBindDeviceLocationResponse) SetBody(v *QueryUserBindDeviceLocationResponseBody) *QueryUserBindDeviceLocationResponse {
 	s.Body = v
 	return s
 }
@@ -7183,6 +8548,79 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 
 // Summary:
 //
+// 批量查询行业应用范围内 A1 设备绑定关系
+//
+// @param request - BatchQueryA1IndustryDeviceBindingRequest
+//
+// @param headers - BatchQueryA1IndustryDeviceBindingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchQueryA1IndustryDeviceBindingResponse
+func (client *Client) BatchQueryA1IndustryDeviceBindingWithOptions(request *BatchQueryA1IndustryDeviceBindingRequest, headers *BatchQueryA1IndustryDeviceBindingHeaders, runtime *util.RuntimeOptions) (_result *BatchQueryA1IndustryDeviceBindingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.SnList)) {
+		body["snList"] = request.SnList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchQueryA1IndustryDeviceBinding"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/a1/industry/devices/binding/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchQueryA1IndustryDeviceBindingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询行业应用范围内 A1 设备绑定关系
+//
+// @param request - BatchQueryA1IndustryDeviceBindingRequest
+//
+// @return BatchQueryA1IndustryDeviceBindingResponse
+func (client *Client) BatchQueryA1IndustryDeviceBinding(request *BatchQueryA1IndustryDeviceBindingRequest) (_result *BatchQueryA1IndustryDeviceBindingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchQueryA1IndustryDeviceBindingHeaders{}
+	_result = &BatchQueryA1IndustryDeviceBindingResponse{}
+	_body, _err := client.BatchQueryA1IndustryDeviceBindingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 按 userId 列表批量查询用户绑定设备的状态
 //
 // @param request - BatchQueryUserDeviceStatusRequest
@@ -7247,6 +8685,89 @@ func (client *Client) BatchQueryUserDeviceStatus(request *BatchQueryUserDeviceSt
 	headers := &BatchQueryUserDeviceStatusHeaders{}
 	_result = &BatchQueryUserDeviceStatusResponse{}
 	_body, _err := client.BatchQueryUserDeviceStatusWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量设置设备的切客开关状态
+//
+// @param tmpReq - BatchUpdateDeviceCutCustomerSwitchRequest
+//
+// @param headers - BatchUpdateDeviceCutCustomerSwitchHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return BatchUpdateDeviceCutCustomerSwitchResponse
+func (client *Client) BatchUpdateDeviceCutCustomerSwitchWithOptions(tmpReq *BatchUpdateDeviceCutCustomerSwitchRequest, headers *BatchUpdateDeviceCutCustomerSwitchHeaders, runtime *util.RuntimeOptions) (_result *BatchUpdateDeviceCutCustomerSwitchResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &BatchUpdateDeviceCutCustomerSwitchShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.SnList)) {
+		request.SnListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.SnList, tea.String("snList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Enabled)) {
+		query["enabled"] = request.Enabled
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SnListShrink)) {
+		query["snList"] = request.SnListShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("BatchUpdateDeviceCutCustomerSwitch"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/devices/cutcustomer/switch"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &BatchUpdateDeviceCutCustomerSwitchResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量设置设备的切客开关状态
+//
+// @param request - BatchUpdateDeviceCutCustomerSwitchRequest
+//
+// @return BatchUpdateDeviceCutCustomerSwitchResponse
+func (client *Client) BatchUpdateDeviceCutCustomerSwitch(request *BatchUpdateDeviceCutCustomerSwitchRequest) (_result *BatchUpdateDeviceCutCustomerSwitchResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &BatchUpdateDeviceCutCustomerSwitchHeaders{}
+	_result = &BatchUpdateDeviceCutCustomerSwitchResponse{}
+	_body, _err := client.BatchUpdateDeviceCutCustomerSwitchWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -7646,6 +9167,152 @@ func (client *Client) DeleteRecordingSchedule(taskId *string) (_result *DeleteRe
 	headers := &DeleteRecordingScheduleHeaders{}
 	_result = &DeleteRecordingScheduleResponse{}
 	_body, _err := client.DeleteRecordingScheduleWithOptions(taskId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取 A1 系列企业设备当前绑定关系
+//
+// @param request - GetA1DeviceBindingRequest
+//
+// @param headers - GetA1DeviceBindingHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetA1DeviceBindingResponse
+func (client *Client) GetA1DeviceBindingWithOptions(request *GetA1DeviceBindingRequest, headers *GetA1DeviceBindingHeaders, runtime *util.RuntimeOptions) (_result *GetA1DeviceBindingResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetA1DeviceBinding"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/a1/devices/binding/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetA1DeviceBindingResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取 A1 系列企业设备当前绑定关系
+//
+// @param request - GetA1DeviceBindingRequest
+//
+// @return GetA1DeviceBindingResponse
+func (client *Client) GetA1DeviceBinding(request *GetA1DeviceBindingRequest) (_result *GetA1DeviceBindingResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetA1DeviceBindingHeaders{}
+	_result = &GetA1DeviceBindingResponse{}
+	_body, _err := client.GetA1DeviceBindingWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取 A1 系列企业设备详情
+//
+// @param request - GetA1DeviceDetailRequest
+//
+// @param headers - GetA1DeviceDetailHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetA1DeviceDetailResponse
+func (client *Client) GetA1DeviceDetailWithOptions(request *GetA1DeviceDetailRequest, headers *GetA1DeviceDetailHeaders, runtime *util.RuntimeOptions) (_result *GetA1DeviceDetailResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Sn)) {
+		body["sn"] = request.Sn
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetA1DeviceDetail"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/a1/devices/info/query"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetA1DeviceDetailResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 获取 A1 系列企业设备详情
+//
+// @param request - GetA1DeviceDetailRequest
+//
+// @return GetA1DeviceDetailResponse
+func (client *Client) GetA1DeviceDetail(request *GetA1DeviceDetailRequest) (_result *GetA1DeviceDetailResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetA1DeviceDetailHeaders{}
+	_result = &GetA1DeviceDetailResponse{}
+	_body, _err := client.GetA1DeviceDetailWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8714,6 +10381,83 @@ func (client *Client) GetTranscriptSummary(request *GetTranscriptSummaryRequest)
 
 // Summary:
 //
+// 分页查询 A1 系列企业设备列表
+//
+// @param request - ListA1DeviceRequest
+//
+// @param headers - ListA1DeviceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListA1DeviceResponse
+func (client *Client) ListA1DeviceWithOptions(request *ListA1DeviceRequest, headers *ListA1DeviceHeaders, runtime *util.RuntimeOptions) (_result *ListA1DeviceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		body["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		body["nextToken"] = request.NextToken
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListA1Device"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/a1/devices/list"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListA1DeviceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 分页查询 A1 系列企业设备列表
+//
+// @param request - ListA1DeviceRequest
+//
+// @return ListA1DeviceResponse
+func (client *Client) ListA1Device(request *ListA1DeviceRequest) (_result *ListA1DeviceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListA1DeviceHeaders{}
+	_result = &ListA1DeviceResponse{}
+	_body, _err := client.ListA1DeviceWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 查询客户列表
 //
 // @param request - ListCustomerRequest
@@ -9726,6 +11470,172 @@ func (client *Client) QueryFileInfoByMinutesId(request *QueryFileInfoByMinutesId
 
 // Summary:
 //
+// 查询销售洞察数据
+//
+// @param tmpReq - QuerySalesInsightsRequest
+//
+// @param headers - QuerySalesInsightsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QuerySalesInsightsResponse
+func (client *Client) QuerySalesInsightsWithOptions(tmpReq *QuerySalesInsightsRequest, headers *QuerySalesInsightsHeaders, runtime *util.RuntimeOptions) (_result *QuerySalesInsightsResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QuerySalesInsightsShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.UserIdList)) {
+		request.UserIdListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.UserIdList, tea.String("userIdList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AnalysisDate)) {
+		query["analysisDate"] = request.AnalysisDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UserIdListShrink)) {
+		query["userIdList"] = request.UserIdListShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QuerySalesInsights"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/sales/insights"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QuerySalesInsightsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询销售洞察数据
+//
+// @param request - QuerySalesInsightsRequest
+//
+// @return QuerySalesInsightsResponse
+func (client *Client) QuerySalesInsights(request *QuerySalesInsightsRequest) (_result *QuerySalesInsightsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QuerySalesInsightsHeaders{}
+	_result = &QuerySalesInsightsResponse{}
+	_body, _err := client.QuerySalesInsightsWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询服务记录定位信息
+//
+// @param tmpReq - QueryServiceRecordLocationRequest
+//
+// @param headers - QueryServiceRecordLocationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryServiceRecordLocationResponse
+func (client *Client) QueryServiceRecordLocationWithOptions(tmpReq *QueryServiceRecordLocationRequest, headers *QueryServiceRecordLocationHeaders, runtime *util.RuntimeOptions) (_result *QueryServiceRecordLocationResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QueryServiceRecordLocationShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.RecordIdList)) {
+		request.RecordIdListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.RecordIdList, tea.String("recordIdList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.LocationAmountLimit)) {
+		query["locationAmountLimit"] = request.LocationAmountLimit
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RecordIdListShrink)) {
+		query["recordIdList"] = request.RecordIdListShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryServiceRecordLocation"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/service-record/location"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryServiceRecordLocationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询服务记录定位信息
+//
+// @param request - QueryServiceRecordLocationRequest
+//
+// @return QueryServiceRecordLocationResponse
+func (client *Client) QueryServiceRecordLocation(request *QueryServiceRecordLocationRequest) (_result *QueryServiceRecordLocationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryServiceRecordLocationHeaders{}
+	_result = &QueryServiceRecordLocationResponse{}
+	_body, _err := client.QueryServiceRecordLocationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 分页查询员工统计数据
 //
 // @param request - QueryStaffStatisticDataRequest
@@ -9806,6 +11716,85 @@ func (client *Client) QueryStaffStatisticData(request *QueryStaffStatisticDataRe
 	headers := &QueryStaffStatisticDataHeaders{}
 	_result = &QueryStaffStatisticDataResponse{}
 	_body, _err := client.QueryStaffStatisticDataWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询用户绑定设备位置的信息
+//
+// @param tmpReq - QueryUserBindDeviceLocationRequest
+//
+// @param headers - QueryUserBindDeviceLocationHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return QueryUserBindDeviceLocationResponse
+func (client *Client) QueryUserBindDeviceLocationWithOptions(tmpReq *QueryUserBindDeviceLocationRequest, headers *QueryUserBindDeviceLocationHeaders, runtime *util.RuntimeOptions) (_result *QueryUserBindDeviceLocationResponse, _err error) {
+	_err = util.ValidateModel(tmpReq)
+	if _err != nil {
+		return _result, _err
+	}
+	request := &QueryUserBindDeviceLocationShrinkRequest{}
+	openapiutil.Convert(tmpReq, request)
+	if !tea.BoolValue(util.IsUnset(tmpReq.UserIdList)) {
+		request.UserIdListShrink = openapiutil.ArrayToStringWithSpecifiedStyle(tmpReq.UserIdList, tea.String("userIdList"), tea.String("json"))
+	}
+
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserIdListShrink)) {
+		query["userIdList"] = request.UserIdListShrink
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("QueryUserBindDeviceLocation"),
+		Version:     tea.String("dvi_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/dvi/user/location"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &QueryUserBindDeviceLocationResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 批量查询用户绑定设备位置的信息
+//
+// @param request - QueryUserBindDeviceLocationRequest
+//
+// @return QueryUserBindDeviceLocationResponse
+func (client *Client) QueryUserBindDeviceLocation(request *QueryUserBindDeviceLocationRequest) (_result *QueryUserBindDeviceLocationResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &QueryUserBindDeviceLocationHeaders{}
+	_result = &QueryUserBindDeviceLocationResponse{}
+	_body, _err := client.QueryUserBindDeviceLocationWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -19687,6 +19687,166 @@ func (s *SaveProcessResponse) SetBody(v *SaveProcessResponseBody) *SaveProcessRe
 	return s
 }
 
+type SetWorkflowTaskAgentHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetWorkflowTaskAgentHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetWorkflowTaskAgentHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetWorkflowTaskAgentHeaders) SetCommonHeaders(v map[string]*string) *SetWorkflowTaskAgentHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentHeaders) SetXAcsDingtalkAccessToken(v string) *SetWorkflowTaskAgentHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetWorkflowTaskAgentRequest struct {
+	// This parameter is required.
+	AgentStaffId *string `json:"agentStaffId,omitempty" xml:"agentStaffId,omitempty"`
+	// This parameter is required.
+	All *bool `json:"all,omitempty" xml:"all,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2026-08-25
+	EndDate *string `json:"endDate,omitempty" xml:"endDate,omitempty"`
+	// This parameter is required.
+	FromStaffId *string `json:"fromStaffId,omitempty" xml:"fromStaffId,omitempty"`
+	// This parameter is required.
+	ManagerStaffId *string   `json:"managerStaffId,omitempty" xml:"managerStaffId,omitempty"`
+	ProcessCodes   []*string `json:"processCodes,omitempty" xml:"processCodes,omitempty" type:"Repeated"`
+	RequestId      *string   `json:"requestId,omitempty" xml:"requestId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2026-08-25
+	StartDate *string `json:"startDate,omitempty" xml:"startDate,omitempty"`
+}
+
+func (s SetWorkflowTaskAgentRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetWorkflowTaskAgentRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetWorkflowTaskAgentRequest) SetAgentStaffId(v string) *SetWorkflowTaskAgentRequest {
+	s.AgentStaffId = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentRequest) SetAll(v bool) *SetWorkflowTaskAgentRequest {
+	s.All = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentRequest) SetEndDate(v string) *SetWorkflowTaskAgentRequest {
+	s.EndDate = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentRequest) SetFromStaffId(v string) *SetWorkflowTaskAgentRequest {
+	s.FromStaffId = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentRequest) SetManagerStaffId(v string) *SetWorkflowTaskAgentRequest {
+	s.ManagerStaffId = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentRequest) SetProcessCodes(v []*string) *SetWorkflowTaskAgentRequest {
+	s.ProcessCodes = v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentRequest) SetRequestId(v string) *SetWorkflowTaskAgentRequest {
+	s.RequestId = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentRequest) SetStartDate(v string) *SetWorkflowTaskAgentRequest {
+	s.StartDate = &v
+	return s
+}
+
+type SetWorkflowTaskAgentResponseBody struct {
+	DingOpenErrcode *int32  `json:"dingOpenErrcode,omitempty" xml:"dingOpenErrcode,omitempty"`
+	ErrorMsg        *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Result          *int64  `json:"result,omitempty" xml:"result,omitempty"`
+	Success         *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s SetWorkflowTaskAgentResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetWorkflowTaskAgentResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetWorkflowTaskAgentResponseBody) SetDingOpenErrcode(v int32) *SetWorkflowTaskAgentResponseBody {
+	s.DingOpenErrcode = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentResponseBody) SetErrorMsg(v string) *SetWorkflowTaskAgentResponseBody {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentResponseBody) SetResult(v int64) *SetWorkflowTaskAgentResponseBody {
+	s.Result = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentResponseBody) SetSuccess(v bool) *SetWorkflowTaskAgentResponseBody {
+	s.Success = &v
+	return s
+}
+
+type SetWorkflowTaskAgentResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetWorkflowTaskAgentResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetWorkflowTaskAgentResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetWorkflowTaskAgentResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetWorkflowTaskAgentResponse) SetHeaders(v map[string]*string) *SetWorkflowTaskAgentResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentResponse) SetStatusCode(v int32) *SetWorkflowTaskAgentResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetWorkflowTaskAgentResponse) SetBody(v *SetWorkflowTaskAgentResponseBody) *SetWorkflowTaskAgentResponse {
+	s.Body = v
+	return s
+}
+
 type StartProcessInstanceHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -27132,6 +27292,107 @@ func (client *Client) SaveProcess(request *SaveProcessRequest) (_result *SavePro
 	headers := &SaveProcessHeaders{}
 	_result = &SaveProcessResponse{}
 	_body, _err := client.SaveProcessWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置审批任务代理
+//
+// @param request - SetWorkflowTaskAgentRequest
+//
+// @param headers - SetWorkflowTaskAgentHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetWorkflowTaskAgentResponse
+func (client *Client) SetWorkflowTaskAgentWithOptions(request *SetWorkflowTaskAgentRequest, headers *SetWorkflowTaskAgentHeaders, runtime *util.RuntimeOptions) (_result *SetWorkflowTaskAgentResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.AgentStaffId)) {
+		body["agentStaffId"] = request.AgentStaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.All)) {
+		body["all"] = request.All
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EndDate)) {
+		body["endDate"] = request.EndDate
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.FromStaffId)) {
+		body["fromStaffId"] = request.FromStaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ManagerStaffId)) {
+		body["managerStaffId"] = request.ManagerStaffId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ProcessCodes)) {
+		body["processCodes"] = request.ProcessCodes
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.RequestId)) {
+		body["requestId"] = request.RequestId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.StartDate)) {
+		body["startDate"] = request.StartDate
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetWorkflowTaskAgent"),
+		Version:     tea.String("workflow_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/workflow/tasks/agent"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetWorkflowTaskAgentResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 设置审批任务代理
+//
+// @param request - SetWorkflowTaskAgentRequest
+//
+// @return SetWorkflowTaskAgentResponse
+func (client *Client) SetWorkflowTaskAgent(request *SetWorkflowTaskAgentRequest) (_result *SetWorkflowTaskAgentResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetWorkflowTaskAgentHeaders{}
+	_result = &SetWorkflowTaskAgentResponse{}
+	_body, _err := client.SetWorkflowTaskAgentWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

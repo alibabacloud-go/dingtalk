@@ -2528,6 +2528,7 @@ func (s *QueryUserHonorsResponseBodyResultHonors) SetHonorName(v string) *QueryU
 }
 
 type QueryUserHonorsResponseBodyResultHonorsGrantHistory struct {
+	GrantReason  *string `json:"grantReason,omitempty" xml:"grantReason,omitempty"`
 	GrantTime    *int64  `json:"grantTime,omitempty" xml:"grantTime,omitempty"`
 	SenderUserid *string `json:"senderUserid,omitempty" xml:"senderUserid,omitempty"`
 }
@@ -2538,6 +2539,11 @@ func (s QueryUserHonorsResponseBodyResultHonorsGrantHistory) String() string {
 
 func (s QueryUserHonorsResponseBodyResultHonorsGrantHistory) GoString() string {
 	return s.String()
+}
+
+func (s *QueryUserHonorsResponseBodyResultHonorsGrantHistory) SetGrantReason(v string) *QueryUserHonorsResponseBodyResultHonorsGrantHistory {
+	s.GrantReason = &v
+	return s
 }
 
 func (s *QueryUserHonorsResponseBodyResultHonorsGrantHistory) SetGrantTime(v int64) *QueryUserHonorsResponseBodyResultHonorsGrantHistory {

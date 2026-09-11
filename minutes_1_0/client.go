@@ -1074,6 +1074,108 @@ func (s *DeleteMinutesResponse) SetBody(v *DeleteMinutesResponseBody) *DeleteMin
 	return s
 }
 
+type DeleteMinutesMediaHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeleteMinutesMediaHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMinutesMediaHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMinutesMediaHeaders) SetCommonHeaders(v map[string]*string) *DeleteMinutesMediaHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeleteMinutesMediaHeaders) SetXAcsDingtalkAccessToken(v string) *DeleteMinutesMediaHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeleteMinutesMediaRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// a1b2c3d4e5f67890a1b2c3d4e5f67890
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s DeleteMinutesMediaRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMinutesMediaRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMinutesMediaRequest) SetTaskUuid(v string) *DeleteMinutesMediaRequest {
+	s.TaskUuid = &v
+	return s
+}
+
+func (s *DeleteMinutesMediaRequest) SetUnionId(v string) *DeleteMinutesMediaRequest {
+	s.UnionId = &v
+	return s
+}
+
+type DeleteMinutesMediaResponseBody struct {
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+}
+
+func (s DeleteMinutesMediaResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMinutesMediaResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMinutesMediaResponseBody) SetTaskUuid(v string) *DeleteMinutesMediaResponseBody {
+	s.TaskUuid = &v
+	return s
+}
+
+type DeleteMinutesMediaResponse struct {
+	Headers    map[string]*string              `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                          `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeleteMinutesMediaResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeleteMinutesMediaResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeleteMinutesMediaResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeleteMinutesMediaResponse) SetHeaders(v map[string]*string) *DeleteMinutesMediaResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeleteMinutesMediaResponse) SetStatusCode(v int32) *DeleteMinutesMediaResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeleteMinutesMediaResponse) SetBody(v *DeleteMinutesMediaResponseBody) *DeleteMinutesMediaResponse {
+	s.Body = v
+	return s
+}
+
 type ExportMinutesTaskResultHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -1367,6 +1469,188 @@ func (s *GenerateSummaryResponse) SetStatusCode(v int32) *GenerateSummaryRespons
 }
 
 func (s *GenerateSummaryResponse) SetBody(v *GenerateSummaryResponseBody) *GenerateSummaryResponse {
+	s.Body = v
+	return s
+}
+
+type ListMinutesAttachmentsHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s ListMinutesAttachmentsHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMinutesAttachmentsHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *ListMinutesAttachmentsHeaders) SetCommonHeaders(v map[string]*string) *ListMinutesAttachmentsHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *ListMinutesAttachmentsHeaders) SetXAcsDingtalkAccessToken(v string) *ListMinutesAttachmentsHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type ListMinutesAttachmentsRequest struct {
+	ContentType *int32  `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	Direction   *int32  `json:"direction,omitempty" xml:"direction,omitempty"`
+	MaxResults  *int32  `json:"maxResults,omitempty" xml:"maxResults,omitempty"`
+	NextToken   *string `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+	Type        *int32  `json:"type,omitempty" xml:"type,omitempty"`
+	// This parameter is required.
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s ListMinutesAttachmentsRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMinutesAttachmentsRequest) GoString() string {
+	return s.String()
+}
+
+func (s *ListMinutesAttachmentsRequest) SetContentType(v int32) *ListMinutesAttachmentsRequest {
+	s.ContentType = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsRequest) SetDirection(v int32) *ListMinutesAttachmentsRequest {
+	s.Direction = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsRequest) SetMaxResults(v int32) *ListMinutesAttachmentsRequest {
+	s.MaxResults = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsRequest) SetNextToken(v string) *ListMinutesAttachmentsRequest {
+	s.NextToken = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsRequest) SetType(v int32) *ListMinutesAttachmentsRequest {
+	s.Type = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsRequest) SetUnionId(v string) *ListMinutesAttachmentsRequest {
+	s.UnionId = &v
+	return s
+}
+
+type ListMinutesAttachmentsResponseBody struct {
+	Attachments []*ListMinutesAttachmentsResponseBodyAttachments `json:"attachments,omitempty" xml:"attachments,omitempty" type:"Repeated"`
+	HasNext     *bool                                            `json:"hasNext,omitempty" xml:"hasNext,omitempty"`
+	NextToken   *string                                          `json:"nextToken,omitempty" xml:"nextToken,omitempty"`
+}
+
+func (s ListMinutesAttachmentsResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMinutesAttachmentsResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *ListMinutesAttachmentsResponseBody) SetAttachments(v []*ListMinutesAttachmentsResponseBodyAttachments) *ListMinutesAttachmentsResponseBody {
+	s.Attachments = v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponseBody) SetHasNext(v bool) *ListMinutesAttachmentsResponseBody {
+	s.HasNext = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponseBody) SetNextToken(v string) *ListMinutesAttachmentsResponseBody {
+	s.NextToken = &v
+	return s
+}
+
+type ListMinutesAttachmentsResponseBodyAttachments struct {
+	Content        *string `json:"content,omitempty" xml:"content,omitempty"`
+	ContentType    *int32  `json:"contentType,omitempty" xml:"contentType,omitempty"`
+	DownloadUrl    *string `json:"downloadUrl,omitempty" xml:"downloadUrl,omitempty"`
+	NoteId         *int64  `json:"noteId,omitempty" xml:"noteId,omitempty"`
+	NoteTime       *int64  `json:"noteTime,omitempty" xml:"noteTime,omitempty"`
+	RelativeTimeMs *int64  `json:"relativeTimeMs,omitempty" xml:"relativeTimeMs,omitempty"`
+	Type           *int32  `json:"type,omitempty" xml:"type,omitempty"`
+}
+
+func (s ListMinutesAttachmentsResponseBodyAttachments) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMinutesAttachmentsResponseBodyAttachments) GoString() string {
+	return s.String()
+}
+
+func (s *ListMinutesAttachmentsResponseBodyAttachments) SetContent(v string) *ListMinutesAttachmentsResponseBodyAttachments {
+	s.Content = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponseBodyAttachments) SetContentType(v int32) *ListMinutesAttachmentsResponseBodyAttachments {
+	s.ContentType = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponseBodyAttachments) SetDownloadUrl(v string) *ListMinutesAttachmentsResponseBodyAttachments {
+	s.DownloadUrl = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponseBodyAttachments) SetNoteId(v int64) *ListMinutesAttachmentsResponseBodyAttachments {
+	s.NoteId = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponseBodyAttachments) SetNoteTime(v int64) *ListMinutesAttachmentsResponseBodyAttachments {
+	s.NoteTime = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponseBodyAttachments) SetRelativeTimeMs(v int64) *ListMinutesAttachmentsResponseBodyAttachments {
+	s.RelativeTimeMs = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponseBodyAttachments) SetType(v int32) *ListMinutesAttachmentsResponseBodyAttachments {
+	s.Type = &v
+	return s
+}
+
+type ListMinutesAttachmentsResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *ListMinutesAttachmentsResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s ListMinutesAttachmentsResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s ListMinutesAttachmentsResponse) GoString() string {
+	return s.String()
+}
+
+func (s *ListMinutesAttachmentsResponse) SetHeaders(v map[string]*string) *ListMinutesAttachmentsResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponse) SetStatusCode(v int32) *ListMinutesAttachmentsResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *ListMinutesAttachmentsResponse) SetBody(v *ListMinutesAttachmentsResponseBody) *ListMinutesAttachmentsResponse {
 	s.Body = v
 	return s
 }
@@ -5126,6 +5410,160 @@ func (s *RegenerateChaptersResponse) SetBody(v *RegenerateChaptersResponseBody) 
 	return s
 }
 
+type SetA1DetailPageCustomTabHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s SetA1DetailPageCustomTabHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetA1DetailPageCustomTabHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *SetA1DetailPageCustomTabHeaders) SetCommonHeaders(v map[string]*string) *SetA1DetailPageCustomTabHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *SetA1DetailPageCustomTabHeaders) SetXAcsDingtalkAccessToken(v string) *SetA1DetailPageCustomTabHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type SetA1DetailPageCustomTabRequest struct {
+	// This parameter is required.
+	CustomTabList []*SetA1DetailPageCustomTabRequestCustomTabList `json:"customTabList,omitempty" xml:"customTabList,omitempty" type:"Repeated"`
+	// true时保留已有A1分析Tab并替换其它自定义Tab；false或不传时直接使用本次列表覆盖
+	PreserveA1AnalyzeTab *bool `json:"preserveA1AnalyzeTab,omitempty" xml:"preserveA1AnalyzeTab,omitempty"`
+}
+
+func (s SetA1DetailPageCustomTabRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetA1DetailPageCustomTabRequest) GoString() string {
+	return s.String()
+}
+
+func (s *SetA1DetailPageCustomTabRequest) SetCustomTabList(v []*SetA1DetailPageCustomTabRequestCustomTabList) *SetA1DetailPageCustomTabRequest {
+	s.CustomTabList = v
+	return s
+}
+
+func (s *SetA1DetailPageCustomTabRequest) SetPreserveA1AnalyzeTab(v bool) *SetA1DetailPageCustomTabRequest {
+	s.PreserveA1AnalyzeTab = &v
+	return s
+}
+
+type SetA1DetailPageCustomTabRequestCustomTabList struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// analyze
+	BizType *string `json:"bizType,omitempty" xml:"bizType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// cn_ZH
+	DefaultLocale *string `json:"defaultLocale,omitempty" xml:"defaultLocale,omitempty"`
+	// This parameter is required.
+	NameI18nMap map[string]interface{} `json:"nameI18nMap,omitempty" xml:"nameI18nMap,omitempty"`
+	// example:
+	//
+	// https://example.com/pc/tab
+	PcUrl *string `json:"pcUrl,omitempty" xml:"pcUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// https://example.com/tab
+	Url *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s SetA1DetailPageCustomTabRequestCustomTabList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetA1DetailPageCustomTabRequestCustomTabList) GoString() string {
+	return s.String()
+}
+
+func (s *SetA1DetailPageCustomTabRequestCustomTabList) SetBizType(v string) *SetA1DetailPageCustomTabRequestCustomTabList {
+	s.BizType = &v
+	return s
+}
+
+func (s *SetA1DetailPageCustomTabRequestCustomTabList) SetDefaultLocale(v string) *SetA1DetailPageCustomTabRequestCustomTabList {
+	s.DefaultLocale = &v
+	return s
+}
+
+func (s *SetA1DetailPageCustomTabRequestCustomTabList) SetNameI18nMap(v map[string]interface{}) *SetA1DetailPageCustomTabRequestCustomTabList {
+	s.NameI18nMap = v
+	return s
+}
+
+func (s *SetA1DetailPageCustomTabRequestCustomTabList) SetPcUrl(v string) *SetA1DetailPageCustomTabRequestCustomTabList {
+	s.PcUrl = &v
+	return s
+}
+
+func (s *SetA1DetailPageCustomTabRequestCustomTabList) SetUrl(v string) *SetA1DetailPageCustomTabRequestCustomTabList {
+	s.Url = &v
+	return s
+}
+
+type SetA1DetailPageCustomTabResponseBody struct {
+	TaskUuid *string `json:"taskUuid,omitempty" xml:"taskUuid,omitempty"`
+}
+
+func (s SetA1DetailPageCustomTabResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetA1DetailPageCustomTabResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *SetA1DetailPageCustomTabResponseBody) SetTaskUuid(v string) *SetA1DetailPageCustomTabResponseBody {
+	s.TaskUuid = &v
+	return s
+}
+
+type SetA1DetailPageCustomTabResponse struct {
+	Headers    map[string]*string                    `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                                `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *SetA1DetailPageCustomTabResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s SetA1DetailPageCustomTabResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s SetA1DetailPageCustomTabResponse) GoString() string {
+	return s.String()
+}
+
+func (s *SetA1DetailPageCustomTabResponse) SetHeaders(v map[string]*string) *SetA1DetailPageCustomTabResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *SetA1DetailPageCustomTabResponse) SetStatusCode(v int32) *SetA1DetailPageCustomTabResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *SetA1DetailPageCustomTabResponse) SetBody(v *SetA1DetailPageCustomTabResponseBody) *SetA1DetailPageCustomTabResponse {
+	s.Body = v
+	return s
+}
+
 type SetDetailPageCustomTabHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -5683,7 +6121,8 @@ func (s *UpdatePermissionHeaders) SetXAcsDingtalkAccessToken(v string) *UpdatePe
 }
 
 type UpdatePermissionRequest struct {
-	MemberInfoList []*UpdatePermissionRequestMemberInfoList `json:"memberInfoList,omitempty" xml:"memberInfoList,omitempty" type:"Repeated"`
+	MemberInfoList             []*UpdatePermissionRequestMemberInfoList             `json:"memberInfoList,omitempty" xml:"memberInfoList,omitempty" type:"Repeated"`
+	MemberPermissionOperations []*UpdatePermissionRequestMemberPermissionOperations `json:"memberPermissionOperations,omitempty" xml:"memberPermissionOperations,omitempty" type:"Repeated"`
 	// example:
 	//
 	// 0
@@ -5696,7 +6135,8 @@ type UpdatePermissionRequest struct {
 	// example:
 	//
 	// 0
-	ShareScope *int32 `json:"shareScope,omitempty" xml:"shareScope,omitempty"`
+	ShareScope       *int32                                   `json:"shareScope,omitempty" xml:"shareScope,omitempty"`
+	ShareScopeConfig *UpdatePermissionRequestShareScopeConfig `json:"shareScopeConfig,omitempty" xml:"shareScopeConfig,omitempty" type:"Struct"`
 	// This parameter is required.
 	//
 	// example:
@@ -5718,6 +6158,11 @@ func (s *UpdatePermissionRequest) SetMemberInfoList(v []*UpdatePermissionRequest
 	return s
 }
 
+func (s *UpdatePermissionRequest) SetMemberPermissionOperations(v []*UpdatePermissionRequestMemberPermissionOperations) *UpdatePermissionRequest {
+	s.MemberPermissionOperations = v
+	return s
+}
+
 func (s *UpdatePermissionRequest) SetOpType(v int32) *UpdatePermissionRequest {
 	s.OpType = &v
 	return s
@@ -5735,6 +6180,11 @@ func (s *UpdatePermissionRequest) SetRoleSubResourceIds(v []*string) *UpdatePerm
 
 func (s *UpdatePermissionRequest) SetShareScope(v int32) *UpdatePermissionRequest {
 	s.ShareScope = &v
+	return s
+}
+
+func (s *UpdatePermissionRequest) SetShareScopeConfig(v *UpdatePermissionRequestShareScopeConfig) *UpdatePermissionRequest {
+	s.ShareScopeConfig = v
 	return s
 }
 
@@ -5781,8 +6231,114 @@ func (s *UpdatePermissionRequestMemberInfoList) SetPolicyId(v int64) *UpdatePerm
 	return s
 }
 
+type UpdatePermissionRequestMemberPermissionOperations struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	MemberType *int32 `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// lJcRnm39OsU4jlFVmRGXXXXX
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 0
+	OpType *int32 `json:"opType,omitempty" xml:"opType,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 2
+	PolicyId           *int64    `json:"policyId,omitempty" xml:"policyId,omitempty"`
+	RoleSubResourceIds []*string `json:"roleSubResourceIds,omitempty" xml:"roleSubResourceIds,omitempty" type:"Repeated"`
+}
+
+func (s UpdatePermissionRequestMemberPermissionOperations) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionRequestMemberPermissionOperations) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionRequestMemberPermissionOperations) SetMemberType(v int32) *UpdatePermissionRequestMemberPermissionOperations {
+	s.MemberType = &v
+	return s
+}
+
+func (s *UpdatePermissionRequestMemberPermissionOperations) SetMemberUnionId(v string) *UpdatePermissionRequestMemberPermissionOperations {
+	s.MemberUnionId = &v
+	return s
+}
+
+func (s *UpdatePermissionRequestMemberPermissionOperations) SetOpType(v int32) *UpdatePermissionRequestMemberPermissionOperations {
+	s.OpType = &v
+	return s
+}
+
+func (s *UpdatePermissionRequestMemberPermissionOperations) SetPolicyId(v int64) *UpdatePermissionRequestMemberPermissionOperations {
+	s.PolicyId = &v
+	return s
+}
+
+func (s *UpdatePermissionRequestMemberPermissionOperations) SetRoleSubResourceIds(v []*string) *UpdatePermissionRequestMemberPermissionOperations {
+	s.RoleSubResourceIds = v
+	return s
+}
+
+type UpdatePermissionRequestShareScopeConfig struct {
+	// example:
+	//
+	// 1000
+	RoleCode           *string   `json:"roleCode,omitempty" xml:"roleCode,omitempty"`
+	RoleSubResourceIds []*string `json:"roleSubResourceIds,omitempty" xml:"roleSubResourceIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// 1
+	ShareScope *int32 `json:"shareScope,omitempty" xml:"shareScope,omitempty"`
+}
+
+func (s UpdatePermissionRequestShareScopeConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionRequestShareScopeConfig) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionRequestShareScopeConfig) SetRoleCode(v string) *UpdatePermissionRequestShareScopeConfig {
+	s.RoleCode = &v
+	return s
+}
+
+func (s *UpdatePermissionRequestShareScopeConfig) SetRoleSubResourceIds(v []*string) *UpdatePermissionRequestShareScopeConfig {
+	s.RoleSubResourceIds = v
+	return s
+}
+
+func (s *UpdatePermissionRequestShareScopeConfig) SetShareScope(v int32) *UpdatePermissionRequestShareScopeConfig {
+	s.ShareScope = &v
+	return s
+}
+
 type UpdatePermissionResponseBody struct {
-	FailMemberInfoList []*UpdatePermissionResponseBodyFailMemberInfoList `json:"failMemberInfoList,omitempty" xml:"failMemberInfoList,omitempty" type:"Repeated"`
+	AllSucceeded                     *bool                                                           `json:"allSucceeded,omitempty" xml:"allSucceeded,omitempty"`
+	FailMemberInfoList               []*UpdatePermissionResponseBodyFailMemberInfoList               `json:"failMemberInfoList,omitempty" xml:"failMemberInfoList,omitempty" type:"Repeated"`
+	MemberPermissionOperationResults []*UpdatePermissionResponseBodyMemberPermissionOperationResults `json:"memberPermissionOperationResults,omitempty" xml:"memberPermissionOperationResults,omitempty" type:"Repeated"`
+	// example:
+	//
+	// v2
+	ModelVersion     *string                                       `json:"modelVersion,omitempty" xml:"modelVersion,omitempty"`
+	PartialSuccess   *bool                                         `json:"partialSuccess,omitempty" xml:"partialSuccess,omitempty"`
+	ShareScopeResult *UpdatePermissionResponseBodyShareScopeResult `json:"shareScopeResult,omitempty" xml:"shareScopeResult,omitempty" type:"Struct"`
 }
 
 func (s UpdatePermissionResponseBody) String() string {
@@ -5793,8 +6349,33 @@ func (s UpdatePermissionResponseBody) GoString() string {
 	return s.String()
 }
 
+func (s *UpdatePermissionResponseBody) SetAllSucceeded(v bool) *UpdatePermissionResponseBody {
+	s.AllSucceeded = &v
+	return s
+}
+
 func (s *UpdatePermissionResponseBody) SetFailMemberInfoList(v []*UpdatePermissionResponseBodyFailMemberInfoList) *UpdatePermissionResponseBody {
 	s.FailMemberInfoList = v
+	return s
+}
+
+func (s *UpdatePermissionResponseBody) SetMemberPermissionOperationResults(v []*UpdatePermissionResponseBodyMemberPermissionOperationResults) *UpdatePermissionResponseBody {
+	s.MemberPermissionOperationResults = v
+	return s
+}
+
+func (s *UpdatePermissionResponseBody) SetModelVersion(v string) *UpdatePermissionResponseBody {
+	s.ModelVersion = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBody) SetPartialSuccess(v bool) *UpdatePermissionResponseBody {
+	s.PartialSuccess = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBody) SetShareScopeResult(v *UpdatePermissionResponseBodyShareScopeResult) *UpdatePermissionResponseBody {
+	s.ShareScopeResult = v
 	return s
 }
 
@@ -5833,6 +6414,94 @@ func (s *UpdatePermissionResponseBodyFailMemberInfoList) SetMemberUnionId(v stri
 
 func (s *UpdatePermissionResponseBodyFailMemberInfoList) SetPolicyId(v int64) *UpdatePermissionResponseBodyFailMemberInfoList {
 	s.PolicyId = &v
+	return s
+}
+
+type UpdatePermissionResponseBodyMemberPermissionOperationResults struct {
+	ErrorCode     *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMessage  *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
+	Index         *int32  `json:"index,omitempty" xml:"index,omitempty"`
+	MemberType    *int32  `json:"memberType,omitempty" xml:"memberType,omitempty"`
+	MemberUnionId *string `json:"memberUnionId,omitempty" xml:"memberUnionId,omitempty"`
+	OpType        *int32  `json:"opType,omitempty" xml:"opType,omitempty"`
+	PolicyId      *int64  `json:"policyId,omitempty" xml:"policyId,omitempty"`
+	Success       *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdatePermissionResponseBodyMemberPermissionOperationResults) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionResponseBodyMemberPermissionOperationResults) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionResponseBodyMemberPermissionOperationResults) SetErrorCode(v string) *UpdatePermissionResponseBodyMemberPermissionOperationResults {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyMemberPermissionOperationResults) SetErrorMessage(v string) *UpdatePermissionResponseBodyMemberPermissionOperationResults {
+	s.ErrorMessage = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyMemberPermissionOperationResults) SetIndex(v int32) *UpdatePermissionResponseBodyMemberPermissionOperationResults {
+	s.Index = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyMemberPermissionOperationResults) SetMemberType(v int32) *UpdatePermissionResponseBodyMemberPermissionOperationResults {
+	s.MemberType = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyMemberPermissionOperationResults) SetMemberUnionId(v string) *UpdatePermissionResponseBodyMemberPermissionOperationResults {
+	s.MemberUnionId = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyMemberPermissionOperationResults) SetOpType(v int32) *UpdatePermissionResponseBodyMemberPermissionOperationResults {
+	s.OpType = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyMemberPermissionOperationResults) SetPolicyId(v int64) *UpdatePermissionResponseBodyMemberPermissionOperationResults {
+	s.PolicyId = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyMemberPermissionOperationResults) SetSuccess(v bool) *UpdatePermissionResponseBodyMemberPermissionOperationResults {
+	s.Success = &v
+	return s
+}
+
+type UpdatePermissionResponseBodyShareScopeResult struct {
+	ErrorCode    *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMessage *string `json:"errorMessage,omitempty" xml:"errorMessage,omitempty"`
+	Success      *bool   `json:"success,omitempty" xml:"success,omitempty"`
+}
+
+func (s UpdatePermissionResponseBodyShareScopeResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdatePermissionResponseBodyShareScopeResult) GoString() string {
+	return s.String()
+}
+
+func (s *UpdatePermissionResponseBodyShareScopeResult) SetErrorCode(v string) *UpdatePermissionResponseBodyShareScopeResult {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyShareScopeResult) SetErrorMessage(v string) *UpdatePermissionResponseBodyShareScopeResult {
+	s.ErrorMessage = &v
+	return s
+}
+
+func (s *UpdatePermissionResponseBodyShareScopeResult) SetSuccess(v bool) *UpdatePermissionResponseBodyShareScopeResult {
+	s.Success = &v
 	return s
 }
 
@@ -6489,6 +7158,83 @@ func (client *Client) DeleteMinutes(taskUuid *string, request *DeleteMinutesRequ
 
 // Summary:
 //
+// 删除听记音视频文件释放存储空间
+//
+// @param request - DeleteMinutesMediaRequest
+//
+// @param headers - DeleteMinutesMediaHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeleteMinutesMediaResponse
+func (client *Client) DeleteMinutesMediaWithOptions(request *DeleteMinutesMediaRequest, headers *DeleteMinutesMediaHeaders, runtime *util.RuntimeOptions) (_result *DeleteMinutesMediaResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.TaskUuid)) {
+		query["taskUuid"] = request.TaskUuid
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeleteMinutesMedia"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/deleteMedia"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeleteMinutesMediaResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除听记音视频文件释放存储空间
+//
+// @param request - DeleteMinutesMediaRequest
+//
+// @return DeleteMinutesMediaResponse
+func (client *Client) DeleteMinutesMedia(request *DeleteMinutesMediaRequest) (_result *DeleteMinutesMediaResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeleteMinutesMediaHeaders{}
+	_result = &DeleteMinutesMediaResponse{}
+	_body, _err := client.DeleteMinutesMediaWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 导出闪记任务结果
 //
 // @param request - ExportMinutesTaskResultRequest
@@ -6666,6 +7412,99 @@ func (client *Client) GenerateSummary(taskUuid *string, request *GenerateSummary
 	headers := &GenerateSummaryHeaders{}
 	_result = &GenerateSummaryResponse{}
 	_body, _err := client.GenerateSummaryWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询听记笔记内容
+//
+// @param request - ListMinutesAttachmentsRequest
+//
+// @param headers - ListMinutesAttachmentsHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return ListMinutesAttachmentsResponse
+func (client *Client) ListMinutesAttachmentsWithOptions(taskUuid *string, request *ListMinutesAttachmentsRequest, headers *ListMinutesAttachmentsHeaders, runtime *util.RuntimeOptions) (_result *ListMinutesAttachmentsResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.ContentType)) {
+		query["contentType"] = request.ContentType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Direction)) {
+		query["direction"] = request.Direction
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.MaxResults)) {
+		query["maxResults"] = request.MaxResults
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.NextToken)) {
+		query["nextToken"] = request.NextToken
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.Type)) {
+		query["type"] = request.Type
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		query["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("ListMinutesAttachments"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/" + tea.StringValue(taskUuid) + "/attachments"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &ListMinutesAttachmentsResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 查询听记笔记内容
+//
+// @param request - ListMinutesAttachmentsRequest
+//
+// @return ListMinutesAttachmentsResponse
+func (client *Client) ListMinutesAttachments(taskUuid *string, request *ListMinutesAttachmentsRequest) (_result *ListMinutesAttachmentsResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &ListMinutesAttachmentsHeaders{}
+	_result = &ListMinutesAttachmentsResponse{}
+	_body, _err := client.ListMinutesAttachmentsWithOptions(taskUuid, request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -8377,6 +9216,85 @@ func (client *Client) RegenerateChapters(request *RegenerateChaptersRequest) (_r
 
 // Summary:
 //
+// 自定义A1相关听记详情页tab
+//
+// @param request - SetA1DetailPageCustomTabRequest
+//
+// @param headers - SetA1DetailPageCustomTabHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return SetA1DetailPageCustomTabResponse
+func (client *Client) SetA1DetailPageCustomTabWithOptions(taskUuid *string, request *SetA1DetailPageCustomTabRequest, headers *SetA1DetailPageCustomTabHeaders, runtime *util.RuntimeOptions) (_result *SetA1DetailPageCustomTabResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.PreserveA1AnalyzeTab)) {
+		query["preserveA1AnalyzeTab"] = request.PreserveA1AnalyzeTab
+	}
+
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.CustomTabList)) {
+		body["customTabList"] = request.CustomTabList
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("SetA1DetailPageCustomTab"),
+		Version:     tea.String("minutes_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/minutes/flashMinutes/tasks/" + tea.StringValue(taskUuid) + "/a1CustomTabs"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &SetA1DetailPageCustomTabResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 自定义A1相关听记详情页tab
+//
+// @param request - SetA1DetailPageCustomTabRequest
+//
+// @return SetA1DetailPageCustomTabResponse
+func (client *Client) SetA1DetailPageCustomTab(taskUuid *string, request *SetA1DetailPageCustomTabRequest) (_result *SetA1DetailPageCustomTabResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &SetA1DetailPageCustomTabHeaders{}
+	_result = &SetA1DetailPageCustomTabResponse{}
+	_body, _err := client.SetA1DetailPageCustomTabWithOptions(taskUuid, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
 // 自定义听记详情页tab
 //
 // @param request - SetDetailPageCustomTabRequest
@@ -8691,7 +9609,7 @@ func (client *Client) UpdateMinutesTitle(taskUuid *string, request *UpdateMinute
 
 // Summary:
 //
-// 更新闪记权限
+// 更新听记权限
 //
 // @param request - UpdatePermissionRequest
 //
@@ -8715,6 +9633,10 @@ func (client *Client) UpdatePermissionWithOptions(taskUuid *string, request *Upd
 		body["memberInfoList"] = request.MemberInfoList
 	}
 
+	if !tea.BoolValue(util.IsUnset(request.MemberPermissionOperations)) {
+		body["memberPermissionOperations"] = request.MemberPermissionOperations
+	}
+
 	if !tea.BoolValue(util.IsUnset(request.OpType)) {
 		body["opType"] = request.OpType
 	}
@@ -8729,6 +9651,10 @@ func (client *Client) UpdatePermissionWithOptions(taskUuid *string, request *Upd
 
 	if !tea.BoolValue(util.IsUnset(request.ShareScope)) {
 		body["shareScope"] = request.ShareScope
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.ShareScopeConfig)) {
+		body["shareScopeConfig"] = request.ShareScopeConfig
 	}
 
 	realHeaders := make(map[string]*string)
@@ -8767,7 +9693,7 @@ func (client *Client) UpdatePermissionWithOptions(taskUuid *string, request *Upd
 
 // Summary:
 //
-// 更新闪记权限
+// 更新听记权限
 //
 // @param request - UpdatePermissionRequest
 //

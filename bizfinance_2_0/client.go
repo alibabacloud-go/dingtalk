@@ -1599,6 +1599,346 @@ func (s *CreateCollectionOrderResponse) SetBody(v *CreateCollectionOrderResponse
 	return s
 }
 
+type CreatePayableReceiptHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CreatePayableReceiptHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePayableReceiptHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePayableReceiptHeaders) SetCommonHeaders(v map[string]*string) *CreatePayableReceiptHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CreatePayableReceiptHeaders) SetXAcsDingtalkAccessToken(v string) *CreatePayableReceiptHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type CreatePayableReceiptRequest struct {
+	Receipt *CreatePayableReceiptRequestReceipt `json:"receipt,omitempty" xml:"receipt,omitempty" type:"Struct"`
+}
+
+func (s CreatePayableReceiptRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePayableReceiptRequest) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePayableReceiptRequest) SetReceipt(v *CreatePayableReceiptRequestReceipt) *CreatePayableReceiptRequest {
+	s.Receipt = v
+	return s
+}
+
+type CreatePayableReceiptRequestReceipt struct {
+	Amount                *string                                                 `json:"amount,omitempty" xml:"amount,omitempty"`
+	CategoryCode          *string                                                 `json:"categoryCode,omitempty" xml:"categoryCode,omitempty"`
+	Code                  *string                                                 `json:"code,omitempty" xml:"code,omitempty"`
+	CompanyCode           *string                                                 `json:"companyCode,omitempty" xml:"companyCode,omitempty"`
+	CorpId                *string                                                 `json:"corpId,omitempty" xml:"corpId,omitempty"`
+	CreateTime            *int64                                                  `json:"createTime,omitempty" xml:"createTime,omitempty"`
+	CustomerCode          *string                                                 `json:"customerCode,omitempty" xml:"customerCode,omitempty"`
+	DangAnDataInfoList    []*CreatePayableReceiptRequestReceiptDangAnDataInfoList `json:"dangAnDataInfoList,omitempty" xml:"dangAnDataInfoList,omitempty" type:"Repeated"`
+	DepartmentCode        *string                                                 `json:"departmentCode,omitempty" xml:"departmentCode,omitempty"`
+	EmpAccountUserId      *string                                                 `json:"empAccountUserId,omitempty" xml:"empAccountUserId,omitempty"`
+	EnterpriseAccountCode *string                                                 `json:"enterpriseAccountCode,omitempty" xml:"enterpriseAccountCode,omitempty"`
+	FormCode              *string                                                 `json:"formCode,omitempty" xml:"formCode,omitempty"`
+	OccurDate             *int64                                                  `json:"occurDate,omitempty" xml:"occurDate,omitempty"`
+	PrincipalId           *string                                                 `json:"principalId,omitempty" xml:"principalId,omitempty"`
+	ProductCode           *string                                                 `json:"productCode,omitempty" xml:"productCode,omitempty"`
+	ProjectCode           *string                                                 `json:"projectCode,omitempty" xml:"projectCode,omitempty"`
+	ReceiptPlans          []*CreatePayableReceiptRequestReceiptReceiptPlans       `json:"receiptPlans,omitempty" xml:"receiptPlans,omitempty" type:"Repeated"`
+	ReceiptType           *int64                                                  `json:"receiptType,omitempty" xml:"receiptType,omitempty"`
+	RecodeTime            *int64                                                  `json:"recodeTime,omitempty" xml:"recodeTime,omitempty"`
+	Remark                *string                                                 `json:"remark,omitempty" xml:"remark,omitempty"`
+	SupplierCode          *string                                                 `json:"supplierCode,omitempty" xml:"supplierCode,omitempty"`
+	Title                 *string                                                 `json:"title,omitempty" xml:"title,omitempty"`
+	UserId                *string                                                 `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s CreatePayableReceiptRequestReceipt) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePayableReceiptRequestReceipt) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetAmount(v string) *CreatePayableReceiptRequestReceipt {
+	s.Amount = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetCategoryCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.CategoryCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.Code = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetCompanyCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.CompanyCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetCorpId(v string) *CreatePayableReceiptRequestReceipt {
+	s.CorpId = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetCreateTime(v int64) *CreatePayableReceiptRequestReceipt {
+	s.CreateTime = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetCustomerCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.CustomerCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetDangAnDataInfoList(v []*CreatePayableReceiptRequestReceiptDangAnDataInfoList) *CreatePayableReceiptRequestReceipt {
+	s.DangAnDataInfoList = v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetDepartmentCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.DepartmentCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetEmpAccountUserId(v string) *CreatePayableReceiptRequestReceipt {
+	s.EmpAccountUserId = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetEnterpriseAccountCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.EnterpriseAccountCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetFormCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.FormCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetOccurDate(v int64) *CreatePayableReceiptRequestReceipt {
+	s.OccurDate = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetPrincipalId(v string) *CreatePayableReceiptRequestReceipt {
+	s.PrincipalId = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetProductCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.ProductCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetProjectCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.ProjectCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetReceiptPlans(v []*CreatePayableReceiptRequestReceiptReceiptPlans) *CreatePayableReceiptRequestReceipt {
+	s.ReceiptPlans = v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetReceiptType(v int64) *CreatePayableReceiptRequestReceipt {
+	s.ReceiptType = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetRecodeTime(v int64) *CreatePayableReceiptRequestReceipt {
+	s.RecodeTime = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetRemark(v string) *CreatePayableReceiptRequestReceipt {
+	s.Remark = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetSupplierCode(v string) *CreatePayableReceiptRequestReceipt {
+	s.SupplierCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetTitle(v string) *CreatePayableReceiptRequestReceipt {
+	s.Title = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceipt) SetUserId(v string) *CreatePayableReceiptRequestReceipt {
+	s.UserId = &v
+	return s
+}
+
+type CreatePayableReceiptRequestReceiptDangAnDataInfoList struct {
+	DataCode   *string `json:"dataCode,omitempty" xml:"dataCode,omitempty"`
+	DefineCode *string `json:"defineCode,omitempty" xml:"defineCode,omitempty"`
+}
+
+func (s CreatePayableReceiptRequestReceiptDangAnDataInfoList) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePayableReceiptRequestReceiptDangAnDataInfoList) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePayableReceiptRequestReceiptDangAnDataInfoList) SetDataCode(v string) *CreatePayableReceiptRequestReceiptDangAnDataInfoList {
+	s.DataCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceiptDangAnDataInfoList) SetDefineCode(v string) *CreatePayableReceiptRequestReceiptDangAnDataInfoList {
+	s.DefineCode = &v
+	return s
+}
+
+type CreatePayableReceiptRequestReceiptReceiptPlans struct {
+	PlanAmount *string `json:"planAmount,omitempty" xml:"planAmount,omitempty"`
+	PlanDate   *int64  `json:"planDate,omitempty" xml:"planDate,omitempty"`
+	PlanRemark *string `json:"planRemark,omitempty" xml:"planRemark,omitempty"`
+	Uuid       *string `json:"uuid,omitempty" xml:"uuid,omitempty"`
+}
+
+func (s CreatePayableReceiptRequestReceiptReceiptPlans) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePayableReceiptRequestReceiptReceiptPlans) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePayableReceiptRequestReceiptReceiptPlans) SetPlanAmount(v string) *CreatePayableReceiptRequestReceiptReceiptPlans {
+	s.PlanAmount = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceiptReceiptPlans) SetPlanDate(v int64) *CreatePayableReceiptRequestReceiptReceiptPlans {
+	s.PlanDate = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceiptReceiptPlans) SetPlanRemark(v string) *CreatePayableReceiptRequestReceiptReceiptPlans {
+	s.PlanRemark = &v
+	return s
+}
+
+func (s *CreatePayableReceiptRequestReceiptReceiptPlans) SetUuid(v string) *CreatePayableReceiptRequestReceiptReceiptPlans {
+	s.Uuid = &v
+	return s
+}
+
+type CreatePayableReceiptResponseBody struct {
+	Result *CreatePayableReceiptResponseBodyResult `json:"result,omitempty" xml:"result,omitempty" type:"Struct"`
+}
+
+func (s CreatePayableReceiptResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePayableReceiptResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePayableReceiptResponseBody) SetResult(v *CreatePayableReceiptResponseBodyResult) *CreatePayableReceiptResponseBody {
+	s.Result = v
+	return s
+}
+
+type CreatePayableReceiptResponseBodyResult struct {
+	BusinessId *string `json:"businessId,omitempty" xml:"businessId,omitempty"`
+	Code       *string `json:"code,omitempty" xml:"code,omitempty"`
+	ErrorCode  *string `json:"errorCode,omitempty" xml:"errorCode,omitempty"`
+	ErrorMsg   *string `json:"errorMsg,omitempty" xml:"errorMsg,omitempty"`
+	Success    *bool   `json:"success,omitempty" xml:"success,omitempty"`
+	Url        *string `json:"url,omitempty" xml:"url,omitempty"`
+}
+
+func (s CreatePayableReceiptResponseBodyResult) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePayableReceiptResponseBodyResult) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePayableReceiptResponseBodyResult) SetBusinessId(v string) *CreatePayableReceiptResponseBodyResult {
+	s.BusinessId = &v
+	return s
+}
+
+func (s *CreatePayableReceiptResponseBodyResult) SetCode(v string) *CreatePayableReceiptResponseBodyResult {
+	s.Code = &v
+	return s
+}
+
+func (s *CreatePayableReceiptResponseBodyResult) SetErrorCode(v string) *CreatePayableReceiptResponseBodyResult {
+	s.ErrorCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptResponseBodyResult) SetErrorMsg(v string) *CreatePayableReceiptResponseBodyResult {
+	s.ErrorMsg = &v
+	return s
+}
+
+func (s *CreatePayableReceiptResponseBodyResult) SetSuccess(v bool) *CreatePayableReceiptResponseBodyResult {
+	s.Success = &v
+	return s
+}
+
+func (s *CreatePayableReceiptResponseBodyResult) SetUrl(v string) *CreatePayableReceiptResponseBodyResult {
+	s.Url = &v
+	return s
+}
+
+type CreatePayableReceiptResponse struct {
+	Headers    map[string]*string                `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                            `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *CreatePayableReceiptResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s CreatePayableReceiptResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreatePayableReceiptResponse) GoString() string {
+	return s.String()
+}
+
+func (s *CreatePayableReceiptResponse) SetHeaders(v map[string]*string) *CreatePayableReceiptResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *CreatePayableReceiptResponse) SetStatusCode(v int32) *CreatePayableReceiptResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *CreatePayableReceiptResponse) SetBody(v *CreatePayableReceiptResponseBody) *CreatePayableReceiptResponse {
+	s.Body = v
+	return s
+}
+
 type CreatePaymentOrderHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -11846,6 +12186,79 @@ func (client *Client) CreateCollectionOrder(request *CreateCollectionOrderReques
 	headers := &CreateCollectionOrderHeaders{}
 	_result = &CreateCollectionOrderResponse{}
 	_body, _err := client.CreateCollectionOrderWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建应付单
+//
+// @param request - CreatePayableReceiptRequest
+//
+// @param headers - CreatePayableReceiptHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return CreatePayableReceiptResponse
+func (client *Client) CreatePayableReceiptWithOptions(request *CreatePayableReceiptRequest, headers *CreatePayableReceiptHeaders, runtime *util.RuntimeOptions) (_result *CreatePayableReceiptResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.Receipt)) {
+		body["receipt"] = request.Receipt
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("CreatePayableReceipt"),
+		Version:     tea.String("bizfinance_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/bizfinance/createArapReceipt"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &CreatePayableReceiptResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 创建应付单
+//
+// @param request - CreatePayableReceiptRequest
+//
+// @return CreatePayableReceiptResponse
+func (client *Client) CreatePayableReceipt(request *CreatePayableReceiptRequest) (_result *CreatePayableReceiptResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &CreatePayableReceiptHeaders{}
+	_result = &CreatePayableReceiptResponse{}
+	_body, _err := client.CreatePayableReceiptWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

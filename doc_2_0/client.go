@@ -6159,6 +6159,108 @@ func (s *GetUuidByDentryIdResponse) SetBody(v *GetUuidByDentryIdResponseBody) *G
 	return s
 }
 
+type GetUuidByIdOrUrlHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s GetUuidByIdOrUrlHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUuidByIdOrUrlHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *GetUuidByIdOrUrlHeaders) SetCommonHeaders(v map[string]*string) *GetUuidByIdOrUrlHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *GetUuidByIdOrUrlHeaders) SetXAcsDingtalkAccessToken(v string) *GetUuidByIdOrUrlHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type GetUuidByIdOrUrlRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// NVQ0MmFhZDAyYmRkYjM4Yw
+	IdOrUrl *string `json:"idOrUrl,omitempty" xml:"idOrUrl,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// union_id
+	OperatorId *string `json:"operatorId,omitempty" xml:"operatorId,omitempty"`
+}
+
+func (s GetUuidByIdOrUrlRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUuidByIdOrUrlRequest) GoString() string {
+	return s.String()
+}
+
+func (s *GetUuidByIdOrUrlRequest) SetIdOrUrl(v string) *GetUuidByIdOrUrlRequest {
+	s.IdOrUrl = &v
+	return s
+}
+
+func (s *GetUuidByIdOrUrlRequest) SetOperatorId(v string) *GetUuidByIdOrUrlRequest {
+	s.OperatorId = &v
+	return s
+}
+
+type GetUuidByIdOrUrlResponseBody struct {
+	DentryUuid *string `json:"dentryUuid,omitempty" xml:"dentryUuid,omitempty"`
+}
+
+func (s GetUuidByIdOrUrlResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUuidByIdOrUrlResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *GetUuidByIdOrUrlResponseBody) SetDentryUuid(v string) *GetUuidByIdOrUrlResponseBody {
+	s.DentryUuid = &v
+	return s
+}
+
+type GetUuidByIdOrUrlResponse struct {
+	Headers    map[string]*string            `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                        `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *GetUuidByIdOrUrlResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s GetUuidByIdOrUrlResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetUuidByIdOrUrlResponse) GoString() string {
+	return s.String()
+}
+
+func (s *GetUuidByIdOrUrlResponse) SetHeaders(v map[string]*string) *GetUuidByIdOrUrlResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *GetUuidByIdOrUrlResponse) SetStatusCode(v int32) *GetUuidByIdOrUrlResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *GetUuidByIdOrUrlResponse) SetBody(v *GetUuidByIdOrUrlResponseBody) *GetUuidByIdOrUrlResponse {
+	s.Body = v
+	return s
+}
+
 type GetWorkspacePermissionScopesHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16032,6 +16134,83 @@ func (client *Client) GetUuidByDentryId(dentryId *string, request *GetUuidByDent
 	headers := &GetUuidByDentryIdHeaders{}
 	_result = &GetUuidByDentryIdResponse{}
 	_body, _err := client.GetUuidByDentryIdWithOptions(dentryId, request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据文档id或URL获取文件DentryUuid
+//
+// @param request - GetUuidByIdOrUrlRequest
+//
+// @param headers - GetUuidByIdOrUrlHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return GetUuidByIdOrUrlResponse
+func (client *Client) GetUuidByIdOrUrlWithOptions(request *GetUuidByIdOrUrlRequest, headers *GetUuidByIdOrUrlHeaders, runtime *util.RuntimeOptions) (_result *GetUuidByIdOrUrlResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.IdOrUrl)) {
+		query["idOrUrl"] = request.IdOrUrl
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.OperatorId)) {
+		query["operatorId"] = request.OperatorId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("GetUuidByIdOrUrl"),
+		Version:     tea.String("doc_2.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v2.0/doc/documents/queryDentryUuid"),
+		Method:      tea.String("GET"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &GetUuidByIdOrUrlResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 根据文档id或URL获取文件DentryUuid
+//
+// @param request - GetUuidByIdOrUrlRequest
+//
+// @return GetUuidByIdOrUrlResponse
+func (client *Client) GetUuidByIdOrUrl(request *GetUuidByIdOrUrlRequest) (_result *GetUuidByIdOrUrlResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &GetUuidByIdOrUrlHeaders{}
+	_result = &GetUuidByIdOrUrlResponse{}
+	_body, _err := client.GetUuidByIdOrUrlWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

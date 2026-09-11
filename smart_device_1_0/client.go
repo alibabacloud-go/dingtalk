@@ -945,6 +945,92 @@ func (s *QueryDeviceVideoConferenceBookResponse) SetBody(v *QueryDeviceVideoConf
 	return s
 }
 
+type RemoveUserFaceHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s RemoveUserFaceHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveUserFaceHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveUserFaceHeaders) SetCommonHeaders(v map[string]*string) *RemoveUserFaceHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *RemoveUserFaceHeaders) SetXAcsDingtalkAccessToken(v string) *RemoveUserFaceHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type RemoveUserFaceRequest struct {
+	UserId *string `json:"userId,omitempty" xml:"userId,omitempty"`
+}
+
+func (s RemoveUserFaceRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveUserFaceRequest) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveUserFaceRequest) SetUserId(v string) *RemoveUserFaceRequest {
+	s.UserId = &v
+	return s
+}
+
+type RemoveUserFaceResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s RemoveUserFaceResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveUserFaceResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveUserFaceResponseBody) SetResult(v bool) *RemoveUserFaceResponseBody {
+	s.Result = &v
+	return s
+}
+
+type RemoveUserFaceResponse struct {
+	Headers    map[string]*string          `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                      `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *RemoveUserFaceResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s RemoveUserFaceResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s RemoveUserFaceResponse) GoString() string {
+	return s.String()
+}
+
+func (s *RemoveUserFaceResponse) SetHeaders(v map[string]*string) *RemoveUserFaceResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *RemoveUserFaceResponse) SetStatusCode(v int32) *RemoveUserFaceResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *RemoveUserFaceResponse) SetBody(v *RemoveUserFaceResponseBody) *RemoveUserFaceResponse {
+	s.Body = v
+	return s
+}
+
 type TextToImageHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -2094,6 +2180,79 @@ func (client *Client) QueryDeviceVideoConferenceBook(deviceId *string, bookId *s
 	headers := &QueryDeviceVideoConferenceBookHeaders{}
 	_result = &QueryDeviceVideoConferenceBookResponse{}
 	_body, _err := client.QueryDeviceVideoConferenceBookWithOptions(deviceId, bookId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除用户的人脸底图
+//
+// @param request - RemoveUserFaceRequest
+//
+// @param headers - RemoveUserFaceHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return RemoveUserFaceResponse
+func (client *Client) RemoveUserFaceWithOptions(request *RemoveUserFaceRequest, headers *RemoveUserFaceHeaders, runtime *util.RuntimeOptions) (_result *RemoveUserFaceResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	query := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UserId)) {
+		query["userId"] = request.UserId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Query:   openapiutil.Query(query),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("RemoveUserFace"),
+		Version:     tea.String("smartDevice_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/smartDevice/faceRecognitions/feature"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &RemoveUserFaceResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 删除用户的人脸底图
+//
+// @param request - RemoveUserFaceRequest
+//
+// @return RemoveUserFaceResponse
+func (client *Client) RemoveUserFace(request *RemoveUserFaceRequest) (_result *RemoveUserFaceResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &RemoveUserFaceHeaders{}
+	_result = &RemoveUserFaceResponse{}
+	_body, _err := client.RemoveUserFaceWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

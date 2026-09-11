@@ -5606,6 +5606,7 @@ type GetSceneGroupDetailInfoRequest struct {
 	//
 	// cidXXXXXXX
 	OpenConversationId *string `json:"open_conversation_id,omitempty" xml:"open_conversation_id,omitempty"`
+	PermissionCode     *string `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 }
 
 func (s GetSceneGroupDetailInfoRequest) String() string {
@@ -5623,6 +5624,11 @@ func (s *GetSceneGroupDetailInfoRequest) SetCoolAppCode(v string) *GetSceneGroup
 
 func (s *GetSceneGroupDetailInfoRequest) SetOpenConversationId(v string) *GetSceneGroupDetailInfoRequest {
 	s.OpenConversationId = &v
+	return s
+}
+
+func (s *GetSceneGroupDetailInfoRequest) SetPermissionCode(v string) *GetSceneGroupDetailInfoRequest {
+	s.PermissionCode = &v
 	return s
 }
 
@@ -11900,6 +11906,7 @@ type QueryGroupMuteStatusRequest struct {
 	//
 	// cidCtneF+XyQjcyF2ROdgSeIg==
 	OpenConversationId *string `json:"openConversationId,omitempty" xml:"openConversationId,omitempty"`
+	PermissionCode     *string `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
 	// This parameter is required.
 	//
 	// example:
@@ -11918,6 +11925,11 @@ func (s QueryGroupMuteStatusRequest) GoString() string {
 
 func (s *QueryGroupMuteStatusRequest) SetOpenConversationId(v string) *QueryGroupMuteStatusRequest {
 	s.OpenConversationId = &v
+	return s
+}
+
+func (s *QueryGroupMuteStatusRequest) SetPermissionCode(v string) *QueryGroupMuteStatusRequest {
+	s.PermissionCode = &v
 	return s
 }
 
@@ -20951,7 +20963,7 @@ func (client *Client) AddRobotToConversation(request *AddRobotToConversationRequ
 
 // Summary:
 //
-// 场景群加人
+// 添加场景群成员
 //
 // @param request - AddSceneGroupMemberRequest
 //
@@ -21013,7 +21025,7 @@ func (client *Client) AddSceneGroupMemberWithOptions(request *AddSceneGroupMembe
 
 // Summary:
 //
-// 场景群加人
+// 添加场景群成员
 //
 // @param request - AddSceneGroupMemberRequest
 //
@@ -24029,6 +24041,10 @@ func (client *Client) GetSceneGroupDetailInfoWithOptions(request *GetSceneGroupD
 
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		body["open_conversation_id"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		body["permissionCode"] = request.PermissionCode
 	}
 
 	realHeaders := make(map[string]*string)
@@ -27389,7 +27405,7 @@ func (client *Client) QueryGroupMemberByMemberAuth(request *QueryGroupMemberByMe
 
 // Summary:
 //
-// 查询群禁言状态
+// 查询场景群禁言状态
 //
 // @param request - QueryGroupMuteStatusRequest
 //
@@ -27406,6 +27422,10 @@ func (client *Client) QueryGroupMuteStatusWithOptions(request *QueryGroupMuteSta
 	query := map[string]interface{}{}
 	if !tea.BoolValue(util.IsUnset(request.OpenConversationId)) {
 		query["openConversationId"] = request.OpenConversationId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		query["permissionCode"] = request.PermissionCode
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.UserId)) {
@@ -27447,7 +27467,7 @@ func (client *Client) QueryGroupMuteStatusWithOptions(request *QueryGroupMuteSta
 
 // Summary:
 //
-// 查询群禁言状态
+// 查询场景群禁言状态
 //
 // @param request - QueryGroupMuteStatusRequest
 //
@@ -29342,7 +29362,7 @@ func (client *Client) RemoveRobotFromConversation(request *RemoveRobotFromConver
 
 // Summary:
 //
-// 场景群删人
+// 删除场景群成员
 //
 // @param request - RemoveSceneGroupMemberRequest
 //
@@ -29404,7 +29424,7 @@ func (client *Client) RemoveSceneGroupMemberWithOptions(request *RemoveSceneGrou
 
 // Summary:
 //
-// 场景群删人
+// 删除场景群成员
 //
 // @param request - RemoveSceneGroupMemberRequest
 //

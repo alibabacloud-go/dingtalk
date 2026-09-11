@@ -9,6 +9,29 @@ import (
 	"github.com/alibabacloud-go/tea/tea"
 )
 
+type CustomeRpcCallHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s CustomeRpcCallHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CustomeRpcCallHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *CustomeRpcCallHeaders) SetCommonHeaders(v map[string]*string) *CustomeRpcCallHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *CustomeRpcCallHeaders) SetXAcsDingtalkAccessToken(v string) *CustomeRpcCallHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
 type CustomeRpcCallRequest struct {
 	MethodName *string                `json:"methodName,omitempty" xml:"methodName,omitempty"`
 	Params     map[string]interface{} `json:"params,omitempty" xml:"params,omitempty"`
@@ -201,12 +224,12 @@ func (client *Client) Init(config *openapi.Config) (_err error) {
 //
 // @param tmpReq - CustomeRpcCallRequest
 //
-// @param headers - map
+// @param headers - CustomeRpcCallHeaders
 //
 // @param runtime - runtime options for this request RuntimeOptions
 //
 // @return CustomeRpcCallResponse
-func (client *Client) CustomeRpcCallWithOptions(tmpReq *CustomeRpcCallRequest, headers map[string]*string, runtime *util.RuntimeOptions) (_result *CustomeRpcCallResponse, _err error) {
+func (client *Client) CustomeRpcCallWithOptions(tmpReq *CustomeRpcCallRequest, headers *CustomeRpcCallHeaders, runtime *util.RuntimeOptions) (_result *CustomeRpcCallResponse, _err error) {
 	_err = util.ValidateModel(tmpReq)
 	if _err != nil {
 		return _result, _err
@@ -226,8 +249,17 @@ func (client *Client) CustomeRpcCallWithOptions(tmpReq *CustomeRpcCallRequest, h
 		query["params"] = request.ParamsShrink
 	}
 
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
 	req := &openapi.OpenApiRequest{
-		Headers: headers,
+		Headers: realHeaders,
 		Query:   openapiutil.Query(query),
 	}
 	params := &openapi.Params{
@@ -236,7 +268,7 @@ func (client *Client) CustomeRpcCallWithOptions(tmpReq *CustomeRpcCallRequest, h
 		Protocol:    tea.String("HTTP"),
 		Pathname:    tea.String("/v1.0/customer/rpcCall"),
 		Method:      tea.String("POST"),
-		AuthType:    tea.String("Anonymous"),
+		AuthType:    tea.String("AK"),
 		Style:       tea.String("ROA"),
 		ReqBodyType: tea.String("none"),
 		BodyType:    tea.String("json"),
@@ -259,7 +291,7 @@ func (client *Client) CustomeRpcCallWithOptions(tmpReq *CustomeRpcCallRequest, h
 // @return CustomeRpcCallResponse
 func (client *Client) CustomeRpcCall(request *CustomeRpcCallRequest) (_result *CustomeRpcCallResponse, _err error) {
 	runtime := &util.RuntimeOptions{}
-	headers := make(map[string]*string)
+	headers := &CustomeRpcCallHeaders{}
 	_result = &CustomeRpcCallResponse{}
 	_body, _err := client.CustomeRpcCallWithOptions(request, headers, runtime)
 	if _err != nil {

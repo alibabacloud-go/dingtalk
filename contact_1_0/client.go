@@ -3111,6 +3111,129 @@ func (s *DeleteUserGroupResponse) SetBody(v *DeleteUserGroupResponseBody) *Delet
 	return s
 }
 
+type DeptGroupSettingUpdateHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s DeptGroupSettingUpdateHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeptGroupSettingUpdateHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *DeptGroupSettingUpdateHeaders) SetCommonHeaders(v map[string]*string) *DeptGroupSettingUpdateHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateHeaders) SetXAcsDingtalkAccessToken(v string) *DeptGroupSettingUpdateHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type DeptGroupSettingUpdateRequest struct {
+	// This parameter is required.
+	DeptId                            *int64    `json:"deptId,omitempty" xml:"deptId,omitempty"`
+	GroupContainHiddenDept            *bool     `json:"groupContainHiddenDept,omitempty" xml:"groupContainHiddenDept,omitempty"`
+	GroupContainHrmEmployeeTypeLabels []*string `json:"groupContainHrmEmployeeTypeLabels,omitempty" xml:"groupContainHrmEmployeeTypeLabels,omitempty" type:"Repeated"`
+	GroupContainOuterDept             *bool     `json:"groupContainOuterDept,omitempty" xml:"groupContainOuterDept,omitempty"`
+	GroupContainSubDept               *bool     `json:"groupContainSubDept,omitempty" xml:"groupContainSubDept,omitempty"`
+	PermissionCode                    *string   `json:"permissionCode,omitempty" xml:"permissionCode,omitempty"`
+	SyncMembers                       *bool     `json:"syncMembers,omitempty" xml:"syncMembers,omitempty"`
+}
+
+func (s DeptGroupSettingUpdateRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeptGroupSettingUpdateRequest) GoString() string {
+	return s.String()
+}
+
+func (s *DeptGroupSettingUpdateRequest) SetDeptId(v int64) *DeptGroupSettingUpdateRequest {
+	s.DeptId = &v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateRequest) SetGroupContainHiddenDept(v bool) *DeptGroupSettingUpdateRequest {
+	s.GroupContainHiddenDept = &v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateRequest) SetGroupContainHrmEmployeeTypeLabels(v []*string) *DeptGroupSettingUpdateRequest {
+	s.GroupContainHrmEmployeeTypeLabels = v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateRequest) SetGroupContainOuterDept(v bool) *DeptGroupSettingUpdateRequest {
+	s.GroupContainOuterDept = &v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateRequest) SetGroupContainSubDept(v bool) *DeptGroupSettingUpdateRequest {
+	s.GroupContainSubDept = &v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateRequest) SetPermissionCode(v string) *DeptGroupSettingUpdateRequest {
+	s.PermissionCode = &v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateRequest) SetSyncMembers(v bool) *DeptGroupSettingUpdateRequest {
+	s.SyncMembers = &v
+	return s
+}
+
+type DeptGroupSettingUpdateResponseBody struct {
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s DeptGroupSettingUpdateResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeptGroupSettingUpdateResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *DeptGroupSettingUpdateResponseBody) SetResult(v bool) *DeptGroupSettingUpdateResponseBody {
+	s.Result = &v
+	return s
+}
+
+type DeptGroupSettingUpdateResponse struct {
+	Headers    map[string]*string                  `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                              `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *DeptGroupSettingUpdateResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s DeptGroupSettingUpdateResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s DeptGroupSettingUpdateResponse) GoString() string {
+	return s.String()
+}
+
+func (s *DeptGroupSettingUpdateResponse) SetHeaders(v map[string]*string) *DeptGroupSettingUpdateResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateResponse) SetStatusCode(v int32) *DeptGroupSettingUpdateResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *DeptGroupSettingUpdateResponse) SetBody(v *DeptGroupSettingUpdateResponseBody) *DeptGroupSettingUpdateResponse {
+	s.Body = v
+	return s
+}
+
 type GetAccountMappingHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -16751,6 +16874,103 @@ func (client *Client) DeleteUserGroup(request *DeleteUserGroupRequest) (_result 
 	headers := &DeleteUserGroupHeaders{}
 	_result = &DeleteUserGroupResponse{}
 	_body, _err := client.DeleteUserGroupWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新部门群设置
+//
+// @param request - DeptGroupSettingUpdateRequest
+//
+// @param headers - DeptGroupSettingUpdateHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return DeptGroupSettingUpdateResponse
+func (client *Client) DeptGroupSettingUpdateWithOptions(request *DeptGroupSettingUpdateRequest, headers *DeptGroupSettingUpdateHeaders, runtime *util.RuntimeOptions) (_result *DeptGroupSettingUpdateResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.DeptId)) {
+		body["deptId"] = request.DeptId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupContainHiddenDept)) {
+		body["groupContainHiddenDept"] = request.GroupContainHiddenDept
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupContainHrmEmployeeTypeLabels)) {
+		body["groupContainHrmEmployeeTypeLabels"] = request.GroupContainHrmEmployeeTypeLabels
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupContainOuterDept)) {
+		body["groupContainOuterDept"] = request.GroupContainOuterDept
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.GroupContainSubDept)) {
+		body["groupContainSubDept"] = request.GroupContainSubDept
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.PermissionCode)) {
+		body["permissionCode"] = request.PermissionCode
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.SyncMembers)) {
+		body["syncMembers"] = request.SyncMembers
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("DeptGroupSettingUpdate"),
+		Version:     tea.String("contact_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/contact/departmentGroup/update"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &DeptGroupSettingUpdateResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 更新部门群设置
+//
+// @param request - DeptGroupSettingUpdateRequest
+//
+// @return DeptGroupSettingUpdateResponse
+func (client *Client) DeptGroupSettingUpdate(request *DeptGroupSettingUpdateRequest) (_result *DeptGroupSettingUpdateResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &DeptGroupSettingUpdateHeaders{}
+	_result = &DeptGroupSettingUpdateResponse{}
+	_body, _err := client.DeptGroupSettingUpdateWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

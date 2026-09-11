@@ -669,6 +669,7 @@ type CreateEventRequest struct {
 	Description   *string                            `json:"description,omitempty" xml:"description,omitempty"`
 	// This parameter is required.
 	End                 *CreateEventRequestEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	EventConfig         *CreateEventRequestEventConfig         `json:"eventConfig,omitempty" xml:"eventConfig,omitempty" type:"Struct"`
 	Extra               map[string]*string                     `json:"extra,omitempty" xml:"extra,omitempty"`
 	FreeBusyStatus      *string                                `json:"freeBusyStatus,omitempty" xml:"freeBusyStatus,omitempty"`
 	IsAllDay            *bool                                  `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
@@ -714,6 +715,11 @@ func (s *CreateEventRequest) SetDescription(v string) *CreateEventRequest {
 
 func (s *CreateEventRequest) SetEnd(v *CreateEventRequestEnd) *CreateEventRequest {
 	s.End = v
+	return s
+}
+
+func (s *CreateEventRequest) SetEventConfig(v *CreateEventRequestEventConfig) *CreateEventRequest {
+	s.EventConfig = v
 	return s
 }
 
@@ -876,6 +882,35 @@ func (s *CreateEventRequestEnd) SetDateTime(v string) *CreateEventRequestEnd {
 
 func (s *CreateEventRequestEnd) SetTimeZone(v string) *CreateEventRequestEnd {
 	s.TimeZone = &v
+	return s
+}
+
+type CreateEventRequestEventConfig struct {
+	AllowAttendeeAddConference   *bool `json:"allowAttendeeAddConference,omitempty" xml:"allowAttendeeAddConference,omitempty"`
+	AllowAttendeeAddParticipants *bool `json:"allowAttendeeAddParticipants,omitempty" xml:"allowAttendeeAddParticipants,omitempty"`
+	AllowAttendeeCreateComment   *bool `json:"allowAttendeeCreateComment,omitempty" xml:"allowAttendeeCreateComment,omitempty"`
+}
+
+func (s CreateEventRequestEventConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventRequestEventConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventRequestEventConfig) SetAllowAttendeeAddConference(v bool) *CreateEventRequestEventConfig {
+	s.AllowAttendeeAddConference = &v
+	return s
+}
+
+func (s *CreateEventRequestEventConfig) SetAllowAttendeeAddParticipants(v bool) *CreateEventRequestEventConfig {
+	s.AllowAttendeeAddParticipants = &v
+	return s
+}
+
+func (s *CreateEventRequestEventConfig) SetAllowAttendeeCreateComment(v bool) *CreateEventRequestEventConfig {
+	s.AllowAttendeeCreateComment = &v
 	return s
 }
 
@@ -1122,6 +1157,8 @@ type CreateEventResponseBody struct {
 	CreateTime          *string                                     `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description         *string                                     `json:"description,omitempty" xml:"description,omitempty"`
 	End                 *CreateEventResponseBodyEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	EventConfig         *CreateEventResponseBodyEventConfig         `json:"eventConfig,omitempty" xml:"eventConfig,omitempty" type:"Struct"`
+	ExtendedProperties  *CreateEventResponseBodyExtendedProperties  `json:"extendedProperties,omitempty" xml:"extendedProperties,omitempty" type:"Struct"`
 	Id                  *string                                     `json:"id,omitempty" xml:"id,omitempty"`
 	IsAllDay            *bool                                       `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
 	Location            *CreateEventResponseBodyLocation            `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
@@ -1173,6 +1210,16 @@ func (s *CreateEventResponseBody) SetDescription(v string) *CreateEventResponseB
 
 func (s *CreateEventResponseBody) SetEnd(v *CreateEventResponseBodyEnd) *CreateEventResponseBody {
 	s.End = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetEventConfig(v *CreateEventResponseBodyEventConfig) *CreateEventResponseBody {
+	s.EventConfig = v
+	return s
+}
+
+func (s *CreateEventResponseBody) SetExtendedProperties(v *CreateEventResponseBodyExtendedProperties) *CreateEventResponseBody {
+	s.ExtendedProperties = v
 	return s
 }
 
@@ -1349,6 +1396,75 @@ func (s *CreateEventResponseBodyEnd) SetDateTime(v string) *CreateEventResponseB
 
 func (s *CreateEventResponseBodyEnd) SetTimeZone(v string) *CreateEventResponseBodyEnd {
 	s.TimeZone = &v
+	return s
+}
+
+type CreateEventResponseBodyEventConfig struct {
+	AllowAttendeeAddConference   *bool `json:"allowAttendeeAddConference,omitempty" xml:"allowAttendeeAddConference,omitempty"`
+	AllowAttendeeAddParticipants *bool `json:"allowAttendeeAddParticipants,omitempty" xml:"allowAttendeeAddParticipants,omitempty"`
+	AllowAttendeeCreateComment   *bool `json:"allowAttendeeCreateComment,omitempty" xml:"allowAttendeeCreateComment,omitempty"`
+}
+
+func (s CreateEventResponseBodyEventConfig) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyEventConfig) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyEventConfig) SetAllowAttendeeAddConference(v bool) *CreateEventResponseBodyEventConfig {
+	s.AllowAttendeeAddConference = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyEventConfig) SetAllowAttendeeAddParticipants(v bool) *CreateEventResponseBodyEventConfig {
+	s.AllowAttendeeAddParticipants = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyEventConfig) SetAllowAttendeeCreateComment(v bool) *CreateEventResponseBodyEventConfig {
+	s.AllowAttendeeCreateComment = &v
+	return s
+}
+
+type CreateEventResponseBodyExtendedProperties struct {
+	SharedProperties *CreateEventResponseBodyExtendedPropertiesSharedProperties `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
+}
+
+func (s CreateEventResponseBodyExtendedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyExtendedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyExtendedProperties) SetSharedProperties(v *CreateEventResponseBodyExtendedPropertiesSharedProperties) *CreateEventResponseBodyExtendedProperties {
+	s.SharedProperties = v
+	return s
+}
+
+type CreateEventResponseBodyExtendedPropertiesSharedProperties struct {
+	BelongCorpId  *string `json:"belongCorpId,omitempty" xml:"belongCorpId,omitempty"`
+	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
+}
+
+func (s CreateEventResponseBodyExtendedPropertiesSharedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s CreateEventResponseBodyExtendedPropertiesSharedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *CreateEventResponseBodyExtendedPropertiesSharedProperties) SetBelongCorpId(v string) *CreateEventResponseBodyExtendedPropertiesSharedProperties {
+	s.BelongCorpId = &v
+	return s
+}
+
+func (s *CreateEventResponseBodyExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *CreateEventResponseBodyExtendedPropertiesSharedProperties {
+	s.SourceOpenCid = &v
 	return s
 }
 
@@ -6626,6 +6742,7 @@ func (s *ListEventsInstancesResponseBodyEventsExtendedProperties) SetSharedPrope
 }
 
 type ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties struct {
+	BelongCorpId  *string `json:"belongCorpId,omitempty" xml:"belongCorpId,omitempty"`
 	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
 }
 
@@ -6635,6 +6752,11 @@ func (s ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties)
 
 func (s ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties) GoString() string {
 	return s.String()
+}
+
+func (s *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties) SetBelongCorpId(v string) *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties {
+	s.BelongCorpId = &v
+	return s
 }
 
 func (s *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *ListEventsInstancesResponseBodyEventsExtendedPropertiesSharedProperties {
@@ -9687,6 +9809,7 @@ type PatchEventResponseBody struct {
 	CreateTime          *string                                    `json:"createTime,omitempty" xml:"createTime,omitempty"`
 	Description         *string                                    `json:"description,omitempty" xml:"description,omitempty"`
 	End                 *PatchEventResponseBodyEnd                 `json:"end,omitempty" xml:"end,omitempty" type:"Struct"`
+	ExtendedProperties  *PatchEventResponseBodyExtendedProperties  `json:"extendedProperties,omitempty" xml:"extendedProperties,omitempty" type:"Struct"`
 	Id                  *string                                    `json:"id,omitempty" xml:"id,omitempty"`
 	IsAllDay            *bool                                      `json:"isAllDay,omitempty" xml:"isAllDay,omitempty"`
 	Location            *PatchEventResponseBodyLocation            `json:"location,omitempty" xml:"location,omitempty" type:"Struct"`
@@ -9738,6 +9861,11 @@ func (s *PatchEventResponseBody) SetDescription(v string) *PatchEventResponseBod
 
 func (s *PatchEventResponseBody) SetEnd(v *PatchEventResponseBodyEnd) *PatchEventResponseBody {
 	s.End = v
+	return s
+}
+
+func (s *PatchEventResponseBody) SetExtendedProperties(v *PatchEventResponseBodyExtendedProperties) *PatchEventResponseBody {
+	s.ExtendedProperties = v
 	return s
 }
 
@@ -9914,6 +10042,46 @@ func (s *PatchEventResponseBodyEnd) SetDateTime(v string) *PatchEventResponseBod
 
 func (s *PatchEventResponseBodyEnd) SetTimeZone(v string) *PatchEventResponseBodyEnd {
 	s.TimeZone = &v
+	return s
+}
+
+type PatchEventResponseBodyExtendedProperties struct {
+	SharedProperties *PatchEventResponseBodyExtendedPropertiesSharedProperties `json:"sharedProperties,omitempty" xml:"sharedProperties,omitempty" type:"Struct"`
+}
+
+func (s PatchEventResponseBodyExtendedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventResponseBodyExtendedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventResponseBodyExtendedProperties) SetSharedProperties(v *PatchEventResponseBodyExtendedPropertiesSharedProperties) *PatchEventResponseBodyExtendedProperties {
+	s.SharedProperties = v
+	return s
+}
+
+type PatchEventResponseBodyExtendedPropertiesSharedProperties struct {
+	BelongCorpId  *string `json:"belongCorpId,omitempty" xml:"belongCorpId,omitempty"`
+	SourceOpenCid *string `json:"sourceOpenCid,omitempty" xml:"sourceOpenCid,omitempty"`
+}
+
+func (s PatchEventResponseBodyExtendedPropertiesSharedProperties) String() string {
+	return tea.Prettify(s)
+}
+
+func (s PatchEventResponseBodyExtendedPropertiesSharedProperties) GoString() string {
+	return s.String()
+}
+
+func (s *PatchEventResponseBodyExtendedPropertiesSharedProperties) SetBelongCorpId(v string) *PatchEventResponseBodyExtendedPropertiesSharedProperties {
+	s.BelongCorpId = &v
+	return s
+}
+
+func (s *PatchEventResponseBodyExtendedPropertiesSharedProperties) SetSourceOpenCid(v string) *PatchEventResponseBodyExtendedPropertiesSharedProperties {
+	s.SourceOpenCid = &v
 	return s
 }
 
@@ -11591,6 +11759,10 @@ func (client *Client) CreateEventWithOptions(userId *string, calendarId *string,
 
 	if !tea.BoolValue(util.IsUnset(request.End)) {
 		body["end"] = request.End
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.EventConfig)) {
+		body["eventConfig"] = request.EventConfig
 	}
 
 	if !tea.BoolValue(util.IsUnset(request.Extra)) {

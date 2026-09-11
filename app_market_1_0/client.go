@@ -109,6 +109,124 @@ func (s *CreateAppGoodsServiceConversationResponse) SetBody(v *CreateAppGoodsSer
 	return s
 }
 
+type EnsureUserLicenseAccessHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s EnsureUserLicenseAccessHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnsureUserLicenseAccessHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *EnsureUserLicenseAccessHeaders) SetCommonHeaders(v map[string]*string) *EnsureUserLicenseAccessHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *EnsureUserLicenseAccessHeaders) SetXAcsDingtalkAccessToken(v string) *EnsureUserLicenseAccessHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type EnsureUserLicenseAccessRequest struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// encrypted_union_id_example
+	UnionId *string `json:"unionId,omitempty" xml:"unionId,omitempty"`
+}
+
+func (s EnsureUserLicenseAccessRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnsureUserLicenseAccessRequest) GoString() string {
+	return s.String()
+}
+
+func (s *EnsureUserLicenseAccessRequest) SetUnionId(v string) *EnsureUserLicenseAccessRequest {
+	s.UnionId = &v
+	return s
+}
+
+type EnsureUserLicenseAccessResponseBody struct {
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	Allowed *bool `json:"allowed,omitempty" xml:"allowed,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// LICENSE_ASSIGNED_NOW
+	DecisionCode *string `json:"decisionCode,omitempty" xml:"decisionCode,omitempty"`
+	// This parameter is required.
+	//
+	// example:
+	//
+	// true
+	LicenseAssigned *bool `json:"licenseAssigned,omitempty" xml:"licenseAssigned,omitempty"`
+}
+
+func (s EnsureUserLicenseAccessResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnsureUserLicenseAccessResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *EnsureUserLicenseAccessResponseBody) SetAllowed(v bool) *EnsureUserLicenseAccessResponseBody {
+	s.Allowed = &v
+	return s
+}
+
+func (s *EnsureUserLicenseAccessResponseBody) SetDecisionCode(v string) *EnsureUserLicenseAccessResponseBody {
+	s.DecisionCode = &v
+	return s
+}
+
+func (s *EnsureUserLicenseAccessResponseBody) SetLicenseAssigned(v bool) *EnsureUserLicenseAccessResponseBody {
+	s.LicenseAssigned = &v
+	return s
+}
+
+type EnsureUserLicenseAccessResponse struct {
+	Headers    map[string]*string                   `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                               `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *EnsureUserLicenseAccessResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s EnsureUserLicenseAccessResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s EnsureUserLicenseAccessResponse) GoString() string {
+	return s.String()
+}
+
+func (s *EnsureUserLicenseAccessResponse) SetHeaders(v map[string]*string) *EnsureUserLicenseAccessResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *EnsureUserLicenseAccessResponse) SetStatusCode(v int32) *EnsureUserLicenseAccessResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *EnsureUserLicenseAccessResponse) SetBody(v *EnsureUserLicenseAccessResponseBody) *EnsureUserLicenseAccessResponse {
+	s.Body = v
+	return s
+}
+
 type GetCoolAppAccessStatusHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -739,6 +857,115 @@ func (s *QueryMarketOrderResponse) SetBody(v *QueryMarketOrderResponseBody) *Que
 	return s
 }
 
+type UpdateAppVisibleScopeHeaders struct {
+	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
+	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
+}
+
+func (s UpdateAppVisibleScopeHeaders) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateAppVisibleScopeHeaders) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateAppVisibleScopeHeaders) SetCommonHeaders(v map[string]*string) *UpdateAppVisibleScopeHeaders {
+	s.CommonHeaders = v
+	return s
+}
+
+func (s *UpdateAppVisibleScopeHeaders) SetXAcsDingtalkAccessToken(v string) *UpdateAppVisibleScopeHeaders {
+	s.XAcsDingtalkAccessToken = &v
+	return s
+}
+
+type UpdateAppVisibleScopeRequest struct {
+	// This parameter is required.
+	OperatorUserId *string  `json:"operatorUserId,omitempty" xml:"operatorUserId,omitempty"`
+	VisibleDeptIds []*int64 `json:"visibleDeptIds,omitempty" xml:"visibleDeptIds,omitempty" type:"Repeated"`
+	// This parameter is required.
+	VisibleScopeType *string   `json:"visibleScopeType,omitempty" xml:"visibleScopeType,omitempty"`
+	VisibleUserIds   []*string `json:"visibleUserIds,omitempty" xml:"visibleUserIds,omitempty" type:"Repeated"`
+}
+
+func (s UpdateAppVisibleScopeRequest) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateAppVisibleScopeRequest) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateAppVisibleScopeRequest) SetOperatorUserId(v string) *UpdateAppVisibleScopeRequest {
+	s.OperatorUserId = &v
+	return s
+}
+
+func (s *UpdateAppVisibleScopeRequest) SetVisibleDeptIds(v []*int64) *UpdateAppVisibleScopeRequest {
+	s.VisibleDeptIds = v
+	return s
+}
+
+func (s *UpdateAppVisibleScopeRequest) SetVisibleScopeType(v string) *UpdateAppVisibleScopeRequest {
+	s.VisibleScopeType = &v
+	return s
+}
+
+func (s *UpdateAppVisibleScopeRequest) SetVisibleUserIds(v []*string) *UpdateAppVisibleScopeRequest {
+	s.VisibleUserIds = v
+	return s
+}
+
+type UpdateAppVisibleScopeResponseBody struct {
+	// example:
+	//
+	// true
+	Result *bool `json:"result,omitempty" xml:"result,omitempty"`
+}
+
+func (s UpdateAppVisibleScopeResponseBody) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateAppVisibleScopeResponseBody) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateAppVisibleScopeResponseBody) SetResult(v bool) *UpdateAppVisibleScopeResponseBody {
+	s.Result = &v
+	return s
+}
+
+type UpdateAppVisibleScopeResponse struct {
+	Headers    map[string]*string                 `json:"headers,omitempty" xml:"headers,omitempty"`
+	StatusCode *int32                             `json:"statusCode,omitempty" xml:"statusCode,omitempty"`
+	Body       *UpdateAppVisibleScopeResponseBody `json:"body,omitempty" xml:"body,omitempty"`
+}
+
+func (s UpdateAppVisibleScopeResponse) String() string {
+	return tea.Prettify(s)
+}
+
+func (s UpdateAppVisibleScopeResponse) GoString() string {
+	return s.String()
+}
+
+func (s *UpdateAppVisibleScopeResponse) SetHeaders(v map[string]*string) *UpdateAppVisibleScopeResponse {
+	s.Headers = v
+	return s
+}
+
+func (s *UpdateAppVisibleScopeResponse) SetStatusCode(v int32) *UpdateAppVisibleScopeResponse {
+	s.StatusCode = &v
+	return s
+}
+
+func (s *UpdateAppVisibleScopeResponse) SetBody(v *UpdateAppVisibleScopeResponseBody) *UpdateAppVisibleScopeResponse {
+	s.Body = v
+	return s
+}
+
 type UserTaskReportHeaders struct {
 	CommonHeaders           map[string]*string `json:"commonHeaders,omitempty" xml:"commonHeaders,omitempty"`
 	XAcsDingtalkAccessToken *string            `json:"x-acs-dingtalk-access-token,omitempty" xml:"x-acs-dingtalk-access-token,omitempty"`
@@ -945,6 +1172,79 @@ func (client *Client) CreateAppGoodsServiceConversation(request *CreateAppGoodsS
 	headers := &CreateAppGoodsServiceConversationHeaders{}
 	_result = &CreateAppGoodsServiceConversationResponse{}
 	_body, _err := client.CreateAppGoodsServiceConversationWithOptions(request, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 校验访问用户是否拥有应用 License
+//
+// @param request - EnsureUserLicenseAccessRequest
+//
+// @param headers - EnsureUserLicenseAccessHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return EnsureUserLicenseAccessResponse
+func (client *Client) EnsureUserLicenseAccessWithOptions(request *EnsureUserLicenseAccessRequest, headers *EnsureUserLicenseAccessHeaders, runtime *util.RuntimeOptions) (_result *EnsureUserLicenseAccessResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.UnionId)) {
+		body["unionId"] = request.UnionId
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("EnsureUserLicenseAccess"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/userLicenses/ensure"),
+		Method:      tea.String("POST"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &EnsureUserLicenseAccessResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 校验访问用户是否拥有应用 License
+//
+// @param request - EnsureUserLicenseAccessRequest
+//
+// @return EnsureUserLicenseAccessResponse
+func (client *Client) EnsureUserLicenseAccess(request *EnsureUserLicenseAccessRequest) (_result *EnsureUserLicenseAccessResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &EnsureUserLicenseAccessHeaders{}
+	_result = &EnsureUserLicenseAccessResponse{}
+	_body, _err := client.EnsureUserLicenseAccessWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}
@@ -1328,6 +1628,91 @@ func (client *Client) QueryMarketOrder(orderId *string) (_result *QueryMarketOrd
 	headers := &QueryMarketOrderHeaders{}
 	_result = &QueryMarketOrderResponse{}
 	_body, _err := client.QueryMarketOrderWithOptions(orderId, headers, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_result = _body
+	return _result, _err
+}
+
+// Summary:
+//
+// 全量更新第三方应用可见范围
+//
+// @param request - UpdateAppVisibleScopeRequest
+//
+// @param headers - UpdateAppVisibleScopeHeaders
+//
+// @param runtime - runtime options for this request RuntimeOptions
+//
+// @return UpdateAppVisibleScopeResponse
+func (client *Client) UpdateAppVisibleScopeWithOptions(request *UpdateAppVisibleScopeRequest, headers *UpdateAppVisibleScopeHeaders, runtime *util.RuntimeOptions) (_result *UpdateAppVisibleScopeResponse, _err error) {
+	_err = util.ValidateModel(request)
+	if _err != nil {
+		return _result, _err
+	}
+	body := map[string]interface{}{}
+	if !tea.BoolValue(util.IsUnset(request.OperatorUserId)) {
+		body["operatorUserId"] = request.OperatorUserId
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisibleDeptIds)) {
+		body["visibleDeptIds"] = request.VisibleDeptIds
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisibleScopeType)) {
+		body["visibleScopeType"] = request.VisibleScopeType
+	}
+
+	if !tea.BoolValue(util.IsUnset(request.VisibleUserIds)) {
+		body["visibleUserIds"] = request.VisibleUserIds
+	}
+
+	realHeaders := make(map[string]*string)
+	if !tea.BoolValue(util.IsUnset(headers.CommonHeaders)) {
+		realHeaders = headers.CommonHeaders
+	}
+
+	if !tea.BoolValue(util.IsUnset(headers.XAcsDingtalkAccessToken)) {
+		realHeaders["x-acs-dingtalk-access-token"] = util.ToJSONString(headers.XAcsDingtalkAccessToken)
+	}
+
+	req := &openapi.OpenApiRequest{
+		Headers: realHeaders,
+		Body:    openapiutil.ParseToMap(body),
+	}
+	params := &openapi.Params{
+		Action:      tea.String("UpdateAppVisibleScope"),
+		Version:     tea.String("appMarket_1.0"),
+		Protocol:    tea.String("HTTP"),
+		Pathname:    tea.String("/v1.0/appMarket/appVisibleScopes"),
+		Method:      tea.String("PUT"),
+		AuthType:    tea.String("AK"),
+		Style:       tea.String("ROA"),
+		ReqBodyType: tea.String("none"),
+		BodyType:    tea.String("json"),
+	}
+	_result = &UpdateAppVisibleScopeResponse{}
+	_body, _err := client.Execute(params, req, runtime)
+	if _err != nil {
+		return _result, _err
+	}
+	_err = tea.Convert(_body, &_result)
+	return _result, _err
+}
+
+// Summary:
+//
+// 全量更新第三方应用可见范围
+//
+// @param request - UpdateAppVisibleScopeRequest
+//
+// @return UpdateAppVisibleScopeResponse
+func (client *Client) UpdateAppVisibleScope(request *UpdateAppVisibleScopeRequest) (_result *UpdateAppVisibleScopeResponse, _err error) {
+	runtime := &util.RuntimeOptions{}
+	headers := &UpdateAppVisibleScopeHeaders{}
+	_result = &UpdateAppVisibleScopeResponse{}
+	_body, _err := client.UpdateAppVisibleScopeWithOptions(request, headers, runtime)
 	if _err != nil {
 		return _result, _err
 	}

@@ -5820,10 +5820,62 @@ func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponses) SetSubjec
 }
 
 type GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse struct {
-	CreditCode      *string `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
-	EstablishTime   *int64  `json:"establishTime,omitempty" xml:"establishTime,omitempty"`
-	LegalPersonName *string `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
-	RegLocation     *string `json:"regLocation,omitempty" xml:"regLocation,omitempty"`
+	AboveScale            *string                                                                                         `json:"aboveScale,omitempty" xml:"aboveScale,omitempty"`
+	ActualCapital         *string                                                                                         `json:"actualCapital,omitempty" xml:"actualCapital,omitempty"`
+	ActualCapitalCurrency *string                                                                                         `json:"actualCapitalCurrency,omitempty" xml:"actualCapitalCurrency,omitempty"`
+	Alias                 *string                                                                                         `json:"alias,omitempty" xml:"alias,omitempty"`
+	ApprovedTime          *int64                                                                                          `json:"approvedTime,omitempty" xml:"approvedTime,omitempty"`
+	Base                  *string                                                                                         `json:"base,omitempty" xml:"base,omitempty"`
+	BenNumber             *string                                                                                         `json:"benNumber,omitempty" xml:"benNumber,omitempty"`
+	BondName              *string                                                                                         `json:"bondName,omitempty" xml:"bondName,omitempty"`
+	BondNum               *string                                                                                         `json:"bondNum,omitempty" xml:"bondNum,omitempty"`
+	BondType              *string                                                                                         `json:"bondType,omitempty" xml:"bondType,omitempty"`
+	BusinessScope         *string                                                                                         `json:"businessScope,omitempty" xml:"businessScope,omitempty"`
+	CancelDate            *int64                                                                                          `json:"cancelDate,omitempty" xml:"cancelDate,omitempty"`
+	CancelReason          *string                                                                                         `json:"cancelReason,omitempty" xml:"cancelReason,omitempty"`
+	City                  *string                                                                                         `json:"city,omitempty" xml:"city,omitempty"`
+	CompanyOrgType        *string                                                                                         `json:"companyOrgType,omitempty" xml:"companyOrgType,omitempty"`
+	CreditCode            *string                                                                                         `json:"creditCode,omitempty" xml:"creditCode,omitempty"`
+	District              *string                                                                                         `json:"district,omitempty" xml:"district,omitempty"`
+	DistrictCode          *string                                                                                         `json:"districtCode,omitempty" xml:"districtCode,omitempty"`
+	EconomicFunctionZone1 *string                                                                                         `json:"economicFunctionZone1,omitempty" xml:"economicFunctionZone1,omitempty"`
+	EconomicFunctionZone2 *string                                                                                         `json:"economicFunctionZone2,omitempty" xml:"economicFunctionZone2,omitempty"`
+	Email                 *string                                                                                         `json:"email,omitempty" xml:"email,omitempty"`
+	EmailList             *string                                                                                         `json:"emailList,omitempty" xml:"emailList,omitempty"`
+	EstablishTime         *int64                                                                                          `json:"establishTime,omitempty" xml:"establishTime,omitempty"`
+	FromTime              *int64                                                                                          `json:"fromTime,omitempty" xml:"fromTime,omitempty"`
+	HistoryNameList       []*string                                                                                       `json:"historyNameList,omitempty" xml:"historyNameList,omitempty" type:"Repeated"`
+	HistoryNames          *string                                                                                         `json:"historyNames,omitempty" xml:"historyNames,omitempty"`
+	Id                    *int64                                                                                          `json:"id,omitempty" xml:"id,omitempty"`
+	Industry              *string                                                                                         `json:"industry,omitempty" xml:"industry,omitempty"`
+	IndustryAll           *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll `json:"industryAll,omitempty" xml:"industryAll,omitempty" type:"Struct"`
+	IsMicroEnt            *int32                                                                                          `json:"isMicroEnt,omitempty" xml:"isMicroEnt,omitempty"`
+	LegalPersonName       *string                                                                                         `json:"legalPersonName,omitempty" xml:"legalPersonName,omitempty"`
+	Name                  *string                                                                                         `json:"name,omitempty" xml:"name,omitempty"`
+	NumberSource          *string                                                                                         `json:"numberSource,omitempty" xml:"numberSource,omitempty"`
+	NumberType            *string                                                                                         `json:"numberType,omitempty" xml:"numberType,omitempty"`
+	OrgNumber             *string                                                                                         `json:"orgNumber,omitempty" xml:"orgNumber,omitempty"`
+	PercentileScore       *int32                                                                                          `json:"percentileScore,omitempty" xml:"percentileScore,omitempty"`
+	PhoneNumber           *string                                                                                         `json:"phoneNumber,omitempty" xml:"phoneNumber,omitempty"`
+	Property3             *string                                                                                         `json:"property3,omitempty" xml:"property3,omitempty"`
+	RegCapital            *string                                                                                         `json:"regCapital,omitempty" xml:"regCapital,omitempty"`
+	RegCapitalCurrency    *string                                                                                         `json:"regCapitalCurrency,omitempty" xml:"regCapitalCurrency,omitempty"`
+	RegInstitute          *string                                                                                         `json:"regInstitute,omitempty" xml:"regInstitute,omitempty"`
+	RegLocation           *string                                                                                         `json:"regLocation,omitempty" xml:"regLocation,omitempty"`
+	RegLocationHalfWidth  *string                                                                                         `json:"regLocationHalfWidth,omitempty" xml:"regLocationHalfWidth,omitempty"`
+	RegNumber             *string                                                                                         `json:"regNumber,omitempty" xml:"regNumber,omitempty"`
+	RegStatus             *string                                                                                         `json:"regStatus,omitempty" xml:"regStatus,omitempty"`
+	RevokeDate            *int64                                                                                          `json:"revokeDate,omitempty" xml:"revokeDate,omitempty"`
+	RevokeReason          *string                                                                                         `json:"revokeReason,omitempty" xml:"revokeReason,omitempty"`
+	SocialStaffNum        *int64                                                                                          `json:"socialStaffNum,omitempty" xml:"socialStaffNum,omitempty"`
+	StaffNumRange         *string                                                                                         `json:"staffNumRange,omitempty" xml:"staffNumRange,omitempty"`
+	Tags                  *string                                                                                         `json:"tags,omitempty" xml:"tags,omitempty"`
+	TaxNumber             *string                                                                                         `json:"taxNumber,omitempty" xml:"taxNumber,omitempty"`
+	ToTime                *int64                                                                                          `json:"toTime,omitempty" xml:"toTime,omitempty"`
+	Type                  *int32                                                                                          `json:"type,omitempty" xml:"type,omitempty"`
+	UpdateTimes           *int64                                                                                          `json:"updateTimes,omitempty" xml:"updateTimes,omitempty"`
+	UsedBondName          *string                                                                                         `json:"usedBondName,omitempty" xml:"usedBondName,omitempty"`
+	WebsiteList           *string                                                                                         `json:"websiteList,omitempty" xml:"websiteList,omitempty"`
 }
 
 func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) String() string {
@@ -5834,8 +5886,113 @@ func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseI
 	return s.String()
 }
 
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetAboveScale(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.AboveScale = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetActualCapital(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.ActualCapital = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetActualCapitalCurrency(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.ActualCapitalCurrency = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetAlias(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Alias = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetApprovedTime(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.ApprovedTime = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetBase(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Base = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetBenNumber(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.BenNumber = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetBondName(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.BondName = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetBondNum(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.BondNum = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetBondType(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.BondType = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetBusinessScope(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.BusinessScope = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetCancelDate(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.CancelDate = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetCancelReason(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.CancelReason = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetCity(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.City = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetCompanyOrgType(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.CompanyOrgType = &v
+	return s
+}
+
 func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetCreditCode(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
 	s.CreditCode = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetDistrict(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.District = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetDistrictCode(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.DistrictCode = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetEconomicFunctionZone1(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.EconomicFunctionZone1 = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetEconomicFunctionZone2(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.EconomicFunctionZone2 = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetEmail(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Email = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetEmailList(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.EmailList = &v
 	return s
 }
 
@@ -5844,13 +6001,227 @@ func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBase
 	return s
 }
 
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetFromTime(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.FromTime = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetHistoryNameList(v []*string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.HistoryNameList = v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetHistoryNames(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.HistoryNames = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetId(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Id = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetIndustry(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Industry = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetIndustryAll(v *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.IndustryAll = v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetIsMicroEnt(v int32) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.IsMicroEnt = &v
+	return s
+}
+
 func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetLegalPersonName(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
 	s.LegalPersonName = &v
 	return s
 }
 
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetName(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Name = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetNumberSource(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.NumberSource = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetNumberType(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.NumberType = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetOrgNumber(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.OrgNumber = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetPercentileScore(v int32) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.PercentileScore = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetPhoneNumber(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.PhoneNumber = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetProperty3(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Property3 = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRegCapital(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RegCapital = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRegCapitalCurrency(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RegCapitalCurrency = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRegInstitute(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RegInstitute = &v
+	return s
+}
+
 func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRegLocation(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
 	s.RegLocation = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRegLocationHalfWidth(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RegLocationHalfWidth = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRegNumber(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RegNumber = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRegStatus(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RegStatus = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRevokeDate(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RevokeDate = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetRevokeReason(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.RevokeReason = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetSocialStaffNum(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.SocialStaffNum = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetStaffNumRange(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.StaffNumRange = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetTags(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Tags = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetTaxNumber(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.TaxNumber = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetToTime(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.ToTime = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetType(v int32) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.Type = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetUpdateTimes(v int64) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.UpdateTimes = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetUsedBondName(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.UsedBondName = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse) SetWebsiteList(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponse {
+	s.WebsiteList = &v
+	return s
+}
+
+type GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll struct {
+	Category           *string `json:"category,omitempty" xml:"category,omitempty"`
+	CategoryBig        *string `json:"categoryBig,omitempty" xml:"categoryBig,omitempty"`
+	CategoryCodeFirst  *string `json:"categoryCodeFirst,omitempty" xml:"categoryCodeFirst,omitempty"`
+	CategoryCodeFourth *string `json:"categoryCodeFourth,omitempty" xml:"categoryCodeFourth,omitempty"`
+	CategoryCodeSecond *string `json:"categoryCodeSecond,omitempty" xml:"categoryCodeSecond,omitempty"`
+	CategoryCodeThird  *string `json:"categoryCodeThird,omitempty" xml:"categoryCodeThird,omitempty"`
+	CategoryMiddle     *string `json:"categoryMiddle,omitempty" xml:"categoryMiddle,omitempty"`
+	CategorySmall      *string `json:"categorySmall,omitempty" xml:"categorySmall,omitempty"`
+}
+
+func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) String() string {
+	return tea.Prettify(s)
+}
+
+func (s GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) GoString() string {
+	return s.String()
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) SetCategory(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll {
+	s.Category = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) SetCategoryBig(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll {
+	s.CategoryBig = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) SetCategoryCodeFirst(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll {
+	s.CategoryCodeFirst = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) SetCategoryCodeFourth(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll {
+	s.CategoryCodeFourth = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) SetCategoryCodeSecond(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll {
+	s.CategoryCodeSecond = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) SetCategoryCodeThird(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll {
+	s.CategoryCodeThird = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) SetCategoryMiddle(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll {
+	s.CategoryMiddle = &v
+	return s
+}
+
+func (s *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll) SetCategorySmall(v string) *GetContractSubjectRiskResultResponseBodySubjectRiskResponsesSubjectBaseInfoResponseIndustryAll {
+	s.CategorySmall = &v
 	return s
 }
 
